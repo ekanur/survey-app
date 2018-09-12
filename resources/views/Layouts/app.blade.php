@@ -8,8 +8,8 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" id="main-stylesheet" data-version="1.0.0" href="{!! asset('css/shards-dashboards.1.0.0.min.css')!!}">
-    <link rel="stylesheet" href="{!! asset('css/extras.1.0.0.min.css')!!}">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.0.0" href="{asset('css/shards-dashboards.1.0.0.min.css')}">
+    <link rel="stylesheet" href="{asset('css/extras.1.0.0.min.css')}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css">
 </head>
@@ -50,10 +50,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
-    <script src="{!! asset('js/extras.1.0.0.min.js')!!}"></script>
-    <script src="{!! asset('js/shards-dashboards.1.0.0.min.js')!!}"></script>
-    <script src="{!! asset('js/app/app-blog-overview.1.0.0.js')!!}"></script>
-    <script src="{!! asset('js/app/app-blog-new-post.1.0.0.js')!!}"></script>
+    <script src="{asset('js/extras.1.0.0.min.js')}"></script>
+    <script src="{asset('js/shards-dashboards.1.0.0.min.js')}"></script>
+    <script src="{asset('js/app/app-blog-overview.1.0.0.js')}"></script>
+    <script src="{asset('js/app/app-blog-new-post.1.0.0.js')}"></script>
+    <script src="{asset('js/app/app-components-overview.1.0.0.js')}"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){

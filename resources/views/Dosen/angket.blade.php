@@ -8,34 +8,31 @@
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Angket Dosen</h6>
-      </div>
+ </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item p-3">
+        <li class="list-group-item p-0 px-3 pt-3">
           <div class="row">
-            <div class="col">
-                {{ csrf_field() }}
-                <div class="form-row">
-                  <div class="form-group col-md-12 text-sm-left">
-                   <label for="pd1">Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan tempat Ibu/Bapak bekerja?</label>
-                   <fieldset>
-                    <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault">Ya</label>
+            <div class="col-sm-12">
+            {{ csrf_field() }}
+                <label>Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan tempat Ibu/Bapak bekerja?</label>
+                    <div class="custom-controls-stacked">
+                      <div class="custom-control custom-radio mb-1">
+                       <input type="radio" id="radio1q1" name="q1" class="custom-control-input">
+                      <label class="custom-control-label" for="radio1q1">Ya</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault">Tidak</label>
+                      <input type="radio" id="radio2q1"  name="q1" class="custom-control-input">
+                      <label class="custom-control-label" for="radio2q1">Tidak</label>
                     </div>
-                  </fieldset>
-                </div>
+                  </div>
               </div>
-            </div>
-          </div>
+              </div>
         </li>
       </ul>
     </div>
   </div>
 </div>
+</form>
 
 
 <div align="center">
@@ -52,31 +49,31 @@
                 {{ csrf_field() }}
                 <div class="form-row">
                   <div class="form-group col-md-12 text-sm-left">
-                    <label for="checkboxd2">Darimana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan tempat Ibu/Bapak bekerja?</label>
+                    <label>Darimana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan tempat Ibu/Bapak bekerja?</label>
                     <fieldset>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd2" value="a">
-                        <label class="custom-control-label" for="checkboxd2">Rapat Jurusan</label>
+                        <input type="checkbox" class="custom-control-input" id="c1q2">
+                        <label class="custom-control-label" for="c1q2">Rapat Jurusan</label>
                       </div>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd2" value="b">
-                        <label class="custom-control-label" for="checkboxd2">Katalog dan/atau dokumen Jurusan lainnya</label>
+                        <input type="checkbox" class="custom-control-input" id="c2q2">
+                        <label class="custom-control-label" for="c2q2">Katalog dan/atau dokumen Jurusan lainnya</label>
                       </div>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd2" value="c">
-                        <label class="custom-control-label" for="checkboxd2">Membaca banner</label>
+                        <input type="checkbox" class="custom-control-input" id="c3q2" value="c">
+                        <label class="custom-control-label" for="c3q2">Membaca banner</label>
                       </div>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd2" value="d">
-                        <label class="custom-control-label" for="checkboxd2">Kegiatan kemahasiswaan</label>
+                        <input type="checkbox" class="custom-control-input" id="c4q2">
+                        <label class="custom-control-label" for="c4q2">Kegiatan kemahasiswaan</label>
                       </div>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd2" value="e">
-                        <label class="custom-control-label" for="checkboxd2">Laman UM</label>
+                        <input type="checkbox" class="custom-control-input" id="c5q2">
+                        <label class="custom-control-label" for="c5q2">Laman UM</label>
                       </div>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd2" value="f">
-                        <label class="custom-control-label" for="checkboxd2">Lain-lain</label>
+                        <input type="checkbox" class="custom-control-input" id="c6q2">
+                        <label class="custom-control-label" for="c6q2">Lain-lain</label>
                       </div>
                     </fieldset>
                   </div>
@@ -104,31 +101,31 @@
                 {{ csrf_field() }}
                 <div class="form-row">
                   <div class="form-group col-md-12 text-sm-left">
-                    <label for="pd3">Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan tempat Ibu/Bapak bekerja?</label>
+                    <label>Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan tempat Ibu/Bapak bekerja?</label>
                     <fieldset>
                      <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Sudah selaras dengan visi dan kinerja sudah maksimal</label>
+                      <input type="radio" id="radio1q3" name="q3" class="custom-control-input">
+                      <label class="custom-control-label" for="radio1q3"> Sudah selaras dengan visi dan kinerja sudah maksimal</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Sudah selaras dengan visi, namun kinerja kurang maksimal</label>
+                      <input type="radio" id="radio2q3" name="q3" class="custom-control-input">
+                      <label class="custom-control-label" for="radio2q3"> Sudah selaras dengan visi, namun kinerja kurang maksimal</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Kurang selaras dengan visi, namun kinerja maksimal</label>
+                      <input type="radio" id="radio3q3" name="q3" class="custom-control-input">
+                      <label class="custom-control-label" for="radio3q3"> Kurang selaras dengan visi, namun kinerja maksimal</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Kurang selaras dengan visi dan kinerja kurang maksimal</label>
+                      <input type="radio" id="radio4q3" name="q3" class="custom-control-input">
+                      <label class="custom-control-label" for="radio4q3"> Kurang selaras dengan visi dan kinerja kurang maksimal</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan</label>
+                      <input type="radio" id="radio5q3" name="q3" class="custom-control-input">
+                      <label class="custom-control-label" for="radio5q3"> Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Tidak tahu karena tidak pernah memperhatikan</label>
+                      <input type="radio" id="radio6q3" name="q3" class="custom-control-input">
+                      <label class="custom-control-label" for="radio6q3"> Tidak tahu karena tidak pernah memperhatikan</label>
                     </div>
 
                   </fieldset>
@@ -159,12 +156,12 @@
                     <label for="pd4">Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Fakultas/Universitas tempat Ibu/Bapak bekerja?</label>
                     <fieldset>
                       <div class="custom-control custom-radio mb-1">
-                        <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                        <label class="custom-control-label" for="formsRadioDefault">Ya</label>
+                        <input type="radio" id="radio1q4" name="q4" class="custom-control-input">
+                        <label class="custom-control-label" for="radio1q4">Ya</label>
                       </div>
                       <div class="custom-control custom-radio mb-1">
-                        <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                        <label class="custom-control-label" for="formsRadioDefault">Tidak</label>
+                        <input type="radio" id="radio2q4" name="q4" class="custom-control-input">
+                        <label class="custom-control-label" for="radio2q4">Tidak</label>
                       </div>
                     </fieldset>
 
@@ -196,28 +193,28 @@
                     <label for="checkboxd5">Darimana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran Fakultas/Universitas tempat Ibu/Bapak bekerja?</label>
                     <fieldset>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd5" value="a">
-                        <label class="custom-control-label" for="checkboxd5">Rapat Jurusan</label>
+                        <input type="checkbox" class="custom-control-input" id="c1q5">
+                        <label class="custom-control-label" for="c1q5">Rapat Jurusan</label>
                       </div>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd5" value="b">
-                        <label class="custom-control-label" for="checkboxd5">Katalog dan/atau dokumen Fakultas/Universitas lainnya</label>
+                        <input type="checkbox" class="custom-control-input" id="c2q5">
+                        <label class="custom-control-label" for="c2q5">Katalog dan/atau dokumen Fakultas/Universitas lainnya</label>
                       </div>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd5" value="c">
-                        <label class="custom-control-label" for="checkboxd5">Membaca banner</label>
+                        <input type="checkbox" class="custom-control-input" id="c3q5">
+                        <label class="custom-control-label" for="c3q5">Membaca banner</label>
                       </div>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd5" value="d">
-                        <label class="custom-control-label" for="checkboxd5">Kegiatan kemahasiswaan</label>
+                        <input type="checkbox" class="custom-control-input" id="c4q5">
+                        <label class="custom-control-label" for="c4q5">Kegiatan kemahasiswaan</label>
                       </div>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd5" value="e">
-                        <label class="custom-control-label" for="checkboxd5">Laman UM</label>
+                        <input type="checkbox" class="custom-control-input" id="c5q5">
+                        <label class="custom-control-label" for="c5q5">Laman UM</label>
                       </div>
                       <div class="custom-control custom-checkbox mb-1">
-                        <input type="checkbox" class="custom-control-input" id="checkboxd5" value="f">
-                        <label class="custom-control-label" for="checkboxd5">Lain-lain</label>
+                        <input type="checkbox" class="custom-control-input" id="c6q5">
+                        <label class="custom-control-label" for="c6q5">Lain-lain</label>
                       </div>
                     </fieldset>
                   </div>
@@ -245,33 +242,32 @@
                 {{ csrf_field() }}
                 <div class="form-row">
                   <div class="form-group col-md-12 text-sm-left">
-                    <label for="pd6">Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Fakultas / Universitas tempat Ibu/Bapak bekerja?</label><br>
+                    <label>Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Fakultas / Universitas tempat Ibu/Bapak bekerja?</label><br>
                     <fieldset>
                      <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Sudah selaras dengan visi dan kinerja sudah maksimal</label>
+                      <input type="radio" id="radio1q6" name="q6" class="custom-control-input">
+                      <label class="custom-control-label" for="radio1q6"> Sudah selaras dengan visi dan kinerja sudah maksimal</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Sudah selaras dengan visi, namun kinerja kurang maksimal</label>
+                      <input type="radio" id="radio2q6" name="q6" class="custom-control-input">
+                      <label class="custom-control-label" for="radio2q6"> Sudah selaras dengan visi, namun kinerja kurang maksimal</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Kurang selaras dengan visi, namun kinerja maksimal</label>
+                      <input type="radio" id="radio3q6" name="q6" class="custom-control-input">
+                      <label class="custom-control-label" for="radio3q6"> Kurang selaras dengan visi, namun kinerja maksimal</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Kurang selaras dengan visi dan kinerja kurang maksimal</label>
+                      <input type="radio" id="radio4q6" name="q6" class="custom-control-input">
+                      <label class="custom-control-label" for="radio4q6"> Kurang selaras dengan visi dan kinerja kurang maksimal</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan</label>
+                      <input type="radio" id="radio5q6" name="q6" class="custom-control-input">
+                      <label class="custom-control-label" for="radio5q6"> Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
-                      <label class="custom-control-label" for="formsRadioDefault"> Tidak tahu karena tidak pernah memperhatikan</label>
+                      <input type="radio" id="radio6q6" name="q6" class="custom-control-input">
+                      <label class="custom-control-label" for="radio6q6"> Tidak tahu karena tidak pernah memperhatikan</label>
                     </div>
-
                   </fieldset>
                 </div>
               </div>
@@ -604,4 +600,5 @@
 </div>
 
 </form>
+
 @endsection
