@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'DashboardController@index');
+
+Route::get('/dosen','DosenController@index')->name('dosen');
+
+Route::get('dosen/angket', 'DosenController@angketdosen');
