@@ -14,55 +14,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css">
 </head>
 <body>
-        <div class="main-content-container container-fluid px-4">
-            <!-- Page Header -->
-            <div class="page-header row no-gutters py-4">
-              <div class="col-12 text-center text-sm-center mb-0">
-                <img src="{{asset('images/um_logo_blue_text.png')}}" width="240">
-                <br><br>
-                <span class="text-uppercase page-subtitle">Satuan Penjamin Mutu - Universitas Negeri Malang</span>
-                <h3 class="page-title">Sistem Survei Kepuasan</h3>
-                
-              </div>
-              
-            </div>
-            <div class="row" style="margin-bottom:60px">
-                <div class="col-2 offset-md-5">
-                  <select class="form-control" name="tahun">
-                    @for($tahun=date("Y"); $tahun>=2015; $tahun--)
-                        <option value="{{ $tahun }}" @if(null != session("tahun")) @if(session("tahun") == $tahun) selected="" @endif @endif>{{ $tahun }}</option>
-                    @endfor
-                </select>
-              </div>
-            </div>
+    <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4">
+          <div class="col-12 text-center text-sm-center mb-0">
+            <img src="{{asset('images/um_logo_blue_text.png')}}" width="240">
+            <br><br>
+            <span class="text-uppercase page-subtitle">Satuan Penjamin Mutu - Universitas Negeri Malang</span>
+            <h3 class="page-title">Sistem Survei Kepuasan</h3>
+
+        </div>
+
+    </div>
+    <div class="row" style="margin-bottom:60px">
+        <div class="col-2 offset-md-5">
+          <select class="form-control" name="tahun">
+            @for($tahun=date("Y"); $tahun>=2015; $tahun--)
+            <option value="{{ $tahun }}" @if(null != session("tahun")) @if(session("tahun") == $tahun) selected="" @endif @endif>{{ $tahun }}</option>
+            @endfor
+        </select>
+    </div>
+</div>
 
 @yield('content')
 <div class="page-header row no-gutters py-4">
-<div class="col-12 text-center text-sm-center mb-0">
-                <h3 class="page-title">#dukungmutuUM</h3>
-              </div>
-          </div>
+    <div class="col-12 text-center text-sm-center mb-0">
+        <h3 class="page-title">#dukungmutuUM</h3>
+    </div>
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
-    <script src="{!! asset('js/extras.1.0.0.min.js')!!}"></script>
-    <script src="{!! asset('js/shards-dashboards.1.0.0.min.js')!!}"></script>
-    <script src="{!! asset('js/app/app-blog-overview.1.0.0.js')!!}"></script>
-    <script src="{!! asset('js/app/app-blog-new-post.1.0.0.js')!!}"></script>
-    <script src="{!! asset('js/app/app-components-overview.1.0.0.js')!!}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script> --}}
+<script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+{{-- <script src="{!! asset('js/extras.1.0.0.min.js')!!}"></script> --}}
+{{-- <script src="{!! asset('js/shards-dashboards.1.0.0.min.js')!!}"></script> --}}
+{{-- <script src="{!! asset('js/app/app-blog-overview.1.0.0.js')!!}"></script> --}}
+{{-- <script src="{!! asset('js/app/app-blog-new-post.1.0.0.js')!!}"></script> --}}
+{{-- <script src="{!! asset('js/app/app-components-overview.1.0.0.js')!!}"></script> --}}
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("select[name='tahun']").change(function(){
-                var tahun = $(this).val();
-                window.location.href = "{{ url("/ubah-tahun") }}/"+tahun;
-            });
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("select[name='tahun']").change(function(){
+            var tahun = $(this).val();
+            window.location.href = "{{ url("/ubah-tahun") }}/"+tahun;
         });
-    </script>
-  </body>
+    });
+</script>
+
+@yield('pagespecificjs')
+
+</body>
 </html>
