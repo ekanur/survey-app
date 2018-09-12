@@ -32,8 +32,6 @@
     </div>
   </div>
 </div>
-</form>
-
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">

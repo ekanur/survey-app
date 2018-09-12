@@ -65,7 +65,13 @@
                               <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="pendidikan">Pendidikan Tertinggi</label>
-                                <input type="text" class="form-control" id="pendidikan"> </div>
+                                 <select id="pendidikan" class="form-control">
+                                  <option selected></option>
+                                  <option value="S1">S1</option>
+                                  <option value="S2">S2</option>
+                                  <option value="S3">S3</option>
+                                </select>
+                              </div>
                               <div class="form-group col-md-6">
                                 <label for="lamamengajar">Lama Mengajar</label>
                                 <input type="text" class="form-control" id="lamamengajar"> </div>
