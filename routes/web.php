@@ -15,4 +15,9 @@ Route::get('/', 'DashboardController@index');
 
 Route::get('/dosen','DosenController@index')->name('dosen');
 
-Route::get('dosen/angket', 'DosenController@angketdosen');
+Route::get("/ubah-tahun/{tahun}", "DashboardController@ubahTahun");
+
+Route::get('dosen/angket', 'DosenController@angket');
+
+Route::post("biodata-dosen", "DosenController@simpanBiodata");
+Route::post("angket-dosen", "DosenController@simpanAngket");

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Biodata_dosen;
 
 class DosenController extends Controller
 {
@@ -22,7 +23,7 @@ class DosenController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function angketdosen()
+    public function angket()
     {
         return view('dosen/angket');
 
@@ -88,5 +89,13 @@ class DosenController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function simpanBiodata(Request $request){
+        return redirect("/dosen/angket");
+    }
+
+    public function simpanAngket(Request $request){
+        return redirect("/");
     }
 }

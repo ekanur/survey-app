@@ -21,8 +21,20 @@
                 <img src="http://www.um.ac.id/img/logoumpng.png"><br>
                 <span class="text-uppercase page-subtitle">Satuan Penjamin Mutu - Universitas Negeri Malang</span>
                 <h3 class="page-title">Sistem Survei Kepuasan</h3>
+                
+              </div>
+              
+            </div>
+            <div class="row" style="margin-bottom:60px">
+                <div class="col-2 offset-md-5">
+                  <select class="form-control" name="tahun">
+                    @for($tahun=date("Y"); $tahun>=2015; $tahun--)
+                        <option value="{{ $tahun }}" @if(null != session("tahun")) @if(session("tahun") == $tahun) selected="" @endif @endif>{{ $tahun }}</option>
+                    @endfor
+                </select>
               </div>
             </div>
+
 @yield('content')
 <div class="page-header row no-gutters py-4">
 <div class="col-12 text-center text-sm-center mb-0">
@@ -41,5 +53,14 @@
     <script src="{!! asset('js/shards-dashboards.1.0.0.min.js')!!}"></script>
     <script src="{!! asset('js/app/app-blog-overview.1.0.0.js')!!}"></script>
     <script src="{!! asset('js/app/app-blog-new-post.1.0.0.js')!!}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("select[name='tahun']").change(function(){
+                var tahun = $(this).val();
+                window.location.href = "{{ url("/ubah-tahun") }}/"+tahun;
+            });
+        });
+    </script>
   </body>
 </html>

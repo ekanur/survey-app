@@ -81,4 +81,9 @@ class DashboardController extends Controller
     {
         //
     }
+
+    public function ubahTahun($tahun){
+        session(["tahun" => $tahun]);
+        return redirect("/dosen");
+    }
 }
