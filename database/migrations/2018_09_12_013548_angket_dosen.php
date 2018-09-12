@@ -16,6 +16,7 @@ class AngketDosen extends Migration
         Schema::create('angket_dosen', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("biodata_dosen_id");
+            $table->integer("tahun");
             $table->string("kuesioner", 10);
             $table->string("value", 200);
             $table->timestamps();
