@@ -29,8 +29,7 @@
                   </fieldset>
                 </div>
 							</div>
-							<button type="submit" class="btn btn-accent">Selanjutnya</button>
-            </form>
+						</form>
           </div>
         </div>
       </li>
@@ -83,8 +82,6 @@
                                </fieldset>
                             </div>
                 </div>
-                <button type="submit" class="btn btn-danger">Sebelumnya</button>
-                    <button type="submit" class="btn btn-accent">Selanjutnya</button>
               </form>
             </div>
           </div>
@@ -138,8 +135,6 @@
                                  </fieldset>
                                 </div>
                 </div>
-                <button type="submit" class="btn btn-danger">Sebelumnya</button>
-                    <button type="submit" class="btn btn-accent">Selanjutnya</button>
               </form>
             </div>
           </div>
@@ -177,8 +172,6 @@
                                  
                                 </div>
                 </div>
-                <button type="submit" class="btn btn-danger">Sebelumnya</button>
-                    <button type="submit" class="btn btn-accent">Selanjutnya</button>
               </form>
             </div>
           </div>
@@ -231,8 +224,6 @@
                                </fieldset>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-danger">Sebelumnya</button>
-                    <button type="submit" class="btn btn-accent">Selanjutnya</button>
               </form>
             </div>
           </div>
@@ -286,8 +277,6 @@
                                  </fieldset>
                                 </div>
                 </div>
-                <button type="submit" class="btn btn-danger">Sebelumnya</button>
-                    <button type="submit" class="btn btn-accent">Selanjutnya</button>
               </form>
             </div>
           </div>
@@ -570,8 +559,6 @@
                                 </table>
                                 </div>
                 </div>
-                <button type="submit" class="btn btn-danger">Sebelumnya</button>
-                    <button type="submit" class="btn btn-accent">Selanjutnya</button>
               </form>
             </div>
           </div>
@@ -612,7 +599,6 @@
                               <textarea name="saranuniversitas" class="form-control"></textarea>
                             </div>
                           </div>
-                          <button type="submit" class="btn btn-danger">Sebelumnya</button>
                           <button type="submit" class="btn btn-success">Simpan</button>
                             </form>
                           </div>
