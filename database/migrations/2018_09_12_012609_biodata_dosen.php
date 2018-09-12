@@ -19,7 +19,6 @@ class BiodataDosen extends Migration
             $table->string("prodi", 100);
             $table->string("jurusan", 100);
             $table->string("fakultas", 100);
-            $table->string("fakultas", 100);
             $table->date("tmt");
             $table->enum("jenis_kelamin", ["laki_laki", "perempuan"]);
             $table->enum("usia", ["<30", "31-40", "41-50", "51-60", ">60"]);
