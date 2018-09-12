@@ -1,24 +1,25 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sistem Survei Kepuasan - Satuan Penjamin Mutu - Universitas Negeri Malang</title>
-         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistem Survei Kepuasan - Satuan Penjamin Mutu - Universitas Negeri Malang</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" id="main-stylesheet" data-version="1.0.0" href="{!! asset('css/shards-dashboards.1.0.0.min.css')!!}">
     <link rel="stylesheet" href="{!! asset('css/extras.1.0.0.min.css')!!}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css">
-    </head>
+</head>
 <body>
         <div class="main-content-container container-fluid px-4">
             <!-- Page Header -->
             <div class="page-header row no-gutters py-4">
               <div class="col-12 text-center text-sm-center mb-0">
-                <img src="http://www.um.ac.id/img/logoumpng.png"><br>
+                <img src="{{asset('images/um_logo_blue_text.png')}}" width="240">
+                <br><br>
                 <span class="text-uppercase page-subtitle">Satuan Penjamin Mutu - Universitas Negeri Malang</span>
                 <h3 class="page-title">Sistem Survei Kepuasan</h3>
                 
