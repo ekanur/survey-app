@@ -22,3 +22,18 @@ Route::get('dosen/angket', 'DosenController@angket');
 Route::post("biodata-dosen", "DosenController@simpanBiodata");
 
 Route::post("angket-dosen", "DosenController@simpanAngket");
+
+Route::get('mahasiswa', "MahasiswaController@index");
+Route::get('mahasiswa/angket', "MahasiswaController@angket");
+
+Route::get('tendik', "TendikController@index");
+Route::get('tendik/angket', "TendikController@angket");
+
+Route::get('alumni', "AlumniController@index");
+Route::get('alumni/angket', "AlumniController@angket");
+
+Route::get('pengguna', "PenggunaController@index");
+Route::get('pengguna/angket', "PenggunaController@angket");
+
+Route::get('mitra', "MitraController@index");
+Route::get('mitra/angket', "MitraController@angket");

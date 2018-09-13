@@ -180,7 +180,7 @@
 
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <label for="checkboxd5"></label>
+                  <label>Boleh lebih dari satu jawaban</label><br>
                   <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
                       <input name="q5[]" type="checkbox" class="custom-control-input" id="c1q5" value="Rapat Jurusan">
@@ -232,7 +232,6 @@
 
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <label>Boleh lebih dari satu jawaban</label><br>
                   <fieldset>
                    <div class="custom-control custom-radio mb-1">
                     <input required="" type="radio" id="radio1q6" name="q6" class="custom-control-input" value="Sudah selaras dengan visi dan kinerja sudah maksimal">

@@ -26,6 +26,10 @@ class DosenController extends Controller
 
     public function angket()
     {
+        if(null == session("biodata_id")){
+            session()->flash("msg", "Isikan biodata anda.");
+            return redirect("/dosen");
+        }
         return view('dosen/angket');
 
     }
@@ -94,28 +98,28 @@ class DosenController extends Controller
 
     public function simpanBiodata(Request $request){
 
-  $biodata = new Biodata_dosen;
-    $biodata->email = $request->email;
-    $biodata->prodi = $request->prodijurusan;
-    $biodata->fakultas = $request->fakultas;
-    $biodata->tmt = $request->tmt;
-    $biodata->jenis_kelamin = $request->jeniskelamin;
-    $biodata->usia = $request->usia;
-    $biodata->pendidikan_tertinggi = $request->pendidikan;
-    $biodata->lama_mengajar = $request->lamamengajar;
-    $biodata->jabatan_fungsional = $request->jabatanfungsional;
-    $biodata->tugas_tambahan = $request->tugastambahan;
+      $biodata = new Biodata_dosen;
+      $biodata->email = $request->email;
+      $biodata->prodi = $request->prodijurusan;
+      $biodata->fakultas = $request->fakultas;
+      $biodata->tmt = $request->tmt;
+      $biodata->jenis_kelamin = $request->jeniskelamin;
+      $biodata->usia = $request->usia;
+      $biodata->pendidikan_tertinggi = $request->pendidikan;
+      $biodata->lama_mengajar = $request->lamamengajar;
+      $biodata->jabatan_fungsional = $request->jabatanfungsional;
+      $biodata->tugas_tambahan = $request->tugastambahan;
 
 
-    if($biodata->save()){
-    // dd($biodata->id);
-           session(["biodata_id" => $biodata->id]);
-           // dd(session("biodata_id"));
-       return redirect("/dosen/angket");
-   }else{
-        return redirect()->back()->withInput();
+        if($biodata->save()){
+        // dd($biodata->id);
+             session(["biodata_id" => $biodata->id]);
+               // dd(session("biodata_id"));
+             return redirect("/dosen/angket");
+        }else{
+            return redirect()->back()->withInput();
+        }
     }
-}
 
 
     public function simpanAngket(Request $request){
@@ -128,6 +132,7 @@ class DosenController extends Controller
         Angket_dosen::insert($data);
 
         session()->forget("dosen_id");
+        session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
         return redirect("/");
     }
 

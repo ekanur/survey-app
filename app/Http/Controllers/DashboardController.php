@@ -84,6 +84,7 @@ class DashboardController extends Controller
 
     public function ubahTahun($tahun){
         session(["tahun" => $tahun]);
+        session()->flash("msg", "Saat ini anda akan mengisikan angket untuk tahun ".session("tahun"));
         return redirect()->back();
     }
 }

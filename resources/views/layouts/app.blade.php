@@ -28,13 +28,25 @@
     </div>
     <div class="row" style="margin-bottom:60px">
         <div class="col-2 offset-md-5">
-          <select class="form-control" name="tahun">
-            @for($tahun=date("Y"); $tahun>=2015; $tahun--)
-            <option value="{{ $tahun }}" @if(null != session("tahun")) @if(session("tahun") == $tahun) selected="" @endif @endif>{{ $tahun }}</option>
-            @endfor
-        </select>
+            <select class="form-control" name="tahun">
+                @for($tahun=date("Y"); $tahun>=2015; $tahun--)
+                <option value="{{ $tahun }}" @if(null != session("tahun")) @if(session("tahun") == $tahun) selected="" @endif @endif>{{ $tahun }}</option>
+                @endfor
+            </select>
+        </div>
     </div>
-</div>
+    @if(null != session("msg"))
+    <div class="row" style="margin-bottom:60px;">
+        <div class="col-12">
+        <div class="alert alert-accent alert-dismissible fade show mb-0" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            {{ session("msg") }}
+        </div>
+        </div>
+    </div>
+    @endif
 
 @yield('content')
 <div class="page-header row no-gutters py-4">
