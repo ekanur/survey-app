@@ -18,9 +18,11 @@
         <!-- Page Header -->
         <div class="page-header row no-gutters py-4">
           <div class="col-12 text-center text-sm-center mb-0">
-            <img src="{{asset('images/um_logo_blue_text.png')}}" width="240">
+            <a href="{{url('/')}}">
+                <img src="{{asset('images/um_logo_blue_text.png')}}" width="240">
+            </a>
             <br><br>
-            <span class="text-uppercase page-subtitle">Satuan Penjamin Mutu - Universitas Negeri Malang</span>
+            <span class="text-uppercase page-subtitle">Satuan Penjaminan Mutu - Universitas Negeri Malang</span>
             <h3 class="page-title">Sistem Survei Kepuasan</h3>
 
         </div>

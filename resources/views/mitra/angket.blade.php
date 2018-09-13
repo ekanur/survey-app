@@ -44,7 +44,7 @@
             <div class="col-sm-12">
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <input type="text" name="q2" class="form-control">
+                  <input type="text" name="q2" class="form-control" required="">
                 </div>
               </div>
               
