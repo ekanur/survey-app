@@ -26,14 +26,14 @@
                       <label for="fakultas">Fakultas</label>
                       <select id="fakultas" name="fakultas" class="form-control" required="">
                         <option selected></option>
-                        <option value="fip">FIP</option>
-                        <option value="fs">FS</option>
-                        <option value="fmipa">FMIPA</option>
-                        <option value="fe">FE</option>
-                        <option value="ft">FT</option>
-                        <option value="fik">FIK</option>
-                        <option value="fis">FIS</option>
-                        <option value="fppsi">FPPSI</option>
+                        <option value="fip">FIP (Fakultas Ilmu Pendidikan)</option>
+                        <option value="fs">FS (Fakultas Sastra)</option>
+                        <option value="fmipa">FMIPA (Fakultas Matematikan & IPA)</option>
+                        <option value="fe">FE (Fakultas Ekonomi)</option>
+                        <option value="ft">FT (Fakultas Teknik)</option>
+                        <option value="fik">FIK (Fakultas Ilmu Keolahragaan)</option>
+                        <option value="fis">FIS (Fakultas Ilmu Sosial)</option>
+                        <option value="fppsi">FPPSI (Fakultas Pendidikan Psikologi)</option>
                         <option value="pasca">Pascasarjana</option>
                         <option value="vokasi">Program Pendidikan Profesi dan Vokasi</option>
                       </select></div>
@@ -74,18 +74,18 @@
                         </div>
                         <div class="form-group col-md-6">
                           <label for="lamamengajar">Lama Mengajar</label>
-                          <input type="text" class="form-control" id="lamamengajar"name="lamamengajar" required=""> </div>
+                          <input type="number" min="1" class="form-control" id="lamamengajar"name="lamamengajar" required=""> </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col-md-6">
                             <label for="jabatanfungsional">Jabatan Fungsional</label>
                             <select id="jabatanfungsional" class="form-control" name="jabatanfungsional" required="">
                               <option selected></option>
-                              <option value="TP">TP</option>
-                              <option value="AA">AA</option>
-                              <option value="L">L</option>
-                              <option value="LK">LK</option>
-                              <option value="GB">GB</option>
+                              <option value="TP">TP - Tenaga Pendidik</option>
+                              <option value="AA">AA - Asisten Ahli</option>
+                              <option value="L">L - Lektor</option>
+                              <option value="LK">LK - Lektor Kepala</option>
+                              <option value="GB">GB - Guru Besar</option>
                             </select>
                           </div>
                           <div class="form-group col-md-6">
