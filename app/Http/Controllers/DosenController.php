@@ -109,10 +109,16 @@ class DosenController extends Controller
 
 
     if($biodata->save()){
+<<<<<<< HEAD
     
            $id_biodata=$biodata->id;
             Session::put('biodata_id', $id_biodata);
            // var_dump(Session::get('biodata_id')); die();
+=======
+    // dd($biodata->id);
+           session(["biodata_id" => $biodata->id]);
+           // dd(session("biodata_id"));
+>>>>>>> f06684f5b3bda8d3990d693d6a07dda75c436ad8
        return redirect("/dosen/angket");
    }else{
         return redirect()->back()->withInput();
@@ -121,11 +127,15 @@ class DosenController extends Controller
 
 
     public function simpanAngket(Request $request){
+        if(null == session("biodata_id")){
+            session()->flash("msg", "Isikan biodata anda.");
+            return redirect("/dosen");
+        }
         $data = $this->dataKuesioner($request->except("_token"));
 
         Angket_dosen::insert($data);
 
-
+        session()->forget("dosen_id");
         return redirect("/");
     }
 
