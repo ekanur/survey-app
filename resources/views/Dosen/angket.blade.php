@@ -34,7 +34,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div i2" class="card card-small mb-4" >
+    <div class="card card-small mb-4 quest_1" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Darimana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan tempat Ibu/Bapak bekerja?</h6>
       </div>
@@ -45,7 +45,7 @@
               <label>Boleh lebih dari satu jawaban</label>
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <fieldset class="quest_1">
+                  <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
                       <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2">
                       <label class="custom-control-label" for="c1q2">Rapat Jurusan</label>
@@ -84,7 +84,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4" >
+    <div class="card card-small mb-4 quest_1" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Bagaimana menurut Ibu/Bapak, kinerja Jurusan/Prodi dalam mencapai visi dan sasarannya?</h6>
       </div>
@@ -95,7 +95,7 @@
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
                   <label></label>
-                  <fieldset class="quest_1">
+                  <fieldset>
                    <div class="custom-control custom-radio mb-1">
                     <input type="radio" id="radio1q3" name="q3" class="custom-control-input">
                     <label class="custom-control-label" for="radio1q3"> Sudah selaras dengan visi dan kinerja sudah maksimal</label>
@@ -169,7 +169,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4" >
+    <div class="card card-small mb-4 quest_4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Darimana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran Fakultas/Universitas tempat Ibu/Bapak bekerja?</h6>
       </div>
@@ -181,7 +181,7 @@
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
                   <label for="checkboxd5"></label>
-                  <fieldset class="quest_4">
+                  <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
                       <input name="q5[]" type="checkbox" class="custom-control-input" id="c1q5">
                       <label class="custom-control-label" for="c1q5">Rapat Jurusan</label>
@@ -220,7 +220,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4" >
+    <div class="card card-small mb-4 quest_4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Bagaimana menurut Ibu/Bapak, kinerja Fakultas/Universitas dalam mencapai visi dan sasarannya?</h6>
       </div>
@@ -233,7 +233,7 @@
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
                   <label>Boleh lebih dari satu jawaban</label><br>
-                  <fieldset class="quest_4">
+                  <fieldset>
                    <div class="custom-control custom-radio mb-1">
                     <input type="radio" id="radio1q6" name="q6" class="custom-control-input">
                     <label class="custom-control-label" for="radio1q6"> Sudah selaras dengan visi dan kinerja sudah maksimal</label>
@@ -605,16 +605,16 @@
 
   function disableQuestion(selector='') {
     if(selector) {
-      $(selector).prop('disabled', true);
-      // $(selector).find("input").prop('disabled', true);
-      // $(selector).fadeOut();
+      // $(selector).prop('disabled', true);
+      $(selector).find("input").prop('disabled', true);
+      $(selector).fadeOut();
     }
   }
   function enableQuestion(selector='') {
     if(selector) {
-      $(selector).prop('disabled', false);
-      // $(selector).find("input").prop('disabled', false);
-      // $(selector).fadeIn();
+      // $(selector).prop('disabled', false);
+      $(selector).find("input").prop('disabled', false);
+      $(selector).fadeIn();
     }
   }
 </script> 
