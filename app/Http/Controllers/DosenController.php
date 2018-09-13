@@ -93,6 +93,7 @@ class DosenController extends Controller
     }
 
     public function simpanBiodata(Request $request){
+
         return redirect("/dosen/angket");
     }
 
