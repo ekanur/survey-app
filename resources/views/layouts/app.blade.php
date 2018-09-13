@@ -18,9 +18,11 @@
         <!-- Page Header -->
         <div class="page-header row no-gutters py-4">
           <div class="col-12 text-center text-sm-center mb-0">
-            <img src="{{asset('images/um_logo_blue_text.png')}}" width="240">
+            <a href="{{url('/')}}">
+                <img src="{{asset('images/um_logo_blue_text.png')}}" width="240">
+            </a>
             <br><br>
-            <span class="text-uppercase page-subtitle">Satuan Penjamin Mutu - Universitas Negeri Malang</span>
+            <span class="text-uppercase page-subtitle">Satuan Penjaminan Mutu - Universitas Negeri Malang</span>
             <h3 class="page-title">Sistem Survei Kepuasan</h3>
 
         </div>
@@ -28,13 +30,25 @@
     </div>
     <div class="row" style="margin-bottom:60px">
         <div class="col-2 offset-md-5">
-          <select class="form-control" name="tahun">
-            @for($tahun=date("Y"); $tahun>=2015; $tahun--)
-            <option value="{{ $tahun }}" @if(null != session("tahun")) @if(session("tahun") == $tahun) selected="" @endif @endif>{{ $tahun }}</option>
-            @endfor
-        </select>
+            <select class="form-control" name="tahun">
+                @for($tahun=date("Y"); $tahun>=2015; $tahun--)
+                <option value="{{ $tahun }}" @if(null != session("tahun")) @if(session("tahun") == $tahun) selected="" @endif @endif>{{ $tahun }}</option>
+                @endfor
+            </select>
+        </div>
     </div>
-</div>
+    @if(null != session("msg"))
+    <div class="row" style="margin-bottom:60px;">
+        <div class="col-12">
+        <div class="alert alert-accent alert-dismissible fade show mb-0" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            {{ session("msg") }}
+        </div>
+        </div>
+    </div>
+    @endif
 
 @yield('content')
 <div class="page-header row no-gutters py-4">
