@@ -40,14 +40,14 @@
 </div>
 <div class="col-lg col-md-6 col-sm-6 mb-4">
   <div class="stats-small stats-small--1 card card-small">
-    <div class="card-body p-0 d-flex">
+    <a class="card-body p-0 d-flex" href="{{url('alumni')}}">
       <div class="d-flex flex-column m-auto">
         <div class="stats-small__data text-center">
           <i class="fas fa-graduation-cap" style="font-size:48px;"></i>
           <span class="stats-small__label text-uppercase">ALUMNI</span>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </div>
 <div class="col-lg col-md-6 col-sm-6 mb-4">
