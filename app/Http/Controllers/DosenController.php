@@ -109,7 +109,8 @@ class DosenController extends Controller
 
     if($biodata->save()){
     // dd($biodata->id);
-           session(["biodata_id", $biodata->id]);
+           session(["biodata_id" => $biodata->id]);
+           // dd(session("biodata_id"));
        return redirect("/dosen/angket");
    }else{
         return redirect()->back()->withInput();
@@ -118,11 +119,15 @@ class DosenController extends Controller
 
 
     public function simpanAngket(Request $request){
+        if(null == session("biodata_id")){
+            session()->flash("msg", "Isikan biodata anda.");
+            return redirect("/dosen");
+        }
         $data = $this->dataKuesioner($request->except("_token"));
 
         Angket_dosen::insert($data);
 
-
+        session()->forget("dosen_id");
         return redirect("/");
     }
 

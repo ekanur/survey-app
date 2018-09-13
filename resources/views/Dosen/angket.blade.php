@@ -16,11 +16,11 @@
               <div class="col-sm-12">
                 <div class="custom-controls-stacked">
                   <div class="custom-control custom-radio mb-1">
-                   <input type="radio" id="radio1q1" name="q1" class="custom-control-input" value="Ya">
+                   <input required="" type="radio" id="radio1q1" name="q1" class="custom-control-input" value="Ya">
                    <label class="custom-control-label" for="radio1q1">Ya</label>
                  </div>
                  <div class="custom-control custom-radio mb-1">
-                  <input type="radio" id="radio2q1"  name="q1" class="custom-control-input" value="Tidak">
+                  <input required="" type="radio" id="radio2q1"  name="q1" class="custom-control-input" value="Tidak">
                   <label class="custom-control-label" for="radio2q1">Tidak</label>
                 </div>
               </div>
@@ -47,27 +47,27 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Rapat Jurusan">
+                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Rapat Jurusan">
                       <label class="custom-control-label" for="c1q2">Rapat Jurusan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Katalog dan/atau dokumen Jurusan lainnya">
+                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Katalog dan/atau dokumen Jurusan lainnya">
                       <label class="custom-control-label" for="c2q2">Katalog dan/atau dokumen Jurusan lainnya</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c3q2" value="Membaca banner">
+                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c3q2" value="Membaca banner">
                       <label class="custom-control-label" for="c3q2">Membaca banner</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Kegiatan kemahasiswaan">
+                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Kegiatan kemahasiswaan">
                       <label class="custom-control-label" for="c4q2">Kegiatan kemahasiswaan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c5q2" value="Laman UM">
+                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c5q2" value="Laman UM">
                       <label class="custom-control-label" for="c5q2">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c6q2" value="Lain-lain">
+                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c6q2" value="Lain-lain">
                       <label class="custom-control-label" for="c6q2">Lain-lain</label>
                     </div>
                   </fieldset>
@@ -97,27 +97,27 @@
                   <label></label>
                   <fieldset>
                    <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi dan kinerja sudah maksimal">
+                    <input required="" type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi dan kinerja sudah maksimal">
                     <label class="custom-control-label" for="radio1q3"> Sudah selaras dengan visi dan kinerja sudah maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio2q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi, namun kinerja kurang maksimal">
+                    <input required="" type="radio" id="radio2q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi, namun kinerja kurang maksimal">
                     <label class="custom-control-label" for="radio2q3"> Sudah selaras dengan visi, namun kinerja kurang maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio3q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi, namun kinerja maksimal">
+                    <input required="" type="radio" id="radio3q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi, namun kinerja maksimal">
                     <label class="custom-control-label" for="radio3q3"> Kurang selaras dengan visi, namun kinerja maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio4q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi dan kinerja kurang maksimal">
+                    <input required="" type="radio" id="radio4q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi dan kinerja kurang maksimal">
                     <label class="custom-control-label" for="radio4q3"> Kurang selaras dengan visi dan kinerja kurang maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio5q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan">
+                    <input required="" type="radio" id="radio5q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan">
                     <label class="custom-control-label" for="radio5q3"> Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio6q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
+                    <input required="" type="radio" id="radio6q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
                     <label class="custom-control-label" for="radio6q3"> Tidak tahu karena tidak pernah memperhatikan</label>
                   </div>
 
@@ -147,11 +147,11 @@
                   <label for="pd4"></label>
                   <fieldset>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="radio1q4" name="q4" class="custom-control-input" value="Ya">
+                      <input required="" type="radio" id="radio1q4" name="q4" class="custom-control-input" value="Ya">
                       <label class="custom-control-label" for="radio1q4">Ya</label>
                     </div>
                     <div class="custom-control custom-radio mb-1">
-                      <input type="radio" id="radio2q4" name="q4" class="custom-control-input" value="Tidak">
+                      <input required="" type="radio" id="radio2q4" name="q4" class="custom-control-input" value="Tidak">
                       <label class="custom-control-label" for="radio2q4">Tidak</label>
                     </div>
                   </fieldset>
@@ -183,27 +183,27 @@
                   <label for="checkboxd5"></label>
                   <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c1q5" value="Rapat Jurusan">
+                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c1q5" value="Rapat Jurusan">
                       <label class="custom-control-label" for="c1q5">Rapat Jurusan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c2q5" value="Katalog dan/atau dokumen Fakultas/Universitas lainnya">
+                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c2q5" value="Katalog dan/atau dokumen Fakultas/Universitas lainnya">
                       <label class="custom-control-label" for="c2q5">Katalog dan/atau dokumen Fakultas/Universitas lainnya</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c3q5" value="Membaca banner">
+                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c3q5" value="Membaca banner">
                       <label class="custom-control-label" for="c3q5">Membaca banner</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c4q5" value="Kegiatan kemahasiswaan">
+                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c4q5" value="Kegiatan kemahasiswaan">
                       <label class="custom-control-label" for="c4q5">Kegiatan kemahasiswaan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c5q5" value="Laman UM">
+                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c5q5" value="Laman UM">
                       <label class="custom-control-label" for="c5q5">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c6q5" value="Lain-lain">
+                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c6q5" value="Lain-lain">
                       <label class="custom-control-label" for="c6q5">Lain-lain</label>
                     </div>
                   </fieldset>
@@ -235,27 +235,27 @@
                   <label>Boleh lebih dari satu jawaban</label><br>
                   <fieldset>
                    <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio1q6" name="q6" class="custom-control-input" value="Sudah selaras dengan visi dan kinerja sudah maksimal">
+                    <input required="" type="radio" id="radio1q6" name="q6" class="custom-control-input" value="Sudah selaras dengan visi dan kinerja sudah maksimal">
                     <label class="custom-control-label" for="radio1q6"> Sudah selaras dengan visi dan kinerja sudah maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio2q6" name="q6" class="custom-control-input" value="Sudah selaras dengan visi, namun kinerja kurang maksimal">
+                    <input required="" type="radio" id="radio2q6" name="q6" class="custom-control-input" value="Sudah selaras dengan visi, namun kinerja kurang maksimal">
                     <label class="custom-control-label" for="radio2q6"> Sudah selaras dengan visi, namun kinerja kurang maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio3q6" name="q6" class="custom-control-input" value="Kurang selaras dengan visi, namun kinerja maksimal">
+                    <input required="" type="radio" id="radio3q6" name="q6" class="custom-control-input" value="Kurang selaras dengan visi, namun kinerja maksimal">
                     <label class="custom-control-label" for="radio3q6"> Kurang selaras dengan visi, namun kinerja maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio4q6" name="q6" class="custom-control-input" value="Kurang selaras dengan visi dan kinerja kurang maksimal">
+                    <input required="" type="radio" id="radio4q6" name="q6" class="custom-control-input" value="Kurang selaras dengan visi dan kinerja kurang maksimal">
                     <label class="custom-control-label" for="radio4q6"> Kurang selaras dengan visi dan kinerja kurang maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio5q6" name="q6" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan">
+                    <input required="" type="radio" id="radio5q6" name="q6" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan">
                     <label class="custom-control-label" for="radio5q6"> Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio6q6" name="q6" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
+                    <input required="" type="radio" id="radio6q6" name="q6" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
                     <label class="custom-control-label" for="radio6q6"> Tidak tahu karena tidak pernah memperhatikan</label>
                   </div>
                 </fieldset>
