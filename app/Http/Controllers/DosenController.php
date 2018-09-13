@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Biodata_dosen;
+use Session;
 
 class DosenController extends Controller
 {
@@ -92,6 +93,7 @@ class DosenController extends Controller
     }
 
     public function simpanBiodata(Request $request){
+
         return redirect("/dosen/angket");
     }
 
