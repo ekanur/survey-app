@@ -98,29 +98,6 @@ class DosenController extends Controller
     }
 
     public function simpanBiodata(Request $request){
-
-<<<<<<< HEAD
-  $biodata = new Biodata_dosen;
-    $biodata->email = $request->email;
-    $biodata->prodi = $request->prodijurusan;
-    $biodata->fakultas = $request->fakultas;
-    $biodata->tmt = $request->tmt;
-    $biodata->jenis_kelamin = $request->jeniskelamin;
-    $biodata->usia = $request->usia;
-    $biodata->pendidikan_tertinggi = $request->pendidikan;
-    $biodata->lama_mengajar = $request->lamamengajar;
-    $biodata->jabatan_fungsional = $request->jabatanfungsional;
-    $biodata->tugas_tambahan = $request->tugastambahan;
-
-
-    if($biodata->save()){
-
-           session(["biodata_id" => $biodata->id]);
-           // dd(session("biodata_id"));
-       return redirect("/dosen/angket");
-   }else{
-        return redirect()->back()->withInput();
-=======
       $biodata = new Biodata_dosen;
       $biodata->email = $request->email;
       $biodata->prodi = $request->prodijurusan;
@@ -142,7 +119,6 @@ class DosenController extends Controller
         }else{
             return redirect()->back()->withInput();
         }
->>>>>>> b38dbe3a8b94f9a8b7021d2533345dd38ca317d8
     }
 
 
