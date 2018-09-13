@@ -16,8 +16,7 @@ class BiodataDosen extends Migration
         Schema::create('biodata_dosen', function (Blueprint $table) {
             $table->increments('id');
             $table->string("email", 75);
-            $table->string("prodi", 100);
-            $table->string("jurusan", 100);
+            $table->string("prodi", 100)->nullable();
             $table->string("fakultas", 100);
             $table->date("tmt");
             $table->enum("jenis_kelamin", ["laki_laki", "perempuan"]);

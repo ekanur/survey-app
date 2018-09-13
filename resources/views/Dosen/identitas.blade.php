@@ -16,15 +16,15 @@
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Email"> </div>
+                                <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="{{old('email')}}" required=""> </div>
                               <div class="form-group col-md-6">
                                 <label for="prodijurusan">Nama Prodi / Jurusan</label>
-                                <input type="text" class="form-control" id="prodijurusan" placeholder="Nama Prodi/Jurusan"></div>
+                                <input type="text" class="form-control" id="prodijurusan" name="prodijurusan"placeholder="Nama Prodi/Jurusan" required=""></div>
                             </div>
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="fakultas">Fakultas</label>
-                                <select id="fakultas" class="form-control">
+                                <select id="fakultas" name="fakultas" class="form-control" required="">
                                   <option selected></option>
                                   <option value="fip">FIP</option>
                                   <option value="fs">FS</option>
@@ -39,20 +39,20 @@
                                 </select></div>
                               <div class="form-group col-md-6">
                                 <label for="tmt">TMT</label>
-                                <input type="date" class="form-control" id="tmt"> </div>
+                                <input type="date" class="form-control" name="tmt" id="tmt" value="{{old('tmt')}}" required=""> </div>
                             </div>
                             <div class="form-row">
                             <div class="form-group col-md-6">
                               <label for="jeniskelamin">Jenis Kelamin</label>
-                              <select id="jeniskelamin" class="form-control">
+                              <select id="jeniskelamin" name="jeniskelamin" class="form-control" required="">
                                   <option selected></option>
-                                  <option value="L">Laki-laki</option>
-                                  <option value="P">Perempuan</option>
+                                  <option value="laki_laki">Laki-laki</option>
+                                  <option value="perempuan">Perempuan</option>
                                 </select>
                               </div>
                               <div class="form-group col-md-6">
                               <label for="usia">Usia</label>
-                              <select id="usia" class="form-control">
+                              <select id="usia" name="usia" class="form-control" required="">
                                   <option selected></option>
                                   <option value="<30">Kurang dari 30</option>
                                   <option value="31-40">31 - 40</option>
@@ -65,7 +65,7 @@
                               <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="pendidikan">Pendidikan Tertinggi</label>
-                                 <select id="pendidikan" class="form-control">
+                                 <select id="pendidikan" name="pendidikan" class="form-control" required="">
                                   <option selected></option>
                                   <option value="S1">S1</option>
                                   <option value="S2">S2</option>
@@ -74,12 +74,12 @@
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="lamamengajar">Lama Mengajar</label>
-                                <input type="text" class="form-control" id="lamamengajar"> </div>
+                                <input type="text" class="form-control" id="lamamengajar"name="lamamengajar" required=""> </div>
                             </div>
                             <div class="form-row">
                             <div class="form-group col-md-6">
                               <label for="jabatanfungsional">Jabatan Fungsional</label>
-                              <select id="jabatanfungsional" class="form-control">
+                              <select id="jabatanfungsional" class="form-control" name="jabatanfungsional" required="">
                                   <option selected></option>
                                   <option value="TP">TP</option>
                                   <option value="AA">AA</option>
@@ -90,7 +90,7 @@
                               </div>
                               <div class="form-group col-md-6">
                               <label for="tugastambahan">Tugas Tambahan</label>
-                              <input type="text" class="form-control" id="tugastambahan"> </div>
+                              <input type="text" class="form-control" id="tugastambahan" name="tugastambahan" value="{{old('tugastambahan')}}" required=""> </div>
                               </div>
                             <button type="submit" class="btn btn-accent">Mulai Isi Angket</button>
                           </form>
