@@ -596,11 +596,11 @@
 <script>
   //Pertanyaan 1 jumper handler
   $("input[name='q1']").change(function(){
-    ($(this).val() == 'tidak') ? disableQuestion(".quest_1") : enableQuestion(".quest_1");
+    ($(this).val().toLowerCase() == 'tidak') ? disableQuestion(".quest_1") : enableQuestion(".quest_1");
   });
   //Pertanyaan 4 jumper handler
   $("input[name='q4']").change(function(){
-    ($(this).val() == 'tidak') ? disableQuestion(".quest_4") : enableQuestion(".quest_4");
+    ($(this).val().toLowerCase() == 'tidak') ? disableQuestion(".quest_4") : enableQuestion(".quest_4");
   });
 
   function disableQuestion(selector='') {
