@@ -47,27 +47,27 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Rapat Jurusan">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Rapat Jurusan">
                       <label class="custom-control-label" for="c1q2">Rapat Jurusan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Katalog dan/atau dokumen Jurusan lainnya">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Katalog dan/atau dokumen Jurusan lainnya">
                       <label class="custom-control-label" for="c2q2">Katalog dan/atau dokumen Jurusan lainnya</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c3q2" value="Membaca banner">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c3q2" value="Membaca banner">
                       <label class="custom-control-label" for="c3q2">Membaca banner</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Kegiatan kemahasiswaan">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Kegiatan kemahasiswaan">
                       <label class="custom-control-label" for="c4q2">Kegiatan kemahasiswaan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c5q2" value="Laman UM">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c5q2" value="Laman UM">
                       <label class="custom-control-label" for="c5q2">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q2[]" type="checkbox" class="custom-control-input" id="c6q2" value="Lain-lain">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c6q2" value="Lain-lain">
                       <label class="custom-control-label" for="c6q2">Lain-lain</label>
                     </div>
                   </fieldset>
@@ -183,27 +183,27 @@
                   <label for="checkboxd5"></label>
                   <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c1q5" value="Rapat Jurusan">
+                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c1q5" value="Rapat Jurusan">
                       <label class="custom-control-label" for="c1q5">Rapat Jurusan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c2q5" value="Katalog dan/atau dokumen Fakultas/Universitas lainnya">
+                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c2q5" value="Katalog dan/atau dokumen Fakultas/Universitas lainnya">
                       <label class="custom-control-label" for="c2q5">Katalog dan/atau dokumen Fakultas/Universitas lainnya</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c3q5" value="Membaca banner">
+                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c3q5" value="Membaca banner">
                       <label class="custom-control-label" for="c3q5">Membaca banner</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c4q5" value="Kegiatan kemahasiswaan">
+                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c4q5" value="Kegiatan kemahasiswaan">
                       <label class="custom-control-label" for="c4q5">Kegiatan kemahasiswaan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c5q5" value="Laman UM">
+                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c5q5" value="Laman UM">
                       <label class="custom-control-label" for="c5q5">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input required="" name="q5[]" type="checkbox" class="custom-control-input" id="c6q5" value="Lain-lain">
+                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c6q5" value="Lain-lain">
                       <label class="custom-control-label" for="c6q5">Lain-lain</label>
                     </div>
                   </fieldset>
