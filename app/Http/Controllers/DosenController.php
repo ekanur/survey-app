@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Biodata_dosen;
+use App\Angket_dosen;
 
 class DosenController extends Controller
 {
@@ -96,6 +97,30 @@ class DosenController extends Controller
     }
 
     public function simpanAngket(Request $request){
+        $data = $this->dataKuesioner($request->except("_token"));
+
+        Angket_dosen::insert($data);
+
+
         return redirect("/");
+    }
+
+    function dataKuesioner($request){
+        $biodata_id = 1; //diubah ke session hasil dari simpanBiodata
+        $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
+        $data = array();
+        $i=0;
+        foreach ($request as $key => $value) {
+            $data[$i]["biodata_dosen_id"] = $biodata_id;
+            $data[$i]["tahun"] = $tahun;
+            $data[$i]["kuesioner"] = $key;
+            $data[$i]["value"] = (is_array($value))? json_encode($value) : $value;
+            $data[$i]["created_at"] = date("Y-m-d");
+            $i++;
+        }
+
+        // dd($data);
+
+        return $data;
     }
 }
