@@ -23,32 +23,28 @@ Route::post("biodata-dosen", "DosenController@simpanBiodata");
 Route::post("biodata-mitra", "MitraController@simpanBiodata");
 
 Route::post("angket-dosen", "DosenController@simpanAngket");
-<<<<<<< HEAD
 
 
-Route::get('/alumni','AlumniController@index')->name('alumni');
 
-Route::get('alumni/angket', 'AlumniController@angket');
 
-Route::post("biodata-alumni", "AlumniController@simpanBiodata");
 
-Route::post("angket-alumni", "AlumniController@simpanAngket");
 
-=======
 Route::post("angket-mitra", "MitraController@simpanAngket");
-
+// mahasiswa
 Route::get('mahasiswa', "MahasiswaController@index");
 Route::get('mahasiswa/angket', "MahasiswaController@angket");
-
+// tendik
 Route::get('tendik', "TendikController@index");
 Route::get('tendik/angket', "TendikController@angket");
 
-Route::get('alumni', "AlumniController@index");
-Route::get('alumni/angket', "AlumniController@angket");
 
 Route::get('pengguna', "PenggunaController@index");
 Route::get('pengguna/angket', "PenggunaController@angket");
-
+// mitra
 Route::get('mitra', "MitraController@index");
 Route::get('mitra/angket', "MitraController@angket");
->>>>>>> b38dbe3a8b94f9a8b7021d2533345dd38ca317d8
+// alumni
+Route::get('/alumni','AlumniController@index')->name('alumni');
+Route::get('alumni/angket', 'AlumniController@angket');
+Route::post("biodata-alumni", "AlumniController@simpanBiodata");
+Route::post("angket-alumni", "AlumniController@simpanAngket");
