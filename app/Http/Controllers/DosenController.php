@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Biodata_dosen;
+use App\Angket_dosen;
 
 class DosenController extends Controller
 {
@@ -95,7 +96,7 @@ class DosenController extends Controller
 
   $biodata = new Biodata_dosen;
     $biodata->email = $request->email;
-    $biodata->prodi = $request->prodi;
+    $biodata->prodi = $request->prodijurusan;
     $biodata->fakultas = $request->fakultas;
     $biodata->tmt = $request->tmt;
     $biodata->jenis_kelamin = $request->jeniskelamin;
@@ -107,17 +108,40 @@ class DosenController extends Controller
 
 
     if($biodata->save()){
-    dd($biodata->id);
+    // dd($biodata->id);
            session(["biodata_id", $biodata->id]);
        return redirect("/dosen/angket");
    }else{
-    return redirect()->back()->withInput();
-}
+        return redirect()->back()->withInput();
+    }
 }
 
 
+    public function simpanAngket(Request $request){
+        $data = $this->dataKuesioner($request->except("_token"));
 
-public function simpanAngket(Request $request){
-    return redirect("/");
-}
+        Angket_dosen::insert($data);
+
+
+        return redirect("/");
+    }
+
+    function dataKuesioner($request){
+        $biodata_id = sesion("biodata_id"); //diubah ke session hasil dari simpanBiodata
+        $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
+        $data = array();
+        $i=0;
+        foreach ($request as $key => $value) {
+            $data[$i]["biodata_dosen_id"] = $biodata_id;
+            $data[$i]["tahun"] = $tahun;
+            $data[$i]["kuesioner"] = $key;
+            $data[$i]["value"] = (is_array($value))? json_encode($value) : $value;
+            $data[$i]["created_at"] = date("Y-m-d");
+            $i++;
+        }
+
+        // dd($data);
+
+        return $data;
+    }
 }
