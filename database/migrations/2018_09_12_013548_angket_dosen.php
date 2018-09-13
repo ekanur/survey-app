@@ -17,7 +17,7 @@ class AngketDosen extends Migration
             $table->increments('id');
             $table->integer("biodata_dosen_id");
             $table->integer("tahun");
-            $table->string("kuesioner", 10);
+            $table->string("kuesioner", 20);
             $table->string("value", 200);
             $table->timestamps();
             $table->softDeletes();

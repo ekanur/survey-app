@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+Use Session;
 use App\Biodata_dosen;
 use App\Angket_dosen;
 
@@ -108,8 +109,10 @@ class DosenController extends Controller
 
 
     if($biodata->save()){
-    // dd($biodata->id);
-           session(["biodata_id", $biodata->id]);
+    
+           $id_biodata=$biodata->id;
+            Session::put('biodata_id', $id_biodata);
+           // var_dump(Session::get('biodata_id')); die();
        return redirect("/dosen/angket");
    }else{
         return redirect()->back()->withInput();
@@ -127,7 +130,8 @@ class DosenController extends Controller
     }
 
     function dataKuesioner($request){
-        $biodata_id = session("biodata_id"); //diubah ke session hasil dari simpanBiodata
+        
+        $biodata_id = session::get('biodata_id'); //diubah ke session hasil dari simpanBiodata
         $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
         $data = array();
         $i=0;
