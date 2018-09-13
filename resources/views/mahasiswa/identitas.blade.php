@@ -32,8 +32,19 @@
                           <input type="jalurmasuk" class="form-control" id="jalurmasuk" placeholder="SNMPTN/SBMPTN/Mandiri/lain-lain" name="jalurmasuk" value="{{old('jalurmasuk')}}" required="">
                         </div>
                          <div class="form-group col-md-6">
-                          <label for="tahunmasuk">Tahun Masuk</label>
-                          <input type="number" min="2010" class="form-control" id="tahunmasuk" name="tahunmasuk" value="{{old('tahunmasuk')}}" required=""> 
+                          <label for="tahun_masuk">Tahun Masuk</label>
+                          <select id="tahun_masuk" name="tahun_masuk" class="form-control" required="">
+
+                  <option value="">Pilih Tahun</option>
+                  <?php
+                  $thn_skr = date('Y');
+                  for ($x = $thn_skr; $x >= 2003; $x--) {
+                    ?>
+                    <option value=" {{$x}} ">{{$x}}</option>
+                    <?php
+                  }
+                  ?>
+                </select> 
                         </div>
                         </div>
 
