@@ -127,7 +127,7 @@ class DosenController extends Controller
     }
 
     function dataKuesioner($request){
-        $biodata_id = sesion("biodata_id"); //diubah ke session hasil dari simpanBiodata
+        $biodata_id = session("biodata_id"); //diubah ke session hasil dari simpanBiodata
         $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
         $data = array();
         $i=0;
