@@ -48,3 +48,6 @@ Route::get('/alumni','AlumniController@index')->name('alumni');
 Route::get('alumni/angket', 'AlumniController@angket');
 Route::post("biodata-alumni", "AlumniController@simpanBiodata");
 Route::post("angket-alumni", "AlumniController@simpanAngket");
+
+
+Route::get("dosen/report", "DosenController@report");

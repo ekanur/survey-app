@@ -81,5 +81,8 @@
 
 @yield('pagespecificjs')
 
+
+@stack("reportjs")
+@stack("highchart")
 </body>
 </html>
