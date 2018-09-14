@@ -16,7 +16,7 @@
                <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="Nama">Nama</label>
-                  <input type="nama" class="form-control" id="nama" placeholder="nama" name="nama" value="{{old('nama')}}" required=""> 
+                  <input type="nama" class="form-control" id="nama" placeholder="Nama" name="nama" value="{{old('nama')}}" required=""> 
                 </div>
 
                 <div class="form-group col-md-6">
@@ -32,8 +32,8 @@
 
                <div class="form-group col-md-6">
                 <label for="fakultas">Fakultas</label>
-                <select id="fakultas" name="fakultas" class="form-control" required="">
-                  <option selected></option>
+                <select id="fakultas" name="fakultas" class="form-control" required="" placeholder="Fakultas">
+                  <option selected value="">Fakultas</option>
                   <option value="fip">FIP (Fakultas Ilmu Pendidikan)</option>
                   <option value="fs">FS (Fakultas Sastra)</option>
                   <option value="fmipa">FMIPA (Fakultas Matematikan & IPA)</option>
@@ -56,7 +56,7 @@
                   <option value="">Pilih Tahun</option>
                   <?php
                   $thn_skr = date('Y');
-                  for ($x = $thn_skr; $x >= 2003; $x--) {
+                  for ($x = $thn_skr; $x >= 2009; $x--) {
                     ?>
                     <option value=" {{$x}} ">{{$x}}</option>
                     <?php
@@ -72,7 +72,7 @@
                   <option value="">Pilih Tahun</option>
                   <?php
                   $thn_skr = date('Y');
-                  for ($x = $thn_skr; $x >= 2003; $x--) {
+                  for ($x = $thn_skr; $x >= 2009; $x--) {
                     ?>
                     <option value=" {{$x}} ">{{$x}}</option>
                     <?php
@@ -89,7 +89,7 @@
                   <option value="">Pilih Tahun</option>
                   <?php
                   $thn_skr = date('Y');
-                  for ($x = $thn_skr; $x >= 2003; $x--) {
+                  for ($x = $thn_skr; $x >= 2012; $x--) {
                     ?>
                     <option value=" {{$x}} ">{{$x}}</option>
                     <?php
@@ -100,7 +100,17 @@
 
               <div class="form-group col-md-6">
                 <label for="masa_tunggu">Masa Tunggu</label>
-                <input type="number" min="1" class="form-control" id="masa_tunggu"name="masa_tunggu" required="">   
+               <select id="masa_tunggu" name="masa_tunggu" class="form-control" required="">
+<option value="">Pilih</option>
+                  <?php
+                  $thn_max = 9;
+                  for ($masa_tunggu = $thn_max; $masa_tunggu >= 1; $masa_tunggu--) {
+                    ?>
+                    <option value=" {{$masa_tunggu}}">{{$masa_tunggu}} tahun</option>
+                    <?php
+                  }
+                  ?>
+                </select></select>
               </div>
             </div>
 
