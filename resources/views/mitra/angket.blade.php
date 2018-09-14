@@ -8,7 +8,7 @@
     <div class="col-lg-8 text-sm-left">
       <div class="card card-small mb-4" >
         <div class="card-header border-bottom">
-          <h6 class="m-0">1.  Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</h6>
+          <h6 class="m-0">Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</h6>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item p-0 px-3 pt-3">
@@ -118,79 +118,79 @@
 
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <h6>(1 = Tidak Puas; 2 = Cukup Puas; 3 = Puas; 4 = Sangat Puas)</h6>
+                  <!-- <h6>(1 = Tidak Puas; 2 = Cukup Puas; 3 = Puas; 4 = Sangat Puas)</h6> -->
                   <table width="100%">
                     <tbody>
                       <tr>
-                        <td width="85%">Kualitas informasi dan profil Universitas </td>
-                        <td width="15%"><select name="q4a" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="80%">Kualitas informasi dan profil Universitas </td>
+                        <td width="20%"><select name="q4a" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                       <tr>
-                        <td width="85%">Kualitas jejaring yang dibangun Universitas</td>
-                        <td width="15%"><select name="q4b" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="80%">Kualitas jejaring yang dibangun Universitas</td>
+                        <td width="20%"><select name="q4b" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                       <tr>
-                        <td width="85%">Kontribusi Universitas terhadap mitra</td>
-                        <td width="15%"><select name="q4c" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="80%">Kontribusi Universitas terhadap mitra</td>
+                        <td width="20%"><select name="q4c" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                       <tr>
-                        <td width="85%">Kontribusi mitra terhadap kegiatan akademik Universitas</td>
-                        <td width="15%"><select name="q4d" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="80%">Kontribusi mitra terhadap kegiatan akademik Universitas</td>
+                        <td width="20%"><select name="q4d" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                       <tr>
-                        <td width="85%">Kontribusi mitra terhadap kegiatan non-akademik Universitas </td>
-                        <td width="15%"><select name="q4e" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="80%">Kontribusi mitra terhadap kegiatan non-akademik Universitas </td>
+                        <td width="20%"><select name="q4e" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                       <tr>
-                        <td width="85%">Keterlibatan Ibu/Bapak dalam kegiatan pembelajaran </td>
-                        <td width="15%"><select name="q4f" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="80%">Keterlibatan Ibu/Bapak dalam kegiatan pembelajaran </td>
+                        <td width="20%"><select name="q4f" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                       <tr>
-                        <td width="85%">Keterlibatan Ibu/Bapak dalam kegiatan penelitian </td>
-                        <td width="15%"><select name="q4g" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="80%">Keterlibatan Ibu/Bapak dalam kegiatan penelitian </td>
+                        <td width="20%"><select name="q4g" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                       <tr>
-                        <td width="85%">Keterlibatan Ibu/Bapak dalam pengabdian kepada masyarakat</td>
-                        <td width="15%"><select name="q4h" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="80%">Keterlibatan Ibu/Bapak dalam pengabdian kepada masyarakat</td>
+                        <td width="20%"><select name="q4h" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                     </tbody>

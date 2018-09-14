@@ -26,7 +26,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="no_telp">Nomor Telepon</label>
-                  <input type="text" class="form-control" id="no_telp" placeholder="Nomor Telepon" name="no_telp" value="{{old('no_telp')}}" required=""> 
+                  <input type="text" class="form-control" id="no_telp" placeholder="Nomor Telepon" name="no_telp" value="{{old('no_telp')}}" oninput="this.value = this.value.replace(/[^0-9. \/]/g, '').replace(/(\..*)\./g, '$1');" required=""> 
                 </div>
                 <div class="form-group col-md-6">
                   <label for="tahun_berdiri">Tahun Berdiri</label>
