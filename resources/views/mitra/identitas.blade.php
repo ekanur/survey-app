@@ -15,22 +15,22 @@
                {{ csrf_field() }}
                <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="jabatanpengisi">Jabatan Pengisi</label>
-                  <input type="text" class="form-control" id="jabatanpengisi" placeholder="Jabatan Pengisi" name="jabatanpengisi" value="{{old('jabatanpengisi')}}" required=""> 
+                  <label for="jabatan_pengisi">Jabatan Pengisi</label>
+                  <input type="text" class="form-control" id="jabatan_pengisi" placeholder="Jabatan Pengisi" name="jabatan_pengisi" value="{{old('jabatan_pengisi')}}" required=""> 
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="namainstansi">Nama Instansi</label>
-                  <input type="text" class="form-control" id="namainstansi" name="namainstansi"placeholder="Nama Instansi" required="">
+                  <label for="nama_instansi">Nama Instansi</label>
+                  <input type="text" class="form-control" id="nama_instansi" name="nama_instansi"placeholder="Nama Instansi" required="">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="jabatanpengisi">Nomor Telepon</label>
-                  <input type="text" class="form-control" id="notelp" placeholder="Nomor Telepon" name="notelp" value="{{old('notelp')}}" required=""> 
+                  <label for="no_telp">Nomor Telepon</label>
+                  <input type="text" class="form-control" id="no_telp" placeholder="Nomor Telepon" name="no_telp" value="{{old('no_telp')}}" required=""> 
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="tahunberdiri">Tahun Berdiri</label>
-                  <select id="tahunberdiri" name="tahunberdiri" class="form-control" required="">
+                  <label for="tahun_berdiri">Tahun Berdiri</label>
+                  <select id="tahun_berdiri" name="tahun_berdiri" class="form-control" required="">
                     <option selected="" disabled="">Pilih Tahun</option>
                     @for ($i = date('Y'); $i > (date('Y') - 7); $i--)
                     <option value="{{$i}}">{{$i}}</option>
@@ -40,8 +40,8 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="skalaoperasional">Skala Operasional</label>
-                  <select id="skalaoperasional" name="skalaoperasional" class="form-control" required="">
+                  <label for="skala_operasional">Skala Operasional</label>
+                  <select id="skala_operasional" name="skala_operasional" class="form-control" required="">
                     <option selected="" disabled="">Pilih Skala</option>
                     <option value="Internasional">Internasional</option>
                     <option value="Nasional">Nasional</option>
@@ -52,8 +52,8 @@
                   </select>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="tahunkerjasama">Tahun Kerjasama</label>
-                  <select id="tahunkerjasama" name="tahunkerjasama" class="form-control" required="">
+                  <label for="tahun_kerjasama">Tahun Kerjasama</label>
+                  <select id="tahun_kerjasama" name="tahun_kerjasama" class="form-control" required="">
                     <option selected="" disabled="">Pilih Tahun</option>
                     @for ($i = date('Y'); $i > (date('Y') - 7); $i--)
                     <option value="{{$i}}">{{$i}}</option>
