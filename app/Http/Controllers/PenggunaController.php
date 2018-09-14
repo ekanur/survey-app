@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
-use App\Biodata_mahasiswa;
-use App\Angket_mahasiswa;
+use App\Biodata_pengguna;
+use App\Angket_pengguna;
 
-class MahasiswaController extends Controller
+class PenggunaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-      return view("mahasiswa/identitas");
+      return view("pengguna/identitas");
     }
 
     /**
@@ -29,9 +29,9 @@ class MahasiswaController extends Controller
     {
       if(null == session("biodata_id")){
         session()->flash("msg", "Isikan biodata anda.");
-        return redirect("/mahasiswa");
+        return redirect("/pengguna");
       }
-      return view('mahasiswa/angket');
+      return view('pengguna/angket');
 
     }
 
@@ -98,49 +98,40 @@ class MahasiswaController extends Controller
     }
 
     public function simpanBiodata(Request $request){
-      
-      
+      return redirect("/pengguna/angket");
 
-      
-
-
-      return redirect("/mahasiswa/angket");
-
-
-      $biodata = new Biodata_mahasiswa;
-      $biodata->email = $request->email;
-      $biodata->jenis_kelamin = $request->jeniskelamin;
-      $biodata->jalur_masuk = $request->jalurmasuk;
-      $biodata->tahun_masuk = $request->tahun_masuk;
-      $biodata->jenjang_pendidikan = $request->jenjang_pendidikan;
-      $biodata->pendornon = $request->pendornon;
-      $biodata->prodi = $request->prodi;
-      $biodata->jenis_pendidikan = $request->jenispend;
-
+      $biodata = new Biodata_pengguna;
+      $biodata->jabatan_pengisi = $request->jabatan_pengisi;
+      $biodata->nama_instansi = $request->nama_instansi;
+      $biodata->tahun_berdiri = $request->tahun_berdiri;
+      $biodata->skala_operasional = $request->skala_operasional;
+      $biodata->jumlah_pegawai = $request->jumlah_pegawai;
+      $biodata->jumlah_um = $request->jumlah_um;
+      $biodata->email =$request->email;
 
       if($biodata->save()){
         // dd($biodata->id);
        session(["biodata_id" => $biodata->id]);
                // dd(session("biodata_id"));
-       return redirect("/mahasiswa/angket");
+       return redirect("/pengguna/angket");
      }
      else {
       return redirect()->back()->withInput();
     }
-   
+    
   }
 
 
   public function simpanAngket(Request $request){
     if(null == session("biodata_id")){
       session()->flash("msg", "Isikan biodata anda.");
-      return redirect("/mahasiswa");
+      return redirect("/pengguna");
     }
     $data = $this->dataKuesioner($request->except("_token"));
 
-    Angket_mahasiswa::insert($data);
+    Angket_pengguna::insert($data);
 
-    session()->forget("mahasiswa_id");
+    session()->forget("dosen_id");
     session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
     return redirect("/");
   }
@@ -151,7 +142,7 @@ class MahasiswaController extends Controller
         $data = array();
         $i=0;
         foreach ($request as $key => $value) {
-          $data[$i]["biodata_mahasiswa_id"] = $biodata_id;
+          $data[$i]["biodata_pengguna_id"] = $biodata_id;
           $data[$i]["tahun"] = $tahun;
           $data[$i]["kuesioner"] = $key;
           $data[$i]["value"] = (is_array($value))? json_encode($value) : $value;
