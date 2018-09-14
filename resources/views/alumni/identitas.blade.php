@@ -16,7 +16,7 @@
                <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="Nama">Nama</label>
-                  <input type="nama" class="form-control" id="nama" placeholder="Nama" name="nama" value="{{old('nama')}}" required=""> 
+                  <input type="nama" class="form-control" id="nama" placeholder="Nama" name="nama" value="{{old('nama')}}" required=""focus()> 
                 </div>
 
                 <div class="form-group col-md-6">

@@ -67,9 +67,9 @@
                       <label class="custom-control-label" for="c5q2">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c6q2" value="{{old('lainnya1')}}">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c6q2" value="Lain-lain">
                       <label class="custom-control-label" for="c6q2">Lain-lain</label>
-                      <input class="text" name="lainnya1" id="lainnya1"></input>
+                    
                     </div>
                   </fieldset>
                 </div>
@@ -206,11 +206,9 @@
                       <label class="custom-control-label" for="c5q5">Studi Lanjut (S2/S3) </label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c6q5" value="{{old('lainnya2')}}">
+                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c6q5" value="Lain-lain">
                       <label class="custom-control-label" for="c6q5">Lain-lain</label>
-                      <input class="text" id="lainnya2" name="lainnya2" value="{{old('lainnya2')}}"></input>
-
-                    </div>
+                     </div>
                   </fieldset>
                 </div>
               </div>
@@ -247,10 +245,9 @@
                     <label class="custom-control-label" for="radio2q6"> Non PNS</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio3q6" name="q6" class="custom-control-input" value="{{old('lainya3')}}">
+                    <input required="" type="radio" id="radio3q6" name="q6" class="custom-control-input" value="Lain-lain">
                     <label class="custom-control-label" for="radio3q6"> Lain-lain</label>
-                    <input class="text" id="lainnya3" name="lainnya3" value="{{old('lainnya3')}}"></input>
-                  </div>
+                    </div>
                 </fieldset>
               </div>
             </div>
