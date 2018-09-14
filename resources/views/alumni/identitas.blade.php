@@ -26,8 +26,8 @@
               </div>
               <div class="form-row">
                <div class="form-group col-md-6">
-                 <label for="prodijurusan">Nama Prodi</label>
-                 <input type="text" class="form-control" id="prodijurusan" name="prodijurusan"placeholder="Nama Prodi/Jurusan" required="">
+                 <label for="prodijurusan">Prodi/Jurusan</label>
+                 <input type="text" class="form-control" id="prodijurusan" name="prodijurusan"placeholder="Prodi/Jurusan" required="">
                </div>
 
                <div class="form-group col-md-6">
@@ -103,7 +103,7 @@
                <select id="masa_tunggu" name="masa_tunggu" class="form-control" required="">
 <option value="">Pilih</option>
                   <?php
-                  $thn_max = 9;
+                  $thn_max = 5;
                   for ($masa_tunggu = $thn_max; $masa_tunggu >= 1; $masa_tunggu--) {
                     ?>
                     <option value=" {{$masa_tunggu}}">{{$masa_tunggu}} tahun</option>
