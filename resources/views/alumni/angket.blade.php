@@ -42,7 +42,7 @@
         <li class="list-group-item p-3">
           <div class="row">
             <div class="col-sm-12">
-              <label>Boleh lebih dari satu jawaban</label>
+              <label class="text-info"><i>Boleh lebih dari satu jawaban</i></label>
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
@@ -182,7 +182,7 @@
 
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <label>Boleh lebih dari satu jawaban</label>
+                  <label class="text-info"><i>Boleh lebih dari satu jawaban</i></label>
                   <label for="checkboxd5"></label>
                   <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
@@ -283,224 +283,224 @@
                       <tr>
                         <td width="85%">Kualitas informasi dan profil Program Studi</td>
                         <td width="15%"><select name="q7a1" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                       <tr>
                         <td width="85%">Kurikulum Program Studi</td>
                         <td width="15%"><select name="q7a2" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Kualitas dosen Program Studi</td>
-                        <td width="15%"><select name="q7a3" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Kualitas pembimbing tugas akhir/skripsi/tesis/disertasi</td>
-                        <td width="15%"><select name="q7a4" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Kualitas Prodi dalam menyiapkan karir professional</td>
-                        <td width="15%"><select name="q7a5" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Relevansi Kurikulum Prodi dalam pengembangan personal</td>
-                        <td width="15%"><select name="q7a6" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Relevansi Kurikulum Prodi dalam pengembangan akademik</td>
-                        <td width="15%"><select name="q7a7" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Relevansi Kurikulum Prodi dalam pengembangan professional</td>
-                        <td width="15%"><select name="q7a8" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Relevansi Kurikulum Prodi dengan bidang pekerjaan</td>
-                        <td width="15%"><select name="q7a9" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Kualitas jejaring yang dibangun Program Studi</td>
-                        <td width="15%"><select name="q7a10" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Kontribusi Alumni dalam kegiatan akademik Program Studi</td>
-                        <td width="15%"><select name="q7a11" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Kontribusi Alumni dalam kegiatan non-akademik Program Studi</td>
-                        <td width="15%"><select name="q7a12" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Pekerjaan anda saat ini</td>
-                        <td width="15%"><select name="q7a13" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                    
-                      <tr><td><strong>B. Di tingkat Fakultas/Universitas</strong></td></tr>
-                      <tr>
+                         <option value="4">Sangat Puas</option>
+                         <option value="3">Puas</option>
+                         <option value="2">Cukup Puas</option>
+                         <option value="1">Tidak Puas</option>
+                       </select></td>
+                     </tr>
+                     <tr>
+                      <td width="85%">Kualitas dosen Program Studi</td>
+                      <td width="15%"><select name="q7a3" class="form-control">
+                       <option value="4">Sangat Puas</option>
+                       <option value="3">Puas</option>
+                       <option value="2">Cukup Puas</option>
+                       <option value="1">Tidak Puas</option>
+                     </select></td>
+                   </tr>
+                   <tr>
+                    <td width="85%">Kualitas pembimbing tugas akhir/skripsi/tesis/disertasi</td>
+                    <td width="15%"><select name="q7a4" class="form-control">
+                     <option value="4">Sangat Puas</option>
+                     <option value="3">Puas</option>
+                     <option value="2">Cukup Puas</option>
+                     <option value="1">Tidak Puas</option>
+                   </select></td>
+                 </tr>
+                 <tr>
+                  <td width="85%">Kualitas Prodi dalam menyiapkan karir professional</td>
+                  <td width="15%"><select name="q7a5" class="form-control">
+                   <option value="4">Sangat Puas</option>
+                   <option value="3">Puas</option>
+                   <option value="2">Cukup Puas</option>
+                   <option value="1">Tidak Puas</option>
+                 </select></td>
+               </tr>
+               <tr>
+                <td width="85%">Relevansi Kurikulum Prodi dalam pengembangan personal</td>
+                <td width="15%"><select name="q7a6" class="form-control">
+                 <option value="4">Sangat Puas</option>
+                 <option value="3">Puas</option>
+                 <option value="2">Cukup Puas</option>
+                 <option value="1">Tidak Puas</option>
+               </select></td>
+             </tr>
+             <tr>
+              <td width="85%">Relevansi Kurikulum Prodi dalam pengembangan akademik</td>
+              <td width="15%"><select name="q7a7" class="form-control">
+               <option value="4">Sangat Puas</option>
+               <option value="3">Puas</option>
+               <option value="2">Cukup Puas</option>
+               <option value="1">Tidak Puas</option>
+             </select></td>
+           </tr>
+           <tr>
+            <td width="85%">Relevansi Kurikulum Prodi dalam pengembangan professional</td>
+            <td width="15%"><select name="q7a8" class="form-control">
+             <option value="4">Sangat Puas</option>
+             <option value="3">Puas</option>
+             <option value="2">Cukup Puas</option>
+             <option value="1">Tidak Puas</option>
+           </select></td>
+         </tr>
+         <tr>
+          <td width="85%">Relevansi Kurikulum Prodi dengan bidang pekerjaan</td>
+          <td width="15%"><select name="q7a9" class="form-control">
+           <option value="4">Sangat Puas</option>
+           <option value="3">Puas</option>
+           <option value="2">Cukup Puas</option>
+           <option value="1">Tidak Puas</option>
+         </select></td>
+       </tr>
+       <tr>
+        <td width="85%">Kualitas jejaring yang dibangun Program Studi</td>
+        <td width="15%"><select name="q7a10" class="form-control">
+         <option value="4">Sangat Puas</option>
+         <option value="3">Puas</option>
+         <option value="2">Cukup Puas</option>
+         <option value="1">Tidak Puas</option>
+       </select></td>
+     </tr>
+     <tr>
+      <td width="85%">Kontribusi Alumni dalam kegiatan akademik Program Studi</td>
+      <td width="15%"><select name="q7a11" class="form-control">
+       <option value="4">Sangat Puas</option>
+       <option value="3">Puas</option>
+       <option value="2">Cukup Puas</option>
+       <option value="1">Tidak Puas</option>
+     </select></td>
+   </tr>
+   <tr>
+    <td width="85%">Kontribusi Alumni dalam kegiatan non-akademik Program Studi</td>
+    <td width="15%"><select name="q7a12" class="form-control">
+     <option value="4">Sangat Puas</option>
+     <option value="3">Puas</option>
+     <option value="2">Cukup Puas</option>
+     <option value="1">Tidak Puas</option>
+   </select></td>
+ </tr>
+ <tr>
+  <td width="85%">Pekerjaan anda saat ini</td>
+  <td width="15%"><select name="q7a13" class="form-control">
+   <option value="4">Sangat Puas</option>
+   <option value="3">Puas</option>
+   <option value="2">Cukup Puas</option>
+   <option value="1">Tidak Puas</option>
+ </select></td>
+</tr>
 
-                        <td width="85%">Kejelasan kelengkapan informasi persyaratan untuk memperoleh layanan akademik dan non-akademik</td>
-                        <td width="15%"><select name="q7b1" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Prosedur pemberian layanan akademik dan non-akademik</td>
-                        <td width="15%"><select name="q7b2" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Waktu pemberian layanan akademik dan non-akademik</td>
-                        <td width="15%"><select name="q7b3" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Biaya pemberian layanan akademik dan non-akademik</td>
-                        <td width="15%"><select name="q7b4" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Produk layanan akademik dan non-akademik</td>
-                        <td width="15%"><select name="q7b5" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Kompetensi pelaksana layanan akademik dan non-akademik</td>
-                        <td width="15%"><select name="q7b6" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Perilaku pelaksana layanan akademik dan non-akademik</td>
-                        <td width="15%"><select name="q7b7" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Penanganan pengaduan terkait pelaksanaan layanan akademik dan non-akademik</td>
-                        <td width="15%"><select name="q7b8" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Kualitas layanan akademik dan non-akademik</td>
-                        <td width="15%"><select name="q7b9" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Kualitas layanan tenaga kependidikan</td>
-                        <td width="15%"><select name="q7b10" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+<tr><td><strong>B. Di tingkat Fakultas/Universitas</strong></td></tr>
+<tr>
+
+  <td width="85%">Kejelasan kelengkapan informasi persyaratan untuk memperoleh layanan akademik dan non-akademik</td>
+  <td width="15%"><select name="q7b1" class="form-control">
+   <option value="4">Sangat Puas</option>
+   <option value="3">Puas</option>
+   <option value="2">Cukup Puas</option>
+   <option value="1">Tidak Puas</option>
+ </select></td>
+</tr>
+<tr>
+  <td width="85%">Prosedur pemberian layanan akademik dan non-akademik</td>
+  <td width="15%"><select name="q7b2" class="form-control">
+   <option value="4">Sangat Puas</option>
+   <option value="3">Puas</option>
+   <option value="2">Cukup Puas</option>
+   <option value="1">Tidak Puas</option>
+ </select></td>
+</tr>
+<tr>
+  <td width="85%">Waktu pemberian layanan akademik dan non-akademik</td>
+  <td width="15%"><select name="q7b3" class="form-control">
+   <option value="4">Sangat Puas</option>
+   <option value="3">Puas</option>
+   <option value="2">Cukup Puas</option>
+   <option value="1">Tidak Puas</option>
+ </select></td>
+</tr>
+<tr>
+  <td width="85%">Biaya pemberian layanan akademik dan non-akademik</td>
+  <td width="15%"><select name="q7b4" class="form-control">
+   <option value="4">Sangat Puas</option>
+   <option value="3">Puas</option>
+   <option value="2">Cukup Puas</option>
+   <option value="1">Tidak Puas</option>
+ </select></td>
+</tr>
+<tr>
+  <td width="85%">Produk layanan akademik dan non-akademik</td>
+  <td width="15%"><select name="q7b5" class="form-control">
+   <option value="4">Sangat Puas</option>
+   <option value="3">Puas</option>
+   <option value="2">Cukup Puas</option>
+   <option value="1">Tidak Puas</option>
+ </select></td>
+</tr>
+<tr>
+  <td width="85%">Kompetensi pelaksana layanan akademik dan non-akademik</td>
+  <td width="15%"><select name="q7b6" class="form-control">
+   <option value="4">Sangat Puas</option>
+   <option value="3">Puas</option>
+   <option value="2">Cukup Puas</option>
+   <option value="1">Tidak Puas</option>
+ </select></td>
+</tr>
+<tr>
+  <td width="85%">Perilaku pelaksana layanan akademik dan non-akademik</td>
+  <td width="15%"><select name="q7b7" class="form-control">
+   <option value="4">Sangat Puas</option>
+   <option value="3">Puas</option>
+   <option value="2">Cukup Puas</option>
+   <option value="1">Tidak Puas</option>
+ </select></td>
+</tr>
+<tr>
+  <td width="85%">Penanganan pengaduan terkait pelaksanaan layanan akademik dan non-akademik</td>
+  <td width="15%"><select name="q7b8" class="form-control">
+   <option value="4">Sangat Puas</option>
+   <option value="3">Puas</option>
+   <option value="2">Cukup Puas</option>
+   <option value="1">Tidak Puas</option>
+ </select></td>
+</tr>
+<tr>
+  <td width="85%">Kualitas layanan akademik dan non-akademik</td>
+  <td width="15%"><select name="q7b9" class="form-control">
+   <option value="4">Sangat Puas</option>
+   <option value="3">Puas</option>
+   <option value="2">Cukup Puas</option>
+   <option value="1">Tidak Puas</option>
+ </select></td>
+</tr>
+<tr>
+  <td width="85%">Kualitas layanan tenaga kependidikan</td>
+  <td width="15%"><select name="q7b10" class="form-control">
+   <option value="4">Sangat Puas</option>
+   <option value="3">Puas</option>
+   <option value="2">Cukup Puas</option>
+   <option value="1">Tidak Puas</option>
+ </select></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 
 <div align="center">
@@ -519,11 +519,11 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                    <div class="col-md-12">
-                <div class="card-body">
-                  <label>Saran</label>
-                  <textarea name="saran1" class="form-control"></textarea>
-                </div>
-              </div>
+                    <div class="card-body">
+                      <label>Saran</label>
+                      <textarea name="saran1" class="form-control"></textarea>
+                    </div>
+                  </div>
                 </fieldset>
               </div>
             </div>
@@ -551,11 +551,11 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                    <div class="col-md-12">
-                <div class="card-body">
-                  <label>Saran</label>
-                  <textarea name="saran2" class="form-control"></textarea>
-                </div>
-              </div>
+                    <div class="card-body">
+                      <label>Saran</label>
+                      <textarea name="saran2" class="form-control"></textarea>
+                    </div>
+                  </div>
                 </fieldset>
               </div>
             </div>
