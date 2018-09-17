@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{!! asset('css/extras.1.0.0.min.css')!!}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css">
+
+    @stack("style")
 </head>
 <body>
     <div class="main-content-container container-fluid px-4">

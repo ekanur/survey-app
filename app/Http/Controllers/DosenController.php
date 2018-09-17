@@ -158,7 +158,7 @@ class DosenController extends Controller
 
 
     function report(){
-        $data['title'] = "Ahay";
-        return view("dosen.report", compact('data'));
+        $count_pemahaman = DB::table("angket_dosen")->select(DB::raw("COUNT(id) as count"), "value")->
+        return view("dosen.report");
     }
 }

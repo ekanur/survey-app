@@ -25,7 +25,7 @@
 	<div class="col-lg-4 col-md-4 col-sm-12 mb-4">
 		@component("chart.pie")
 			@slot("judul")
-				{{ $data["title"] }}
+				Media Penyampaian Visi, Misi, Tujuan & Sasaran
 			@endslot
 
 			@slot("id_chart")
