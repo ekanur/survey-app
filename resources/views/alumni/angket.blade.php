@@ -69,7 +69,7 @@
                     <div class="custom-control custom-checkbox mb-1">
                       <input name="q2[]" type="checkbox" class="custom-control-input" id="c6q2" value="Lain-lain">
                       <label class="custom-control-label" for="c6q2">Lain-lain</label>
-                    
+
                     </div>
                   </fieldset>
                 </div>
@@ -208,7 +208,7 @@
                     <div class="custom-control custom-checkbox mb-1">
                       <input name="q5[]" type="checkbox" class="custom-control-input" id="c6q5" value="Lain-lain">
                       <label class="custom-control-label" for="c6q5">Lain-lain</label>
-                     </div>
+                    </div>
                   </fieldset>
                 </div>
               </div>
@@ -247,7 +247,7 @@
                   <div class="custom-control custom-radio mb-1">
                     <input required="" type="radio" id="radio3q6" name="q6" class="custom-control-input" value="Lain-lain">
                     <label class="custom-control-label" for="radio3q6"> Lain-lain</label>
-                    </div>
+                  </div>
                 </fieldset>
               </div>
             </div>
@@ -273,7 +273,7 @@
 
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <h6>(1 = Tidak Puas; 2 = Cukup Puas; 3 = Puas; 4 = Sangat Puas)</h6>
+                 <label class="text-info"><i>Wajid Mengisi Pilihan Berikut ini</i></label>
                   <table width="100%">
                     <tbody>
                       <tr> <td><strong>A. Di tingkat Prodi</strong></td></tr>
@@ -498,6 +498,7 @@
 </ul>
 </div>
 </div>
+
 </div>
 
 <div align="center">

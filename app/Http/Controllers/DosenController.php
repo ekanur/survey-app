@@ -158,6 +158,7 @@ class DosenController extends Controller
 
 
     function report(){
-        return view("dosen.report");
+        $data['title'] = "Ahay";
+        return view("dosen.report", compact('data'));
     }
 }

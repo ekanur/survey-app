@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AngketMitra extends Migration
+class BiodataPengguna extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class AngketMitra extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('angket_mitra', function (Blueprint $table) {
+        Schema::create('biodata_pengguna', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("biodata_mitra_id");
-            $table->integer("tahun");
-            $table->string("kuesioner", 20);
-            $table->string("value", 200)->nullable();
+            $table->string("jabatan_pengisi", 75);
+            $table->string("nama_instansi", 75);
+            $table->unsignedSmallInteger("tahun_berdiri");
+            $table->string("skala_operasional", 50);
+            $table->string("jumlah_pegawai", 20);
+            $table->string('jumlah_um', 20);
+            $table->string("email", 75);
             $table->timestamps();
             $table->softDeletes();
             //
@@ -33,6 +35,6 @@ class AngketMitra extends Migration
      */
     public function down()
     {
-        
+        //
     }
 }

@@ -13,7 +13,7 @@ class AngketAlumni extends Migration
      */
     public function up()
     {
-       Schema::create('angket_alumni', function (Blueprint $table) {
+        Schema::create('angket_alumni', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("biodata_alumni_id");
             $table->integer("tahun");
@@ -22,7 +22,7 @@ class AngketAlumni extends Migration
             $table->timestamps();
             $table->softDeletes();
             //
-        });
+        });//
     }
 
     /**
@@ -32,6 +32,6 @@ class AngketAlumni extends Migration
      */
     public function down()
     {
-        schema::drop('angket_alumni');
+        //
     }
 }
