@@ -38,7 +38,7 @@ Route::get('/alumni','AlumniController@index')->name('alumni');
 Route::get('alumni/angket', 'AlumniController@angket');
 Route::post("biodata-alumni", "AlumniController@simpanBiodata");
 Route::post("angket-alumni", "AlumniController@simpanAngket");
-
+route::get("alumni/report","AlumniController@report");
 // <<<<<<< HEAD
 //pengguna
 Route::get('pengguna', "PenggunaController@index")->name('pengguna');
