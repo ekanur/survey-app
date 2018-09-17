@@ -33,7 +33,6 @@ class AngketMitra extends Migration
      */
     public function down()
     {
-        //
-        Schema::drop('angket_mitra');
+        
     }
 }

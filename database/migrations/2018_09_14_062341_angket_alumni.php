@@ -13,7 +13,6 @@ class AngketAlumni extends Migration
      */
     public function up()
     {
-        {
         Schema::create('angket_alumni', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("biodata_alumni_id");

@@ -98,8 +98,6 @@ class MitraController extends Controller
     }
 
     public function simpanBiodata(Request $request){
-      return redirect("/mitra/angket");
-
       $biodata = new Biodata_mitra;
       $biodata->jabatan_pengisi = $request->jabatan_pengisi;
       $biodata->nama_instansi = $request->nama_instansi;
@@ -109,9 +107,7 @@ class MitraController extends Controller
       $biodata->tahun_kerjasama = $request->tahun_kerjasama;
 
       if($biodata->save()){
-        // dd($biodata->id);
        session(["biodata_id" => $biodata->id]);
-               // dd(session("biodata_id"));
        return redirect("/mitra/angket");
      }
      else {

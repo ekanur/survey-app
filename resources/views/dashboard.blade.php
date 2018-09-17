@@ -14,6 +14,7 @@
       </a>
       <a href="#" class="btn btn-info"><i class="fa fa-chart-pie"></i> Report</a>
     </div>
+
   </div>
   <div class="col-lg col-md-6 col-sm-6 mb-4">
     <div class="stats-small stats-small--1 card card-small">
@@ -67,6 +68,7 @@
       <a href="#" class="btn btn-info"><i class="fa fa-chart-pie"></i> Report</a>
     </div>
   </div>
+
   <div class="col-lg col-md-6 col-sm-6 mb-4">
     <div class="stats-small stats-small--1 card card-small">
       <a class="card-body p-0 d-flex" href="{{url ('mitra')}}">
@@ -80,6 +82,7 @@
       <a href="#" class="btn btn-info"><i class="fa fa-chart-pie"></i> Report</a>
     </div>
   </div>
+
 </div>
 <!-- End Small Stats Blocks -->
 @endsection

@@ -12,16 +12,16 @@ class BiodataAlumni extends Migration
      * @return void
      */
     public function up()
-    
-        Schema::create('biodata_mitra', function (Blueprint $table) {
+    {
+        Schema::create('biodata_alumni', function (Blueprint $table) {
             $table->increments('id');
             $table->string("nama", 75);
             $table->string("email", 75);
             $table->string("prodi", 100);
             $table->string("fakultas", 100);
-            $table->unsignedSmallInteger("tahun_masuk")
+            $table->unsignedSmallInteger("tahun_masuk");
             $table->unsignedSmallInteger("tahun_lulus");
-            $table->unsignedSmallInteger("tahun_bekerja")
+            $table->unsignedSmallInteger("tahun_bekerja");
             $table->unsignedSmallInteger("masa_tunggu");
             $table->timestamps();
             $table->softDeletes();
