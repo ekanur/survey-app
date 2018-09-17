@@ -36,15 +36,41 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_1" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Dari mana Ibu/Bapak mengetahui rumusan tersebut?</h6>
+        <h6 class="m-0">Darimana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan tempat Ibu/Bapak bekerja?</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
           <div class="row">
             <div class="col-sm-12">
+              <label>Boleh lebih dari satu jawaban</label>
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <input type="text" name="q2" class="form-control" required="">
+                  <fieldset>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Rapat Jurusan">
+                      <label class="custom-control-label" for="c1q2">Masa orientasi Maba</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Katalog dan/atau dokumen Jurusan lainnya">
+                      <label class="custom-control-label" for="c2q2">Katalog dan/atau dokumen Jurusan lainnya</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c3q2" value="Membaca banner">
+                      <label class="custom-control-label" for="c3q2">Membaca banner</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Kegiatan kemahasiswaan">
+                      <label class="custom-control-label" for="c4q2">Kegiatan kemahasiswaan</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c5q2" value="Laman UM">
+                      <label class="custom-control-label" for="c5q2">Laman UM</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c5q2" value="Laman UM">
+                      <label class="custom-control-label" for="c6q2">Lain-lain</label>
+                    </div>
+                  </fieldset>
                 </div>
               </div>
               
@@ -109,6 +135,105 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
+        <h6 class="m-0">Menurut Ibu/Bapak, bagaimana kompetensi lulusan kami dalam aspek-aspek berikut </h6>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item p-3">
+          <div class="row">
+            <div class="col">
+
+              <div class="form-row">
+                <div class="form-group col-md-12 text-sm-left">
+                  <h6>Wajib pilih salah satu</h6>
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td width="85%">Integritas (Etika dan moral) lulusan UM dalam bekerja</td>
+                        <td width="15%"><select name="q4a" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Profesionalisme lulusan UM dalam bekerja</td>
+                        <td width="15%"><select name="q4b" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Kemahiran berkomunikasi baik lisan maupun tulisan dalam bahasa Inggris</td>
+                        <td width="15%"><select name="q4c" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Tingkat penguasaan TIK untuk menunjang dan memaksimalkan pekerjaan</td>
+                        <td width="15%"><select name="q4d" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Kemahiran dan kecerdasan berkomunikasi dalam situasi kerja</td>
+                        <td width="15%"><select name="q4e" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Kemampuan bekerja dalam tim</td>
+                        <td width="15%"><select name="q4f" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Potensi pengembangan diri dalam bekerja </td>
+                        <td width="15%"><select name="q4g" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div align="center">
+  <div class="col-lg-8 text-sm-left">
+    <div class="card card-small mb-4" >
+      <div class="card-header border-bottom">
         <h6 class="m-0">Berikan penilaian Ibu/Bapak terhadap indikator berikut ini </h6>
       </div>
       <ul class="list-group list-group-flush">
@@ -118,79 +243,177 @@
 
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <h6>(1 = Tidak Puas; 2 = Cukup Puas; 3 = Puas; 4 = Sangat Puas)</h6>
+                  <h6>Wajib pilih salah satu</h6>
                   <table width="100%">
                     <tbody>
                       <tr>
                         <td width="85%">Kualitas informasi dan profil Universitas </td>
-                        <td width="15%"><select name="q4a" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="15%"><select name="q5a" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                       <tr>
-                        <td width="85%">Kualitas jejaring yang dibangun Universitas</td>
-                        <td width="15%"><select name="q4b" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="85%">Kualitas alumni yang bekerja di instansi Ibu/Bapak</td>
+                        <td width="15%"><select name="q5b" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                       <tr>
-                        <td width="85%">Kontribusi Universitas terhadap mitra</td>
-                        <td width="15%"><select name="q4c" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Kontribusi mitra terhadap kegiatan akademik Universitas</td>
-                        <td width="15%"><select name="q4d" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Kontribusi mitra terhadap kegiatan non-akademik Universitas </td>
-                        <td width="15%"><select name="q4e" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Keterlibatan Ibu/Bapak dalam kegiatan pembelajaran </td>
-                        <td width="15%"><select name="q4f" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td width="85%">Keterlibatan Ibu/Bapak dalam kegiatan penelitian </td>
-                        <td width="15%"><select name="q4g" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="85%">Keterlibatan Ibu/Bapak dalam penelitian dosen</td>
+                        <td width="15%"><select name="q5c" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                       <tr>
                         <td width="85%">Keterlibatan Ibu/Bapak dalam pengabdian kepada masyarakat</td>
-                        <td width="15%"><select name="q4h" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
+                        <td width="15%"><select name="q5d" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Kualitas jejaring yang dibangun Universitas </td>
+                        <td width="15%"><select name="q5e" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Kontribusi Universitas terhadap pengguna </td>
+                        <td width="15%"><select name="q5f" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Kontribusi pengguna terhadap kegiatan akademik </td>
+                        <td width="15%"><select name="q5g" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Kontribusi pengguna terhadap kegiatan non-akademik </td>
+                        <td width="15%"><select name="q5h" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Kejelasan dan kelengkapan informasi persyaratan yang diperlukan untuk memperoleh layanan akademik dan non-akademik </td>
+                        <td width="15%"><select name="q5i" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Prosedur pemberian layanan akademik dan non-akademik</td>
+                        <td width="15%"><select name="q5j" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Waktu pemberian layanan akademik dan non-akademik </td>
+                        <td width="15%"><select name="q5k" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Biaya pemberian layanan akademik dan non-akademik</td>
+                        <td width="15%"><select name="q5l" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Produk layanan akademik dan non-akademik </td>
+                        <td width="15%"><select name="q5m" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Kompetensi pelaksana layanan akademik dan non-akademik </td>
+                        <td width="15%"><select name="q5n" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Perilaku pelaksana layanan akademik dan non-akademik </td>
+                        <td width="15%"><select name="q5o" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Penanganan pengaduan terkait pelaksanaan layanan akademik dan non-akademik </td>
+                        <td width="15%"><select name="q5p" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="85%">Kualitas layanan akademik dan non-akademik </td>
+                        <td width="15%"><select name="q5q" class="form-control">
+                          <option selected="" disabled="">---</option>
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
                     </tbody>
@@ -210,18 +433,31 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Tuliskan saran dan rekomendasi Ibu/Bapak kepada Universitas</h6>
+        <h6 class="m-0">Tuliskan saran dan rekomendasi Ibu/Bapak kepada pihak terkait</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
           <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <textarea name="saranpengguna" class="form-control" placeholder="Saran untuk universitas"></textarea>
+            <div class="col">
+              <div class="col-md-12">
+                <div class="card-body">
+                  <label>Program Studi / Jurusan</label>
+                  <textarea name="saranjurusan" class="form-control"></textarea>
+                </div>
               </div>
-              <div class="form-group text-right">
-                <button type="submit" class="btn btn-success">Simpan</button>
+              <div class="col-md-12">
+                <div class="card-body">
+                  <label>Fakultas</label>
+                  <textarea name="saranfakultas" class="form-control"></textarea>
+                </div>
               </div>
+              <div class="col-md-12">
+                <div class="card-body">
+                  <label>Universitas</label>
+                  <textarea name="saranuniversitas" class="form-control"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success">Simpan</button>
             </div>
           </div>
         </li>

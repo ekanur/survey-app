@@ -98,14 +98,6 @@ class MahasiswaController extends Controller
     }
 
     public function simpanBiodata(Request $request){
-      
-      
-
-      
-
-
-      return redirect("/mahasiswa/angket");
-
 
       $biodata = new Biodata_mahasiswa;
       $biodata->email = $request->email;
@@ -140,7 +132,7 @@ class MahasiswaController extends Controller
 
     Angket_mahasiswa::insert($data);
 
-    session()->forget("mahasiswa_id");
+    session()->forget("biodata_id");
     session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
     return redirect("/");
   }
