@@ -38,6 +38,7 @@ Route::get('alumni/angket', 'AlumniController@angket');
 Route::post("biodata-alumni", "AlumniController@simpanBiodata");
 Route::post("angket-alumni", "AlumniController@simpanAngket");
 
+// <<<<<<< HEAD
 //pengguna
 Route::get('pengguna', "PenggunaController@index")->name('pengguna');
 Route::get('pengguna/angket', "PenggunaController@angket");
@@ -49,3 +50,7 @@ Route::get('mitra', "MitraController@index")->name('mitra');
 Route::get('mitra/angket', "MitraController@angket");
 Route::post("biodata-mitra", "MitraController@simpanBiodata");
 Route::post("angket-mitra", "MitraController@simpanAngket");
+// =======
+
+Route::get("dosen/report", "DosenController@report");
+// >>>>>>> 3573de0199b9814c44377a6daaa22c9d45405ec9

@@ -131,14 +131,14 @@ class DosenController extends Controller
 
         Angket_dosen::insert($data);
 
-        session()->forget("dosen_id");
+        session()->forget("biodata_id");
         session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
         return redirect("/");
     }
 
     function dataKuesioner($request){
         
-        $biodata_id = session::get('biodata_id'); //diubah ke session hasil dari simpanBiodata
+        $biodata_id = session('biodata_id'); //diubah ke session hasil dari simpanBiodata
         $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
         $data = array();
         $i=0;
@@ -154,5 +154,10 @@ class DosenController extends Controller
         // dd($data);
 
         return $data;
+    }
+
+
+    function report(){
+        return view("dosen.report");
     }
 }
