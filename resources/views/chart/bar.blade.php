@@ -10,7 +10,7 @@
 		<div class="row">
 
 			<div class="col text-right view-report">
-				<a href="#">Full report →</a>
+				{{-- <a href="#">Full report →</a> --}}
 			</div>
 		</div>
 	</div>
