@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< Updated upstream
 use Session;
-=======
 use Illuminate\Support\Facades\DB;
 
->>>>>>> Stashed changes
 use App\Biodata_mitra;
 use App\Angket_mitra;
 
