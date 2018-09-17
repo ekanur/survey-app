@@ -5,13 +5,13 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Identitas Mitra</h6>
+        <h6 class="m-0">Identitas Pengguna</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
           <div class="row">
             <div class="col">
-              <form method="POST" action="{{ url("biodata-mitra") }}">
+              <form method="POST" action="{{ url("biodata-pengguna") }}">
                {{ csrf_field() }}
                <div class="form-row">
                 <div class="form-group col-md-6">
