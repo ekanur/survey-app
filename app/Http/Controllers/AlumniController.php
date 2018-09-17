@@ -95,60 +95,58 @@ class AlumniController extends Controller
 
     public function simpanBiodata(Request $request){
 
-  // $biodata = new Biodata_alumni;
-  //   $biodata->email = $request->email;
-  //   $biodata->prodi = $request->prodijurusan;
-  //   $biodata->fakultas = $request->fakultas;
-  //   $biodata->tmt = $request->tmt;
-  //   $biodata->jenis_kelamin = $request->jeniskelamin;
-  //   $biodata->usia = $request->usia;
-  //   $biodata->pendidikan_tertinggi = $request->pendidikan;
-  //   $biodata->lama_mengajar = $request->lamamengajar;
-  //   $biodata->jabatan_fungsional = $request->jabatanfungsional;
-  //   $biodata->tugas_tambahan = $request->tugastambahan;
+  $biodata = new Biodata_alumni;
+    $biodata->nama = $request->nama;
+    $biodata->email = $request->email;
+    $biodata->prodi = $request->prodijurusan;
+     $biodata->fakultas = $request->fakultas;
+     $biodata->tahun_masuk = $request->tahun_masuk;
+     $biodata->tahun_lulus = $request->tahun_lulus;
+     $biodata->tahun_bekerja = $request->tahun_bekerja;
+     $biodata->masa_tunggu = $request->masa_tunggu;
+     
 
-
-    // if($biodata->save()){
-
-    //        session(["biodata_id" => $biodata->id]);
-           // dd(session("biodata_id"));
+   if($biodata->save()){
+       session(["biodata_alumni_id" => $biodata->id]);
+      // dd(session("biodata_alumni_id"));
        return redirect("/alumni/angket");
-   // }else{
-   //      return redirect()->back()->withInput();
-   //  }
+ }else{
+      return redirect()->back()->withInput();
+  }
 }
 
 
-    // public function simpanAngket(Request $request){
-    //     if(null == session("biodata_id")){
-    //         session()->flash("msg", "Isikan biodata anda.");
-    //         return redirect("/alumni");
-    //     }
-    //     $data = $this->dataKuesioner($request->except("_token"));
+    public function simpanAngket(Request $request){
+        if(null == session("biodata_alumni_id")){
+            session()->flash("msg", "Isikan biodata anda.");
+            return redirect("/alumni");
+        }
+        $data = $this->dataKuesioner($request->except("_token"));
 
-    //     Angket_alumni::insert($data);
+        Angket_alumni::insert($data);
 
-    //     session()->forget("alumni_id");
-    //     return redirect("/");
-    // }
+        session()->forget("alumni_id");
+      session()->flash("msg", "Terimakasih telah berpartisipasi didalam kemajuan Universitas Negeri Malang.");
+        return redirect("/");
+    }
 
-    // function dataKuesioner($request){
+    function dataKuesioner($request){
         
-    //     $biodata_id = session::get('biodata_id'); //diubah ke session hasil dari simpanBiodata
-    //     $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
-    //     $data = array();
-    //     $i=0;
-    //     foreach ($request as $key => $value) {
-    //         $data[$i]["biodata_alumni_id"] = $biodata_id;
-    //         $data[$i]["tahun"] = $tahun;
-    //         $data[$i]["kuesioner"] = $key;
-    //         $data[$i]["value"] = (is_array($value))? json_encode($value) : $value;
-    //         $data[$i]["created_at"] = date("Y-m-d");
-    //         $i++;
-    //     }
+        $biodata_alumni_id = session::get('biodata_alumni_id'); //diubah ke session hasil dari simpanBiodata
+        $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
+        $data = array();
+        $i=0;
+        foreach ($request as $key => $value) {
+            $data[$i]["biodata_alumni_id"] = $biodata_alumni_id;
+            $data[$i]["tahun"] = $tahun;
+            $data[$i]["kuesioner"] = $key;
+            $data[$i]["value"] = (is_array($value))? json_encode($value) : $value;
+            $data[$i]["created_at"] = date("Y-m-d");
+            $i++;
+        }
 
-    //     // dd($data);
+        // dd($data);
 
-    //     return $data;
-    // }
+        return $data;
+    }
 }
