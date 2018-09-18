@@ -87,10 +87,10 @@
 	</div>
 	<div class="col-md-6 col-sm-12 mb-4">
 		@component("chart.pie_legend")
-			@slot("judul") Kinerja Universitas @endslot
+			@slot("judul") Kinerja Program Studi @endslot
 			@slot("id_chart") persentase_kinerja @endslot
 			@slot("id_tabel") datatable3 @endslot
-			@slot("judul_chart") Persentase Kinerja Universitas @endslot
+			@slot("judul_chart") Persentase Kinerja Program Studi @endslot
 			@slot("subjudul_chart") Total Responden: {{ $kinerja_prodi['responden'] }} orang @endslot
 			@slot("judul_y") Persentase @endslot
 		@endcomponent
