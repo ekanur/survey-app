@@ -99,27 +99,26 @@ class TendikController extends Controller
 
     public function simpanBiodata(Request $request){
       
-
-      return redirect("/tendik/angket");
-
-     /* $biodata = new Biodata_mahasiswa;
-      $biodata->jabatanpengisi = $request->jabatanpengisi;
-      $biodata->namainstansi = $request->namainstansi;
-      $biodata->notelp = $request->notelp;
-      $biodata->tahunberdiri = $request->tahunberdiri;
-      $biodata->skalaoperasional = $request->skalaoperasional;
-      $biodata->tahunkerjasama = $request->tahunkerjasama;
+      $biodata = new Biodata_tendik;
+      $biodata->inisial = $request->inisial;
+      $biodata->email = $request->email;
+      $biodata->unit_kerja = $request->unitkerja;
+      $biodata->tmt = $request->tmt;
+      $biodata->jenis_kelamin = $request->jeniskelamin;
+      $biodata->usia = $request->usia;
+      $biodata->pendidikan_tertinggi = $request->pendidikan;
+      $biodata->lama_bekerja = $request->lamakerja;
 
       if($biodata->save()){
         // dd($biodata->id);
        session(["biodata_id" => $biodata->id]);
                // dd(session("biodata_id"));
-       return redirect("/mahasiswa/angket");
+       return redirect("/tendik/angket");
      }
      else {
       return redirect()->back()->withInput();
     }
-    */
+    
   }
 
 
@@ -132,7 +131,7 @@ class TendikController extends Controller
 
     Angket_tendik::insert($data);
 
-    session()->forget("tendik_id");
+    session()->forget("biodata_id");
     session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
     return redirect("/");
   }
