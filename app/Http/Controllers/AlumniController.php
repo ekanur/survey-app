@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 Use Session;
 use Illuminate\Support\Facades\DB;
-
 use App\Biodata_alumni;
 use App\Angket_alumni;
 
@@ -109,7 +108,7 @@ class AlumniController extends Controller
      
 
    if($biodata->save()){
-       session(["biodata_alumni_id" => $biodata->id]);
+       session(["biodata_id" => $biodata->id]);
       // dd(session("biodata_alumni_id"));
        return redirect("/alumni/angket");
  }else{
@@ -119,7 +118,7 @@ class AlumniController extends Controller
 
 
     public function simpanAngket(Request $request){
-        if(null == session("biodata_alumni_id")){
+        if(null == session("biodata_id")){
             session()->flash("msg", "Isikan biodata anda.");
             return redirect("/alumni");
         }
@@ -127,19 +126,19 @@ class AlumniController extends Controller
 
         Angket_alumni::insert($data);
 
-        session()->forget("alumni_id");
+        session()->forget("biodata_id");
       session()->flash("msg", "Terimakasih telah berpartisipasi didalam kemajuan Universitas Negeri Malang.");
         return redirect("/");
     }
 
     function dataKuesioner($request){
         
-        $biodata_alumni_id = session::get('biodata_alumni_id'); //diubah ke session hasil dari simpanBiodata
+        $biodata_id = session::get('biodata_id'); //diubah ke session hasil dari simpanBiodata
         $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
         $data = array();
         $i=0;
         foreach ($request as $key => $value) {
-            $data[$i]["biodata_alumni_id"] = $biodata_alumni_id;
+            $data[$i]["biodata_alumni_id"] = $biodata_id;
             $data[$i]["tahun"] = $tahun;
             $data[$i]["kuesioner"] = $key;
             $data[$i]["value"] = (is_array($value))? json_encode($value) : $value;

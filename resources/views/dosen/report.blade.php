@@ -13,6 +13,9 @@
 				<div class="text-center p-3">
 					<span class="text-info font-italic font-weight-bold" >Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</span>
 				</div>
+				<div class="text-center p-3">
+					<label>Jumlah responden : {{ $list_pemahaman_vmts["prodi"]["Responden"] }} </label>
+				</div>
 				<table class="table mb-0" id="datatable1">
 					<thead class="bg-light">
 						<tr>

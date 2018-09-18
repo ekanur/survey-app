@@ -21,6 +21,7 @@ class AngketTendik extends Migration
             $table->string("value", 200)->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
     }
 
     /**
