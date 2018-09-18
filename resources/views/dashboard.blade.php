@@ -53,7 +53,7 @@
           </div>
         </div>
       </a>
-      <a href="" class="report btn btn-info"><i class="fa fa-chart-pie"></i> Report</a>
+      <a href="{{url('alumni/report')}}" class="report btn btn-info"><i class="fa fa-chart-pie"></i> Report</a>
     </div>
   </div>
   <div class="col-lg col-md-6 col-sm-6 mb-4">

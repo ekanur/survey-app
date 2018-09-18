@@ -44,7 +44,28 @@
             <div class="col-sm-12">
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <input type="text" name="q2" class="form-control" required="">
+                  <fieldset>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Rapat Jurusan">
+                      <label class="custom-control-label" for="c1q2">Katalog dan/atau dokumen Jurusan lainnya</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Katalog dan/atau dokumen Jurusan lainnya">
+                      <label class="custom-control-label" for="c2q2">Membaca banner</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c3q2" value="Membaca banner">
+                      <label class="custom-control-label" for="c3q2">Kegiatan kemahasiswaan</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Kegiatan kemahasiswaan">
+                      <label class="custom-control-label" for="c4q2">Laman UM</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c5q2" value="Laman UM">
+                      <label class="custom-control-label" for="c5q2">Lain-lain</label>
+                    </div>
+                  </fieldset>
                 </div>
               </div>
               
@@ -118,7 +139,7 @@
 
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <!-- <h6>(1 = Tidak Puas; 2 = Cukup Puas; 3 = Puas; 4 = Sangat Puas)</h6> -->
+                  <label class="text-info"><i>Wajib Mengisi Pilihan Berikut ini</i></label>
                   <table width="100%">
                     <tbody>
                       <tr>
