@@ -4,7 +4,7 @@
 	</div>
 	<div class="card-body pt-0">
 
-		<div style="max-width: 100% !important; display: block; width: 709px; height: 100%;" class="blog-overview-users chartjs-render-monitor" width="709" id="{{ $id_chart or null }}"></div>
+		<div style="max-width: 100% !important; display: block; width: 709px; min-height: 100%;" class="blog-overview-users chartjs-render-monitor" width="709" id="{{ $id_chart or null }}"></div>
 	</div>
 	<div class="card-footer border-top">
 		<div class="row">

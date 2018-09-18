@@ -3,7 +3,7 @@
 		<h6 class="m-0">{{ $judul or null }}</h6>
 	</div>
 	<div class="card-body d-flex py-0">
-		<div height="235" class="blog-users-by-device m-auto chartjs-render-monitor" width="321" style="display: block; width: 100%; height: 100%;" id="{{ $id_chart or null }}">
+		<div height="235" class="blog-users-by-device m-auto chartjs-render-monitor" width="321" style="display: block; width: 100%; min-height: 100%;" id="{{ $id_chart or null }}">
 
 		</div>
 	</div>
