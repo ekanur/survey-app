@@ -286,8 +286,14 @@
                   <table width="100%">
                     <tbody>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Kualitas dan Transparansi proses penerimaan Dosen</td>
                         <td width="20%"><select name="q7a" class="form-control">
+=======
+                        <td width="85%">Kualitas dan Transparansi proses penerimaan Dosen</td>
+                        <td width="15%"><select name="q7a" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -295,8 +301,14 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Rumusan Visi, Misi, Tujuan, dan Sasaran Prodi</td>
                         <td width="20%"><select name="q7b" class="form-control" required="">
+=======
+                        <td width="85%">Rumusan Visi, Misi, Tujuan, dan Sasaran Prodi</td>
+                        <td width="15%"><select name="q7b" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -304,9 +316,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Rumusan Visi, Misi, Tujuan, dan Sasaran Fakultas</td>
                         <td width="20%"><select name="q7c" class="form-control" required="">
             
+=======
+                        <td width="85%">Rumusan Visi, Misi, Tujuan, dan Sasaran Fakultas</td>
+                        <td width="15%"><select name="q7c" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -314,9 +332,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Rumusan Visi, Misi, Tujuan, dan Sasaran Universitas</td>
                         <td width="20%"><select name="q7d" class="form-control" required="">
             
+=======
+                        <td width="85%">Rumusan Visi, Misi, Tujuan, dan Sasaran Universitas</td>
+                        <td width="15%"><select name="q7d" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -324,9 +348,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Relevansi rumusan capaian pembelajaran dengan kebutuhan dunia kerja</td>
                         <td width="20%"><select name="q7e" class="form-control" required="">
             
+=======
+                        <td width="85%">Relevansi rumusan capaian pembelajaran dengan kebutuhan dunia kerja</td>
+                        <td width="15%"><select name="q7e" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -334,9 +364,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Beban Mengajar</td>
                         <td width="20%"><select name="q7f" class="form-control" required="">
             
+=======
+                        <td width="85%">Beban Mengajar</td>
+                        <td width="15%"><select name="q7f" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -344,9 +380,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Ketersediaan sumber belajar untuk kegiatan pembelajaran</td>
                         <td width="20%"><select name="q7g" class="form-control" required="">
             
+=======
+                        <td width="85%">Ketersediaan sumber belajar untuk kegiatan pembelajaran</td>
+                        <td width="15%"><select name="q7g" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -354,9 +396,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Penjadwalan Kegiatan pembelajaran</td>
                         <td width="20%"><select name="q7h" class="form-control" required="">
             
+=======
+                        <td width="85%">Penjadwalan Kegiatan pembelajaran</td>
+                        <td width="15%"><select name="q7h" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -364,9 +412,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Kualitas sarana dan prasarana mengajar</td>
                         <td width="20%"><select name="q7i" class="form-control" required="">
             
+=======
+                        <td width="85%">Kualitas sarana dan prasarana mengajar</td>
+                        <td width="15%"><select name="q7i" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -374,9 +428,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Dukungan akademik dan pendanaan</td>
                         <td width="20%"><select name="q7j" class="form-control" required="">
             
+=======
+                        <td width="85%">Dukungan akademik dan pendanaan</td>
+                        <td width="15%"><select name="q7j" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -384,9 +444,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Dukungan akademik pendanaan untuk diseminasi dan publikasi</td>
                         <td width="20%"><select name="q7k" class="form-control" required="">
             
+=======
+                        <td width="85%">Dukungan akademik pendanaan untuk diseminasi dan publikasi</td>
+                        <td width="15%"><select name="q7k" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -394,9 +460,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Ketersediaan fasilitas untuk melakukan penelitian</td>
                         <td width="20%"><select name="q7l" class="form-control" required="">
             
+=======
+                        <td width="85%">Ketersediaan fasilitas untuk melakukan penelitian</td>
+                        <td width="15%"><select name="q7l" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -404,9 +476,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Dukungan akademik dan pendanaan untuk pengabdian kepada masyarakat</td>
                         <td width="20%"><select name="q7m" class="form-control" required="">
             
+=======
+                        <td width="85%">Dukungan akademik dan pendanaan untuk pengabdian kepada masyarakat</td>
+                        <td width="15%"><select name="q7m" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -414,9 +492,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Ketersediaan fasilitas untuk melakukan pengabdian kepada masyarakat</td>
                         <td width="20%"><select name="q7n" class="form-control" required="">
             
+=======
+                        <td width="85%">Ketersediaan fasilitas untuk melakukan pengabdian kepada masyarakat</td>
+                        <td width="15%"><select name="q7n" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -424,9 +508,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Kejelasan kelengkapan informasi persyaratan untuk memperoleh layanan akademik dan non-akademik</td>
                         <td width="20%"><select name="q7o" class="form-control" required="">
             
+=======
+                        <td width="85%">Kejelasan kelengkapan informasi persyaratan untuk memperoleh layanan akademik dan non-akademik</td>
+                        <td width="15%"><select name="q7o" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -434,9 +524,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Prosedur pemberian layanan akademik dan non-akademik</td>
                         <td width="20%"><select name="q7p" class="form-control" required="">
             
+=======
+                        <td width="85%">Prosedur pemberian layanan akademik dan non-akademik</td>
+                        <td width="15%"><select name="q7p" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -444,9 +540,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Waktu pemberian layanan akademik dan non-akademik</td>
                         <td width="20%"><select name="q7q" class="form-control" required="">
             
+=======
+                        <td width="85%">Waktu pemberian layanan akademik dan non-akademik</td>
+                        <td width="15%"><select name="q7q" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -454,9 +556,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Biaya pemberian layanan akademik dan non-akademik</td>
                         <td width="20%"><select name="q7r" class="form-control" required="">
             
+=======
+                        <td width="85%">Biaya pemberian layanan akademik dan non-akademik</td>
+                        <td width="15%"><select name="q7r" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -464,9 +572,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Produk layanan akademik dan non-akademik</td>
                         <td width="20%"><select name="q7s" class="form-control" required="">
             
+=======
+                        <td width="85%">Produk layanan akademik dan non-akademik</td>
+                        <td width="15%"><select name="q7s" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -474,9 +588,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Kompetensi pelaksana layanan akademik dan non-akademik</td>
                         <td width="20%"><select name="q7t" class="form-control" required="">
             
+=======
+                        <td width="85%">Kompetensi pelaksana layanan akademik dan non-akademik</td>
+                        <td width="15%"><select name="q7t" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -484,9 +604,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Perilaku pelaksana layanan akademik dan non-akademik</td>
                         <td width="20%"><select name="q7u" class="form-control" required="">
             
+=======
+                        <td width="85%">Perilaku pelaksana layanan akademik dan non-akademik</td>
+                        <td width="15%"><select name="q7u" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -494,9 +620,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Penanganan pengaduan terkait pelaksanaan layanan akademik dan non-akademik</td>
                         <td width="20%"><select name="q7v" class="form-control" required="">
             
+=======
+                        <td width="85%">Penanganan pengaduan terkait pelaksanaan layanan akademik dan non-akademik</td>
+                        <td width="15%"><select name="q7v" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -504,9 +636,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Kualitas layanan akademik dan non-akademik</td>
                         <td width="20%"><select name="q7w" class="form-control" required="">
             
+=======
+                        <td width="85%">Kualitas layanan akademik dan non-akademik</td>
+                        <td width="15%"><select name="q7w" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -514,9 +652,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Dukungan untuk pengembangan profesi</td>
                         <td width="20%"><select name="q7x" class="form-control" required="">
             
+=======
+                        <td width="85%">Dukungan untuk pengembangan profesi</td>
+                        <td width="15%"><select name="q7x" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -524,9 +668,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Dukungan untuk kegiatan promosi dan dan retensi</td>
                         <td width="20%"><select name="q7y" class="form-control" required="">
             
+=======
+                        <td width="85%">Dukungan untuk kegiatan promosi dan dan retensi</td>
+                        <td width="15%"><select name="q7y" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -534,9 +684,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Kualitas, keamanan, dan kenyamanan lingkungan kerja</td>
                         <td width="20%"><select name="q7z" class="form-control" required="">
             
+=======
+                        <td width="85%">Kualitas, keamanan, dan kenyamanan lingkungan kerja</td>
+                        <td width="15%"><select name="q7z" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -544,9 +700,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Keselamatan lingkungan dan keamanan kerja</td>
                         <td width="20%"><select name="q7aa" class="form-control" required="">
             
+=======
+                        <td width="85%">Keselamatan lingkungan dan keamanan kerja</td>
+                        <td width="15%"><select name="q7aa" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>
@@ -554,9 +716,15 @@
                         </select></td>
                       </tr>
                       <tr>
+<<<<<<< HEAD
                         <td width="80%">Gaji dan Tunjangan</td>
                         <td width="20%"><select name="q7bb" class="form-control" required="">
             
+=======
+                        <td width="85%">Gaji dan Tunjangan</td>
+                        <td width="15%"><select name="q7bb" class="form-control" required="">
+                          <option selected="" disabled="">--</option>
+>>>>>>> 0b68e607d44c18d83c16c122c353f78c216c4a15
                           <option value="4">Sangat Puas</option>
                           <option value="3">Puas</option>
                           <option value="2">Cukup Puas</option>

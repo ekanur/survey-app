@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 Use Session;
 use App\Biodata_dosen;
 use App\Angket_dosen;
+use Illuminate\Support\Facades\DB;
 
 class DosenController extends Controller
 {
@@ -157,8 +158,100 @@ class DosenController extends Controller
     }
 
 
-    function report(){
-        // $count_pemahaman = DB::table("angket_dosen")->select(DB::raw("COUNT(id) as count"), "value")->
-        return view("dosen.report");
+public function report() {
+    // $m_angket = new Angket_dosen;
+
+    //Pertanyaan 1: Pemahaman VTMS Universitas
+    $data_prodi = DB::table("angket_dosen")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->where("kuesioner", "ILIKE", "%q1%")->groupBy("kuesioner", "value");
+
+    $data_fakultas = DB::table("angket_dosen")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->where("kuesioner", "ILIKE","%q4%")->groupBy("kuesioner", "value")->union($data_prodi)->get();
+
+
+    $list_pemahaman_vmts = array(
+        "fakultas" => array("Ya"=>0, "Tidak"=>0),
+        "prodi" => array("Ya"=>0, "Tidak"=>0),
+    );
+    foreach ($data_fakultas as $pemahaman_vmts) {
+      if($pemahaman_vmts->kuesioner == 'q1'){
+        if($pemahaman_vmts->value == 'Ya'){
+            $list_pemahaman_vmts["prodi"]["Ya"] = $pemahaman_vmts->count;
+        }elseif($pemahaman_vmts->value == 'Tidak'){
+            $list_pemahaman_vmts["prodi"]["Tidak"] = $pemahaman_vmts->count;
+        }
+      }elseif($pemahaman_vmts->kuesioner == 'q4'){
+        if($pemahaman_vmts->value == 'Ya'){
+            $list_pemahaman_vmts["fakultas"]["Ya"] = $pemahaman_vmts->count;
+        }elseif($pemahaman_vmts->value == 'Tidak'){
+            $list_pemahaman_vmts["fakultas"]["Tidak"] = $pemahaman_vmts->count;
+        }
+      }
     }
+    // dd($list_pemahaman_vmts);
+
+    //Pertanyaan 3: Kinerja Universitas
+    $data_db = DB::table("angket_dosen")
+                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+                ->where('kuesioner', 'q3')
+                ->groupBy('value')
+                ->get();
+    $list_q3 = array(
+              'kuesioner' => array(
+                  'Sudah selaras dengan visi dan kinerja sudah maksimal' => 0, 
+                  'Sudah selaras dengan visi, namun kinerja kurang maksimal' => 0, 
+                  'Kurang selaras dengan visi, namun kinerja maksimal' => 0, 
+                  'Kurang selaras dengan visi dan kinerja kurang maksimal' => 0, 
+                  'Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan' => 0, 
+                  'Tidak tahu karena tidak pernah memperhatikan' => 0,
+              ),
+              'total_responden' => 0
+            );
+    foreach ($data_db as $row) {
+      foreach ($list_q3['kuesioner'] as $pertanyaan => $jumlah) {
+        if(strtolower($row->value) == strtolower($pertanyaan)) {
+          $list_q3['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+        }
+      }
+      $list_q3['total_responden'] += $row->jumlah_responden;
+    }
+
+    //Pertanyaan 4A: Profil Universitas (VMTS)
+    $data_db = DB::table("angket_dosen")
+                ->select("value", 
+                  DB::raw("COUNT(id) AS jumlah_responden"), 
+                  DB::raw("SUM(value::INT) AS jumlah_skor"))
+                ->where('kuesioner', 'q4a')
+                ->groupBy('value')
+                ->get();
+    $list_q4a = array(
+              'kuesioner' => array(
+                  'skor_4' => ["alias" => 'Sangat Puas',"responden" => 0, "skor" => 0],
+                  'skor_3' => ["alias" => 'Puas',"responden" => 0, "skor" => 0], 
+                  'skor_2' => ["alias" => 'Cukup Puas',"responden" => 0, "skor" => 0], 
+                  'skor_1' => ["alias" => 'Tidak Puas', "responden" => 0, "skor" => 0] 
+                ),
+              'total_skor' => 0,
+              'total_responden' => 0
+            );
+    foreach ($data_db as $row) {
+      foreach ($list_q4a['kuesioner'] as $pertanyaan => $jumlah) {
+        if(strtolower("skor_".$row->value) == strtolower($pertanyaan)) {
+          $list_q4a['kuesioner'][$pertanyaan]['responden'] += $row->jumlah_responden;
+          $list_q4a['kuesioner'][$pertanyaan]['skor'] += $row->jumlah_skor;
+        }
+      }
+      $list_q4a['total_skor'] += $row->value;
+      $list_q4a['total_responden'] += $row->jumlah_responden;
+    }
+
+    //Pertanyaan 4B, C, D, E: Jejaring, Kontribusi universitas, Kontribusi pengguna di akademik, Kontribusi pengguna di non-akademik (Kerjasama)
+    
+    //Pertanyaan 4F: Pembelajaran (Pendidikan)
+
+    //Pertanyaan 4G: Keterlibatan (Penelitian)
+
+    //Pertanyaan 4H: Keterlibatan (Pengadian kepada masyarakat)
+    
+    // print_r($data_db); print_r($list_q4a); die();
+    return view("dosen.report", compact('list_pemahaman_vmts', 'list_q3', 'list_q4a'));
+  }
 }
