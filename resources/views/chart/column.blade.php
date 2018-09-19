@@ -41,10 +41,12 @@
       text: '{{ $subjudul_chart or null }}'
     },
     yAxis: {
+      min:0,
+      max: 100,
       allowDecimals: true,
       title: {
         text: '{{ $judul_y or null }}'
-      }
+      },
     },
     tooltip: {
       formatter: function () {

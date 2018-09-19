@@ -14,6 +14,8 @@
 Route::get('/', 'DashboardController@index');
 Route::get("/ubah-tahun/{tahun}", "DashboardController@ubahTahun");
 
+Route::get('/admin', 'admin\AdminController@index');
+
 //dosen
 Route::get('/dosen','DosenController@index')->name('dosen');
 Route::get('dosen/angket', 'DosenController@angket');
