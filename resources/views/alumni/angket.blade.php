@@ -67,9 +67,9 @@
                       <label class="custom-control-label" for="c5q2">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c6q2" value="Lain-lain">
-                      <label class="custom-control-label" for="c6q2">Lain-lain</label>
-
+                      <input type="checkbox" class="custom-control-input" id="c6q2">
+                      <label class="custom-control-label" for="c6q2" >Lain-lain</label>
+                      <input type="text" name="q2[]" id="c6q2_input" class="form-control form-control-sm">
                     </div>
                   </fieldset>
                 </div>
@@ -622,18 +622,18 @@
 <script>
   //input handler untuk checkbox "Lain-lain"
   $(document).ready(function() {
-    if($("#c5q2").is(":checked")) {
-      $("#c5q2_input").prop("required", true);
-      $("#c5q2_input").prop("disabled", false);
+    if($("#c6q2").is(":checked")) {
+      $("#c6q2_input").prop("required", true);
+      $("#c6q2_input").prop("disabled", false);
     }
     else {
-      $("#c5q2_input").prop("required", false);
-      $("#c5q2_input").prop("disabled", true);
+      $("#c6q2_input").prop("required", false);
+      $("#c6q2_input").prop("disabled", true);
     }
   });
-  $("#c5q2").on("change", function(e) {
-    $("#c5q2_input").prop("required", $(this).is(":checked"));
-    $("#c5q2_input").prop("disabled", !$(this).is(":checked"));
+  $("#c6q2").on("change", function(e) {
+    $("#c6q2_input").prop("required", $(this).is(":checked"));
+    $("#c6q2_input").prop("disabled", !$(this).is(":checked"));
   });
 
   //Pertanyaan 1 jumper handler

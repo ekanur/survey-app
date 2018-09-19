@@ -45,6 +45,7 @@ Route::get('pengguna', "PenggunaController@index")->name('pengguna');
 Route::get('pengguna/angket', "PenggunaController@angket");
 Route::post('biodata-pengguna', "PenggunaController@simpanBiodata");
 Route::post('angket-pengguna', "PenggunaController@simpanAngket");
+Route::get("pengguna/report", "PenggunaController@report");
 
 // mitra
 Route::get('mitra', "MitraController@index")->name('mitra');
