@@ -47,6 +47,48 @@
 			@slot("tipe_value") percent @endslot
 		@endcomponent
 	</div>
+
+	{{-- PERTANYAAN 2 --}}
+	<div class="col-md-6 col-sm-12 mb-4">
+		<div class="card card-small mb-4">
+			<div class="card-header border-bottom">
+				<h6 class="m-0">Rumusan VMTS Universitas</h6>
+			</div>
+			<div class="card-body p-0 pb-3">
+				<div class="text-center p-3">
+					<span class="text-info font-italic font-weight-bold" >Dari mana Ibu/Bapak mengetahui rumusan tersebut?</span>
+				</div>
+				<table class="table mb-0" id="datatable2">
+					<thead class="bg-light">
+						<tr>
+							<th scope="col" class="border-0">Pilihan</th>
+							<th scope="col" class="border-0">Persentase (%)</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach ($list_q2['kuesioner'] as $pertanyaan => $jumlah)
+							<tr>
+								<td>{{ $pertanyaan }}</td>
+								<td class="text-right">
+									{{ number_format((($jumlah / max($list_q2['total_pilihan'], 1)) * 100), 1) }}
+								</td>
+							</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 col-sm-12 mb-4">
+		@component("chart.pie_legend")
+			@slot("judul") Rumusan VMTS Universitas @endslot
+			@slot("id_chart") persentase_rumusan @endslot
+			@slot("id_tabel") datatable2 @endslot
+			@slot("judul_chart") Persentase Rumusan VMTS Universitas @endslot
+			@slot("subjudul_chart") Total Responden: {{ $list_q2['total_responden'] }} orang @endslot
+			@slot("judul_y") Persentase @endslot
+		@endcomponent
+	</div>
 	
 	{{-- PERTANYAAN 3 --}}
 	<div class="col-md-6 col-sm-12 mb-4">

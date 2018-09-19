@@ -163,6 +163,44 @@ class MitraController extends Controller
       }
     }
 
+    //Pertanyaan 2: Rumusan VMTS Universitas
+    $data_db = DB::table("angket_mitra")
+                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+                ->where('kuesioner', 'q2')
+                ->groupBy('value')
+                ->get();
+    $list_q2 = array(
+              'kuesioner' => array(
+                  'Katalog dan/atau dokumen jurusan lainnya' => 0, 
+                  'Membaca banner' => 0, 
+                  'Kegiatan kemahasiswaan' => 0, 
+                  'Laman UM' => 0, 
+                  'Lain-lain' => 0,
+              ),
+              'total_responden' => 0,
+              'total_pilihan' => 0
+            );
+    foreach ($data_db as $row) {
+      $arr_value = json_decode($row->value);
+      
+      if(!empty($arr_value)) {
+        foreach ($arr_value as $jawaban) {
+          $lain_exist = true;
+          foreach ($list_q2['kuesioner'] as $pertanyaan => $jumlah) {
+            if(strtolower($jawaban) == strtolower($pertanyaan)) {
+              $list_q2['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+              $lain_exist = false;
+            }
+          }
+          //tambahkan counter pilihan "Lain-lain" jika ada value custom
+          $list_q2['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
+          $list_q2['total_pilihan']++;
+        }
+      }
+
+      $list_q2['total_responden'] += $row->jumlah_responden;
+    }
+
     //Pertanyaan 3: Kinerja Universitas
     $data_db = DB::table("angket_mitra")
                 ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
@@ -219,6 +257,33 @@ class MitraController extends Controller
     }
 
     //Pertanyaan 4B, C, D, E: Jejaring, Kontribusi universitas, Kontribusi pengguna di akademik, Kontribusi pengguna di non-akademik (Kerjasama)
+    $data_db = DB::table("angket_mitra")
+                ->select("value", 
+                  DB::raw("COUNT(id) AS jumlah_responden"), 
+                  DB::raw("SUM(value::INT) AS jumlah_skor"))
+                ->whereIn('kuesioner', ['q4b', 'q4c', 'q4d', 'q4e'])
+                ->groupBy('value')
+                ->get();
+    $list_q4b = array(
+              'kuesioner' => array(
+                  'skor_4' => ["alias" => 'Sangat Puas',"responden" => 0, "skor" => 0],
+                  'skor_3' => ["alias" => 'Puas',"responden" => 0, "skor" => 0], 
+                  'skor_2' => ["alias" => 'Cukup Puas',"responden" => 0, "skor" => 0], 
+                  'skor_1' => ["alias" => 'Tidak Puas', "responden" => 0, "skor" => 0] 
+                ),
+              'total_skor' => 0,
+              'total_responden' => 0
+            );
+    foreach ($data_db as $row) {
+      foreach ($list_q4b['kuesioner'] as $pertanyaan => $jumlah) {
+        if(strtolower("skor_".$row->value) == strtolower($pertanyaan)) {
+          $list_q4b['kuesioner'][$pertanyaan]['responden'] += $row->jumlah_responden;
+          $list_q4b['kuesioner'][$pertanyaan]['skor'] += $row->jumlah_skor;
+        }
+      }
+      $list_q4b['total_skor'] += $row->value;
+      $list_q4b['total_responden'] += $row->jumlah_responden;
+    }
     
     //Pertanyaan 4F: Pembelajaran (Pendidikan)
 
@@ -226,8 +291,8 @@ class MitraController extends Controller
 
     //Pertanyaan 4H: Keterlibatan (Pengadian kepada masyarakat)
     
-    // print_r($data_db); print_r($list_q4a); die();
-    return view("mitra.report", compact('list_q1', 'list_q3', 'list_q4a'));
+    // print_r($data_db); print_r($list_q2); die();
+    return view("mitra.report", compact('list_q1', 'list_q2', 'list_q3', 'list_q4a'));
   }
 
 }

@@ -40,7 +40,7 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
-          <div class="row">
+          <div class="row"> 
             <div class="col-sm-12">
               <label class="text-info"><i>Boleh lebih dari satu jawaban</i></label>
               <div class="form-row">
@@ -620,26 +620,37 @@
 
 @section('pagespecificjs') 
 <script>
+  //input handler untuk checkbox "Lain-lain"
+  $(document).ready(function() {
+    if($("#c5q2").is(":checked")) {
+      $("#c5q2_input").prop("required", true);
+      $("#c5q2_input").prop("disabled", false);
+    }
+    else {
+      $("#c5q2_input").prop("required", false);
+      $("#c5q2_input").prop("disabled", true);
+    }
+  });
+  $("#c5q2").on("change", function(e) {
+    $("#c5q2_input").prop("required", $(this).is(":checked"));
+    $("#c5q2_input").prop("disabled", !$(this).is(":checked"));
+  });
+
   //Pertanyaan 1 jumper handler
   $("input[name='q1']").change(function(){
     ($(this).val().toLowerCase() == 'tidak') ? disableQuestion(".quest_1") : enableQuestion(".quest_1");
   });
-  //Pertanyaan 4 jumper handler
-  $("input[name='q4']").change(function(){
-    ($(this).val().toLowerCase() == 'tidak') ? disableQuestion(".quest_4") : enableQuestion(".quest_4");
-  });
 
   function disableQuestion(selector='') {
     if(selector) {
-      // $(selector).prop('disabled', true);
-      $(selector).find("input").prop('disabled', true);
+      $(selector).find("input:checkbox").prop('disabled', true);
+      $(selector+" :input").not(':button, :submit, :reset, :hidden').val('').prop('checked', false).prop('selected', false).trigger('change');
       $(selector).fadeOut();
     }
   }
   function enableQuestion(selector='') {
     if(selector) {
-      // $(selector).prop('disabled', false);
-      $(selector).find("input").prop('disabled', false);
+      $(selector).find("input:checkbox").prop('disabled', false);
       $(selector).fadeIn();
     }
   }
