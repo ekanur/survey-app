@@ -4,7 +4,7 @@
 
 <form method="POST" action="{{ url("/angket-mitra") }}">
   {{ csrf_field() }}
-  <div>
+  <div align="center">
     <div class="col-lg-8 text-sm-left">
       <div class="card card-small mb-4" >
         <div class="card-header border-bottom">
@@ -32,7 +32,7 @@
   </div>
 </div>
 
-<div>
+<div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_1" >
       <div class="card-header border-bottom">
@@ -78,7 +78,7 @@
   </div>
 </div>
 
-<div>
+<div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
@@ -127,7 +127,7 @@
 </div>
 </div>
 
-<div>
+<div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
@@ -228,7 +228,7 @@
   </div>
 </div>
 
-<div>
+<div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
