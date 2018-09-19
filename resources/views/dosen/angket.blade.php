@@ -67,8 +67,9 @@
                       <label class="custom-control-label" for="c5q2">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c6q2" value="Lain-lain">
-                      <label class="custom-control-label" for="c6q2">Lain-lain</label>
+                     <input type="checkbox" class="custom-control-input" id="c6q2">
+                      <label class="custom-control-label" for="c6q2" >Lain-lain</label>
+                      <input type="text" name="q2[]" id="c6q2_input" class="form-control form-control-sm">
                     </div>
                   </fieldset>
                 </div>
@@ -203,8 +204,9 @@
                       <label class="custom-control-label" for="c5q5">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c6q5" value="Lain-lain">
-                      <label class="custom-control-label" for="c6q5">Lain-lain</label>
+                      <input type="checkbox" class="custom-control-input" id="c6q5">
+                      <label class="custom-control-label" for="c6q5" >Lain-lain</label>
+                      <input type="text" name="q5[]" id="c6q5_input" class="form-control form-control-sm">
                     </div>
                   </fieldset>
                 </div>
@@ -633,6 +635,37 @@
 
 @section('pagespecificjs') 
 <script>
+  $(document).ready(function() {
+    if($("#c6q2").is(":checked")) {
+      $("#c6q2_input").prop("required", true);
+      $("#c5q2_input").prop("disabled", false);
+    }
+    else {
+      $("#c6q2_input").prop("required", false);
+      $("#c6q2_input").prop("disabled", true);
+    }
+  });
+  $("#c6q2").on("change", function(e) {
+    $("#c6q2_input").prop("required", $(this).is(":checked"));
+    $("#c6q2_input").prop("disabled", !$(this).is(":checked"));
+  });
+
+  $(document).ready(function() {
+    if($("#c6q5").is(":checked")) {
+      $("#c6q5_input").prop("required", true);
+      $("#c6q5_input").prop("disabled", false);
+    }
+    else {
+      $("#c6q5_input").prop("required", false);
+      $("#c6q5_input").prop("disabled", true);
+    }
+  });
+
+  $("#c6q5").on("change", function(e) {
+    $("#c6q5_input").prop("required", $(this).is(":checked"));
+    $("#c6q5_input").prop("disabled", !$(this).is(":checked"));
+  });
+
   //Pertanyaan 1 jumper handler
   $("input[name='q1']").change(function(){
     ($(this).val().toLowerCase() == 'tidak') ? disableQuestion(".quest_1") : enableQuestion(".quest_1");

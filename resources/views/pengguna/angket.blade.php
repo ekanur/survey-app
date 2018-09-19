@@ -8,7 +8,7 @@
     <div class="col-lg-8 text-sm-left">
       <div class="card card-small mb-4" >
         <div class="card-header border-bottom">
-          <h6 class="m-0">1.  Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</h6>
+          <h6 class="m-0">Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</h6>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item p-0 px-3 pt-3">
@@ -63,8 +63,9 @@
                       <label class="custom-control-label" for="c4q2">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c5q2" value="Laman UM">
-                      <label class="custom-control-label" for="c5q2">Lain-lain</label>
+                    <input type="checkbox" class="custom-control-input" id="c5q2">
+                      <label class="custom-control-label" for="c5q2" >Lain-lain</label>
+                      <input type="text" name="q2[]" id="c5q2_input" class="form-control form-control-sm">
                     </div>
                     
                   </fieldset>
@@ -81,7 +82,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4" >
+    <div class="card card-small mb-4 quest_1" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Bagaimana menurut Ibu/Bapak, kinerja Universitas dalam mencapai visi dan sasarannya?</h6>
       </div>
@@ -469,6 +470,21 @@
 
 @section('pagespecificjs') 
 <script>
+ $(document).ready(function() {
+    if($("#c5q2").is(":checked")) {
+      $("#c5q2_input").prop("required", true);
+      $("#c5q2_input").prop("disabled", false);
+    }
+    else {
+      $("#c5q2_input").prop("required", false);
+      $("#c5q2_input").prop("disabled", true);
+    }
+  });
+  $("#c5q2").on("change", function(e) {
+    $("#c5q2_input").prop("required", $(this).is(":checked"));
+    $("#c5q2_input").prop("disabled", !$(this).is(":checked"));
+  });
+
   //Pertanyaan 1 jumper handler
   $("input[name='q1']").change(function(){
     ($(this).val().toLowerCase() == 'tidak') ? disableQuestion(".quest_1") : enableQuestion(".quest_1");

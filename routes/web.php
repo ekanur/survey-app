@@ -14,6 +14,8 @@
 Route::get('/', 'DashboardController@index');
 Route::get("/ubah-tahun/{tahun}", "DashboardController@ubahTahun");
 
+Route::get('/admin', 'admin\AdminController@index');
+
 //dosen
 Route::get('/dosen','DosenController@index')->name('dosen');
 
@@ -48,6 +50,7 @@ Route::get('pengguna', "PenggunaController@index")->name('pengguna');
 Route::get('pengguna/angket', "PenggunaController@angket");
 Route::post('biodata-pengguna', "PenggunaController@simpanBiodata");
 Route::post('angket-pengguna', "PenggunaController@simpanAngket");
+Route::get("pengguna/report", "PenggunaController@report");
 
 // mitra
 Route::get('mitra', "MitraController@index")->name('mitra');

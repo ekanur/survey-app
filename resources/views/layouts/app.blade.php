@@ -12,7 +12,12 @@
     <link rel="stylesheet" href="{!! asset('css/extras.1.0.0.min.css')!!}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css">
+    <style type="text/css">
+    .center{
+        margin: auto;
+    }        
 
+    </style>
     @stack("style")
 </head>
 <body>
@@ -31,7 +36,7 @@
 
     </div>
     <div class="row" style="margin-bottom:60px">
-        <div class="col-2 offset-md-5">
+        <div class="col-4 offset-md-4">
             <select class="form-control" name="tahun">
                 @for($tahun=date("Y"); $tahun>=2015; $tahun--)
                 <option value="{{ $tahun }}" @if(null != session("tahun")) @if(session("tahun") == $tahun) selected="" @endif @endif>{{ $tahun }}</option>

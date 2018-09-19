@@ -40,7 +40,7 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
-          <div class="row">
+          <div class="row"> 
             <div class="col-sm-12">
               <label class="text-info"><i>Boleh lebih dari satu jawaban</i></label>
               <div class="form-row">
@@ -67,9 +67,9 @@
                       <label class="custom-control-label" for="c5q2">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c6q2" value="Lain-lain">
-                      <label class="custom-control-label" for="c6q2">Lain-lain</label>
-
+                      <input type="checkbox" class="custom-control-input" id="c6q2">
+                      <label class="custom-control-label" for="c6q2" >Lain-lain</label>
+                      <input type="text" name="q2[]" id="c6q2_input" class="form-control form-control-sm">
                     </div>
                   </fieldset>
                 </div>
@@ -168,7 +168,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4 quest_4" >
+    <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Dari pilihan Berikut, mana yang menjelaskan status karir Ibu/Bapak </h6>
       </div>
@@ -221,7 +221,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4 quest_4" >
+    <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Dari pilihan berikut ini mana yang menjelaskan status pekerjaan Ibu/Bapak : </h6>
       </div>
@@ -516,7 +516,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4 quest_4" >
+    <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Tuliskan Pengalaman apa yang paling bermanfaat selama masa studi, untuk membantu dalam pekerjaan pasca Ibu/Bapak lulus? </h6>
       </div>
@@ -547,7 +547,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4 quest_4" >
+    <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Tuliskan Pengalaman apa yang paling tidak bermanfaat selama masa studi,dalam pekerjaan pasca Ibu/Bapak lulus?</h6>
       </div>
@@ -620,26 +620,37 @@
 
 @section('pagespecificjs') 
 <script>
+  //input handler untuk checkbox "Lain-lain"
+  $(document).ready(function() {
+    if($("#c6q2").is(":checked")) {
+      $("#c6q2_input").prop("required", true);
+      $("#c6q2_input").prop("disabled", false);
+    }
+    else {
+      $("#c6q2_input").prop("required", false);
+      $("#c6q2_input").prop("disabled", true);
+    }
+  });
+  $("#c6q2").on("change", function(e) {
+    $("#c6q2_input").prop("required", $(this).is(":checked"));
+    $("#c6q2_input").prop("disabled", !$(this).is(":checked"));
+  });
+
   //Pertanyaan 1 jumper handler
   $("input[name='q1']").change(function(){
     ($(this).val().toLowerCase() == 'tidak') ? disableQuestion(".quest_1") : enableQuestion(".quest_1");
   });
-  //Pertanyaan 4 jumper handler
-  $("input[name='q4']").change(function(){
-    ($(this).val().toLowerCase() == 'tidak') ? disableQuestion(".quest_4") : enableQuestion(".quest_4");
-  });
 
   function disableQuestion(selector='') {
     if(selector) {
-      // $(selector).prop('disabled', true);
-      $(selector).find("input").prop('disabled', true);
+      $(selector).find("input:checkbox").prop('disabled', true);
+      $(selector+" :input").not(':button, :submit, :reset, :hidden').val('').prop('checked', false).prop('selected', false).trigger('change');
       $(selector).fadeOut();
     }
   }
   function enableQuestion(selector='') {
     if(selector) {
-      // $(selector).prop('disabled', false);
-      $(selector).find("input").prop('disabled', false);
+      $(selector).find("input:checkbox").prop('disabled', false);
       $(selector).fadeIn();
     }
   }

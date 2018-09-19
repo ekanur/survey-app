@@ -13,6 +13,9 @@
 				<div class="text-center p-3">
 					<span class="text-info font-italic font-weight-bold" >Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</span>
 				</div>
+				<div class="text-center p-3">
+					<label>Jumlah responden : {{ $list_pemahaman_vmts["prodi"]["Responden"] }} </label>
+				</div>
 				<table class="table mb-0" id="datatable1">
 					<thead class="bg-light">
 						<tr>
@@ -30,10 +33,10 @@
 						<tr>
 							<th>{{ ucfirst($key[$i++]) }}</th>
 							<td>
-								{{ number_format((($pemahaman_vmts['Ya']/$pemahaman_vmts["Responden"])*100), 1) }}
+								{{ number_format((($pemahaman_vmts['Ya']/max($pemahaman_vmts["Responden"], 1))*100), 1) }}
 							</td>
 							<td>
-								{{ number_format((($pemahaman_vmts['Tidak']/$pemahaman_vmts["Responden"])*100), 1) }}
+								{{ number_format((($pemahaman_vmts['Tidak']/max($pemahaman_vmts["Responden"], 1))*100), 1) }}
 							</td>
 						</tr>
 						@endforeach

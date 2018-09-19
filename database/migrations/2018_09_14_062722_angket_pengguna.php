@@ -13,7 +13,16 @@ class AngketPengguna extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('angket_pengguna', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer("biodata_pengguna_id");
+            $table->integer("tahun");
+            $table->string("kuesioner", 30);
+            $table->string("value", 200)->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+            //
+        });
     }
 
     /**

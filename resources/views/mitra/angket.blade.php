@@ -46,24 +46,25 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Rapat Jurusan">
-                      <label class="custom-control-label" for="c1q2">Katalog dan/atau dokumen Jurusan lainnya</label>
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Katalog dan/atau dokumen jurusan lainnya">
+                      <label class="custom-control-label" for="c1q2">Katalog dan/atau dokumen jurusan lainnya</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Katalog dan/atau dokumen Jurusan lainnya">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Membaca banner">
                       <label class="custom-control-label" for="c2q2">Membaca banner</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c3q2" value="Membaca banner">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c3q2" value="Kegiatan kemahasiswaan">
                       <label class="custom-control-label" for="c3q2">Kegiatan kemahasiswaan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Kegiatan kemahasiswaan">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Laman UM">
                       <label class="custom-control-label" for="c4q2">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c5q2" value="Laman UM">
-                      <label class="custom-control-label" for="c5q2">Lain-lain</label>
+                      <input type="checkbox" class="custom-control-input" id="c5q2">
+                      <label class="custom-control-label" for="c5q2" >Lain-lain</label>
+                      <input type="text" name="q2[]" id="c5q2_input" class="form-control form-control-sm">
                     </div>
                   </fieldset>
                 </div>
@@ -139,7 +140,7 @@
 
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <label class="text-info"><i>Wajib Mengisi Pilihan Berikut ini</i></label>
+                  <label class="text-info"><i>Wajib mengisi pilihan berikut ini</i></label>
                   <table width="100%">
                     <tbody>
                       <tr>
@@ -257,6 +258,22 @@
 
 @section('pagespecificjs') 
 <script>
+  //input handler untuk checkbox "Lain-lain"
+  $(document).ready(function() {
+    if($("#c5q2").is(":checked")) {
+      $("#c5q2_input").prop("required", true);
+      $("#c5q2_input").prop("disabled", false);
+    }
+    else {
+      $("#c5q2_input").prop("required", false);
+      $("#c5q2_input").prop("disabled", true);
+    }
+  });
+  $("#c5q2").on("change", function(e) {
+    $("#c5q2_input").prop("required", $(this).is(":checked"));
+    $("#c5q2_input").prop("disabled", !$(this).is(":checked"));
+  });
+
   //Pertanyaan 1 jumper handler
   $("input[name='q1']").change(function(){
     ($(this).val().toLowerCase() == 'tidak') ? disableQuestion(".quest_1") : enableQuestion(".quest_1");
@@ -264,15 +281,14 @@
 
   function disableQuestion(selector='') {
     if(selector) {
-      // $(selector).prop('disabled', true);
-      $(selector).find("input").prop('disabled', true);
+      $(selector).find("input:checkbox").prop('disabled', true);
+      $(selector+" :input").not(':button, :submit, :reset, :hidden').val('').prop('checked', false).prop('selected', false).trigger('change');
       $(selector).fadeOut();
     }
   }
   function enableQuestion(selector='') {
     if(selector) {
-      // $(selector).prop('disabled', false);
-      $(selector).find("input").prop('disabled', false);
+      $(selector).find("input:checkbox").prop('disabled', false);
       $(selector).fadeIn();
     }
   }

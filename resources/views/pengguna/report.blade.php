@@ -132,7 +132,7 @@
 		@endcomponent
 	</div>
 
-	{{-- PERTANYAAN 4A --}}
+	{{-- PERTANYAAN 5A --}}
 	<div class="col-md-6 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
@@ -151,12 +151,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach ($list_q4a['kuesioner'] as $pertanyaan => $jumlah)
+						@foreach ($list_q5a['kuesioner'] as $pertanyaan => $jumlah)
 							<tr>
 								<td>{{ $jumlah['alias'] }}</td>
 								{{-- <td class="text-right">{{ $jumlah['skor'] }}</td> --}}
 								<td class="text-right">
-									{{ number_format((($jumlah['responden'] / max($list_q4a['total_responden'], 1)) * 100), 1) }}
+									{{ number_format((($jumlah['responden'] / max($list_q5a['total_responden'], 1)) * 100), 1) }}
 								</td>
 							</tr>
 						@endforeach
