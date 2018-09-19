@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\Event;
+
 
 class DashboardController extends Controller
 {
@@ -13,6 +15,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        event(new Event());
         return view('dashboard');
     }
 

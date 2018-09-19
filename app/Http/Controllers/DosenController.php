@@ -7,6 +7,8 @@ Use Session;
 use App\Biodata_dosen;
 use App\Angket_dosen;
 use Illuminate\Support\Facades\DB;
+use Saml2;
+use Event;
 
 class DosenController extends Controller
 {
@@ -17,7 +19,10 @@ class DosenController extends Controller
      */
     public function index()
     {
-        return view("dosen/identitas");
+        // return redirect('saml2/login');
+        return Saml2::login();
+        
+        // return view("dosen/identitas");
     }
 
     /**
