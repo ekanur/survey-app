@@ -168,7 +168,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4 quest_4" >
+    <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Dari pilihan Berikut, mana yang menjelaskan status karir Ibu/Bapak </h6>
       </div>
@@ -221,7 +221,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4 quest_4" >
+    <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Dari pilihan berikut ini mana yang menjelaskan status pekerjaan Ibu/Bapak : </h6>
       </div>
@@ -516,7 +516,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4 quest_4" >
+    <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Tuliskan Pengalaman apa yang paling bermanfaat selama masa studi, untuk membantu dalam pekerjaan pasca Ibu/Bapak lulus? </h6>
       </div>
@@ -547,7 +547,7 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4 quest_4" >
+    <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Tuliskan Pengalaman apa yang paling tidak bermanfaat selama masa studi,dalam pekerjaan pasca Ibu/Bapak lulus?</h6>
       </div>

@@ -8,7 +8,7 @@
     <div class="col-lg-8 text-sm-left">
       <div class="card card-small mb-4" >
         <div class="card-header border-bottom">
-          <h6 class="m-0">1.  Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</h6>
+          <h6 class="m-0">Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</h6>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item p-0 px-3 pt-3">

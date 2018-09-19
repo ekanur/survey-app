@@ -28,6 +28,10 @@ class AlumniController extends Controller
 
     public function angket()
     {
+        if(null == session("biodata_id")){
+            session()->flash("msg", "Isikan biodata anda.");
+            return redirect("/alumni");
+        }
         return view('alumni/angket');
 
     }

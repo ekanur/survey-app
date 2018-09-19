@@ -17,7 +17,7 @@ class AngketAlumni extends Migration
             $table->increments('id');
             $table->integer("biodata_alumni_id");
             $table->integer("tahun");
-            $table->string("kuesioner", 20);
+            $table->string("kuesioner", 30);
             $table->string("value", 200)->nullable();
             $table->timestamps();
             $table->softDeletes();

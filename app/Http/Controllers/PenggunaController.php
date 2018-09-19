@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use Illuminate\Support\Facades\DB;
 use App\Biodata_pengguna;
 use App\Angket_pengguna;
 
@@ -98,8 +99,6 @@ class PenggunaController extends Controller
     }
 
     public function simpanBiodata(Request $request){
-      return redirect("/pengguna/angket");
-
       $biodata = new Biodata_pengguna;
       $biodata->jabatan_pengisi = $request->jabatan_pengisi;
       $biodata->nama_instansi = $request->nama_instansi;
@@ -131,7 +130,7 @@ class PenggunaController extends Controller
 
     Angket_pengguna::insert($data);
 
-    session()->forget("dosen_id");
+    session()->forget("biodata_id");
     session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
     return redirect("/");
   }
