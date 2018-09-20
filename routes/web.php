@@ -66,12 +66,12 @@ Route::post("biodata-dosen", "DosenController@simpanBiodata");
 // Route::get("dosen/report", "DosenController@report");
 
 //dosen
-Route::get('dosen','DosenController@index')->name('dosen');
-Route::get('dosen/angket', 'DosenController@angket');
+//Route::get('dosen','DosenController@index')->name('dosen');
+//Route::get('dosen/angket', 'DosenController@angket');
 
 
-Route::post("biodata-dosen", "DosenController@simpanBiodata");
-Route::post("angket-dosen", "DosenController@simpanAngket");
+//Route::post("biodata-dosen", "DosenController@simpanBiodata");
+//Route::post("angket-dosen", "DosenController@simpanAngket");
 
 // mahasiswa
 
