@@ -263,7 +263,7 @@
 			<div class="card-header border-bottom">
 				<h6 class="m-0">Status Pekerjaan</h6>
 			</div>
-			{{print_r($list_q6)}}
+			<!-- {{print_r($list_q6)}} -->
 			<div class="card-body p-0 pb-3">
 				<div class="row">
 					<div class="col-md-5">
