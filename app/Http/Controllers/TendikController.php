@@ -191,7 +191,7 @@ class TendikController extends Controller
       }
     }
 
-    $m_angket = new Angket_mitra;
+    $m_angket = new Angket_tendik;
 
     //Pertanyaan 1: Pemahaman VTMS Universitas
     $data_db = $m_angket->where('kuesioner', 'q1')->get();
