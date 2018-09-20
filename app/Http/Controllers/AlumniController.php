@@ -163,58 +163,88 @@ class AlumniController extends Controller
 
 
  public function report() {
-    // $m_angket = new Angket_alumni;
+      $m_angket = new Angket_alumni;
 
-    //Pertanyaan 1: Pemahaman VTMS Universitas
-   $data_prodi = DB::table("angket_dosen")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->where("kuesioner", "ILIKE", "%q1%")->groupBy("kuesioner", "value");
-
-    $data_fakultas = DB::table("angket_dosen")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->where("kuesioner", "ILIKE","%q4%")->groupBy("kuesioner", "value")->union($data_prodi)->get();
-
-
-    $list_pemahaman_vmts = array(
-        "fakultas" => array("Ya"=>0, "Tidak"=>0, "Responden"=>0),
-        "prodi" => array("Ya"=>0, "Tidak"=>0, "Responden"=>0),
-    );
-    foreach ($data_fakultas as $pemahaman_vmts) {
-      if($pemahaman_vmts->kuesioner == 'q1'){
-        if($pemahaman_vmts->value == 'Ya'){
-            $list_pemahaman_vmts["prodi"]["Ya"] = $pemahaman_vmts->count;
-        }elseif($pemahaman_vmts->value == 'Tidak'){
-            $list_pemahaman_vmts["prodi"]["Tidak"] = $pemahaman_vmts->count;
-        }
-            $list_pemahaman_vmts["prodi"]["Responden"] = $list_pemahaman_vmts["prodi"]["Ya"]+$list_pemahaman_vmts["prodi"]["Tidak"];
-      }elseif($pemahaman_vmts->kuesioner == 'q4'){
-        if($pemahaman_vmts->value == 'Ya'){
-            $list_pemahaman_vmts["fakultas"]["Ya"] = $pemahaman_vmts->count;
-        }elseif($pemahaman_vmts->value == 'Tidak'){
-            $list_pemahaman_vmts["fakultas"]["Tidak"] = $pemahaman_vmts->count;
-        }
-            $list_pemahaman_vmts["fakultas"]["Responden"] = $list_pemahaman_vmts["fakultas"]["Ya"]+$list_pemahaman_vmts["fakultas"]["Tidak"];
+    //Pertanyaan 1: Pemahaman VTMS prodis
+    $data_db = $m_angket->where('kuesioner', 'q1')->get();
+    $list_q1 = array(
+              'jumlah_ya' => 0, 
+              'jumlah_tidak' => 0, 
+              'total_responden' => count($data_db)
+            );
+    foreach ($data_db as $row) {
+      if(strtolower($row->value) == 'ya') {
+        $list_q1['jumlah_ya']++;
+      }
+      else if(strtolower($row->value) == 'tidak') {
+        $list_q1['jumlah_tidak']++;
       }
     }
-    // dd($list_pemahaman_vmts);
+
+    // dd($list_q1);
 
     
-    $media_vmts_prodi = $this->mediaVMTS("angket_alumni", "q2");
+   //Pertanyaan 2: Rumusan VMTS prodi
+    $data_db = DB::table("angket_alumni")
+                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+                ->where('kuesioner', 'q2')
+                ->groupBy('value')
+                ->get();
+    $list_q2 = array(
+              'kuesioner' => array(
+                  'Katalog dan/atau dokumen jurusan lainnya' => 0, 
+                  'Membaca banner' => 0, 
+                  'Kegiatan kemahasiswaan' => 0, 
+                  'Laman UM' => 0, 
+                  'Lain-lain' => 0,
+              ),
+              'total_responden' => 0,
+              'total_pilihan' => 0
+            );
+    foreach ($data_db as $row) {
+      $arr_value = json_decode($row->value);
+      
+      if(!empty($arr_value)) {
+        foreach ($arr_value as $jawaban) {
+          $lain_exist = true;
+          foreach ($list_q2['kuesioner'] as $pertanyaan => $jumlah) {
+            if(strtolower($jawaban) == strtolower($pertanyaan)) {
+              $list_q2['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+              $lain_exist = false;
+            }
+          }
+          //tambahkan counter pilihan "Lain-lain" jika ada value custom
+          $list_q2['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
+          $list_q2['total_pilihan']++;
+        }
+      }
 
-    // dd($media_vmts_prodi);
+      $list_q2['total_responden'] += $row->jumlah_responden;
+    }
 
-    //Pertanyaan 3: Media Penyampaian VMTS fakultas
-    $media_vmts_fakultas = $this->mediaVMTS("angket_alumni", "q5");
+   
 
+  //Pertanyaan 3: Kinerja Prodi
+    $list_q3 = $this->kinerja("angket_alumni", "q3");
 
-    //Pertanyaan 4: Kinerja Prodi
-    $kinerja_prodi = $this->kinerja("angket_alumni", "q3");
-
-    // dd($kinerja_prodi);
-
-
-    //Pertanyaan 5: Kinerja Fakultas
-
-    $kinerja_fakultas = $this->kinerja("angket_alumni", "q6");
-
-    // dd($kinerja_fakultas);
-
-    return view("alumni.report", compact('list_pemahaman_vmts', 'media_vmts_prodi', 'media_vmts_fakultas', 'kinerja_prodi', 'kinerja_fakultas'));
+    //dd($list_q3); 
+  //pertanyaan 4: relevansi prodi dan pekerjaan
+     $data_db = $m_angket->where('kuesioner', 'q4')->get();
+    $list_q4 = array(
+              'jumlah_ya' => 0, 
+              'jumlah_tidak' => 0, 
+              'total_responden' => count($data_db)
+            );
+    foreach ($data_db as $row) {
+      if(strtolower($row->value) == 'ya') {
+        $list_q4['jumlah_ya']++;
+      }
+      else if(strtolower($row->value) == 'tidak') {
+        $list_q4['jumlah_tidak']++;
+      }
+    }
+// dd($list_q4);
+  
+    return view("alumni.report", compact('list_q1','list_q2','list_q3','list_q4'));
   }
 }

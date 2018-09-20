@@ -280,7 +280,7 @@
                  <div class="col-lg-12 text-sm-left">
                   <div class="card card-small mb-4">
                     <div class="card-header border-bottom">
-                      <h6 class="m-0">a. Di Tingkat Prodi</h6>
+                      <h6 class="m-0">A. Di Tingkat Prodi</h6>
                   <table width="100%">
                     <tbody>
                       <tr>
@@ -409,7 +409,7 @@
 <div class="col-lg-12 text-sm-left">
                   <div class="card card-small mb-4">
                     <div class="card-header border-bottom">
-                      <h6 class="m-0">b. Di tingkat Fakultas/Universitas</h6>
+                      <h6 class="m-0">B. Di tingkat Fakultas/Universitas</h6>
                   <table width="100%">
                     <tbody>
 <tr>
