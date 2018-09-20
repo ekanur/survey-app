@@ -47,11 +47,11 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Rapat Jurusan">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Masa orientasi Maba">
                       <label class="custom-control-label" for="c1q2">Masa orientasi maba</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Katalog dan/atau dokumen Jurusan lainnya">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Katalog dan atau dokumen Jurusan lainnya">
                       <label class="custom-control-label" for="c2q2">Katalog dan/atau dokumen Jurusan lainnya</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
@@ -203,7 +203,7 @@
                       <label class="custom-control-label" for="c4q5">Berwirausaha</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c5q5" value="Studi Lanjut">
+                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c5q5" value="Studi Lanjut (S2/S3)">
                       <label class="custom-control-label" for="c5q5">Studi Lanjut (S2/S3) </label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">

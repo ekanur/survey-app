@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content') 
+@section('content')  
 
 <div class="row">
 	{{-- PERTANYAAN 1 --}}
@@ -149,17 +149,17 @@
 		</div>
 	</div>
 
-	{{-- PERTANYAAN 4 --}}
+{{-- PERTANYAAN 4 --}}
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
-				<h6 class="m-0">hmmmm mumet</h6>
+				<h6 class="m-0">Relevansi Prodi dan Pekerjaan</h6>
 			</div>
 			<div class="card-body p-0 pb-3 text-center">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</span>
+							<span class="text-info font-italic font-weight-bold" >Apakah pekerjaan Ibu/Bapak relevan dengan program studi yang ditempuh di Universitas Negeri Malang ?</span>
 						</div>
 						<table class="table mb-0" id="datatable4">
 							<thead class="bg-light">
@@ -184,20 +184,121 @@
 					</div>
 					<div class="col-md-6">
 						@component("chart.column")
-							{{-- @slot("judul") Relevansi Pekerjaan @endslot --}}
-							@slot("use_panel") no @endslot
-							@slot("id_chart") persentase_vmts @endslot
-							@slot("id_tabel") datatable4 @endslot
-							@slot("judul_chart") Persentase Relevansi Pekerjaan @endslot
-							@slot("subjudul_chart") Total Responden: {{ $list_q4['total_responden'] }} orang @endslot
-							@slot("judul_y") Persentase @endslot
-							@slot("tipe_value") percent @endslot
+						{{-- @slot("judul") Relevansi Prodi dan Pekerjaan @endslot --}}
+						@slot("use_panel") no @endslot
+						@slot("id_chart") persentase_vmts_2 @endslot
+						@slot("id_tabel") datatable4 @endslot
+						@slot("judul_chart") Persentase Relevansi Prodi dan Pekerjaan @endslot
+						@slot("subjudul_chart") Total Responden: {{ $list_q4['total_responden'] }} orang @endslot
+						@slot("judul_y") Persentase @endslot
+						@slot("tipe_value") percent @endslot
 						@endcomponent
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+
+		{{-- PERTANYAAN 5 --}}
+	<div class="col-md-12 col-sm-12 mb-4">
+		<div class="card card-small mb-4">
+			<div class="card-header border-bottom">
+				<h6 class="m-0">Status Karir</h6>
+			</div>
+			<div class="card-body p-0 pb-3">
+				<div class="row">
+					<div class="col-md-5">
+						<div class="text-center p-3">
+							<span class="text-info font-italic font-weight-bold" >Dari pilihan berikut ini mana yang menjelaskan status karir Ibu/Bapak ?</span>
+						</div>
+						<table class="table mb-0" id="datatable5">
+							<thead class="bg-light">
+								<tr>
+									<th scope="col" class="border-0">Pilihan</th>
+									<th scope="col" class="border-0">Persentase (%)</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach ($list_q5['kuesioner'] as $pertanyaan => $jumlah)
+									<tr>
+										<td>{{ $pertanyaan }}</td>
+										<td class="text-right">
+											{{ number_format((($jumlah / max($list_q5['total_responden'], 1)) * 100), 1) }}
+											{{-- {{ number_format((($jumlah / max($list_q5['total_pilihan'], 1)) * 100), 1) }} --}}
+										</td>
+									</tr>
+								@endforeach
+							</tbody>
+						</table>
+					</div>
+					<div class="col-md-7">
+						@component("chart.pie_legend")
+							{{-- @slot("judul") Status Karir @endslot --}}
+							@slot("use_panel") no @endslot
+							@slot("id_chart") persentase_q5 @endslot
+							@slot("id_tabel") datatable5 @endslot
+							@slot("judul_chart") Persentase Status Karir  @endslot
+							@slot("subjudul_chart") Total Responden: {{ $list_q5['total_responden'] }} orang @endslot
+							@slot("judul_y") Persentase @endslot
+						@endcomponent
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+		{{-- PERTANYAAN 6 --}}
+	<div class="col-md-12 col-sm-12 mb-4">
+		<div class="card card-small mb-4">
+			<div class="card-header border-bottom">
+				<h6 class="m-0">Status Pekerjaan</h6>
+			</div>
+			<div class="card-body p-0 pb-3">
+				<div class="row">
+					<div class="col-md-5">
+						<div class="text-center p-3">
+							<span class="text-info font-italic font-weight-bold" >Dari pilihan berikut ini mana yang menjelaskan status pekerjaan Ibu/Bapak ?</span>
+						</div>
+						<table class="table mb-0" id="datatable6">
+							<thead class="bg-light">
+								<tr>
+									<th scope="col" class="border-0">Pilihan</th>
+									<th scope="col" class="border-0">Persentase (%)</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach ($list_q6['kuesioner'] as $pertanyaan => $jumlah)
+									<tr>
+										<td>{{ $pertanyaan }}</td>
+										<td class="text-right">
+											{{ number_format((($jumlah / max($list_q6['total_responden'], 1)) * 100), 1) }}
+											{{-- {{ number_format((($jumlah / max($list_q6['total_pilihan'], 1)) * 100), 1) }} --}}
+										</td>
+									</tr>
+								@endforeach
+							</tbody>
+						</table>
+					</div>
+					<div class="col-md-7">
+						@component("chart.pie_legend")
+							{{-- @slot("judul") Status Pekerjaan @endslot --}}
+							@slot("use_panel") no @endslot
+							@slot("id_chart") persentase_q6 @endslot
+							@slot("id_tabel") datatable6 @endslot
+							@slot("judul_chart") Persentase Status Pekerjaan  @endslot
+							@slot("subjudul_chart") Total Responden: {{ $list_q6['total_responden'] }} orang @endslot
+							@slot("judul_y") Persentase @endslot
+						@endcomponent
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 
 </div> <!-- body -->
 @endsection
