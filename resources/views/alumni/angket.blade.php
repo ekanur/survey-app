@@ -239,17 +239,17 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                    <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio1q6" name="q6" class="custom-control-input" value="PNS">
+                    <input required="" type="radio" id="radio1q6" name="q6[]" class="custom-control-input" value="PNS">
                     <label class="custom-control-label" for="radio1q6">PNS</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio2q6" name="q6" class="custom-control-input" value="Non PNS">
+                    <input required="" type="radio" id="radio2q6" name="q6[]" class="custom-control-input" value="Non PNS">
                     <label class="custom-control-label" for="radio2q6"> Non PNS</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" name="q6" id="radio3q6"class="custom-control-input">
+                    <input type="radio" id="radio3q6"class="custom-control-input">
                     <label class="custom-control-label" for="radio3q6"> Lain-lain</label>
-                    <input type="text" id="radio3q6_input" class="form-control form-control-sm">
+                    <input type="text" name="q6[]" id="radio3q6_input" class="form-control form-control-sm">
                   </div>
                 </fieldset>
               </div>
