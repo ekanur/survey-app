@@ -36,13 +36,14 @@
 
     </div>
     <div class="row" style="margin-bottom:60px">
-        <div class="col-4 offset-md-4">
+        &nbsp;
+        <!-- <div class="col-4 offset-md-4">
             <select class="form-control" name="tahun">
                 @for($tahun=date("Y"); $tahun>=2015; $tahun--)
                 <option value="{{ $tahun }}" @if(null != session("tahun")) @if(session("tahun") == $tahun) selected="" @endif @endif>{{ $tahun }}</option>
                 @endfor
             </select>
-        </div>
+        </div> -->
     </div>
     @if(null != session("msg"))
     <div class="row" style="margin-bottom:60px;">

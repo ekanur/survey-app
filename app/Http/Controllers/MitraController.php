@@ -145,10 +145,8 @@ class MitraController extends Controller
   }
 
   public function report() {
-    $m_angket = new Angket_mitra;
-
     //Pertanyaan 1: Pemahaman VTMS Universitas
-    $data_db = $m_angket->where('kuesioner', 'q1')->get();
+    $data_db = DB::table("angket_mitra")->where('kuesioner', 'q1')->get();
     $list_q1 = array(
               'jumlah_ya' => 0, 
               'jumlah_tidak' => 0, 

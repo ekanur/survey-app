@@ -25,8 +25,39 @@ class DosenController extends Controller
         session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
         return redirect("/servicelogout");
       }
-            return redirect("/dosen/angket"); 
+    return redirect("/dosen/angket"); 
+        // return redirect('saml2/login');
+        // return Saml2::login();
+        // return view("dosen/identitas");
+      // var_dump(session()->all());
     }
+
+    /*public function login() {
+     return \Auth::guest() ? redirect('saml2/login') : \Redirect::intended('/');
+    }
+    public function logout()
+    {
+      //recover sessionIndex and nameId from session
+      $sessionIndex = session()->get('sessionIndex');
+      $nameId = session()->get('nameId');
+
+      //get the logout route from saml2 config
+      $returnTo = config('saml2_settings.logoutRoute');
+
+      //pass parameters into the url
+      return redirect()->route('saml_logout', [
+        'returnTo'=>$returnTo,
+        'nameId'=>$nameId,
+        'sessionIndex'=>$sessionIndex
+      ]);
+    }*/
+
+    /*public function loggedin()
+    {
+      // return view('home');
+      echo "YOU'VE BEEN LOGGED IN! HELL YEA!";
+      var_dump(session()->all());
+    }*/
 
     /**
      * Show the form for creating a new resource.

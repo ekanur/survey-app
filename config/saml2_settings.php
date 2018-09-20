@@ -1,7 +1,8 @@
 <?php
 
 //This is variable is an example - Just make sure that the urls in the 'idp' config are ok.
-$idp_host = env('SAML2_IDP_HOST', 'https://auth.um.ac.id');
+// $idp_host = env('SAML2_IDP_HOST', 'https://auth.um.ac.id');
+$idp_host = 'https://auth.um.ac.id';
 
 return $settings = array(
 
@@ -24,7 +25,7 @@ return $settings = array(
      * which middleware group to use for the saml routes
      * Laravel 5.2 will need a group which includes StartSession
      */
-    'routesMiddleware' => [],
+    'routesMiddleware' => ['saml'],
 
     /**
      * Indicates how the parameters will be
