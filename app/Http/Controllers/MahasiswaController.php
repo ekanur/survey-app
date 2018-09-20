@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use App\Biodata_mahasiswa;
+
+use Illuminate\Support\Facades\DB;
 use App\Angket_mahasiswa;
 
 class MahasiswaController extends Controller
@@ -16,7 +18,13 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-      return view("mahasiswa/identitas");
+      $is_mahasiswa = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where("nip", "=", session("userID"))->get();
+
+      if(count($is_mahasiswa)!=0){
+        session()->flash("msg", "Terjadi Kesalahan Mengambil data mahasiswa");
+        return redirect("/servicelogout");
+      }
+            return redirect("/mahasiswa/angket"); 
     }
 
     /**
@@ -27,10 +35,10 @@ class MahasiswaController extends Controller
 
     public function angket()
     {
-      if(null == session("biodata_id")){
-        session()->flash("msg", "Isikan biodata anda.");
-        return redirect("/mahasiswa");
-      }
+      if(null == session("userID")){
+            session()->flash("msg", "Terjadi Kesalahan Mengambil data mahasiswa");
+            return redirect("/");
+        }
       return view('mahasiswa/angket');
 
     }
@@ -124,7 +132,7 @@ class MahasiswaController extends Controller
 
 
   public function simpanAngket(Request $request){
-    if(null == session("biodata_id")){
+    if(null == session("userID")){
       session()->flash("msg", "Isikan biodata anda.");
       return redirect("/mahasiswa");
     }
@@ -132,18 +140,18 @@ class MahasiswaController extends Controller
 
     Angket_mahasiswa::insert($data);
 
-    session()->forget("biodata_id");
+    session()->forget("userID");
     session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
     return redirect("/");
   }
 
   function dataKuesioner($request){
-        $biodata_id = session("biodata_id"); //diubah ke session hasil dari simpanBiodata
+        $user_id = session("userID"); //diubah ke session hasil dari simpanBiodata
         $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
         $data = array();
         $i=0;
         foreach ($request as $key => $value) {
-          $data[$i]["biodata_mahasiswa_id"] = $biodata_id;
+          $data[$i]["mahasiswa_nim"] = $user_id;
           $data[$i]["tahun"] = $tahun;
           $data[$i]["kuesioner"] = $key;
           $data[$i]["value"] = (is_array($value))? json_encode($value) : $value;

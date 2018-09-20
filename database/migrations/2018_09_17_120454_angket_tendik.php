@@ -15,7 +15,7 @@ class AngketTendik extends Migration
     {
         Schema::create('angket_tendik', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("biodata_tendik_id");
+            $table->string("tendik_nip", 25);
             $table->integer("tahun");
             $table->string("kuesioner", 20);
             $table->string("value", 200)->nullable();

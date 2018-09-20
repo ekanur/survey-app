@@ -19,10 +19,13 @@ class DosenController extends Controller
      */
     public function index()
     {
-        // return redirect('saml2/login');
-        return Saml2::login();
-        
-        // return view("dosen/identitas");
+      $is_dosen = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where([["nip", "=", session("userID")], ["id_jns_pegawai", "=", 5]])->get();
+
+      if(count($is_dosen)==0){
+        session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
+        return redirect("/servicelogout");
+      }
+            return redirect("/dosen/angket"); 
     }
 
     /**
@@ -33,9 +36,9 @@ class DosenController extends Controller
 
     public function angket()
     {
-        if(null == session("biodata_id")){
-            session()->flash("msg", "Isikan biodata anda.");
-            return redirect("/dosen");
+        if(null == session("userID")){
+            session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
+            return redirect("/");
         }
         return view('dosen/angket');
 
@@ -104,32 +107,32 @@ class DosenController extends Controller
     }
 
     public function simpanBiodata(Request $request){
-      $biodata = new Biodata_dosen;
-      $biodata->email = $request->email;
-      $biodata->prodi = $request->prodijurusan;
-      $biodata->fakultas = $request->fakultas;
-      $biodata->tmt = $request->tmt;
-      $biodata->jenis_kelamin = $request->jeniskelamin;
-      $biodata->usia = $request->usia;
-      $biodata->pendidikan_tertinggi = $request->pendidikan;
-      $biodata->lama_mengajar = $request->lamamengajar;
-      $biodata->jabatan_fungsional = $request->jabatanfungsional;
-      $biodata->tugas_tambahan = $request->tugastambahan;
+      // $biodata = new Biodata_dosen;
+      // $biodata->email = $request->email;
+      // $biodata->prodi = $request->prodijurusan;
+      // $biodata->fakultas = $request->fakultas;
+      // $biodata->tmt = $request->tmt;
+      // $biodata->jenis_kelamin = $request->jeniskelamin;
+      // $biodata->usia = $request->usia;
+      // $biodata->pendidikan_tertinggi = $request->pendidikan;
+      // $biodata->lama_mengajar = $request->lamamengajar;
+      // $biodata->jabatan_fungsional = $request->jabatanfungsional;
+      // $biodata->tugas_tambahan = $request->tugastambahan;
 
 
-        if($biodata->save()){
-        // dd($biodata->id);
-             session(["biodata_id" => $biodata->id]);
-               // dd(session("biodata_id"));
-             return redirect("/dosen/angket");
-        }else{
-            return redirect()->back()->withInput();
-        }
+      //   if($biodata->save()){
+      //   // dd($biodata->id);
+      //        session(["userID" => $biodata->id]);
+      //          // dd(session("userID"));
+      //        return redirect("/dosen/angket");
+      //   }else{
+      //       return redirect()->back()->withInput();
+      //   }
     }
 
 
     public function simpanAngket(Request $request){
-        if(null == session("biodata_id")){
+        if(null == session("userID")){
             session()->flash("msg", "Isikan biodata anda.");
             return redirect("/dosen");
         }
@@ -137,19 +140,19 @@ class DosenController extends Controller
 
         Angket_dosen::insert($data);
 
-        session()->forget("biodata_id");
+        session()->forget("userID");
         session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
         return redirect("/");
     }
 
     function dataKuesioner($request){
         
-        $biodata_id = session('biodata_id'); //diubah ke session hasil dari simpanBiodata
+        $user_id = session('userID'); 
         $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
         $data = array();
         $i=0;
         foreach ($request as $key => $value) {
-            $data[$i]["biodata_dosen_id"] = $biodata_id;
+            $data[$i]["dosen_nip"] = $user_id;
             $data[$i]["tahun"] = $tahun;
             $data[$i]["kuesioner"] = $key;
             $data[$i]["value"] = (is_array($value))? json_encode($value) : $value;

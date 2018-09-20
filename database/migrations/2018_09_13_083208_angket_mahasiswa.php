@@ -15,7 +15,7 @@ class AngketMahasiswa extends Migration
     {
         Schema::create('angket_mahasiswa', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("biodata_mahasiswa_id");
+            $table->string("mahasiswa_nim", 25);
             $table->integer("tahun");
             $table->string("kuesioner", 20);
             $table->string("value", 200)->nullable();

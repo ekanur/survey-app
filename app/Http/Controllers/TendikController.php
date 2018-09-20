@@ -7,6 +7,8 @@ use Session;
 use App\Biodata_tendik;
 use App\Angket_tendik;
 
+use Illuminate\Support\Facades\DB;
+
 class TendikController extends Controller
 {
     /**
@@ -16,7 +18,13 @@ class TendikController extends Controller
      */
     public function index()
     {
-      return view("tendik/identitas");
+      $is_pegawai = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where([["nip", "=", session("userID")], ["id_jns_pegawai", "!=", 5]])->get();
+
+      if(count($is_pegawai)==0){
+        session()->flash("msg", "Terjadi Kesalahan Mengambil data tendik");
+        return redirect("/servicelogout");
+      }
+            return redirect("/tendik/angket"); 
     }
 
     /**
@@ -27,10 +35,10 @@ class TendikController extends Controller
 
     public function angket()
     {
-      if(null == session("biodata_id")){
-        session()->flash("msg", "Isikan biodata anda.");
-        return redirect("/tendik");
-      }
+      if(null == session("userID")){
+            session()->flash("msg", "Terjadi Kesalahan Mengambil data tendik");
+            return redirect("/");
+        }
       return view('tendik/angket');
 
     }
@@ -123,7 +131,7 @@ class TendikController extends Controller
 
 
   public function simpanAngket(Request $request){
-    if(null == session("biodata_id")){
+    if(null == session("userID")){
       session()->flash("msg", "Isikan biodata anda.");
       return redirect("/tendik");
     }
@@ -131,18 +139,18 @@ class TendikController extends Controller
 
     Angket_tendik::insert($data);
 
-    session()->forget("biodata_id");
+    session()->forget("userID");
     session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
     return redirect("/");
   }
 
   function dataKuesioner($request){
-        $biodata_id = session("biodata_id"); //diubah ke session hasil dari simpanBiodata
+        $user_id = session("userID"); //diubah ke session hasil dari simpanBiodata
         $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
         $data = array();
         $i=0;
         foreach ($request as $key => $value) {
-          $data[$i]["biodata_tendik_id"] = $biodata_id;
+          $data[$i]["tendik_nip"] = $user_id;
           $data[$i]["tahun"] = $tahun;
           $data[$i]["kuesioner"] = $key;
           $data[$i]["value"] = (is_array($value))? json_encode($value) : $value;

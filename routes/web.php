@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/servicecheck/{back_url}','SecurityController@check');
+Route::get('/servicelogout','SecurityController@logout');
 
 Route::get('/', 'DashboardController@index');
 Route::get("/ubah-tahun/{tahun}", "DashboardController@ubahTahun");
@@ -17,26 +19,31 @@ Route::get("/ubah-tahun/{tahun}", "DashboardController@ubahTahun");
 Route::get('/admin', 'admin\AdminController@index');
 
 //dosen
-Route::get('/dosen','DosenController@index')->name('dosen');
+Route::group(['middleware' => 'auth_josso'], function() {
+	Route::get('/dosen','DosenController@index')->name('dosen');
+	Route::get('dosen/angket', 'DosenController@angket');
+	Route::post("angket-dosen", "DosenController@simpanAngket");
 
-Route::get('dosen/angket', 'DosenController@angket');
+	Route::get('mahasiswa', "MahasiswaController@index")->name('mahasiswa');
+	Route::post("angket-mahasiswa", "MahasiswaController@simpanAngket");
+	Route::get('mahasiswa/angket', "MahasiswaController@angket");
+
+	Route::get('tendik', "TendikController@index")->name('tendik');
+	Route::get('tendik/angket', "TendikController@angket");
+	Route::post("angket-tendik", "TendikController@simpanAngket");
+});
+
 
 
 Route::post("biodata-dosen", "DosenController@simpanBiodata");
-Route::post("angket-dosen", "DosenController@simpanAngket");
 Route::get("dosen/report", "DosenController@report");
 
 // mahasiswa
-Route::get('mahasiswa', "MahasiswaController@index")->name('mahasiswa');
-Route::get('mahasiswa/angket', "MahasiswaController@angket");
+
 Route::post("biodata-mahasiswa", "MahasiswaController@simpanBiodata");
-Route::post("angket-mahasiswa", "MahasiswaController@simpanAngket");
 
 // tendik
-Route::get('tendik', "TendikController@index")->name('tendik');
-Route::get('tendik/angket', "TendikController@angket");
 Route::post("biodata-tendik", "TendikController@simpanBiodata");
-Route::post("angket-tendik", "TendikController@simpanAngket");
 
 // alumni
 Route::get('/alumni','AlumniController@index')->name('alumni');
@@ -44,7 +51,6 @@ Route::get('alumni/angket', 'AlumniController@angket');
 Route::post("biodata-alumni", "AlumniController@simpanBiodata");
 Route::post("angket-alumni", "AlumniController@simpanAngket");
 route::get("alumni/report","AlumniController@report");
-// <<<<<<< HEAD
 //pengguna
 Route::get('pengguna', "PenggunaController@index")->name('pengguna');
 Route::get('pengguna/angket', "PenggunaController@angket");
