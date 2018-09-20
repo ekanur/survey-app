@@ -31,19 +31,21 @@ Route::get('mahasiswa', "MahasiswaController@index")->name('mahasiswa');
 Route::get('mahasiswa/angket', "MahasiswaController@angket");
 Route::post("biodata-mahasiswa", "MahasiswaController@simpanBiodata");
 Route::post("angket-mahasiswa", "MahasiswaController@simpanAngket");
+Route::get("mahasiswa/report", "MahasiswaController@report");
 
 // tendik
 Route::get('tendik', "TendikController@index")->name('tendik');
 Route::get('tendik/angket', "TendikController@angket");
 Route::post("biodata-tendik", "TendikController@simpanBiodata");
 Route::post("angket-tendik", "TendikController@simpanAngket");
+Route::get("tendik/report", "TendikController@report");
 
 // alumni
 Route::get('/alumni','AlumniController@index')->name('alumni');
 Route::get('alumni/angket', 'AlumniController@angket');
 Route::post("biodata-alumni", "AlumniController@simpanBiodata");
 Route::post("angket-alumni", "AlumniController@simpanAngket");
-route::get("alumni/report","AlumniController@report");
+Route::get("alumni/report","AlumniController@report");
 // <<<<<<< HEAD
 //pengguna
 Route::get('pengguna', "PenggunaController@index")->name('pengguna');
