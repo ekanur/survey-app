@@ -42,15 +42,19 @@ Route::get("dosen/report", "DosenController@report");
 
 Route::post("biodata-mahasiswa", "MahasiswaController@simpanBiodata");
 
+
 // tendik
 Route::post("biodata-tendik", "TendikController@simpanBiodata");
+
 
 // alumni
 Route::get('/alumni','AlumniController@index')->name('alumni');
 Route::get('alumni/angket', 'AlumniController@angket');
 Route::post("biodata-alumni", "AlumniController@simpanBiodata");
 Route::post("angket-alumni", "AlumniController@simpanAngket");
+
 route::get("alumni/report","AlumniController@report");
+
 //pengguna
 Route::get('pengguna', "PenggunaController@index")->name('pengguna');
 Route::get('pengguna/angket', "PenggunaController@angket");

@@ -47,11 +47,11 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Rapat Jurusan">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Masa orientasi Maba">
                       <label class="custom-control-label" for="c1q2">Masa orientasi maba</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Katalog dan/atau dokumen Jurusan lainnya">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Katalog dan atau dokumen Jurusan lainnya">
                       <label class="custom-control-label" for="c2q2">Katalog dan/atau dokumen Jurusan lainnya</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
@@ -67,9 +67,12 @@
                       <label class="custom-control-label" for="c5q2">Laman UM</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
+
                       <input type="checkbox" class="custom-control-input" id="c6q2">
                       <label class="custom-control-label" for="c6q2" >Lain-lain</label>
                       <input type="text" name="q2[]" id="c6q2_input" class="form-control form-control-sm">
+
+          
                     </div>
                   </fieldset>
                 </div>
@@ -200,12 +203,13 @@
                       <label class="custom-control-label" for="c4q5">Berwirausaha</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c5q5" value="Studi Lanjut">
+                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c5q5" value="Studi Lanjut (S2/S3)">
                       <label class="custom-control-label" for="c5q5">Studi Lanjut (S2/S3) </label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c6q5" value="Lain-lain">
+                      <input type="checkbox" class="custom-control-input" id="c6q5" value="Lain-lain">
                       <label class="custom-control-label" for="c6q5">Lain-lain</label>
+                      <input type="text" name="q5[]" id="c6q5_input" class="form-control form-control-sm">
                     </div>
                   </fieldset>
                 </div>
@@ -243,8 +247,9 @@
                     <label class="custom-control-label" for="radio2q6"> Non PNS</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio3q6" name="q6" class="custom-control-input" value="Lain-lain">
+                    <input type="radio" name="q6" id="radio3q6"class="custom-control-input">
                     <label class="custom-control-label" for="radio3q6"> Lain-lain</label>
+                    <input type="text" id="radio3q6_input" class="form-control form-control-sm">
                   </div>
                 </fieldset>
               </div>
@@ -275,7 +280,7 @@
                  <div class="col-lg-12 text-sm-left">
                   <div class="card card-small mb-4">
                     <div class="card-header border-bottom">
-                      <h6 class="m-0">a. Di Tingkat Prodi</h6>
+                      <h6 class="m-0">A. Di Tingkat Prodi</h6>
                   <table width="100%">
                     <tbody>
                       <tr>
@@ -404,7 +409,7 @@
 <div class="col-lg-12 text-sm-left">
                   <div class="card card-small mb-4">
                     <div class="card-header border-bottom">
-                      <h6 class="m-0">b. Di tingkat Fakultas/Universitas</h6>
+                      <h6 class="m-0">B. Di tingkat Fakultas/Universitas</h6>
                   <table width="100%">
                     <tbody>
 <tr>
@@ -531,7 +536,7 @@
                   <fieldset>
                    <div class="col-md-12">
                     <div class="card-body">
-                      <textarea name="pengalamanBermanfaat" class="form-control"></textarea>
+                      <textarea name="saran1" class="form-control"></textarea>
                     </div>
                   </div>
                 </fieldset>
@@ -562,7 +567,7 @@
                   <fieldset>
                    <div class="col-md-12">
                     <div class="card-body">
-                       <textarea name="pengalamanTidakBermanfaat" class="form-control"></textarea>
+                       <textarea name="saran2" class="form-control"></textarea>
                     </div>
                   </div>
                 </fieldset>
@@ -620,7 +625,7 @@
 
 @section('pagespecificjs') 
 <script>
-  //input handler untuk checkbox "Lain-lain"
+  //input handler untuk checkbox "Lain-lain_1"
   $(document).ready(function() {
     if($("#c6q2").is(":checked")) {
       $("#c6q2_input").prop("required", true);
@@ -634,6 +639,48 @@
   $("#c6q2").on("change", function(e) {
     $("#c6q2_input").prop("required", $(this).is(":checked"));
     $("#c6q2_input").prop("disabled", !$(this).is(":checked"));
+  });
+
+
+    //input handler untuk checkbox "Lain-lain_2"
+  $(document).ready(function() {
+    if($("#c6q5").is(":checked")) {
+      $("#c6q5_input").prop("required", true);
+      $("#c6q5_input").prop("disabled", false);
+    }
+    else {
+      $("#c6q5_input").prop("required", false);
+      $("#c6q5_input").prop("disabled", true);
+    }
+    
+    if($("#radio3q6").is(":selected")){
+      $("#radio3q6_input").prop("required",true);
+      $("#radio3q6_input").prop("disabled",false);
+    }
+    else{
+      $("#radio3q6_input").prop("required",false);
+      $("#radio3q6_input").prop("disabled",true);
+    }
+  });
+  $("#c6q5").on("change", function(e) {
+    $("#c6q5_input").prop("required", $(this).is(":checked"));
+    $("#c6q5_input").prop("disabled", !$(this).is(":checked"));
+  });
+
+  $("input[name='q6']").on("change", function(e) {
+    if($(this).attr('id') == 'radio3q6'){
+      $("#radio3q6_input").prop("required",true);
+      $("#radio3q6_input").prop("disabled",false);
+    }
+    else{
+      $("#radio3q6_input").prop("required",false);
+      $("#radio3q6_input").prop("disabled",true);
+    }
+  });
+
+  $("#radio3q6_input").on("input", function(e) {
+    $('#radio3q6').val($(this).val());
+
   });
 
   //Pertanyaan 1 jumper handler

@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -28,7 +28,9 @@ class AlumniController extends Controller
 
     public function angket()
     {
-        if(null == session("biodata_id")){
+
+         if(null == session("biodata_id")){
+
             session()->flash("msg", "Isikan biodata anda.");
             return redirect("/alumni");
         }
@@ -128,6 +130,8 @@ class AlumniController extends Controller
         }
         $data = $this->dataKuesioner($request->except("_token"));
 
+        // var_dump($data); die();
+
         Angket_alumni::insert($data);
 
         session()->forget("biodata_id");
@@ -159,9 +163,9 @@ class AlumniController extends Controller
 
 
  public function report() {
-    $m_angket = new Angket_alumni;
+      $m_angket = new Angket_alumni;
 
-    //Pertanyaan 1: Pemahaman VTMS Universitas
+    //Pertanyaan 1: Pemahaman VTMS prodis
     $data_db = $m_angket->where('kuesioner', 'q1')->get();
     $list_q1 = array(
               'jumlah_ya' => 0, 
@@ -177,7 +181,10 @@ class AlumniController extends Controller
       }
     }
 
-    //Pertanyaan 2: Rumusan VMTS Universitas
+    // dd($list_q1);
+
+    
+   //Pertanyaan 2: Rumusan VMTS prodi
     $data_db = DB::table("angket_alumni")
                 ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
                 ->where('kuesioner', 'q2')
@@ -185,11 +192,12 @@ class AlumniController extends Controller
                 ->get();
     $list_q2 = array(
               'kuesioner' => array(
-                  'Katalog dan/atau dokumen jurusan lainnya' => 0, 
+                  'Masa orientasi Maba' => 0, 
+                  'Katalog dan atau dokumen Jurusan lainnya' => 0, 
                   'Membaca banner' => 0, 
                   'Kegiatan kemahasiswaan' => 0, 
-                  'Laman UM' => 0, 
-                  'Lain-lain' => 0,
+                  'Laman UM' => 0,
+                  'Lain-lain'=>0,
               ),
               'total_responden' => 0,
               'total_pilihan' => 0
@@ -215,98 +223,109 @@ class AlumniController extends Controller
       $list_q2['total_responden'] += $row->jumlah_responden;
     }
 
-    //Pertanyaan 3: Kinerja Universitas
-    $data_db = DB::table("angket_alumni")
+   
+
+  //Pertanyaan 3: Kinerja Prodi
+    $list_q3 = $this->kinerja("angket_alumni", "q3");
+
+    //dd($list_q3); 
+  //pertanyaan 4: relevansi prodi dan pekerjaan
+     $data_db = $m_angket->where('kuesioner', 'q4')->get();
+    $list_q4 = array(
+              'jumlah_ya' => 0, 
+              'jumlah_tidak' => 0, 
+              'total_responden' => count($data_db)
+            );
+    foreach ($data_db as $row) {
+      if(strtolower($row->value) == 'ya') {
+        $list_q4['jumlah_ya']++;
+      }
+      else if(strtolower($row->value) == 'tidak') {
+        $list_q4['jumlah_tidak']++;
+      }
+    }
+// dd($list_q4);
+
+    //pertanyaan 5 status karir
+   $data_db = DB::table("angket_alumni")
                 ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
-                ->where('kuesioner', 'q3')
+                ->where('kuesioner', 'q5')
                 ->groupBy('value')
                 ->get();
-    $list_q3 = array(
+    $list_q5 = array(
               'kuesioner' => array(
-                  'Sudah selaras dengan visi dan kinerja sudah maksimal' => 0, 
-                  'Sudah selaras dengan visi, namun kinerja kurang maksimal' => 0, 
-                  'Kurang selaras dengan visi, namun kinerja maksimal' => 0, 
-                  'Kurang selaras dengan visi dan kinerja kurang maksimal' => 0, 
-                  'Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan' => 0, 
-                  'Tidak tahu karena tidak pernah memperhatikan' => 0,
+                  'Bekerja di sekolah negeri atau swasta' => 0, 
+                  'Bekerja di institusi non-pendidikan' => 0, 
+                  'Bekerja di sektor swasta, bisnis atau BUMN' => 0, 
+                  'Berwirausaha' => 0, 
+                  'Studi Lanjut (S2/S3)' => 0,
+                  'Lain-lain' =>0,
               ),
-              'total_responden' => 0
+              'total_responden' => 0,
+              'total_pilihan' => 0
             );
     foreach ($data_db as $row) {
-      foreach ($list_q3['kuesioner'] as $pertanyaan => $jumlah) {
-        if(strtolower($row->value) == strtolower($pertanyaan)) {
-          $list_q3['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+      $arr_value = json_decode($row->value);
+      
+      if(!empty($arr_value)) {
+        foreach ($arr_value as $jawaban) {
+          $lain_exist = true;
+          foreach ($list_q5['kuesioner'] as $pertanyaan => $jumlah) {
+            if(strtolower($jawaban) == strtolower($pertanyaan)) {
+              $list_q5['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+              $lain_exist = false;
+            }
+          }
+          //tambahkan counter pilihan "Lain-lain" jika ada value custom
+          $list_q5['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
+          $list_q5['total_pilihan']++;
         }
       }
-      $list_q3['total_responden'] += $row->jumlah_responden;
+
+      $list_q5['total_responden'] += $row->jumlah_responden;
     }
 
-    //Pertanyaan 4A: Profil Universitas (VMTS)
-    $data_db = DB::table("angket_alumni")
-                ->select("value", 
-                  DB::raw("COUNT(id) AS jumlah_responden"), 
-                  DB::raw("SUM(value::INT) AS jumlah_skor"))
-                ->where('kuesioner', 'q4a')
+
+   //pertanyaan 5 status pekerjaan
+   $data_db = DB::table("angket_alumni")
+                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+                ->where('kuesioner', 'q6')
                 ->groupBy('value')
                 ->get();
-    $list_q4a = array(
+    $list_q6 = array(
               'kuesioner' => array(
-                  'skor_4' => ["alias" => 'Sangat Puas',"responden" => 0, "skor" => 0],
-                  'skor_3' => ["alias" => 'Puas',"responden" => 0, "skor" => 0], 
-                  'skor_2' => ["alias" => 'Cukup Puas',"responden" => 0, "skor" => 0], 
-                  'skor_1' => ["alias" => 'Tidak Puas', "responden" => 0, "skor" => 0] 
-                ),
-              'total_skor' => 0,
-              'total_responden' => 0
+                  'PNS' => 0, 
+                  'Non PNS' => 0, 
+                  'Lain-lain' => 0, 
+              ),
+              'total_responden' => 0,
+              'total_pilihan' => 0
             );
     foreach ($data_db as $row) {
-      foreach ($list_q4a['kuesioner'] as $pertanyaan => $jumlah) {
-        if(strtolower("skor_".$row->value) == strtolower($pertanyaan)) {
-          $list_q4a['kuesioner'][$pertanyaan]['responden'] += $row->jumlah_responden;
-          $list_q4a['kuesioner'][$pertanyaan]['skor'] += $row->jumlah_skor;
+      $arr_value = json_decode($row->value);
+      
+      if(!empty($arr_value)) {
+        foreach ($arr_value as $jawaban) {
+          $lain_exist = true;
+          foreach ($list_q6['kuesioner'] as $pertanyaan => $jumlah) {
+            if(strtolower($jawaban) == strtolower($pertanyaan)) {
+              $list_q6['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+              $lain_exist = false;
+            }
+          }
+          //tambahkan counter pilihan "Lain-lain" jika ada value custom
+          $list_q6['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
+          $list_q6['total_pilihan']++;
         }
       }
-      $list_q4a['total_skor'] += $row->value;
-      $list_q4a['total_responden'] += $row->jumlah_responden;
+
+      $list_q6['total_responden'] += $row->jumlah_responden;
     }
 
-    //Pertanyaan 4B, C, D, E: Jejaring, Kontribusi universitas, Kontribusi pengguna di akademik, Kontribusi pengguna di non-akademik (Kerjasama)
-    $data_db = DB::table("angket_alumni")
-                ->select("value", 
-                  DB::raw("COUNT(id) AS jumlah_responden"), 
-                  DB::raw("SUM(value::INT) AS jumlah_skor"))
-                ->whereIn('kuesioner', ['q4b', 'q4c', 'q4d', 'q4e'])
-                ->groupBy('value')
-                ->get();
-    $list_q4b = array(
-              'kuesioner' => array(
-                  'skor_4' => ["alias" => 'Sangat Puas',"responden" => 0, "skor" => 0],
-                  'skor_3' => ["alias" => 'Puas',"responden" => 0, "skor" => 0], 
-                  'skor_2' => ["alias" => 'Cukup Puas',"responden" => 0, "skor" => 0], 
-                  'skor_1' => ["alias" => 'Tidak Puas', "responden" => 0, "skor" => 0] 
-                ),
-              'total_skor' => 0,
-              'total_responden' => 0
-            );
-    foreach ($data_db as $row) {
-      foreach ($list_q4b['kuesioner'] as $pertanyaan => $jumlah) {
-        if(strtolower("skor_".$row->value) == strtolower($pertanyaan)) {
-          $list_q4b['kuesioner'][$pertanyaan]['responden'] += $row->jumlah_responden;
-          $list_q4b['kuesioner'][$pertanyaan]['skor'] += $row->jumlah_skor;
-        }
-      }
-      $list_q4b['total_skor'] += $row->value;
-      $list_q4b['total_responden'] += $row->jumlah_responden;
-    }
-    
-    //Pertanyaan 4F: Pembelajaran (Pendidikan)
 
-    //Pertanyaan 4G: Keterlibatan (Penelitian)
 
-    //Pertanyaan 4H: Keterlibatan (Pengadian kepada masyarakat)
-    
-    // print_r($data_db); print_r($list_q2); die();
-    return view("alumni.report", compact('list_q1', 'list_q2', 'list_q3', 'list_q4a'));
+
+  
+    return view("alumni.report", compact('list_q1','list_q2','list_q3','list_q4','list_q5','list_q6'));
   }
-
 }

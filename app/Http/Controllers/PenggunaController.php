@@ -237,74 +237,34 @@ class PenggunaController extends Controller
       $list_q3['total_responden'] += $row->jumlah_responden;
     }
 
-    //Pertanyaan 4A: Profil Universitas (VMTS)
-    $data_db = DB::table("angket_pengguna")
-                ->select("value", 
-                  DB::raw("COUNT(id) AS jumlah_responden"), 
-                  DB::raw("SUM(value::INT) AS jumlah_skor"))
-                ->where('kuesioner', 'q5a')
-                ->groupBy('value')
-                ->get();
-    $list_q5a = array(
-              'kuesioner' => array(
-                  'skor_4' => ["alias" => 'Sangat Puas',"responden" => 0, "skor" => 0],
-                  'skor_3' => ["alias" => 'Puas',"responden" => 0, "skor" => 0], 
-                  'skor_2' => ["alias" => 'Cukup Puas',"responden" => 0, "skor" => 0], 
-                  'skor_1' => ["alias" => 'Tidak Puas', "responden" => 0, "skor" => 0] 
-                ),
-              'total_skor' => 0,
-              'total_responden' => 0
-            );
-    foreach ($data_db as $row) {
-      foreach ($list_q5a['kuesioner'] as $pertanyaan => $jumlah) {
-        if(strtolower("skor_".$row->value) == strtolower($pertanyaan)) {
-          $list_q5a['kuesioner'][$pertanyaan]['responden'] += $row->jumlah_responden;
-          $list_q5a['kuesioner'][$pertanyaan]['skor'] += $row->jumlah_skor;
-        }
-      }
-      $list_q5a['total_skor'] += $row->value;
-      $list_q5a['total_responden'] += $row->jumlah_responden;
-    }
-
-    //Pertanyaan 4A, B, C, D, E, F, G: Jejaring, Kontribusi universitas, Kontribusi pengguna di akademik, Kontribusi pengguna di non-akademik (Kerjasama)
-    $data_db = DB::table("angket_pengguna")
-                ->select("value", 
-                  DB::raw("COUNT(id) AS jumlah_responden"), 
-                  DB::raw("SUM(value::INT) AS jumlah_skor"))
-                ->whereIn('kuesioner', ['q4a', 'q4b', 'q4c', 'q4d', 'q4e','q4f','q4g'])
-                ->groupBy('value')
-                ->get();
-    $list_q4a = array(
-              'kuesioner' => array(
-                  'skor_4' => ["alias" => 'Sangat Puas',"responden" => 0, "skor" => 0],
-                  'skor_3' => ["alias" => 'Puas',"responden" => 0, "skor" => 0], 
-                  'skor_2' => ["alias" => 'Cukup Puas',"responden" => 0, "skor" => 0], 
-                  'skor_1' => ["alias" => 'Tidak Puas', "responden" => 0, "skor" => 0] 
-                ),
-              'total_skor' => 0,
-              'total_responden' => 0
-            );
-    foreach ($data_db as $row) {
-      foreach ($list_q4a['kuesioner'] as $pertanyaan => $jumlah) {
-        if(strtolower("skor_".$row->value) == strtolower($pertanyaan)) {
-          $list_q4a['kuesioner'][$pertanyaan]['responden'] += $row->jumlah_responden;
-          $list_q4a['kuesioner'][$pertanyaan]['skor'] += $row->jumlah_skor;
-        }
-      }
-      $list_q4a['total_skor'] += $row->value;
-      $list_q4a['total_responden'] += $row->jumlah_responden;
-    }
+    $list_q4a = $this->kepuasan('angket_pengguna', 'q4a');
+    $list_q4b = $this->kepuasan('angket_pengguna', 'q4b');
+    $list_q4c = $this->kepuasan('angket_pengguna', 'q4c');
+    $list_q4d = $this->kepuasan('angket_pengguna', 'q4d');
+    $list_q4e = $this->kepuasan('angket_pengguna', 'q4e');
+    $list_q4f = $this->kepuasan('angket_pengguna', 'q4f');
+    $list_q4g = $this->kepuasan('angket_pengguna', 'q4g');
+    $list_q5a = $this->kepuasan('angket_pengguna', 'q5a');
+    $list_q5b = $this->kepuasan('angket_pengguna', 'q5b');
+    $list_q5c = $this->kepuasan('angket_pengguna', 'q5c');
+    $list_q5d = $this->kepuasan('angket_pengguna', 'q5d');
+    $list_q5e = $this->kepuasan('angket_pengguna', 'q5e');
+    $list_q5f = $this->kepuasan('angket_pengguna', 'q5f');
+    $list_q5g = $this->kepuasan('angket_pengguna', 'q5g');
+    $list_q5h = $this->kepuasan('angket_pengguna', 'q5h');
+    $list_q5i = $this->kepuasan('angket_pengguna', 'q5i');
+    $list_q5j = $this->kepuasan('angket_pengguna', 'q5j');
+    $list_q5k = $this->kepuasan('angket_pengguna', 'q5k');
+    $list_q5l = $this->kepuasan('angket_pengguna', 'q5l');
+    $list_q5m = $this->kepuasan('angket_pengguna', 'q5m');
+    $list_q5n = $this->kepuasan('angket_pengguna', 'q5n');
+    $list_q5o = $this->kepuasan('angket_pengguna', 'q5o');
+    $list_q5p = $this->kepuasan('angket_pengguna', 'q5p');
+    $list_q5q = $this->kepuasan('angket_pengguna', 'q5q');
     
-    //Pertanyaan 4F: Pembelajaran (Pendidikan)
-
-    //Pertanyaan 4G: Keterlibatan (Penelitian)
-
-    //Pertanyaan 4H: Keterlibatan (Pengadian kepada masyarakat)
     
     // print_r($data_db); print_r($list_q2); die();
-    return view("pengguna.report", compact('list_q1', 'list_q2', 'list_q3', 'list_q4a', 'list_q5a'));
+    return view("pengguna.report", compact('list_q1', 'list_q2', 'list_q3', 'list_q4a', 'list_q4b','list_q4c','list_q4d','list_q4e','list_q4f','list_q4g','list_q5a','list_q5b','list_q5c','list_q5d','list_q5e','list_q5f','list_q5g','list_q5h','list_q5i','list_q5j','list_q5k','list_q5l','list_q5m','list_q5n','list_q5o','list_q5p','list_q5q'));
   }
 
     }
-
- 
