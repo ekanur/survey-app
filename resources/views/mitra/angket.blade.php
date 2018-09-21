@@ -239,7 +239,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <textarea name="saranmitra" class="form-control text-limit" placeholder="Saran untuk universitas"></textarea>
+                <textarea name="saranmitra" class="form-control" placeholder="Saran untuk universitas"></textarea>
               </div>
               <div class="form-group text-right">
                 <button type="submit" class="btn btn-success">Simpan</button>
