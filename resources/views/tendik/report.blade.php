@@ -1,16 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.app_admin')
 
 @section('content') 
+
 <!-- Page Header -->
 <div class="page-header row no-gutters py-4">
   <div class="col-12 text-center text-sm-left mb-0">
     <span class="text-uppercase page-subtitle">SI Survei Kepuasan</span>
-    <h3 class="page-title">Rekapitulasi Angket Tenaga Kependidikan</h3>
+    <h3 class="page-title">Rekapitulasi Angket Mitra</h3>
   </div>
 </div>
 <!-- End Page Header -->
 
 <div class="row">
+	
 	{{-- PERTANYAAN 1 & 4 --}}
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
@@ -1077,9 +1079,8 @@
 			</div>
 		</div>
 	</div>
-
-
 </div>
+
 @endsection
 
 @push("reportjs")

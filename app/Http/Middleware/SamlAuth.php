@@ -15,7 +15,7 @@ class SamlAuth
      */
     public function handle($request, Closure $next)
     {
-        if(\Auth::guest())
+        if($this->auth->guest())
 		{
 			if($request->ajax())
             {
@@ -23,7 +23,7 @@ class SamlAuth
             }
             else
             {
-				return \Redirect::guest('login');
+				return Saml2::login(URL::full());
 			}
 		}
 		

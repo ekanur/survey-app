@@ -1,27 +1,19 @@
-@extends('layouts.app_admin')
+@extends('layouts.app')
 
 @section('content') 
-<!-- Page Header -->
-<div class="page-header row no-gutters py-4">
-  <div class="col-12 text-center text-sm-left mb-0">
-    <span class="text-uppercase page-subtitle">SI Survei Kepuasan</span>
-    <h3 class="page-title">Rekapitulasi Angket Pengguna</h3>
-  </div>
-</div>
-<!-- End Page Header -->
 
 <div class="row">
 	{{-- PERTANYAAN 1 --}}
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
-				<h6 class="m-0">Visi, Misi, Tujuan & Sasaran Universitas</h6>
+				<h6 class="m-0">Visi, Misi, Tujuan & Sasaran Program Studi</h6>
 			</div>
 			<div class="card-body p-0 pb-3 text-center">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</span>
+							<span class="text-info font-italic font-weight-bold" >Apakah Anda memahami rumusan visi, misi, tujuan, dan sasaran Program Studi?</span>
 						</div>
 						<table class="table mb-0" id="datatable1">
 							<thead class="bg-light">
@@ -46,11 +38,11 @@
 					</div>
 					<div class="col-md-6">
 						@component("chart.column")
-							{{-- @slot("judul") Visi, Misi, Tujuan & Sasaran Universitas @endslot --}}
+							{{-- @slot("judul") Visi, Misi, Tujuan & Sasaran Program Studi @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_vmts @endslot
 							@slot("id_tabel") datatable1 @endslot
-							@slot("judul_chart") Persentase Pemahaman VMTS Universitas @endslot
+							@slot("judul_chart") Persentase Pemahaman VMTS Program Studi @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q1['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@slot("tipe_value") percent @endslot
@@ -1076,7 +1068,7 @@
 						@component("chart.pie_legend")
 							{{-- @slot("judul") Keterlibatan Pengguna dalam Pengabdian kepada Masyarakat @endslot --}}
 							@slot("use_panel") no @endslot
-							@slot("id_chart") persentase_pengabdian_masyarakat @endslot
+							@slot("id_chart") persentase_profil_prodi @endslot
 							@slot("id_tabel") datatable5d @endslot
 							@slot("judul_chart") Persentase Keterlibatan Pengguna dalam Pengabdian kepada Masyarakat @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q5d['total_responden'] }} orang @endslot
