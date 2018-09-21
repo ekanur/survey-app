@@ -19,7 +19,7 @@ class AngketMitra extends Migration
             $table->integer("biodata_mitra_id");
             $table->integer("tahun");
             $table->string("kuesioner", 20);
-            $table->string("value", 200)->nullable();
+            $table->text("value")->nullable();
             $table->timestamps();
             $table->softDeletes();
             //

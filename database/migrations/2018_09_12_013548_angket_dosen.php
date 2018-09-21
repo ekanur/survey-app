@@ -18,7 +18,7 @@ class AngketDosen extends Migration
             $table->string("dosen_nip", 25);
             $table->integer("tahun");
             $table->string("kuesioner", 20);
-            $table->string("value", 200)->nullable();
+            $table->text("value")->nullable();
             $table->timestamps();
             $table->softDeletes();
             //

@@ -18,7 +18,7 @@ class AngketMahasiswa extends Migration
             $table->string("mahasiswa_nim", 25);
             $table->integer("tahun");
             $table->string("kuesioner", 20);
-            $table->string("value", 200)->nullable();
+            $table->text("value")->nullable();
             $table->timestamps();
             $table->softDeletes();
             //

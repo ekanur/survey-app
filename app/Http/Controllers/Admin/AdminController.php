@@ -13,13 +13,13 @@ class AdminController extends Controller
 {
     //
   public function index() {
-    $count['dosen'] = DB::table("biodata_dosen")->count();
-    $count['mahasiswa'] = DB::table("biodata_mahasiswa")->count();
+    $count['dosen'] = DB::table("angket_dosen")->select(DB::raw("DISTINCT dosen_nip as count"))->get()->count();
+    $count['mahasiswa'] = DB::table("angket_mahasiswa")->select(DB::raw("DISTINCT mahasiswa_nim as count"))->get()->count();
     $count['alumni'] = DB::table("biodata_alumni")->count();
-    $count['tendik'] = DB::table("biodata_tendik")->count();
+    $count['tendik'] = DB::table("angket_tendik")->select(DB::raw("DISTINCT tendik_nip as count"))->get()->count();
     $count['pengguna'] = DB::table("biodata_pengguna")->count();
     $count['mitra'] = DB::table("biodata_mitra")->count();
-
+	//dd($count);
     return view('admin.dashboard', compact('count'));
   }
 

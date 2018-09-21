@@ -18,7 +18,7 @@ class AngketTendik extends Migration
             $table->string("tendik_nip", 25);
             $table->integer("tahun");
             $table->string("kuesioner", 20);
-            $table->string("value", 200)->nullable();
+            $table->text("value")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

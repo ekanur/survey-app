@@ -18,7 +18,7 @@ class AngketPengguna extends Migration
             $table->integer("biodata_pengguna_id");
             $table->integer("tahun");
             $table->string("kuesioner", 30);
-            $table->string("value", 200)->nullable();
+            $table->text("value")->nullable();
             $table->timestamps();
             $table->softDeletes();
             //

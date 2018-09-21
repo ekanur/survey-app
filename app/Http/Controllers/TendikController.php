@@ -376,7 +376,7 @@ class TendikController extends Controller
     $list_q7v = $this->kepuasan('angket_tendik', 'q7v');
     
 
-    return view("tendik.report", compact('list_q1', 'list_q2', 'list_q3', 'list_q4', 'list_q5', 'list_q6', 'list_q7a', 'list_q7b', 'list_q7c', 'list_q7d', 'list_q7e', 'list_q7f', 'list_q7g', 'list_q7h', 'list_q7i', 'list_q7j', 'list_q7k', 'list_q7l', 'list_q7m', 'list_q7n', 'list_q7o', 'list_q7p', 'list_q7q', 'list_q7r', 'list_q7s', 'list_q7t', 'list_q7u', 'list_q7v'));
+    return view("tendik.report", compact('list_pemahaman_vmts', 'list_q1', 'list_q2', 'list_q3', 'list_q4', 'list_q5', 'list_q6', 'list_q7a', 'list_q7b', 'list_q7c', 'list_q7d', 'list_q7e', 'list_q7f', 'list_q7g', 'list_q7h', 'list_q7i', 'list_q7j', 'list_q7k', 'list_q7l', 'list_q7m', 'list_q7n', 'list_q7o', 'list_q7p', 'list_q7q', 'list_q7r', 'list_q7s', 'list_q7t', 'list_q7u', 'list_q7v'));
   }
 
-    }
+}
