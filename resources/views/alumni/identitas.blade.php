@@ -98,17 +98,20 @@
             ?>
           </select>
         </div>
-        
+
         <div class="form-group col-md-6">
           <label for="masa_tunggu">Masa Tunggu</label>
-          <select id="masa_tunggu" name="masa_tunggu" class="form-control" required="">
-            <option value="">Pilih</option>
-            
-            <option value=" <1"> Kurang dari 1 Tahun</option>
-            <option value="1-2"> 1-2 tahun</option>
-            <option value=">2"> >2 tahun</option>
-            
-          </select>
+         <select class="js-example-basic-single form-control" id="masa_tunggu" name="masa_tunggu" required="">
+             <option value=""> --- </option>
+              <?php
+               $bln_min = 1;
+               for ($x = $bln_min; $x <= 36; $x++) {
+                ?>
+                <option value=" {{$x}} Bulan">{{$x}} Bulan</option>
+                <?php
+              }
+              ?>
+            </select>
 
         </div>
       </div>
