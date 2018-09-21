@@ -100,27 +100,27 @@
                 <div class="form-group col-md-12 text-sm-left">
                  <fieldset>
                    <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi dan kinerja sudah maksimal">
+                    <input type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi dan kinerja sudah maksimal">
                     <label class="custom-control-label" for="radio1q3"> Sudah selaras dengan visi dan kinerja sudah maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio2q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi, namun kinerja kurang maksimal">
+                    <input type="radio" id="radio2q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi, namun kinerja kurang maksimal">
                     <label class="custom-control-label" for="radio2q3"> Sudah selaras dengan visi, namun kinerja kurang maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio3q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi, namun kinerja maksimal">
+                    <input type="radio" id="radio3q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi, namun kinerja maksimal">
                     <label class="custom-control-label" for="radio3q3"> Kurang selaras dengan visi, namun kinerja maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio4q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi dan kinerja kurang maksimal">
+                    <input type="radio" id="radio4q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi dan kinerja kurang maksimal">
                     <label class="custom-control-label" for="radio4q3"> Kurang selaras dengan visi dan kinerja kurang maksimal</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio5q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan">
+                    <input type="radio" id="radio5q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan">
                     <label class="custom-control-label" for="radio5q3"> Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio6q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
+                    <input type="radio" id="radio6q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
                     <label class="custom-control-label" for="radio6q3"> Tidak tahu karena tidak pernah memperhatikan</label>
                   </div>
 
@@ -247,9 +247,9 @@
                     <label class="custom-control-label" for="radio2q6"> Non PNS</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio3q6"class="custom-control-input">
+                    <input type="radio"  name="q6[]" id="radio3q6"class="custom-control-input">
                     <label class="custom-control-label" for="radio3q6"> Lain-lain</label>
-                    <input type="text" name="q6[]" id="radio3q6_input" class="form-control form-control-sm">
+                    <input type="text" id="radio3q6_input" class="form-control form-control-sm">
                   </div>
                 </fieldset>
               </div>
@@ -610,7 +610,9 @@
                   <textarea name="saranuniversitas" class="form-control"></textarea>
                 </div>
               </div>
-              <button type="submit" class="btn btn-success">Simpan</button>
+              <div class="form-group text-right">
+                <button type="submit" class="btn btn-success">Simpan</button>
+              </div>
             </div>
           </div>
         </li>
@@ -667,7 +669,7 @@
     $("#c6q5_input").prop("disabled", !$(this).is(":checked"));
   });
 
-  $("input[name='q6']").on("change", function(e) {
+  $("input[name='q6[]']").on("change", function(e) {
     if($(this).attr('id') == 'radio3q6'){
       $("#radio3q6_input").prop("required",true);
       $("#radio3q6_input").prop("disabled",false);

@@ -45,82 +45,96 @@
                   <option value="pasca">Pascasarjana</option>
                   <option value="vokasi">Program Pendidikan Profesi dan Vokasi</option>
                 </select>
-              </div>
+             </div>
             </div>
+
             
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="tahun_masuk">Tahun Masuk</label>
-                <select id="tahun_masuk" name="tahun_masuk" class="form-control" required="">
-
-                  <option value="">Pilih Tahun</option>
-                  <?php
-                  $thn_skr = date('Y');
-                  for ($x = $thn_skr; $x >= 2009; $x--) {
-                    ?>
-                    <option value=" {{$x}} ">{{$x}}</option>
-                    <?php
-                  }
+                
+                <select class="js-example-basic-single form-control"  id="tahun_masuk" name="tahun_masuk" required="">
+                 <option value="">Pilih Tahun</option>
+                 <?php
+                 $thn_skr = date('Y');
+                 for ($x = $thn_skr; $x >= 1954; $x--) {
                   ?>
-                </select>
-              </div>
-
-              <div class="form-group col-md-6">
-                <label for="tahun_lulus">Tahun Lulus</label>
-                <select id="tahun_lulus" name="tahun_lulus" class="form-control" required="">
-
-                  <option value="">Pilih Tahun</option>
+                  <option value=" {{$x}} ">{{$x}}</option>
                   <?php
-                  $thn_skr = date('Y');
-                  for ($x = $thn_skr; $x >= 2009; $x--) {
-                    ?>
-                    <option value=" {{$x}} ">{{$x}}</option>
-                    <?php
-                  }
-                  ?>
-                </select>
-              </div>         
+                }
+                ?>
+              </select>
+
             </div>
 
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="tahun_bekerja">Tahun Bekerja</label>
-                <select id="tahun_bekerja" name="tahun_bekerja" class="form-control" required="">
-                  <option value="">Pilih Tahun</option>
-                  <?php
-                  $thn_skr = date('Y');
-                  for ($x = $thn_skr; $x >= 2012; $x--) {
-                    ?>
-                    <option value=" {{$x}} ">{{$x}}</option>
-                    <?php
-                  }
+            <div class="form-group col-md-6">
+              <label for="tahun_lulus">Tahun Lulus</label>
+                <select class="js-example-basic-single form-control" id="tahun_lulus" name="tahun_lulus" required="">
+                 <option value="">Pilih Tahun</option>
+                 <?php
+                 $thn_skr = date('Y');
+                 for ($x = $thn_skr; $x >= 1954; $x--) {
                   ?>
-                </select>
-              </div>
+                  <option value=" {{$x}} ">{{$x}}</option>
+                  <?php
+                }
+                ?>
+              </select>
+            </div>         
+          </div>
 
-              <div class="form-group col-md-6">
-                <label for="masa_tunggu">Masa Tunggu</label>
-               <select id="masa_tunggu" name="masa_tunggu" class="form-control" required="">
-<option value="">Pilih</option>
-                  <?php
-                  $thn_max = 5;
-                  for ($masa_tunggu = $thn_max; $masa_tunggu >= 1; $masa_tunggu--) {
-                    ?>
-                    <option value=" {{$masa_tunggu}}">{{$masa_tunggu}} tahun</option>
-                    <?php
-                  }
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="tahun_bekerja">Tahun Bekerja</label>
+              <select class="js-example-basic-single form-control"  id="tahun_bekerja" name="tahun_bekerja"required="">
+                 <option value="">Pilih Tahun</option>
+                 <?php
+                 $thn_skr = date('Y');
+                 for ($x = $thn_skr; $x >= 1954; $x--) {
                   ?>
-                </select></select>
-              </div>
+                  <option value=" {{$x}} ">{{$x}}</option>
+                  <?php
+                }
+                ?>
+              </select>
             </div>
+            
+            <div class="form-group col-md-6">
+              <label for="masa_tunggu">Masa Tunggu</label>
+              <select id="masa_tunggu" name="masa_tunggu" class="form-control" required="">
+                <option value="">Pilih</option>
+               
+                  <option value=" <1"> Kurang dari 1 Tahun</option>
+                    <option value="1-2"> 1-2 tahun</option>
+                  <option value=">2"> >2 tahun</option>
+                                 
+                             </select>
 
-            <button type="submit" class="btn btn-accent">Mulai Isi Angket</button>
-          </form>
-        </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-accent">Mulai Isi Angket</button>
+        </form>
       </div>
-    </li>
-  </ul>
+    </div>
+  </li>
+</ul>
 </div>
 </div>
 
 @endsection
+
+@section('pagespecificjs') 
+<script >
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+      $('.js-example-basic-single').select2();
+      minimumInputLength: 3
+      minimumResultsForSearch: Infinity
+      maximumResultsForSearch: 5
+
+    });
+
+
+  </script>
+  @endsection
