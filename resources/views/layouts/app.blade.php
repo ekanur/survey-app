@@ -78,6 +78,7 @@
 {{-- <script src="{!! asset('js/app/app-blog-overview.1.0.0.js')!!}"></script> --}}
 {{-- <script src="{!! asset('js/app/app-blog-new-post.1.0.0.js')!!}"></script> --}}
 {{-- <script src="{!! asset('js/app/app-components-overview.1.0.0.js')!!}"></script> --}}
+<script src="{{ asset('js/textareacounter.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 <script type="text/javascript">

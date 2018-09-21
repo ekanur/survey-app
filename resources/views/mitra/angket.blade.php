@@ -239,7 +239,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <textarea name="saranmitra" class="form-control" placeholder="Saran untuk universitas"></textarea>
+                <textarea name="saranmitra" class="form-control text-limit" placeholder="Saran untuk universitas"></textarea>
               </div>
               <div class="form-group text-right">
                 <button type="submit" class="btn btn-success">Simpan</button>
@@ -258,8 +258,11 @@
 
 @section('pagespecificjs') 
 <script>
-  //input handler untuk checkbox "Lain-lain"
   $(document).ready(function() {
+    //textareacounter
+    $("textarea[name='saranmitra']").textareaCounter({ limit: 100 });
+
+    //input handler untuk checkbox "Lain-lain"
     if($("#c5q2").is(":checked")) {
       $("#c5q2_input").prop("required", true);
       $("#c5q2_input").prop("disabled", false);
