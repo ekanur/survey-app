@@ -1,19 +1,18 @@
 @extends('layouts.app_admin')
 
-@section('content') 
-
+@section('content')  
 <!-- Page Header -->
 <div class="page-header row no-gutters py-4">
   <div class="col-12 text-center text-sm-left mb-0">
     <span class="text-uppercase page-subtitle">SI Survei Kepuasan</span>
-    <h3 class="page-title">Rekapitulasi Angket Mitra</h3>
+    <h3 class="page-title">Rekapitulasi Angket Tendik</h3>
   </div>
 </div>
 <!-- End Page Header -->
 
 <div class="row">
 	
-	{{-- PERTANYAAN 1 & 4 --}}
+		{{-- PERTANYAAN 1 --}}
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
@@ -23,18 +22,18 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</span>
-						</div>
-						<table class="table mb-0" id="datatable1">
-							<thead class="bg-light">
-								<tr>
-									<th scope="col" class="border-0"></th>
-									<th scope="col" class="border-0">Ya</th>
-									<th scope="col" class="border-0">Tidak</th>
-								</tr>
-							</thead>
-							<tbody>
-								@php
+					<span class="text-info font-italic font-weight-bold" >Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</span>
+				</div>
+				<table class="table mb-0" id="datatable1">
+					<thead class="bg-light">
+						<tr>
+							<th scope="col" class="border-0"></th>
+							<th scope="col" class="border-0">Ya (%)</th>
+							<th scope="col" class="border-0">Tidak (%)</th>
+						</tr>
+					</thead>
+					<tbody>
+						@php
 							$key = array_keys($list_pemahaman_vmts);
 							$i=0;
 						@endphp
@@ -49,16 +48,16 @@
 							</td>
 						</tr>
 						@endforeach
-							</tbody>
-						</table>
-					</div>
-					<div class="col-md-6">
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-6">
 						@component("chart.column")
 							{{-- @slot("judul") Visi, Misi, Tujuan & Sasaran Universitas @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_vmts @endslot
 							@slot("id_tabel") datatable1 @endslot
-							@slot("judul_chart") Persentase Pemahaman VMTS@endslot
+							@slot("judul_chart") Persentase Pemahaman VMTS Universitas @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q1['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@slot("tipe_value") percent @endslot
@@ -69,8 +68,7 @@
 		</div>
 	</div>
 
-	{{-- PERTANYAAN 2 --}}
-	<div class="col-md-12 col-sm-12 mb-4">
+<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
 				<h6 class="m-0">Rumusan VMTS Unit Kerja</h6>
@@ -211,8 +209,8 @@
 			</div>
 		</div>
 	</div>
-	
-	{{-- PERTANYAAN 6 --}}
+
+
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
@@ -259,8 +257,7 @@
 		</div>
 	</div>
 
-
-	{{-- PERTANYAAN 7H, I, J, K, L, M, N, O, P --}}
+{{-- PERTANYAAN 7H, I, J, K, L, M, N, O, P --}}
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
@@ -660,7 +657,7 @@
 							{{-- @slot("judul") Rumusan VMTS Universitas @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_vmts_universitas @endslot
-							@slot("id_tabel") datatable7c @endslot
+							@slot("id_tabel") datatable7b @endslot
 							@slot("judul_chart") Persentase Kepuasan Rumusan VMTS Universitas @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7c['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
@@ -1079,13 +1076,13 @@
 			</div>
 		</div>
 	</div>
-</div>
 
+</div> <!-- body -->
 @endsection
 
 @push("reportjs")
-	<script type="text/javascript" src="{{ asset("/js/highchart/highcharts.js") }}"></script>
-	<script type="text/javascript" src="{{ asset("/js/highchart/modules/data.js") }}"></script>
-	<script type="text/javascript" src="{{ asset("/js/highchart/modules/exporting.js") }}"></script>
-	<script type="text/javascript" src="{{ asset("/js/highchart/modules/export-data.js") }}"></script>
+<script type="text/javascript" src="{{ asset("/js/highchart/highcharts.js") }}"></script>
+<script type="text/javascript" src="{{ asset("/js/highchart/modules/data.js") }}"></script>
+<script type="text/javascript" src="{{ asset("/js/highchart/modules/exporting.js") }}"></script>
+<script type="text/javascript" src="{{ asset("/js/highchart/modules/export-data.js") }}"></script>
 @endpush
