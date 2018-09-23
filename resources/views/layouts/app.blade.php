@@ -12,7 +12,12 @@
     <link rel="stylesheet" href="{!! asset('css/extras.1.0.0.min.css')!!}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css">
+
+    {{-- Select 2 --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+    {{-- Custom css untuk patching style dari plugin --}}
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
 
     <style type="text/css">
     .center{

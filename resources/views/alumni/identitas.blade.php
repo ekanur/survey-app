@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content') 
+
 <div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >

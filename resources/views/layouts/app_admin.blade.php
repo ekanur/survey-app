@@ -1,3 +1,5 @@
+@php isset($menu) ? $menu = $menu : $menu = '' @endphp
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -46,13 +48,13 @@
         </form>
         <div class="nav-wrapper">
           <ul class="nav flex-column">
-            <li class="nav-item">
+            <li class="nav-item {{ ($menu) == 'beranda' ? 'active' : '' }}">
               <a class="nav-link " href="{{ url('admin') }}">
                 <i class="fa fa-home"></i>
                 <span>Beranda</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ ($menu) == 'rekap' ? 'active' : '' }}">
               <a class="nav-link " href="{{ url('admin/rekapitulasi') }}">
                 <i class="fa fa-chart-pie"></i>
                 <span>Rekapitulasi</span>
