@@ -26,7 +26,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="tahun_berdiri">Tahun Berdiri</label>
-                  <select id="tahun_berdiri" name="tahun_berdiri" class="form-control" required="">
+                  <select id="tahun_berdiri" name="tahun_berdiri" class="form-control select2" required="">
                     <option selected="" disabled="">Pilih Tahun</option>
                     @for ($i = date('Y'); $i > (date('Y') - 7); $i--)
                     <option value="{{$i}}">{{$i}}</option>
@@ -35,7 +35,7 @@
                 </div>
                  <div class="form-group col-md-6">
                   <label for="skala_operasional">Skala Operasional</label>
-                  <select id="skala_operasional" name="skala_operasional" class="form-control" required="">
+                  <select id="skala_operasional" name="skala_operasional" class="form-control select2" required="">
                     <option selected="" disabled="">Pilih Skala</option>
                     <option value="Internasional">Internasional</option>
                     <option value="Nasional">Nasional</option>
@@ -68,4 +68,15 @@
   </div>
 </div>
 </div>
+@endsection
+
+@section('pagespecificjs') 
+<script>
+  $(document).ready(function() {
+      $('.select2').select2();
+      minimumInputLength: 2
+      maximumResultsForSearch: 5
+      minimumResultsForSearch: 3
+    });
+</script>
 @endsection

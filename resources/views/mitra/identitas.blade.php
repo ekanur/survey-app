@@ -41,7 +41,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="skala_operasional">Skala Operasional</label>
-                  <select id="skala_operasional" name="skala_operasional" class="form-control" required="">
+                  <select id="skala_operasional" name="skala_operasional" class="form-control select2" required="">
                     <option selected="" disabled="">Pilih Skala</option>
                     <option value="Internasional">Internasional</option>
                     <option value="Nasional">Nasional</option>

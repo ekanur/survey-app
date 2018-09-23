@@ -33,7 +33,7 @@
 
                <div class="form-group col-md-6">
                 <label for="fakultas">Fakultas</label>
-                <select id="fakultas" name="fakultas" class="form-control" required="" placeholder="Fakultas">
+                <select id="fakultas" name="fakultas" class="select2 form-control" required="" placeholder="Fakultas">
                   <option selected value="">Fakultas</option>
                   <option value="fip">FIP (Fakultas Ilmu Pendidikan)</option>
                   <option value="fs">FS (Fakultas Sastra)</option>
@@ -54,7 +54,7 @@
               <div class="form-group col-md-6">
                 <label for="tahun_masuk">Tahun Masuk</label>
                 
-                <select class="js-example-basic-single form-control"  id="tahun_masuk" name="tahun_masuk" required="">
+                <select class="select2 form-control"  id="tahun_masuk" name="tahun_masuk" required="">
                  <option value="">Pilih Tahun</option>
                  <?php
                  $thn_skr = date('Y');
@@ -70,7 +70,7 @@
 
             <div class="form-group col-md-6">
               <label for="tahun_lulus">Tahun Lulus</label>
-              <select class="js-example-basic-single form-control" id="tahun_lulus" name="tahun_lulus" required="">
+              <select class="select2 form-control" id="tahun_lulus" name="tahun_lulus" required="">
                <option value="">Pilih Tahun</option>
                <?php
                $thn_skr = date('Y');
@@ -87,7 +87,7 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="tahun_bekerja">Tahun Bekerja</label>
-            <select class="js-example-basic-single form-control"  id="tahun_bekerja" name="tahun_bekerja"required="">
+            <select class="select2 form-control"  id="tahun_bekerja" name="tahun_bekerja"required="">
              <option value="">Pilih Tahun</option>
              <?php
              $thn_skr = date('Y');
@@ -102,7 +102,7 @@
 
         <div class="form-group col-md-6">
           <label for="masa_tunggu">Masa Tunggu</label>
-         <select class="js-example-basic-single form-control" id="masa_tunggu" name="masa_tunggu" required="">
+         <select class="select2 form-control" id="masa_tunggu" name="masa_tunggu" required="">
              <option value=""> --- </option>
               <?php
                $bln_min = 1;
@@ -132,7 +132,7 @@
 <script >
     // In your Javascript (external .js resource or <script> tag)
     $(document).ready(function() {
-      $('.js-example-basic-single').select2();
+      $('.select2').select2();
       minimumInputLength: 2
       maximumResultsForSearch: 5
       minimumResultsForSearch: 3
