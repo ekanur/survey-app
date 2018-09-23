@@ -64,7 +64,7 @@
                     <div class="custom-control custom-checkbox mb-1">
                       <input type="checkbox" class="custom-control-input" id="c5q2">
                       <label class="custom-control-label" for="c5q2" >Lain-lain</label>
-                      <input type="text" name="q2[]" id="c5q2_input" class="form-control form-control-sm">
+                      <input type="text" name="q2[]" id="c5q2_input" class="form-control">
                     </div>
                   </fieldset>
                 </div>

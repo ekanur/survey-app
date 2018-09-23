@@ -70,7 +70,7 @@
 
                       <input type="checkbox" class="custom-control-input" id="c6q2">
                       <label class="custom-control-label" for="c6q2" >Lain-lain</label>
-                      <input type="text" name="q2[]" id="c6q2_input" class="form-control form-control-sm">
+                      <input type="text" name="q2[]" id="c6q2_input" class="form-control">
 
                       
                     </div>
@@ -209,7 +209,7 @@
                     <div class="custom-control custom-checkbox mb-1">
                       <input type="checkbox" class="custom-control-input" id="c6q5" value="Lain-lain">
                       <label class="custom-control-label" for="c6q5">Lain-lain</label>
-                      <input type="text" name="q5[]" id="c6q5_input" class="form-control form-control-sm">
+                      <input type="text" name="q5[]" id="c6q5_input" class="form-control">
                     </div>
                   </fieldset>
                 </div>
@@ -249,7 +249,7 @@
                   <div class="custom-control custom-radio mb-1">
                     <input type="radio"  name="q6[]" id="radio3q6"class="custom-control-input">
                     <label class="custom-control-label" for="radio3q6"> Lain-lain</label>
-                    <input type="text" id="radio3q6_input" class="form-control form-control-sm">
+                    <input type="text" id="radio3q6_input" class="form-control">
                   </div>
                 </fieldset>
               </div>

@@ -69,7 +69,7 @@
                     <div class="custom-control custom-checkbox mb-1">
                       <input type="checkbox" class="custom-control-input" id="c6q2">
                       <label class="custom-control-label" for="c6q2" >Lain-lain</label>
-                      <input type="text" name="q2[]" id="c6q2_input" class="form-control form-control-sm">
+                      <input type="text" name="q2[]" id="c6q2_input" class="form-control">
                     </div>
                   </fieldset>
                 </div>
@@ -205,7 +205,7 @@
                     <div class="custom-control custom-checkbox mb-1">
                       <input type="checkbox" class="custom-control-input" id="c6q5">
                       <label class="custom-control-label" for="c6q5" >Lain-lain</label>
-                      <input type="text" name="q2[]" id="c6q5_input" class="form-control form-control-sm">
+                      <input type="text" name="q2[]" id="c6q5_input" class="form-control">
                     </div>
                   </fieldset>
                 </div>
@@ -517,7 +517,9 @@
                   <textarea name="saranuniversitas" class="form-control"></textarea>
                 </div>
               </div>
-              <button type="submit" class="btn btn-success">Simpan</button>
+              <div class="form-group text-right">
+                <button type="submit" class="btn btn-success">Simpan</button>
+              </div>
             </div>
           </div>
         </li>
