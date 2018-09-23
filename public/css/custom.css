@@ -24,3 +24,7 @@
 .select2-selection__arrow {
   top: 4px!important;
 }
+.select2-results{
+  font-size: .8125rem;
+  color: #495057;
+}

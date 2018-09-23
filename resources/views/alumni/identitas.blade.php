@@ -133,10 +133,9 @@
     // In your Javascript (external .js resource or <script> tag)
     $(document).ready(function() {
       $('.js-example-basic-single').select2();
-      minimumInputLength: 3
+      minimumInputLength: 2
       maximumResultsForSearch: 5
       minimumResultsForSearch: 3
-
     });
 
 
