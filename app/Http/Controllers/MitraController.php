@@ -116,6 +116,7 @@ class MitraController extends Controller
       session()->flash("msg", "Isikan biodata anda.");
       return redirect("/mitra");
     }
+    // print_r($request->all()); die();
     $data = $this->dataKuesioner($request->except("_token"));
 
     Angket_mitra::insert($data);
@@ -169,7 +170,8 @@ class MitraController extends Controller
                 ->get();
     $list_q2 = array(
               'kuesioner' => array(
-                  'Katalog dan/atau dokumen jurusan lainnya' => 0, 
+                  'Dokumen Jurusan (mis: katalog)' => 0, 
+                  'Dokumen Universitas (mis: prospectus)' => 0, 
                   'Membaca banner' => 0, 
                   'Kegiatan kemahasiswaan' => 0, 
                   'Laman UM' => 0, 
@@ -178,6 +180,7 @@ class MitraController extends Controller
               'total_responden' => 0,
               'total_pilihan' => 0
             );
+    // print_r($data_db); die();
     foreach ($data_db as $row) {
       $arr_value = json_decode($row->value);
       

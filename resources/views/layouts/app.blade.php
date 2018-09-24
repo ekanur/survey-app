@@ -30,7 +30,7 @@
 <body>
     <div class="main-content-container container-fluid px-4">
         <!-- Page Header -->
-        <div class="page-header row no-gutters py-4">
+        <div class="page-header row no-gutters py-4 mb-5">
           <div class="col-12 text-center text-sm-center mb-0">
             <a href="{{url('/')}}">
                 <img src="{{asset('images/um_logo_blue_text.png')}}" width="240">
@@ -42,16 +42,16 @@
         </div>
 
     </div>
-    <div class="row" style="margin-bottom:60px">
+    <!-- <div class="row" style="margin-bottom:60px">
         &nbsp;
-        <!-- <div class="col-4 offset-md-4">
+        <div class="col-4 offset-md-4">
             <select class="form-control" name="tahun">
                 @for($tahun=date("Y"); $tahun>=2015; $tahun--)
                 <option value="{{ $tahun }}" @if(null != session("tahun")) @if(session("tahun") == $tahun) selected="" @endif @endif>{{ $tahun }}</option>
                 @endfor
             </select>
-        </div> -->
-    </div>
+        </div>
+    </div> -->
     @if(null != session("msg"))
     <div class="row" style="margin-bottom:60px;">
         <div class="col-12">

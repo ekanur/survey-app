@@ -16,13 +16,13 @@
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
-				<h6 class="m-0">Visi, Misi, Tujuan & Sasaran Universitas</h6>
+				<h6 class="m-0">Visi, Misi, Tujuan & Sasaran UM</h6>
 			</div>
 			<div class="card-body p-0 pb-3 text-center">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</span>
+							<span class="text-info font-italic font-weight-bold" >Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran UM?</span>
 						</div>
 						<table class="table mb-0" id="datatable1">
 							<thead class="bg-light">
@@ -47,11 +47,11 @@
 					</div>
 					<div class="col-md-6">
 						@component("chart.column")
-							{{-- @slot("judul") Visi, Misi, Tujuan & Sasaran Universitas @endslot --}}
+							{{-- @slot("judul") Visi, Misi, Tujuan & Sasaran UM @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_vmts @endslot
 							@slot("id_tabel") datatable1 @endslot
-							@slot("judul_chart") Persentase Pemahaman VMTS Universitas @endslot
+							@slot("judul_chart") Persentase Pemahaman VMTS UM @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q1['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@slot("tipe_value") percent @endslot
@@ -66,13 +66,13 @@
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
-				<h6 class="m-0">Rumusan VMTS Universitas</h6>
+				<h6 class="m-0">Rumusan VMTS UM</h6>
 			</div>
 			<div class="card-body p-0 pb-3">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Dari mana Ibu/Bapak mengetahui rumusan tersebut?</span>
+							<span class="text-info font-italic font-weight-bold" >Dari mana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran UM?</span>
 						</div>
 						<table class="table mb-0" id="datatable2">
 							<thead class="bg-light">
@@ -96,11 +96,11 @@
 					</div>
 					<div class="col-md-6">
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Rumusan VMTS Universitas @endslot --}}
+							{{-- @slot("judul") Rumusan VMTS UM @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_rumusan @endslot
 							@slot("id_tabel") datatable2 @endslot
-							@slot("judul_chart") Persentase Rumusan VMTS Universitas @endslot
+							@slot("judul_chart") Persentase Rumusan VMTS UM @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q2['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -114,13 +114,13 @@
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
-				<h6 class="m-0">Kinerja Universitas</h6>
+				<h6 class="m-0">Kinerja UM</h6>
 			</div>
 			<div class="card-body p-0 pb-3">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Bagaimana menurut Ibu/Bapak, kinerja Universitas dalam mencapai visi dan sasarannya?</span>
+							<span class="text-info font-italic font-weight-bold" >Bagaimana menurut Ibu/Bapak, kinerja UM dalam mencapai visi, misi, tujuan, dan sasarannya?</span>
 						</div>
 						<table class="table mb-0" id="datatable3">
 							<thead class="bg-light">
@@ -143,11 +143,11 @@
 					</div>
 					<div class="col-md-6">
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Kinerja Universitas @endslot --}}
+							{{-- @slot("judul") Kinerja UM @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_kinerja @endslot
 							@slot("id_tabel") datatable3 @endslot
-							@slot("judul_chart") Persentase Kinerja Universitas @endslot
+							@slot("judul_chart") Persentase Kinerja UM @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q3['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -161,13 +161,13 @@
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
-				<h6 class="m-0">Profil Universitas</h6>
+				<h6 class="m-0">Profil UM</h6>
 			</div>
 			<div class="card-body p-0 pb-3">
 				<div class="row">
 					<div class="col-md-5">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Penilaian untuk kualitas informasi dan profil Universitas</span>
+							<span class="text-info font-italic font-weight-bold" >Penilaian untuk kualitas informasi dan profil UM</span>
 						</div>
 						<table class="table mb-0" id="datatable4a">
 							<thead class="bg-light">
@@ -192,11 +192,11 @@
 					</div>
 					<div class="col-md-7">
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Profil Universitas @endslot --}}
+							{{-- @slot("judul") Profil UM @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_profil @endslot
 							@slot("id_tabel") datatable4a @endslot
-							@slot("judul_chart") Persentase Kualitas Profil Universitas @endslot
+							@slot("judul_chart") Persentase Kualitas Profil UM @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q4a['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -210,13 +210,13 @@
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
-				<h6 class="m-0">Kerjasama Universitas</h6>
+				<h6 class="m-0">Kerjasama UM</h6>
 			</div>
 			<div class="card-body p-0 pb-3">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Penilaian untuk jejaring yang dibangun Universitas</span>
+							<span class="text-info font-italic font-weight-bold" >Penilaian untuk jejaring yang dibangun UM</span>
 						</div>
 						<table class="table mb-0 d-none" id="datatable4b">
 							<thead class="bg-light">
@@ -239,11 +239,11 @@
 							</tbody>
 						</table>	
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Profil Universitas @endslot --}}
+							{{-- @slot("judul") Profil UM @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_jejaring @endslot
 							@slot("id_tabel") datatable4b @endslot
-							@slot("judul_chart") Persentase Kualitas Jejaring Universitas @endslot
+							@slot("judul_chart") Persentase Kualitas Jejaring UM @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q4b['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -251,7 +251,7 @@
 
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Penilaian untuk kontribusi Universitas</span>
+							<span class="text-info font-italic font-weight-bold" >Penilaian untuk kontribusi UM</span>
 						</div>
 						<table class="table mb-0 d-none" id="datatable4c">
 							<thead class="bg-light">
@@ -274,11 +274,11 @@
 							</tbody>
 						</table>	
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Profil Universitas @endslot --}}
+							{{-- @slot("judul") Profil UM @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_kontribusi @endslot
 							@slot("id_tabel") datatable4c @endslot
-							@slot("judul_chart") Persentase Kualitas Kontribusi Universitas @endslot
+							@slot("judul_chart") Persentase Kualitas Kontribusi UM @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q4c['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -309,7 +309,7 @@
 							</tbody>
 						</table>	
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Profil Universitas @endslot --}}
+							{{-- @slot("judul") Profil UM @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_kontribusi_mitra_akademik @endslot
 							@slot("id_tabel") datatable4d @endslot
@@ -344,7 +344,7 @@
 							</tbody>
 						</table>	
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Profil Universitas @endslot --}}
+							{{-- @slot("judul") Profil UM @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_kontribusi_mitra_non_akademik @endslot
 							@slot("id_tabel") datatable4e @endslot
@@ -393,7 +393,7 @@
 					</div>
 					<div class="col-md-7">
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Profil Universitas @endslot --}}
+							{{-- @slot("judul") Profil UM @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_pembelajaran @endslot
 							@slot("id_tabel") datatable4f @endslot
@@ -442,7 +442,7 @@
 					</div>
 					<div class="col-md-7">
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Profil Universitas @endslot --}}
+							{{-- @slot("judul") Profil UM @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_penelitian @endslot
 							@slot("id_tabel") datatable4g @endslot
@@ -491,7 +491,7 @@
 					</div>
 					<div class="col-md-7">
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Profil Universitas @endslot --}}
+							{{-- @slot("judul") Profil UM @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_pengabdian @endslot
 							@slot("id_tabel") datatable4h @endslot

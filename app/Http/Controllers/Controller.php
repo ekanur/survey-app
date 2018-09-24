@@ -59,11 +59,10 @@ class Controller extends BaseController
   public function keselarasan($tabel, $kuesioner) {
     $list_keselarasan = array(
       'kuesioner' => array(
-          'Sudah selaras dengan visi dan kinerja sudah maksimal' => 0, 
-          'Sudah selaras dengan visi, namun kinerja kurang maksimal' => 0, 
-          'Kurang selaras dengan visi, namun kinerja maksimal' => 0, 
-          'Kurang selaras dengan visi dan kinerja kurang maksimal' => 0, 
-          'Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan' => 0, 
+          'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
+          'Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
+          'Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
+          'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran UM' => 0, 
           'Tidak tahu karena tidak pernah memperhatikan' => 0,
       ),
       'total_responden' => 0

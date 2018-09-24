@@ -1,14 +1,16 @@
 @extends('layouts.app')
 
 @section('content') 
-
+<div class="text-center text-muted p-2">
+  Instrumen ini ditujukan untuk menilai tingkat kepuasan Ibu/Bapak terhadap kinerja Lembaga. Untuk itu, kami mohon Ibu/Bapak memberikan amatan dan cermatan terhadap kinerja Lembaga dengan menjawab pertanyaan yang tertera di angket. Kami ucapkan terima kasih atas partisipasi dan  kerjasama yang diberikan
+</p>
 <form method="POST" action="{{ url("/angket-mitra") }}">
   {{ csrf_field() }}
   <div align="center">
     <div class="col-lg-8 text-sm-left">
       <div class="card card-small mb-4" >
         <div class="card-header border-bottom">
-          <h6 class="m-0">Apakah Ibu/Bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang?</h6>
+          <h6 class="m-0">Apakah Ibu/Bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang (UM)?</h6>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item p-0 px-3 pt-3">
@@ -36,7 +38,7 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_1" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Dari mana Ibu/Bapak mengetahui rumusan tersebut?</h6>
+        <h6 class="m-0">Dari mana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran UM?</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
@@ -46,25 +48,29 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Katalog dan/atau dokumen jurusan lainnya">
-                      <label class="custom-control-label" for="c1q2">Katalog dan/atau dokumen jurusan lainnya</label>
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c1q2" value="Dokumen Jurusan (mis: katalog)">
+                      <label class="custom-control-label" for="c1q2">Dokumen Jurusan (mis: katalog)</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Membaca banner">
-                      <label class="custom-control-label" for="c2q2">Membaca banner</label>
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c2q2" value="Dokumen Universitas (mis: prospectus)">
+                      <label class="custom-control-label" for="c2q2">Dokumen Universitas (mis: prospectus)</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c3q2" value="Kegiatan kemahasiswaan">
-                      <label class="custom-control-label" for="c3q2">Kegiatan kemahasiswaan</label>
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c3q2" value="Membaca banner">
+                      <label class="custom-control-label" for="c3q2">Membaca banner</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Laman UM">
-                      <label class="custom-control-label" for="c4q2">Laman UM</label>
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Kegiatan kemahasiswaan">
+                      <label class="custom-control-label" for="c4q2">Kegiatan kemahasiswaan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input type="checkbox" class="custom-control-input" id="c5q2">
-                      <label class="custom-control-label" for="c5q2" >Lain-lain</label>
-                      <input type="text" name="q2[]" id="c5q2_input" class="form-control">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c5q2" value="Laman UM">
+                      <label class="custom-control-label" for="c5q2">Laman UM</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-1">
+                      <input type="checkbox" class="custom-control-input" id="c6q2">
+                      <label class="custom-control-label" for="c6q2" >Lain-lain</label>
+                      <input type="text" name="q2[]" id="c6q2_input" class="form-control">
                     </div>
                   </fieldset>
                 </div>
@@ -82,7 +88,7 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Bagaimana menurut Ibu/Bapak, kinerja Universitas dalam mencapai visi dan sasarannya?</h6>
+        <h6 class="m-0">Bagaimana menurut Ibu/Bapak, kinerja UM dalam mencapai visi, misi, tujuan, dan sasarannya?</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
@@ -90,31 +96,26 @@
             <div class="col">
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                  <label></label>
                   <fieldset>
                    <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi dan kinerja sudah maksimal">
-                    <label class="custom-control-label" for="radio1q3"> Sudah selaras dengan visi dan kinerja sudah maksimal</label>
+                    <input required="" type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran UM">
+                    <label class="custom-control-label" for="radio1q3"> Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran UM</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio2q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi, namun kinerja kurang maksimal">
-                    <label class="custom-control-label" for="radio2q3"> Sudah selaras dengan visi, namun kinerja kurang maksimal</label>
+                    <input required="" type="radio" id="radio2q3" name="q3" class="custom-control-input" value="Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran UM">
+                    <label class="custom-control-label" for="radio2q3"> Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran UM</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio3q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi, namun kinerja maksimal">
-                    <label class="custom-control-label" for="radio3q3"> Kurang selaras dengan visi, namun kinerja maksimal</label>
+                    <input required="" type="radio" id="radio3q3" name="q3" class="custom-control-input" value="Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran UM">
+                    <label class="custom-control-label" for="radio3q3"> Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran UM</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio4q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi dan kinerja kurang maksimal">
-                    <label class="custom-control-label" for="radio4q3"> Kurang selaras dengan visi dan kinerja kurang maksimal</label>
+                    <input required="" type="radio" id="radio4q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan">
+                    <label class="custom-control-label" for="radio4q3"> Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran UM</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio5q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan">
-                    <label class="custom-control-label" for="radio5q3"> Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan</label>
-                  </div>
-                  <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio6q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
-                    <label class="custom-control-label" for="radio6q3"> Tidak tahu karena tidak pernah memperhatikan</label>
+                    <input required="" type="radio" id="radio5q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
+                    <label class="custom-control-label" for="radio5q3"> Tidak tahu karena tidak pernah memperhatikan</label>
                   </div>
                 </fieldset>
               </div>
@@ -215,6 +216,87 @@
                           <option value="1">Tidak Puas</option>
                         </select></td>
                       </tr>
+                      <tr>
+                        <td width="80%">Kejelasan dan kelengkapan informasi yang diperlukan untuk memperoleh layanan kelembagaan</td>
+                        <td width="20%"><select name="q4i" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="80%">Prosedur pemberian layanan kelembagaan</td>
+                        <td width="20%"><select name="q4j" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="80%">Waktu pemberian layanan kelembagaan</td>
+                        <td width="20%"><select name="q4k" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="80%">Biaya pemberian layanan kelembagaan</td>
+                        <td width="20%"><select name="q4l" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="80%">Produk layanan kelembagaan</td>
+                        <td width="20%"><select name="q4m" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="80%">Kompetensi pelaksana layanan kelembagaan</td>
+                        <td width="20%"><select name="q4n" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="80%">Perilaku pelaksana layanan kelembagaan</td>
+                        <td width="20%"><select name="q4o" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="80%">Penanganan pengaduan terkait layanan kelembagaan</td>
+                        <td width="20%"><select name="q4p" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td width="80%">Kualitas layanan kelembagaan</td>
+                        <td width="20%"><select name="q4q" class="form-control">
+                          <option value="4">Sangat Puas</option>
+                          <option value="3">Puas</option>
+                          <option value="2">Cukup Puas</option>
+                          <option value="1">Tidak Puas</option>
+                        </select></td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -263,18 +345,18 @@
     $("textarea[name='saranmitra']").textareaCounter({ limit: 100 });
 
     //input handler untuk checkbox "Lain-lain"
-    if($("#c5q2").is(":checked")) {
-      $("#c5q2_input").prop("required", true);
-      $("#c5q2_input").prop("disabled", false);
+    if($("#c6q2").is(":checked")) {
+      $("#c6q2_input").prop("required", true);
+      $("#c6q2_input").prop("disabled", false);
     }
     else {
-      $("#c5q2_input").prop("required", false);
-      $("#c5q2_input").prop("disabled", true);
+      $("#c6q2_input").prop("required", false);
+      $("#c6q2_input").prop("disabled", true);
     }
   });
-  $("#c5q2").on("change", function(e) {
-    $("#c5q2_input").prop("required", $(this).is(":checked"));
-    $("#c5q2_input").prop("disabled", !$(this).is(":checked"));
+  $("#c6q2").on("change", function(e) {
+    $("#c6q2_input").prop("required", $(this).is(":checked"));
+    $("#c6q2_input").prop("disabled", !$(this).is(":checked"));
   });
 
   //Pertanyaan 1 jumper handler
@@ -285,7 +367,8 @@
   function disableQuestion(selector='') {
     if(selector) {
       $(selector).find("input:checkbox").prop('disabled', true);
-      $(selector+" :input").not(':button, :submit, :reset, :hidden').val('').prop('checked', false).prop('selected', false).trigger('change');
+      $(selector+" :input").not(':button, :submit, :reset, :hidden, :checkbox').val('');
+      $(selector+" :input:checkbox").prop('checked', false).prop('selected', false).trigger('change');
       $(selector).fadeOut();
     }
   }
