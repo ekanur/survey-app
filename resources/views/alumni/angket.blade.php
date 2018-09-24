@@ -1,6 +1,9 @@
 @extends('layouts.app') 
 
 @section('content') 
+<div class="text-center text-muted p-2">
+  Instrumen ini ditujukan untuk menilai tingkat kepuasan Ibu/Bapak terhadap kinerja Lembaga. Untuk itu, kami mohon Ibu/Bapak memberikan amatan dan cermatan terhadap kinerja Lembaga dengan menjawab pertanyaan yang tertera di angket. Kami ucapkan terima kasih atas partisipasi dan  kerjasama yang diberikan
+</p>
 
 <form method="POST" action="{{ url("/angket-alumni") }}">
   {{ csrf_field() }}
@@ -687,9 +690,10 @@
   });
 
   function disableQuestion(selector='') {
-    if(selector) {
+      if(selector) {
       $(selector).find("input:checkbox").prop('disabled', true);
-      $(selector+" :input").not(':button, :submit, :reset, :hidden').val('').prop('checked', false).prop('selected', false).trigger('change');
+      $(selector+" :input").not(':button, :submit, :reset, :hidden, :checkbox').val('');
+      $(selector+" :input:checkbox").prop('checked', false).prop('selected', false).trigger('change');
       $(selector).fadeOut();
     }
   }

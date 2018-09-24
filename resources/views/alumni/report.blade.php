@@ -316,7 +316,7 @@
 					<div class="row">
 						<div class="col-md-5">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek kejelasan kelengkapan informasi persyaratan untuk memperoleh layanan kelembagaan</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian untuk kepuasan terhadap kejelasan kelengkapan informasi persyaratan untuk memperoleh layanan kelembagaan</span>
 							</div>
 							<table class="table mb-0" id="datatableq7b1">
 								<thead class="bg-light">
@@ -352,7 +352,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek prosedur pemberian layanan</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kepuasa terhadap prosedur pemberian layanan kelembagaan</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7b2">
 								<thead class="bg-light">
@@ -378,7 +378,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_prosedur @endslot
 							@slot("id_tabel") datatableq7b2 @endslot
-							@slot("judul_chart") Persentase Prosedur Pemberian Layanan @endslot
+							@slot("judul_chart") Persentase Prosedur Pemberian Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7b2['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -388,7 +388,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek waktu pemberian layanan</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kepuasan terhadap waktu pemberian layanan kelembagaan</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7b3">
 								<thead class="bg-light">
@@ -414,17 +414,15 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_waktu @endslot
 							@slot("id_tabel") datatableq7b3 @endslot
-							@slot("judul_chart") Persentase Kepuasan Terhadap Waktu pemberian layanan @endslot
+							@slot("judul_chart") Persentase Waktu Pemberian Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7b3['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
 						</div>
 
-
-
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Biaya</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kepuasan terhadap biaya pemberian layanan kelembagaan</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7b4">
 								<thead class="bg-light">
@@ -450,7 +448,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_biaya @endslot
 							@slot("id_tabel") datatableq7b4 @endslot
-							@slot("judul_chart") Persentase Aspek Biaya @endslot
+							@slot("judul_chart") Persentase Biaya Pemberian Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7b4['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -460,7 +458,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Produk</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kepuasan terhadap produk layanan kelembagaan</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7b5">
 								<thead class="bg-light">
@@ -486,7 +484,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_produk @endslot
 							@slot("id_tabel") datatableq7b5 @endslot
-							@slot("judul_chart") Persentase Aspek Produk @endslot
+							@slot("judul_chart") Persentase Produk Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7b5['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -494,7 +492,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Kompetensi</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kepuasan terhadap kompetensi pelaksana layanan kelembagaan</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7b6">
 								<thead class="bg-light">
@@ -520,7 +518,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_Kompetensi @endslot
 							@slot("id_tabel") datatableq7b6 @endslot
-							@slot("judul_chart") Persentase Aspek kompetensi @endslot
+							@slot("judul_chart") Persentase Kompetensi Pelaksana Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7b6['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -528,7 +526,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Perilaku</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kepuasan terhadap Perilaku pelaksana layanan kelembagaan</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7b7">
 								<thead class="bg-light">
@@ -554,7 +552,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_perilaku @endslot
 							@slot("id_tabel") datatableq7b7 @endslot
-							@slot("judul_chart") Persentase Aspek Perilaku @endslot
+							@slot("judul_chart") Persentase Perilaku Pelaksana Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7b7['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -562,7 +560,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Pengaduan</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kepuasan terhadap penanganan pengaduan terkait pelaksanaan layanan kelembagaan</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7b8">
 								<thead class="bg-light">
@@ -588,7 +586,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_pengaduan @endslot
 							@slot("id_tabel") datatableq7b8 @endslot
-							@slot("judul_chart") Persentase Aspek Pengaduan @endslot
+							@slot("judul_chart") Persentase Penanganan Pengaduan Terkait Pelaksanaan Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7b8['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -596,7 +594,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Kualitas Layanan</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kepuasan terhadap kualitas layanan Kelembagaan</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7b9">
 								<thead class="bg-light">
@@ -622,7 +620,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_kualitas_layanan @endslot
 							@slot("id_tabel") datatableq7b9 @endslot
-							@slot("judul_chart") Persentase Aspek Kualitas Layanan @endslot
+							@slot("judul_chart") Persentase Kualitas Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7b9['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -645,7 +643,7 @@
 					<div class="row">
 						<div class="col-md-5">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk kualitas informasi dan profil Prodi</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian terhadap kualitas informasi dan profil program studi</span>
 							</div>
 							<table class="table mb-0" id="datatableq7a1">
 								<thead class="bg-light">
@@ -673,7 +671,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_q7a1 @endslot
 							@slot("id_tabel") datatableq7a1 @endslot
-							@slot("judul_chart") Persentase Kualitas Profil Prodi @endslot
+							@slot("judul_chart") Persentase Kualitas Informasi dan Profil Program Studi @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a1['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -695,7 +693,7 @@
 					<div class="row">
 						<div class="col-md-5">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk kualitas jejaring yang dibangun Prodi</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kualitas jejaring yang dibangun program studi</span>
 							</div>
 							<table class="table mb-0" id="datatableq7a10">
 								<thead class="bg-light">
@@ -723,7 +721,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_q7a10 @endslot
 							@slot("id_tabel") datatableq7a10 @endslot
-							@slot("judul_chart") Persentase kualitan Jejaring yang Dibangun Prodi @endslot
+							@slot("judul_chart") Persentase Kualitas Jejaring yang Dibangun Program Studi @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a10['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -731,7 +729,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Kontribusi alumni dalam kegiatan Akademik Prodi</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kontribusi alumni dalam kegiatan akademik program studi</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7a11">
 								<thead class="bg-light">
@@ -757,7 +755,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_akademik @endslot
 							@slot("id_tabel") datatableq7a11 @endslot
-							@slot("judul_chart") Persentase Aspek Kontribusi Alumni Dalam Kegiatan Akademik @endslot
+							@slot("judul_chart") Persentase Kontribusi Alumni Dalam Kegiatan Akademik Program Studi @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a11['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -765,7 +763,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Kontribusi alumni dalam kegiatan Non Akademik Prodi</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kontribusi alumni dalam kegiatan non-akademik program studi</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7a12">
 								<thead class="bg-light">
@@ -791,7 +789,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_non_akademik @endslot
 							@slot("id_tabel") datatableq7a12 @endslot
-							@slot("judul_chart") Persentase Aspek Kontribusi Alumni Dalam Kegiatan Non Akademik @endslot
+							@slot("judul_chart") Persentase Kontribusi Alumni Dalam Kegiatan Non-Akademik Program Studi @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a12['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -813,7 +811,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Kurikulum Prodi</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kurikulum program studi</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7a2">
 								<thead class="bg-light">
@@ -839,7 +837,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_q7a2 @endslot
 							@slot("id_tabel") datatableq7a2 @endslot
-							@slot("judul_chart") Persentase Aspek Kurikulum Prodi @endslot
+							@slot("judul_chart") Persentase Kurikulum Program Studi @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a2['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -848,7 +846,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Kualitas Dosen Prodi </span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kualitas dosen program studi</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7a3">
 								<thead class="bg-light">
@@ -874,7 +872,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentaseq7a3 @endslot
 							@slot("id_tabel") datatableq7a3 @endslot
-							@slot("judul_chart") Persentase Aspek Kualitan Dosen Prodi @endslot
+							@slot("judul_chart") Persentase Kualitas Dosen Program Studi @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a3['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -882,7 +880,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Kualitas pembimbingan tugas akhir/skripsi/tesis/disertasi </span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kualitas pembimbingan tugas akhir/skripsi/tesis/disertasi </span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7a4">
 								<thead class="bg-light">
@@ -908,7 +906,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentaseq7a4 @endslot
 							@slot("id_tabel") datatableq7a4 @endslot
-							@slot("judul_chart") Persentase untuk Aspek Kualitas Pembimbing @endslot
+							@slot("judul_chart") Persentase Kualitas Pembimbingan Tugas Akhir/Skripsi/Tesis/Disertasi @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a4['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -916,7 +914,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Kualitas Prodi Dalam Menyiapkan Karir Professional </span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kualitas program studi dalam menyiapkan karir professional </span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7a5">
 								<thead class="bg-light">
@@ -942,7 +940,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentaseq7a5 @endslot
 							@slot("id_tabel") datatableq7a5 @endslot
-							@slot("judul_chart") Persentase Aspek Kualitas Prodi Dalam Menyiapkan Karir Professional  @endslot
+							@slot("judul_chart") Persentase Kualitas Program Studi Dalam Menyiapkan Karir Professional  @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a5['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -952,7 +950,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Relevansi Kurikulum Prodi Dalam Pengembangan </span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian relevansi kurikulum program studi dalam pengembangan individu</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7a6">
 								<thead class="bg-light">
@@ -978,7 +976,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentaseq7a6 @endslot
 							@slot("id_tabel") datatableq7a6 @endslot
-							@slot("judul_chart") Persentase Aspek Relevansi kurikulum Prodi Dalam Pengembangan  @endslot
+							@slot("judul_chart") Persentase Relevansi Kurikulum Program Studi Dalam Pengembangan Individu @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a6['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -986,7 +984,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Relevansi Kurikulum Prodi Dalam Pengembangan Akademik </span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian relevansi kurikulum program studi dalam pengembangan akademik</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7a7">
 								<thead class="bg-light">
@@ -1012,7 +1010,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentaseq7a7 @endslot
 							@slot("id_tabel") datatableq7a7 @endslot
-							@slot("judul_chart") Persentase Aspek Relevansi Kurikulum Prodi Dalam Pengembangan Akademik  @endslot
+							@slot("judul_chart") Persentase Relevansi Kurikulum Program Studi Dalam Pengembangan Akademik @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a7['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -1020,7 +1018,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Relevansi kurikulum Prodi dalam pengembangan profesional </span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian relevansi kurikulum program studi dalam pengembangan professional</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7a8">
 								<thead class="bg-light">
@@ -1046,7 +1044,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentaseq7a8 @endslot
 							@slot("id_tabel") datatableq7a8 @endslot
-							@slot("judul_chart") Persentase Aspek Relevansi kurikulum Prodi dalam pengembangan professional  @endslot
+							@slot("judul_chart") Persentase Relevansi Kurikulum Program Studi Dalam Pengembangan Professional @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a8['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -1054,7 +1052,7 @@
 
 						<div class="col-md-6">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk aspek Relevansi kurikulum Prodi dengan bidang pekerjaan </span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian relevansi kurikulum program studi dengan bidang pekerjaan</span>
 							</div>
 							<table class="table mb-0 d-none" id="datatableq7a9">
 								<thead class="bg-light">
@@ -1080,7 +1078,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentaseq7a9 @endslot
 							@slot("id_tabel") datatableq7a9 @endslot
-							@slot("judul_chart") Persentase Aspek Relevansi kurikulum Prodi dengan bidang pekerjaan @endslot
+							@slot("judul_chart") Persentase Relevansi Kurikulum Program Studi Dengan Bidang Pekerjaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a9['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
@@ -1101,7 +1099,7 @@
 					<div class="row">
 						<div class="col-md-5">
 							<div class="text-center p-3">
-								<span class="text-info font-italic font-weight-bold" >Penilaian untuk Kepuasan Pekerjaan Saat ini</span>
+								<span class="text-info font-italic font-weight-bold" >Penilaian kepuasan alumni terhadap pekerjaan alumni saat ini</span>
 							</div>
 							<table class="table mb-0" id="datatableq7a13">
 								<thead class="bg-light">
@@ -1129,7 +1127,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentaseq7a13 @endslot
 							@slot("id_tabel") datatableq7a13 @endslot
-							@slot("judul_chart") Persentase Kepuasan Pekerjaan @endslot
+							@slot("judul_chart") Persentase Kepuasan Alumni Terhadap Pekerjaan Alumni Saat ini @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7a13['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 							@endcomponent
