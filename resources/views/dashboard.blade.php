@@ -1,6 +1,7 @@
 @extends('layouts.app')
  
-@section('content')    
+@section('content') 
+<br>   
 <div class="row">
   <div class="col-lg col-md-6 col-sm-6 mb-4">
     <div class="stats-small stats-small--1 card card-small">

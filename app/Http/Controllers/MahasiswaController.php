@@ -192,6 +192,7 @@ class MahasiswaController extends Controller
                 ->get();
     $list_q2 = array(
               'kuesioner' => array(
+                'Masa Orientasi Maba' => 0,
                   'Katalog dan/atau dokumen jurusan lainnya' => 0, 
                   'Membaca banner' => 0, 
                   'Kegiatan kemahasiswaan' => 0, 
@@ -230,11 +231,10 @@ class MahasiswaController extends Controller
                 ->get();
     $list_q3 = array(
               'kuesioner' => array(
-                  'Sudah selaras dengan visi dan kinerja sudah maksimal' => 0, 
-                  'Sudah selaras dengan visi, namun kinerja kurang maksimal' => 0, 
-                  'Kurang selaras dengan visi, namun kinerja maksimal' => 0, 
-                  'Kurang selaras dengan visi dan kinerja kurang maksimal' => 0, 
-                  'Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan' => 0, 
+                 'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
+                  'Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
+                  'Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
+                  'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
                   'Tidak tahu karena tidak pernah memperhatikan' => 0,
               ),
               'total_responden' => 0

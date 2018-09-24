@@ -119,7 +119,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Bagaimana menurut Ibu/Bapak, kinerja Jurusan / Program Studi dalam mencapai visi dan sasarannya?</span>
+							<span class="text-info font-italic font-weight-bold" >Bagaimana menurut Anda, kinerja Program Studi / Jurusan dalam mencapai visi dan sasarannya?</span>
 						</div>
 						<table class="table mb-0" id="datatable3">
 							<thead class="bg-light">
@@ -167,75 +167,6 @@
 						<div class="text-center p-3">
 							<span class="text-info font-italic font-weight-bold" >Kejelasan Info Persyaratan Layanan</span>
 						</div>
-						<table class="table mb-0 d-none" id="datatable4b2">
-							<thead class="bg-light">
-								<tr>
-									<th scope="col" class="border-0">Kategori</th>
-									{{-- <th scope="col" class="border-0">Jumlah Skor</th> --}}
-									<th scope="col" class="border-0">Persentase (%)</th>
-								</tr>
-							</thead>
-							<tbody>
-								@foreach ($list_q4b2['kuesioner'] as $pertanyaan => $jumlah)
-									<tr>
-										<td>{{ $jumlah['alias'] }}</td>
-										{{-- <td class="text-right">{{ $jumlah['skor'] }}</td> --}}
-										<td class="text-right">
-											{{ number_format((($jumlah['responden'] / max($list_q4b2['total_responden'], 1)) * 100), 1) }}
-										</td>
-									</tr>
-								@endforeach
-							</tbody>
-						</table>
-							@component("chart.pie_legend")
-							{{-- @slot("judul") Kejelasan Info Persyaratan Layanan @endslot --}}
-							@slot("use_panel") no @endslot
-							@slot("id_chart") persentase__kejelasan_persyaratan @endslot
-							@slot("id_tabel") datatable4b2 @endslot
-							@slot("judul_chart") Persentase Kepuasan Kejelasan Info Persyaratan Layanan @endslot
-							@slot("subjudul_chart") Total Responden: {{ $list_q4b2['total_responden'] }} orang @endslot
-							@slot("judul_y") Persentase @endslot
-						@endcomponent
-					</div>
-
-					<div class="col-md-6">
-						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Prosedur</span>
-						</div>
-						<table class="table mb-0 d-none" id="datatable4b3">
-							<thead class="bg-light">
-								<tr>
-									<th scope="col" class="border-0">Kategori</th>
-									{{-- <th scope="col" class="border-0">Jumlah Skor</th> --}}
-									<th scope="col" class="border-0">Persentase (%)</th>
-								</tr>
-							</thead>
-							<tbody>
-								@foreach ($list_q4b3['kuesioner'] as $pertanyaan => $jumlah)
-									<tr>
-										<td>{{ $jumlah['alias'] }}</td>
-										{{-- <td class="text-right">{{ $jumlah['skor'] }}</td> --}}
-										<td class="text-right">
-											{{ number_format((($jumlah['responden'] / max($list_q4b3['total_responden'], 1)) * 100), 1) }}
-										</td>
-									</tr>
-								@endforeach
-							</tbody>
-						</table>	
-						@component("chart.pie_legend")
-							{{-- @slot("judul") Prosedur Pemberian Layanan Akademik dan non Akademik @endslot --}}
-							@slot("use_panel") no @endslot
-							@slot("id_chart") persentase_prosedur_pemberian_layanan @endslot
-							@slot("id_tabel") datatable4b3 @endslot
-							@slot("judul_chart") Persentase Kepuasan Prosedur Pemberian Layanan Akademik dan non Akademik @endslot
-							@slot("subjudul_chart") Total Responden: {{ $list_q4b3['total_responden'] }} orang @endslot
-							@slot("judul_y") Persentase @endslot
-						@endcomponent
-					</div>
-					<div class="col-md-6">
-						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Waktu</span>
-						</div>
 						<table class="table mb-0 d-none" id="datatable4b4">
 							<thead class="bg-light">
 								<tr>
@@ -255,13 +186,13 @@
 									</tr>
 								@endforeach
 							</tbody>
-						</table>	
-						@component("chart.pie_legend")
-							{{-- @slot("judul") Waktu Pemberian Layanan Akademik dan non Akademik @endslot --}}
+						</table>
+							@component("chart.pie_legend")
+							{{-- @slot("judul") Kejelasan Info Persyaratan Layanan @endslot --}}
 							@slot("use_panel") no @endslot
-							@slot("id_chart") persentase_waktu_pemberian_layanan @endslot
+							@slot("id_chart") persentase__kejelasan_persyaratan @endslot
 							@slot("id_tabel") datatable4b4 @endslot
-							@slot("judul_chart") Persentase Kepuasan Waktu Pemberian Layanan Akademik dan non Akademik @endslot
+							@slot("judul_chart") Persentase Kepuasan Kejelasan Info Persyaratan Layanan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q4b4['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -269,7 +200,7 @@
 
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Biaya</span>
+							<span class="text-info font-italic font-weight-bold" >Prosedur</span>
 						</div>
 						<table class="table mb-0 d-none" id="datatable4b5">
 							<thead class="bg-light">
@@ -292,19 +223,18 @@
 							</tbody>
 						</table>	
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Biaya Pemberian Layanan Akademik dan non Akademik @endslot --}}
+							{{-- @slot("judul") Prosedur Pemberian Layanan Kelembagaan @endslot --}}
 							@slot("use_panel") no @endslot
-							@slot("id_chart") persentase_biaya_pemberian_layanan @endslot
+							@slot("id_chart") persentase_prosedur_pemberian_layanan @endslot
 							@slot("id_tabel") datatable4b5 @endslot
-							@slot("judul_chart") Persentase Kepuasan Biaya Pemberian Layanan Akademik dan non Akademik @endslot
+							@slot("judul_chart") Persentase Kepuasan Prosedur Pemberian Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q4b5['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
-					</div>				
-
+					</div>
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Produk</span>
+							<span class="text-info font-italic font-weight-bold" >Waktu</span>
 						</div>
 						<table class="table mb-0 d-none" id="datatable4b6">
 							<thead class="bg-light">
@@ -327,11 +257,11 @@
 							</tbody>
 						</table>	
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Produk Layanan Akademik dan non Akademik @endslot --}}
+							{{-- @slot("judul") Waktu Pemberian Layanan Kelembagaan @endslot --}}
 							@slot("use_panel") no @endslot
-							@slot("id_chart") persentase_produk_layanan @endslot
+							@slot("id_chart") persentase_waktu_pemberian_layanan @endslot
 							@slot("id_tabel") datatable4b6 @endslot
-							@slot("judul_chart") Persentase Kepuasan Produk Layanan Akademik dan non Akademik @endslot
+							@slot("judul_chart") Persentase Kepuasan Waktu Pemberian Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q4b6['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -339,7 +269,7 @@
 
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Kompetensi Pelaksana</span>
+							<span class="text-info font-italic font-weight-bold" >Biaya</span>
 						</div>
 						<table class="table mb-0 d-none" id="datatable4b7">
 							<thead class="bg-light">
@@ -362,19 +292,19 @@
 							</tbody>
 						</table>	
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Kompetensi Pelaksana Layanan Akademik dan non Akademik @endslot --}}
+							{{-- @slot("judul") Biaya Pemberian Layanan Kelembagaan @endslot --}}
 							@slot("use_panel") no @endslot
-							@slot("id_chart") persentase_kompetensi_pelaksana_layanan @endslot
+							@slot("id_chart") persentase_biaya_pemberian_layanan @endslot
 							@slot("id_tabel") datatable4b7 @endslot
-							@slot("judul_chart") Persentase Kepuasan Kompetensi Pelaksana Layanan Akademik dan non Akademik @endslot
+							@slot("judul_chart") Persentase Kepuasan Biaya Pemberian Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q4b7['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
-					</div>
+					</div>				
 
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Perilaku Pelaksana</span>
+							<span class="text-info font-italic font-weight-bold" >Produk</span>
 						</div>
 						<table class="table mb-0 d-none" id="datatable4b8">
 							<thead class="bg-light">
@@ -397,11 +327,11 @@
 							</tbody>
 						</table>	
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Perilaku Pelaksana Layanan Akademik dan non Akademik @endslot --}}
+							{{-- @slot("judul") Produk Layanan Kelembagaan @endslot --}}
 							@slot("use_panel") no @endslot
-							@slot("id_chart") persentase_perilaku_pelaksana_layanan @endslot
+							@slot("id_chart") persentase_produk_layanan @endslot
 							@slot("id_tabel") datatable4b8 @endslot
-							@slot("judul_chart") Persentase Kepuasan Perilaku Pelaksana Layanan Akademik dan non Akademik @endslot
+							@slot("judul_chart") Persentase Kepuasan Produk Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q4b8['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -409,7 +339,7 @@
 
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Penanganan Pengaduan</span>
+							<span class="text-info font-italic font-weight-bold" >Kompetensi Pelaksana</span>
 						</div>
 						<table class="table mb-0 d-none" id="datatable4b9">
 							<thead class="bg-light">
@@ -432,11 +362,11 @@
 							</tbody>
 						</table>	
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Penanganan Pengaduan Layanan Akademik dan non Akademik @endslot --}}
+							{{-- @slot("judul") Kompetensi Pelaksana Layanan Kelembagaan @endslot --}}
 							@slot("use_panel") no @endslot
-							@slot("id_chart") persentase_penanganan_pengaduan @endslot
+							@slot("id_chart") persentase_kompetensi_pelaksana_layanan @endslot
 							@slot("id_tabel") datatable4b9 @endslot
-							@slot("judul_chart") Persentase Kepuasan Penanganan Pengaduan Layanan Akademik dan non Akademik @endslot
+							@slot("judul_chart") Persentase Kepuasan Kompetensi Pelaksana Layanan Kelembagaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q4b9['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -444,7 +374,7 @@
 
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Kualitas Layanan</span>
+							<span class="text-info font-italic font-weight-bold" >Perilaku Pelaksana</span>
 						</div>
 						<table class="table mb-0 d-none" id="datatable4b10">
 							<thead class="bg-light">
@@ -467,12 +397,82 @@
 							</tbody>
 						</table>	
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Kualitas Layanan Akademik dan non Akademik @endslot --}}
+							{{-- @slot("judul") Perilaku Pelaksana Layanan Kelembagaan @endslot --}}
+							@slot("use_panel") no @endslot
+							@slot("id_chart") persentase_perilaku_pelaksana_layanan @endslot
+							@slot("id_tabel") datatable4b10 @endslot
+							@slot("judul_chart") Persentase Kepuasan Perilaku Pelaksana Layanan Kelembagaan @endslot
+							@slot("subjudul_chart") Total Responden: {{ $list_q4b10['total_responden'] }} orang @endslot
+							@slot("judul_y") Persentase @endslot
+						@endcomponent
+					</div>
+
+					<div class="col-md-6">
+						<div class="text-center p-3">
+							<span class="text-info font-italic font-weight-bold" >Penanganan Pengaduan</span>
+						</div>
+						<table class="table mb-0 d-none" id="datatable4b11">
+							<thead class="bg-light">
+								<tr>
+									<th scope="col" class="border-0">Kategori</th>
+									{{-- <th scope="col" class="border-0">Jumlah Skor</th> --}}
+									<th scope="col" class="border-0">Persentase (%)</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach ($list_q4b11['kuesioner'] as $pertanyaan => $jumlah)
+									<tr>
+										<td>{{ $jumlah['alias'] }}</td>
+										{{-- <td class="text-right">{{ $jumlah['skor'] }}</td> --}}
+										<td class="text-right">
+											{{ number_format((($jumlah['responden'] / max($list_q4b11['total_responden'], 1)) * 100), 1) }}
+										</td>
+									</tr>
+								@endforeach
+							</tbody>
+						</table>	
+						@component("chart.pie_legend")
+							{{-- @slot("judul") Penanganan Pengaduan Layanan Kelembagaan @endslot --}}
+							@slot("use_panel") no @endslot
+							@slot("id_chart") persentase_penanganan_pengaduan @endslot
+							@slot("id_tabel") datatable4b11 @endslot
+							@slot("judul_chart") Persentase Kepuasan Penanganan Pengaduan Layanan Kelembagaan @endslot
+							@slot("subjudul_chart") Total Responden: {{ $list_q4b11['total_responden'] }} orang @endslot
+							@slot("judul_y") Persentase @endslot
+						@endcomponent
+					</div>
+
+					<div class="col-md-6">
+						<div class="text-center p-3">
+							<span class="text-info font-italic font-weight-bold" >Kualitas Layanan</span>
+						</div>
+						<table class="table mb-0 d-none" id="datatable4b12">
+							<thead class="bg-light">
+								<tr>
+									<th scope="col" class="border-0">Kategori</th>
+									{{-- <th scope="col" class="border-0">Jumlah Skor</th> --}}
+									<th scope="col" class="border-0">Persentase (%)</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach ($list_q4b12['kuesioner'] as $pertanyaan => $jumlah)
+									<tr>
+										<td>{{ $jumlah['alias'] }}</td>
+										{{-- <td class="text-right">{{ $jumlah['skor'] }}</td> --}}
+										<td class="text-right">
+											{{ number_format((($jumlah['responden'] / max($list_q4b12['total_responden'], 1)) * 100), 1) }}
+										</td>
+									</tr>
+								@endforeach
+							</tbody>
+						</table>	
+						@component("chart.pie_legend")
+							{{-- @slot("judul") Kualitas Layanan Kelembagaan @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_kualitas_layanan @endslot
-							@slot("id_tabel") datatable4b10 @endslot
-							@slot("judul_chart") Persentase Kepuasan Kualitas Layanan Akademik dan non Akademik @endslot
-							@slot("subjudul_chart") Total Responden: {{ $list_q4b10['total_responden'] }} orang @endslot
+							@slot("id_tabel") datatable4b12 @endslot
+							@slot("judul_chart") Persentase Kepuasan Kualitas Layanan Kelembagaan @endslot
+							@slot("subjudul_chart") Total Responden: {{ $list_q4b12['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
 					</div>
@@ -753,7 +753,7 @@
 		</div>
 	</div>
 
-{{-- PERTANYAAN 4A6, B11, B12 --}}
+{{-- PERTANYAAN 4A6, B2, B3 --}}
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
@@ -800,7 +800,7 @@
 						<div class="text-center p-3">
 							<span class="text-info font-italic font-weight-bold" >Teknologi dan Informasi</span>
 						</div>
-						<table class="table mb-0 d-none" id="datatable4b11">
+						<table class="table mb-0 d-none" id="datatable4b2">
 							<thead class="bg-light">
 								<tr>
 									<th scope="col" class="border-0">Kategori</th>
@@ -809,12 +809,12 @@
 								</tr>
 							</thead>
 							<tbody>
-								@foreach ($list_q4b11['kuesioner'] as $pertanyaan => $jumlah)
+								@foreach ($list_q4b2['kuesioner'] as $pertanyaan => $jumlah)
 									<tr>
 										<td>{{ $jumlah['alias'] }}</td>
 										{{-- <td class="text-right">{{ $jumlah['skor'] }}</td> --}}
 										<td class="text-right">
-											{{ number_format((($jumlah['responden'] / max($list_q4b11['total_responden'], 1)) * 100), 1) }}
+											{{ number_format((($jumlah['responden'] / max($list_q4b2['total_responden'], 1)) * 100), 1) }}
 										</td>
 									</tr>
 								@endforeach
@@ -824,9 +824,9 @@
 							{{-- @slot("judul") Kualitas Dukungan untuk Teknologi dan Informasi @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_dukungan_tik @endslot
-							@slot("id_tabel") datatable4b11 @endslot
+							@slot("id_tabel") datatable4b2 @endslot
 							@slot("judul_chart") Persentase Kepuasan Kualitas Dukungan untuk Teknologi dan Informasi @endslot
-							@slot("subjudul_chart") Total Responden: {{ $list_q4b11['total_responden'] }} orang @endslot
+							@slot("subjudul_chart") Total Responden: {{ $list_q4b2['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
 					</div>
@@ -835,7 +835,7 @@
 						<div class="text-center p-3">
 							<span class="text-info font-italic font-weight-bold" >Aktivitas Ekstrakurikuler</span>
 						</div>
-						<table class="table mb-0 d-none" id="datatable4a12">
+						<table class="table mb-0 d-none" id="datatable4a3">
 							<thead class="bg-light">
 								<tr>
 									<th scope="col" class="border-0">Kategori</th>
@@ -844,12 +844,12 @@
 								</tr>
 							</thead>
 							<tbody>
-								@foreach ($list_q4a12['kuesioner'] as $pertanyaan => $jumlah)
+								@foreach ($list_q4a3['kuesioner'] as $pertanyaan => $jumlah)
 									<tr>
 										<td>{{ $jumlah['alias'] }}</td>
 										{{-- <td class="text-right">{{ $jumlah['skor'] }}</td> --}}
 										<td class="text-right">
-											{{ number_format((($jumlah['responden'] / max($list_q4a12['total_responden'], 1)) * 100), 1) }}
+											{{ number_format((($jumlah['responden'] / max($list_q4a3['total_responden'], 1)) * 100), 1) }}
 										</td>
 									</tr>
 								@endforeach
@@ -859,9 +859,9 @@
 							{{-- @slot("judul") Kualitas dan Dukungan Aktivitas Ekstrakurikuler @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_dukungan_ekskul @endslot
-							@slot("id_tabel") datatable4a12 @endslot
+							@slot("id_tabel") datatable4a3 @endslot
 							@slot("judul_chart") Persentase Kepuasan Kualitas dan Dukungan Aktivitas Ekstrakurikuler  @endslot
-							@slot("subjudul_chart") Total Responden: {{ $list_q4a12['total_responden'] }} orang @endslot
+							@slot("subjudul_chart") Total Responden: {{ $list_q4a3['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
 					</div>
@@ -1138,7 +1138,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Keterlibatan Mahasiswa dalam Penelitian Dosen</span>
+							<span class="text-info font-italic font-weight-bold" >Keterlibatan Mahasiswa dalam Penelitian</span>
 						</div>
 						<table class="table mb-0" id="datatable4a10">
 							<thead class="bg-light">
@@ -1162,11 +1162,11 @@
 					</div>
 					<div class="col-md-6">
 						@component("chart.pie_legend")
-							{{-- @slot("judul") Keterlibatan Mahasiswa dalam Penelitian Dosen @endslot --}}
+							{{-- @slot("judul") Keterlibatan Mahasiswa dalam Penelitian @endslot --}}
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_keterlibatan_penelitian @endslot
 							@slot("id_tabel") datatable4a10 @endslot
-							@slot("judul_chart") Persentase Keterlibatan Mahasiswa dalam Penelitian Dosen @endslot
+							@slot("judul_chart") Persentase Keterlibatan Mahasiswa dalam Penelitian @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q4a10['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent

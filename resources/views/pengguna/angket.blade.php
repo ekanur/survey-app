@@ -65,7 +65,7 @@
                       <label class="custom-control-label" for="c3q2">Membaca Banner</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Kegiatan kemahasiswaan">
+                      <input name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Kegiatan Kemahasiswaan">
                       <label class="custom-control-label" for="c4q2">Kegiatan Kemahasiswaan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">

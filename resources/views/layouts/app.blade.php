@@ -35,7 +35,7 @@
             <a href="{{url('/')}}">
                 <img src="{{asset('images/um_logo_blue_text.png')}}" width="240">
             </a>
-            <br><br>
+            <br>
             <span class="text-uppercase page-subtitle">Satuan Penjaminan Mutu - Universitas Negeri Malang</span>
             <h3 class="page-title">Sistem Survei Kepuasan</h3>
 
