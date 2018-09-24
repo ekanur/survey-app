@@ -8,7 +8,7 @@
     <div class="col-lg-8 text-sm-left">
       <div class="card card-small mb-4" >
         <div class="card-header border-bottom">
-          <h6 class="m-0">Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Program Studi ketika Ibu/Bapak masih kuliah?</h6>
+          <h6 class="m-0">Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan ketika Ibu/Bapak masih kuliah?</h6>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item p-0 px-3 pt-3">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
                       <input name="q2[]" type="checkbox" class="custom-control-input" id="c3q2" value="Membaca banner">
-                      <label class="custom-control-label" for="c3q2">Membaca banner (poster ruang)</label>
+                      <label class="custom-control-label" for="c3q2">Membaca banner</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
                       <input name="q2[]" type="checkbox" class="custom-control-input" id="c4q2" value="Kegiatan kemahasiswaan">
@@ -88,42 +88,38 @@
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
-    <div class="card card-small mb-4 quest_1" >
+    <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Bagaimana menurut Ibu/Bapak, kinerja Jurusan/Prodi dalam mencapai visi dan sasarannya?</h6>
-      </div>
+        <h6 class="m-0">Bagaimana menurut Ibu/Bapak, kinerja Program Studi/Jurusan dalam mencapai visi, misi, tujuan dan sasaranya?</h6>
+       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
           <div class="row">
             <div class="col">
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
-                 <fieldset>
-                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi dan kinerja sudah maksimal">
-                    <label class="custom-control-label" for="radio1q3"> Sudah selaras dengan visi dan kinerja sudah maksimal</label>
+                  <label></label>
+                  <fieldset>
+                  <div class="custom-control custom-radio mb-1">
+                    <input required="" type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
+                    <label class="custom-control-label" for="radio1q3"> Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio2q3" name="q3" class="custom-control-input" value="Sudah selaras dengan visi, namun kinerja kurang maksimal">
-                    <label class="custom-control-label" for="radio2q3"> Sudah selaras dengan visi, namun kinerja kurang maksimal</label>
+                    <input required="" type="radio" id="radio2q3" name="q3" class="custom-control-input" value="Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
+                    <label class="custom-control-label" for="radio2q3"> Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio3q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi, namun kinerja maksimal">
-                    <label class="custom-control-label" for="radio3q3"> Kurang selaras dengan visi, namun kinerja maksimal</label>
+                    <input required="" type="radio" id="radio3q3" name="q3" class="custom-control-input" value="Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
+                    <label class="custom-control-label" for="radio3q3"> Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio4q3" name="q3" class="custom-control-input" value="Kurang selaras dengan visi dan kinerja kurang maksimal">
-                    <label class="custom-control-label" for="radio4q3"> Kurang selaras dengan visi dan kinerja kurang maksimal</label>
+                    <input required="" type="radio" id="radio5q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan">
+                    <label class="custom-control-label" for="radio5q3"> Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio5q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan">
-                    <label class="custom-control-label" for="radio5q3"> Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan</label>
-                  </div>
-                  <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="radio6q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
+                    <input required="" type="radio" id="radio6q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
                     <label class="custom-control-label" for="radio6q3"> Tidak tahu karena tidak pernah memperhatikan</label>
-                  </div>
-
+                    </div>
                 </fieldset>
               </div>
             </div>
@@ -187,8 +183,8 @@
                   <label for="checkboxd5"></label>
                   <fieldset>
                     <div class="custom-control custom-checkbox mb-1">
-                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c1q5" value="Bekerja di sekolah negeri atau swasta">
-                      <label class="custom-control-label" for="c1q5">Bekerja di sekolah negeri atau swasta</label>
+                      <input name="q5[]" type="checkbox" class="custom-control-input" id="c1q5" value="Bekerja di institusi pendidikan">
+                      <label class="custom-control-label" for="c1q5">Bekerja di institusi pendidikan</label>
                     </div>
                     <div class="custom-control custom-checkbox mb-1">
                       <input name="q5[]" type="checkbox" class="custom-control-input" id="c2q5" value="Bekerja di institusi non-pendidikan">
@@ -266,7 +262,7 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Semasa kuliah, berikan penilaian anda terhadap indikator berikut ini yang menujukan </h6>
+        <h6 class="m-0">Semasa kuliah, berikan penilaian anda terhadap indikator berikut ini </h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
@@ -311,7 +307,7 @@
                          </select></td>
                        </tr>
                        <tr>
-                        <td width="80%">Kualitas pembimbing tugas akhir/skripsi/tesis/disertasi</td>
+                        <td width="80%">Kualitas pembimbingan tugas akhir/skripsi/tesis/disertasi</td>
                         <td width="20%"><select name="q7a4" class="form-control">
                          <option value="4">Sangat Puas</option>
                          <option value="3">Puas</option>
@@ -329,7 +325,7 @@
                      </select></td>
                    </tr>
                    <tr>
-                    <td width="80%">Relevansi Kurikulum Prodi dalam pengembangan personal</td>
+                    <td width="80%">Relevansi Kurikulum Prodi dalam pengembangan individu</td>
                     <td width="20%"><select name="q7a6" class="form-control">
                      <option value="4">Sangat Puas</option>
                      <option value="3">Puas</option>
@@ -413,7 +409,7 @@
       <table width="100%">
         <tbody>
           <tr>
-            <td width="80%">Kejelasan kelengkapan informasi persyaratan untuk memperoleh layanan akademik dan non-akademik</td>
+            <td width="80%">Kejelasan kelengkapan informasi persyaratan untuk memperoleh layanan kelembagaan</td>
             <td width="20%"><select name="q7b1" class="form-control">
              <option value="4">Sangat Puas</option>
              <option value="3">Puas</option>
@@ -422,7 +418,7 @@
            </select></td>
          </tr>
          <tr>
-          <td width="80%">Prosedur pemberian layanan akademik dan non-akademik</td>
+          <td width="80%">Prosedur pemberian layanan kelembagaan</td>
           <td width="20%"><select name="q7b2" class="form-control">
            <option value="4">Sangat Puas</option>
            <option value="3">Puas</option>
@@ -431,7 +427,7 @@
          </select></td>
        </tr>
        <tr>
-        <td width="80%">Waktu pemberian layanan akademik dan non-akademik</td>
+        <td width="80%">Waktu pemberian layanan kelembagaan</td>
         <td width="20%"><select name="q7b3" class="form-control">
          <option value="4">Sangat Puas</option>
          <option value="3">Puas</option>
@@ -440,7 +436,7 @@
        </select></td>
      </tr>
      <tr>
-      <td width="80%">Biaya pemberian layanan akademik dan non-akademik</td>
+      <td width="80%">Biaya pemberian layanan kelembagaan</td>
       <td width="20%"><select name="q7b4" class="form-control">
        <option value="4">Sangat Puas</option>
        <option value="3">Puas</option>
@@ -449,7 +445,7 @@
      </select></td>
    </tr>
    <tr>
-    <td width="80%">Produk layanan akademik dan non-akademik</td>
+    <td width="80%">Produk layanan kelembagaan</td>
     <td width="20%"><select name="q7b5" class="form-control">
      <option value="4">Sangat Puas</option>
      <option value="3">Puas</option>
@@ -458,7 +454,7 @@
    </select></td>
  </tr>
  <tr>
-  <td width="80%">Kompetensi pelaksana layanan akademik dan non-akademik</td>
+  <td width="80%">Kompetensi pelaksana layanan kelembagaan</td>
   <td width="20%"><select name="q7b6" class="form-control">
    <option value="4">Sangat Puas</option>
    <option value="3">Puas</option>
@@ -467,7 +463,7 @@
  </select></td>
 </tr>
 <tr>
-  <td width="80%">Perilaku pelaksana layanan akademik dan non-akademik</td>
+  <td width="80%">Perilaku pelaksana layanan kelembagaan</td>
   <td width="20%"><select name="q7b7" class="form-control">
    <option value="4">Sangat Puas</option>
    <option value="3">Puas</option>
@@ -476,7 +472,7 @@
  </select></td>
 </tr>
 <tr>
-  <td width="80%">Penanganan pengaduan terkait pelaksanaan layanan akademik dan non-akademik</td>
+  <td width="80%">Penanganan pengaduan terkait pelaksanaan layanan kelembagaan</td>
   <td width="20%"><select name="q7b8" class="form-control">
    <option value="4">Sangat Puas</option>
    <option value="3">Puas</option>
@@ -485,17 +481,8 @@
  </select></td>
 </tr>
 <tr>
-  <td width="80%">Kualitas layanan akademik dan non-akademik</td>
+  <td width="80%">Kualitas layanan kelembagaan</td>
   <td width="20%"><select name="q7b9" class="form-control">
-   <option value="4">Sangat Puas</option>
-   <option value="3">Puas</option>
-   <option value="2">Cukup Puas</option>
-   <option value="1">Tidak Puas</option>
- </select></td>
-</tr>
-<tr>
-  <td width="80%">Kualitas layanan tenaga kependidikan</td>
-  <td width="20%"><select name="q7b10" class="form-control">
    <option value="4">Sangat Puas</option>
    <option value="3">Puas</option>
    <option value="2">Cukup Puas</option>

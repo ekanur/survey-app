@@ -226,7 +226,7 @@ class AlumniController extends Controller
 
 
   //Pertanyaan 3: Kinerja Prodi
-        $list_q3 = $this->kinerja("angket_alumni", "q3");
+        $list_q3 = $this->Kinerja_prodi("angket_alumni", "q3");
 
     //dd($list_q3); 
   //pertanyaan 4: relevansi prodi dan pekerjaan
@@ -247,20 +247,20 @@ class AlumniController extends Controller
 // dd($list_q4);
 
     //pertanyaan 5 status karir
-        $data_db = DB::table("angket_alumni")
+       $data_db = DB::table("angket_alumni")
         ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
         ->where('kuesioner', 'q5')
         ->groupBy('value')
         ->get();
         $list_q5 = array(
           'kuesioner' => array(
-            'Bekerja di sekolah negeri atau swasta' => 0, 
+            'Bekerja di institusi pendidikan' => 0, 
             'Bekerja di institusi non-pendidikan' => 0, 
             'Bekerja di sektor swasta, bisnis atau BUMN' => 0, 
             'Berwirausaha' => 0, 
             'Studi Lanjut (S2/S3)' => 0,
             'Lain-lain' =>0,
-          ),
+           ),
           'total_responden' => 0,
           'total_pilihan' => 0
         );
@@ -274,7 +274,7 @@ class AlumniController extends Controller
                 if(strtolower($jawaban) == strtolower($pertanyaan)) {
                   $list_q5['kuesioner'][$pertanyaan] += $row->jumlah_responden;
                   $lain_exist = false;
-                }
+                     }
               }
           //tambahkan counter pilihan "Lain-lain" jika ada value custom
               $list_q5['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
@@ -286,7 +286,7 @@ class AlumniController extends Controller
         }
 
 
-   //pertanyaan 5 status pekerjaan
+   //pertanyaan 6 status pekerjaan
         $data_db = DB::table("angket_alumni")
         ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
         ->where('kuesioner', 'q6')
