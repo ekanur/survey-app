@@ -228,7 +228,7 @@ public function report() {
       }
     }
 
-    //Pertanyaan 2: Media Penyampaian VMTS prodi
+    //Pertanyaan 2: Media Penyampaian VMTS prodi 
     $media_vmts_prodi = $this->mediaVMTS("angket_dosen", "q2");
 
     //Pertanyaan 3: Media Penyampaian VMTS fakultas
