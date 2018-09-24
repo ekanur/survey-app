@@ -27,10 +27,15 @@
                 <div class="form-group col-md-6">
                   <label for="tahun_berdiri">Tahun Berdiri</label>
                   <select id="tahun_berdiri" name="tahun_berdiri" class="form-control select2" required="">
-                    <option selected="" disabled="">Pilih Tahun</option>
-                    @for ($i = date('Y'); $i > (date('Y') - 7); $i--)
-                    <option value="{{$i}}">{{$i}}</option>
-                    @endfor
+                    <option value="">Pilih Tahun</option>
+                 <?php
+                 $thn_skr = date('Y');
+                 for ($x = $thn_skr; $x >= 1954; $x--) {
+                  ?>
+                  <option value=" {{$x}} ">{{$x}}</option>
+                  <?php
+                }
+                ?>
                   </select>
                 </div>
                  <div class="form-group col-md-6">

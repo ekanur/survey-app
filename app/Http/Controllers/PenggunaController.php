@@ -181,9 +181,10 @@ class PenggunaController extends Controller
                 ->get();
     $list_q2 = array(
               'kuesioner' => array(
-                  'Katalog dan/atau dokumen jurusan lainnya' => 0, 
+                  'Dokumen Jurusan (mis: katalog)' => 0,
+                  'Dokumen Universitas (mis: prospectus)' => 0,
                   'Membaca banner' => 0, 
-                  'Kegiatan kemahasiswaan' => 0, 
+                  'Kegiatan Kemahasiswaan' => 0, 
                   'Laman UM' => 0, 
                   'Lain-lain' => 0,
               ),
@@ -219,11 +220,10 @@ class PenggunaController extends Controller
                 ->get();
     $list_q3 = array(
               'kuesioner' => array(
-                  'Sudah selaras dengan visi dan kinerja sudah maksimal' => 0, 
-                  'Sudah selaras dengan visi, namun kinerja kurang maksimal' => 0, 
-                  'Kurang selaras dengan visi, namun kinerja maksimal' => 0, 
-                  'Kurang selaras dengan visi dan kinerja kurang maksimal' => 0, 
-                  'Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan' => 0, 
+                  'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
+                  'Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
+                  'Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
+                  'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran UM' => 0, 
                   'Tidak tahu karena tidak pernah memperhatikan' => 0,
               ),
               'total_responden' => 0
@@ -244,6 +244,8 @@ class PenggunaController extends Controller
     $list_q4e = $this->kepuasan('angket_pengguna', 'q4e');
     $list_q4f = $this->kepuasan('angket_pengguna', 'q4f');
     $list_q4g = $this->kepuasan('angket_pengguna', 'q4g');
+    $list_q4h = $this->kepuasan('angket_pengguna', 'q4h');
+    $list_q4i = $this->kepuasan('angket_pengguna', 'q4i');
     $list_q5a = $this->kepuasan('angket_pengguna', 'q5a');
     $list_q5b = $this->kepuasan('angket_pengguna', 'q5b');
     $list_q5c = $this->kepuasan('angket_pengguna', 'q5c');
@@ -264,7 +266,7 @@ class PenggunaController extends Controller
     
     
     // print_r($data_db); print_r($list_q2); die();
-    return view("pengguna.report", compact('list_q1', 'list_q2', 'list_q3', 'list_q4a', 'list_q4b','list_q4c','list_q4d','list_q4e','list_q4f','list_q4g','list_q5a','list_q5b','list_q5c','list_q5d','list_q5e','list_q5f','list_q5g','list_q5h','list_q5i','list_q5j','list_q5k','list_q5l','list_q5m','list_q5n','list_q5o','list_q5p','list_q5q'));
+    return view("pengguna.report", compact('list_q1', 'list_q2', 'list_q3', 'list_q4a', 'list_q4b','list_q4c','list_q4d','list_q4e','list_q4f','list_q4g','list_q4h','list_q4i','list_q5a','list_q5b','list_q5c','list_q5d','list_q5e','list_q5f','list_q5g','list_q5h','list_q5i','list_q5j','list_q5k','list_q5l','list_q5m','list_q5n','list_q5o','list_q5p','list_q5q'));
   }
 
     }
