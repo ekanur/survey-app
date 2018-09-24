@@ -134,7 +134,6 @@
 										<td>{{ $pertanyaan }}</td>
 										<td class="text-right">
 											{{ number_format((($jumlah / max($list_q3['total_responden'], 1)) * 100), 1) }}
-
 										</td>
 									</tr>
 								@endforeach

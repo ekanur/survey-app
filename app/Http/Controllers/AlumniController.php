@@ -227,7 +227,6 @@ class AlumniController extends Controller
 
   //Pertanyaan 3: Kinerja Prodi
         $list_q3 = $this->Kinerja_prodi("angket_alumni", "q3");
-
     //dd($list_q3); 
   //pertanyaan 4: relevansi prodi dan pekerjaan
         $data_db = $m_angket->where('kuesioner', 'q4')->get();
@@ -332,7 +331,6 @@ class AlumniController extends Controller
         $list_q7b7 = $this->kepuasan('angket_alumni', 'q7b7');
         $list_q7b8 = $this->kepuasan('angket_alumni', 'q7b8');
         $list_q7b9 = $this->kepuasan('angket_alumni', 'q7b9');
-        $list_q7b10 = $this->kepuasan('angket_alumni', 'q7b10');
         $list_q7a1 = $this->kepuasan('angket_alumni', 'q7a1');
         $list_q7a2 = $this->kepuasan('angket_alumni', 'q7a2');
         $list_q7a3 = $this->kepuasan('angket_alumni', 'q7a3');
@@ -348,6 +346,6 @@ class AlumniController extends Controller
         $list_q7a13 = $this->kepuasan('angket_alumni', 'q7a13');
         
 
-        return view("alumni.report", compact('list_q1','list_q2','list_q3','list_q4','list_q5','list_q6','list_q7b1','list_q7b2','list_q7b3','list_q7b4','list_q7b5','list_q7b6','list_q7b7','list_q7b8','list_q7b9','list_q7b10','list_q7a1','list_q7a2','list_q7a3','list_q7a4','list_q7a5','list_q7a6','list_q7a7','list_q7a8','list_q7a9','list_q7a10','list_q7a11','list_q7a12','list_q7a13'));
+        return view("alumni.report", compact('list_q1','list_q2','list_q3','list_q4','list_q5','list_q6','list_q7b1','list_q7b2','list_q7b3','list_q7b4','list_q7b5','list_q7b6','list_q7b7','list_q7b8','list_q7b9','list_q7a1','list_q7a2','list_q7a3','list_q7a4','list_q7a5','list_q7a6','list_q7a7','list_q7a8','list_q7a9','list_q7a10','list_q7a11','list_q7a12','list_q7a13'));
       }
     }

@@ -91,7 +91,7 @@ class Controller extends BaseController
           'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan' => 0, 
           'Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan' => 0, 
           'Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan' => 0, 
-          'Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan' => 0, 
+          'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran Program Studi/Jurusan' => 0, 
           'Tidak tahu karena tidak pernah memperhatikan' => 0,
       ),
       'total_responden' => 0
