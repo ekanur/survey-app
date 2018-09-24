@@ -198,7 +198,7 @@
 						@component("chart.pie_legend")
 							{{-- @slot("judul") Rumusan VMTS Universitas @endslot --}}
 							@slot("use_panel") no @endslot
-							@slot("id_chart") persentase_rumusan @endslot
+							@slot("id_chart") persentase_rumusan_vmts_universitas @endslot
 							@slot("id_tabel") datatable5 @endslot
 							@slot("judul_chart") Persentase Rumusan VMTS Universitas @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q5['total_responden'] }} orang @endslot
@@ -810,7 +810,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_kepuasan_beban_kerja @endslot
 							@slot("id_tabel") datatable7f @endslot
-							@slot("judul_chart") Persentase Kepuasan Biaya Pemberian Layanan Akademik dan non Akademik @endslot
+							@slot("judul_chart") Persentase Kepuasan Beban Pekerjaan @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q7f['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
