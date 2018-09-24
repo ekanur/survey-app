@@ -70,7 +70,7 @@
 			</div>
 			<div class="card-body p-0 pb-3">
 				<div class="row">
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<div class="text-center p-3">
 							<span class="text-info font-italic font-weight-bold" >Dari mana Ibu/Bapak mengetahui rumusan tersebut?</span>
 						</div>
@@ -94,7 +94,7 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="col-md-7">
+					<div class="col-md-6">
 						@component("chart.pie_legend")
 							{{-- @slot("judul") Rumusan VMTS Universitas @endslot --}}
 							@slot("use_panel") no @endslot

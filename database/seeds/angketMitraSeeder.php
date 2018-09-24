@@ -15,7 +15,7 @@ class angketMitraSeeder extends Seeder
         'biodata_mitra_id'=>1,
         'tahun'=>2018,
         'kuesioner'=>'q2',
-        'value'=>'Teman',
+        'value'=>'["Kegiatan kemahasiswaan","Kawan"]',
         'created_at'=>'2018-09-14 00:00:00.000',
         'updated_at'=>NULL,
         'deleted_at'=>NULL
@@ -145,7 +145,7 @@ class angketMitraSeeder extends Seeder
         'biodata_mitra_id'=>2,
         'tahun'=>2018,
         'kuesioner'=>'q2',
-        'value'=>'Rekan Kerja',
+        'value'=>'["Katalog dan\/atau dokumen jurusan lainnya","Kegiatan kemahasiswaan"]',
         'created_at'=>'2018-09-17 00:00:00.000',
         'updated_at'=>NULL,
         'deleted_at'=>NULL

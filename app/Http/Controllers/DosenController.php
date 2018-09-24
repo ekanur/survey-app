@@ -227,36 +227,18 @@ public function report() {
             $list_pemahaman_vmts["fakultas"]["Responden"] = $list_pemahaman_vmts["fakultas"]["Ya"]+$list_pemahaman_vmts["fakultas"]["Tidak"];
       }
     }
-    // dd($list_pemahaman_vmts);
 
     //Pertanyaan 2: Media Penyampaian VMTS prodi
-
     $media_vmts_prodi = $this->mediaVMTS("angket_dosen", "q2");
-
-    // dd($media_vmts_prodi);
 
     //Pertanyaan 3: Media Penyampaian VMTS fakultas
     $media_vmts_fakultas = $this->mediaVMTS("angket_dosen", "q5");
 
-
     //Pertanyaan 4: Kinerja Prodi
-    $kinerja_prodi = $this->kinerja("angket_dosen", "q3");
-
-    // dd($kinerja_prodi);
-
-
-    // foreach ($data_db as $row) {
-    //   foreach ($list_q3['kuesioner'] as $pertanyaan => $jumlah) {
-    //     if(strtolower($row->value) == strtolower($pertanyaan)) {
-    //       $list_q3['kuesioner'][$pertanyaan] += $row->jumlah_responden;
-    //     }
-    //   }
-    //   $list_q3['total_responden'] += $row->jumlah_responden;
-    // }
+    $kinerja_prodi = $this->keselarasan("angket_dosen", "q3");
 
     //Pertanyaan 5: Kinerja Fakultas
-
-    $kinerja_fakultas = $this->kinerja("angket_dosen", "q6");
+    $kinerja_fakultas = $this->keselarasan("angket_dosen", "q6");
 
     // dd($kinerja_fakultas);
 

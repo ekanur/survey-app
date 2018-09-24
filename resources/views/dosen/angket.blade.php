@@ -36,7 +36,7 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_1" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Darimana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan tempat Ibu/Bapak bekerja?</h6>
+        <h6 class="m-0">Dari mana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan tempat Ibu/Bapak bekerja?</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
@@ -172,7 +172,7 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Darimana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran Fakultas/Universitas tempat Ibu/Bapak bekerja?</h6>
+        <h6 class="m-0">Dari mana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran Fakultas/Universitas tempat Ibu/Bapak bekerja?</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">

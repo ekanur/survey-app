@@ -200,31 +200,7 @@ class MitraController extends Controller
     }
 
     //Pertanyaan 3: Kinerja Universitas
-    $data_db = DB::table("angket_mitra")
-                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
-                ->where('kuesioner', 'q3')
-                ->groupBy('value')
-                ->get();
-    $list_q3 = array(
-              'kuesioner' => array(
-                  'Sudah selaras dengan visi dan kinerja sudah maksimal' => 0, 
-                  'Sudah selaras dengan visi, namun kinerja kurang maksimal' => 0, 
-                  'Kurang selaras dengan visi, namun kinerja maksimal' => 0, 
-                  'Kurang selaras dengan visi dan kinerja kurang maksimal' => 0, 
-                  'Tidak tahu karena tidak mengetahui rumusan visi/misi jurusan' => 0, 
-                  'Tidak tahu karena tidak pernah memperhatikan' => 0,
-              ),
-              'total_responden' => 0
-            );
-    foreach ($data_db as $row) {
-      foreach ($list_q3['kuesioner'] as $pertanyaan => $jumlah) {
-        if(strtolower($row->value) == strtolower($pertanyaan)) {
-          $list_q3['kuesioner'][$pertanyaan] += $row->jumlah_responden;
-        }
-      }
-      $list_q3['total_responden'] += $row->jumlah_responden;
-    }
-
+    $list_q3 = $this->keselarasan('angket_mitra', 'q3');
 
     //Pertanyaan 4A: Profil Universitas (VMTS)
     $list_q4a = $this->kepuasan('angket_mitra', 'q4a');
