@@ -57,7 +57,7 @@
                 <select class="select2 form-control"  id="tahun_masuk" name="tahun_masuk" required="">
                  <option value="">Pilih Tahun</option>
                  <?php
-                 $thn_skr = date('Y');
+                 $thn_skr = date('Y')-2;
                  for ($x = $thn_skr; $x >= 1954; $x--) {
                   ?>
                   <option value=" {{$x}} ">{{$x}}</option>
@@ -103,7 +103,7 @@
         <div class="form-group col-md-6">
           <label for="masa_tunggu">Masa Tunggu</label>
          <select class="select2 form-control" id="masa_tunggu" name="masa_tunggu" required="">
-             <option value=""> --- </option>
+             <option value="">Pilih Bulan</option>
               <?php
                $bln_min = 1;
                for ($x = $bln_min; $x <= 36; $x++) {
