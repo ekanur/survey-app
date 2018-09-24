@@ -56,34 +56,6 @@ class Controller extends BaseController
     return $data;
   }
 
-  public function keselarasan($tabel, $kuesioner) {
-    $list_keselarasan = array(
-      'kuesioner' => array(
-          'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
-          'Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
-          'Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
-          'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran UM' => 0, 
-          'Tidak tahu karena tidak pernah memperhatikan' => 0,
-      ),
-      'total_responden' => 0
-    );
-    $data_db = DB::table($tabel)
-                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
-                ->where('kuesioner', $kuesioner)
-                ->groupBy('value')
-                ->get();
-    foreach ($data_db as $row) {
-      foreach ($list_keselarasan['kuesioner'] as $pertanyaan => $jumlah) {
-        if(strtolower($row->value) == strtolower($pertanyaan)) {
-          $list_keselarasan['kuesioner'][$pertanyaan] += $row->jumlah_responden;
-        }
-      }
-      $list_keselarasan['total_responden'] += $row->jumlah_responden;
-    }
-
-    return $list_keselarasan;
-  }
-
 
   public function kinerja_prodi($tabel, $kuesioner) {
     $list_kinerja_prodi = array(
@@ -112,7 +84,6 @@ class Controller extends BaseController
 
     return $list_kinerja_prodi;
   }
-
 
   public function kepuasan($tabel, $kuesioner) {
     $list_kepuasan = array(

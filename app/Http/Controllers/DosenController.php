@@ -235,10 +235,54 @@ public function report() {
     $media_vmts_fakultas = $this->mediaVMTS("angket_dosen", "q5");
 
     //Pertanyaan 4: Kinerja Prodi
-    $kinerja_prodi = $this->keselarasan("angket_dosen", "q3");
+    $kinerja_prodi = array(
+      'kuesioner' => array(
+          'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan' => 0, 
+          'Kinerja cukup selaras dengan visi, misi, tujuan, dan sasaran Program Studi/Jurusan' => 0, 
+          'Kinerja kurang selaras dengan visi, misi, tujuan, dan sasaran Program Studi/Jurusan' => 0, 
+          'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan' => 0, 
+          'Tidak tahu karena tidak pernah memperhatikan' => 0,
+      ),
+      'total_responden' => 0
+    );
+    $data_db = DB::table('angket_dosen')
+                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+                ->where('kuesioner', 'q3')
+                ->groupBy('value')
+                ->get();
+    foreach ($data_db as $row) {
+      foreach ($kinerja_prodi['kuesioner'] as $pertanyaan => $jumlah) {
+        if(strtolower($row->value) == strtolower($pertanyaan)) {
+          $kinerja_prodi['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+        }
+      }
+      $kinerja_prodi['total_responden'] += $row->jumlah_responden;
+    }
 
-    //Pertanyaan 5: Kinerja Fakultas
-    $kinerja_fakultas = $this->keselarasan("angket_dosen", "q6");
+    //Pertanyaan 6: Kinerja Fakultas
+    $kinerja_fakultas = array(
+      'kuesioner' => array(
+          'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Fakultas' => 0, 
+          'Kinerja cukup selaras dengan visi, misi, tujuan, dan sasaran Fakultas' => 0, 
+          'Kinerja kurang selaras dengan visi, misi, tujuan, dan sasaran Fakultas' => 0, 
+          'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan, dan sasaran Fakultas' => 0, 
+          'Tidak tahu karena tidak pernah memperhatikan' => 0,
+      ),
+      'total_responden' => 0
+    );
+    $data_db = DB::table('angket_dosen')
+                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+                ->where('kuesioner', 'q6')
+                ->groupBy('value')
+                ->get();
+    foreach ($data_db as $row) {
+      foreach ($kinerja_fakultas['kuesioner'] as $pertanyaan => $jumlah) {
+        if(strtolower($row->value) == strtolower($pertanyaan)) {
+          $kinerja_fakultas['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+        }
+      }
+      $kinerja_fakultas['total_responden'] += $row->jumlah_responden;
+    }
 
     // dd($kinerja_fakultas);
 
