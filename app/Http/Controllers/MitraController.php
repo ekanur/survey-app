@@ -245,8 +245,18 @@ class MitraController extends Controller
     //Pertanyaan 4H: Keterlibatan (Pengadian kepada masyarakat)
     $list_q4h = $this->kepuasan('angket_mitra', 'q4h');
     
+    $list_q4i = $this->kepuasan('angket_mitra', 'q4i');
+    $list_q4j = $this->kepuasan('angket_mitra', 'q4j');
+    $list_q4k = $this->kepuasan('angket_mitra', 'q4k');
+    $list_q4l = $this->kepuasan('angket_mitra', 'q4l');
+    $list_q4m = $this->kepuasan('angket_mitra', 'q4m');
+    $list_q4n = $this->kepuasan('angket_mitra', 'q4n');
+    $list_q4o = $this->kepuasan('angket_mitra', 'q4o');
+    $list_q4p = $this->kepuasan('angket_mitra', 'q4p');
+    $list_q4q = $this->kepuasan('angket_mitra', 'q4q');
+
     // print_r($list_q4a); print_r($list_q4b); die();
-    return view("mitra.report", compact('list_q1', 'list_q2', 'list_q3', 'list_q4a', 'list_q4b', 'list_q4c', 'list_q4d', 'list_q4e', 'list_q4f', 'list_q4g', 'list_q4h'));
+    return view("mitra.report", compact('list_q1', 'list_q2', 'list_q3', 'list_q4a', 'list_q4b', 'list_q4c', 'list_q4d', 'list_q4e', 'list_q4f', 'list_q4g', 'list_q4h', 'list_q4i', 'list_q4j', 'list_q4k', 'list_q4l', 'list_q4m', 'list_q4n', 'list_q4o', 'list_q4p', 'list_q4q'));
   }
 
 }
