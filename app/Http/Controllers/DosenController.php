@@ -201,43 +201,160 @@ public function report() {
     // $m_angket = new Angket_dosen;
 
     //Pertanyaan 1: Pemahaman VTMS Universitas
-    $data_prodi = DB::table("angket_dosen")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->where("kuesioner", "ILIKE", "%q1%")->groupBy("kuesioner", "value");
-
-    $data_fakultas = DB::table("angket_dosen")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->where("kuesioner", "ILIKE","%q4%")->groupBy("kuesioner", "value")->union($data_prodi)->get();
-
-
+    $data_db = DB::table("angket_dosen")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->whereIn("kuesioner", ["q1", "q4", "q7"])->groupBy("kuesioner", "value")->get();
     $list_pemahaman_vmts = array(
-        "fakultas" => array("Ya"=>0, "Tidak"=>0, "Responden"=>0),
-        "prodi" => array("Ya"=>0, "Tidak"=>0, "Responden"=>0),
+        "prodi" => array("ya"=>0, "tidak"=>0, "total_responden"=>0),
+        "fakultas" => array("ya"=>0, "tidak"=>0, "total_responden"=>0),
+        "universitas" => array("ya"=>0, "tidak"=>0, "total_responden"=>0),
     );
-    foreach ($data_fakultas as $pemahaman_vmts) {
-      if($pemahaman_vmts->kuesioner == 'q1'){
-        if($pemahaman_vmts->value == 'Ya'){
-            $list_pemahaman_vmts["prodi"]["Ya"] = $pemahaman_vmts->count;
-        }elseif($pemahaman_vmts->value == 'Tidak'){
-            $list_pemahaman_vmts["prodi"]["Tidak"] = $pemahaman_vmts->count;
+    foreach ($data_db as $key => $row) {
+        if($row->kuesioner == 'q1') {
+            if($row->value == 'Ya') {
+                $list_pemahaman_vmts['prodi']['ya'] = $row->count;
+            }
+            elseif($row->value == 'Tidak') {
+                $list_pemahaman_vmts['prodi']['tidak'] = $row->count;
+            }
+            $list_pemahaman_vmts["prodi"]["total_responden"] = $list_pemahaman_vmts["prodi"]["ya"] + $list_pemahaman_vmts["prodi"]["tidak"];
         }
-            $list_pemahaman_vmts["prodi"]["Responden"] = $list_pemahaman_vmts["prodi"]["Ya"]+$list_pemahaman_vmts["prodi"]["Tidak"];
-      }elseif($pemahaman_vmts->kuesioner == 'q4'){
-        if($pemahaman_vmts->value == 'Ya'){
-            $list_pemahaman_vmts["fakultas"]["Ya"] = $pemahaman_vmts->count;
-        }elseif($pemahaman_vmts->value == 'Tidak'){
-            $list_pemahaman_vmts["fakultas"]["Tidak"] = $pemahaman_vmts->count;
+        if($row->kuesioner == 'q4') {
+            if($row->value == 'Ya') {
+                $list_pemahaman_vmts['fakultas']['ya'] = $row->count;
+            }
+            elseif($row->value == 'Tidak') {
+                $list_pemahaman_vmts['fakultas']['tidak'] = $row->count;
+            }
+            $list_pemahaman_vmts["fakultas"]["total_responden"] = $list_pemahaman_vmts["fakultas"]["ya"] + $list_pemahaman_vmts["fakultas"]["tidak"];
         }
-            $list_pemahaman_vmts["fakultas"]["Responden"] = $list_pemahaman_vmts["fakultas"]["Ya"]+$list_pemahaman_vmts["fakultas"]["Tidak"];
-      }
+        if($row->kuesioner == 'q7') {
+            if($row->value == 'Ya') {
+                $list_pemahaman_vmts['universitas']['ya'] = $row->count;
+            }
+            elseif($row->value == 'Tidak') {
+                $list_pemahaman_vmts['universitas']['tidak'] = $row->count;
+            }
+            $list_pemahaman_vmts["universitas"]["total_responden"] = $list_pemahaman_vmts["universitas"]["ya"] + $list_pemahaman_vmts["universitas"]["tidak"];
+        }
     }
 
-    //Pertanyaan 2: Media Penyampaian VMTS prodi 
-    $media_vmts_prodi = $this->mediaVMTS("angket_dosen", "q2");
+    //Pertanyaan 2: Rumusan VMTS Prodi
+    $data_db = DB::table("angket_dosen")
+                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+                ->where('kuesioner', 'q2')
+                ->groupBy('value')
+                ->get();
+    $media_vmts_prodi = array(
+              'kuesioner' => array(
+                  'Rapat Jurusan' => 0, 
+                  'Katalog dan/atau dokumen Jurusan lainnya' => 0, 
+                  'Membaca banner' => 0, 
+                  'Kegiatan kemahasiswaan' => 0, 
+                  'Laman UM' => 0, 
+                  'Lain-lain' => 0,
+              ),
+              'total_responden' => 0,
+              'total_pilihan' => 0
+            );
+    foreach ($data_db as $row) {
+      $arr_value = json_decode($row->value);
+      
+      if(!empty($arr_value)) {
+        foreach ($arr_value as $jawaban) {
+          $lain_exist = true;
+          foreach ($media_vmts_prodi['kuesioner'] as $pertanyaan => $jumlah) {
+            if(strtolower($jawaban) == strtolower($pertanyaan)) {
+              $media_vmts_prodi['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+              $lain_exist = false;
+            }
+          }
+          //tambahkan counter pilihan "Lain-lain" jika ada value custom
+          $media_vmts_prodi['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
+          $media_vmts_prodi['total_pilihan']++;
+        }
+      }
+      $media_vmts_prodi['total_responden'] += $row->jumlah_responden;
+    }
 
-    //Pertanyaan 3: Media Penyampaian VMTS fakultas
-    $media_vmts_fakultas = $this->mediaVMTS("angket_dosen", "q5");
+    //Pertanyaan 5: Media Penyampaian VMTS fakultas
+    $data_db = DB::table("angket_dosen")
+                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+                ->where('kuesioner', 'q5')
+                ->groupBy('value')
+                ->get();
+    $media_vmts_fakultas = array(
+              'kuesioner' => array(
+                  'Rapat' => 0, 
+                  'Katalog dan/atau dokumen Fakultas lainnya' => 0, 
+                  'Membaca banner' => 0, 
+                  'Kegiatan kemahasiswaan' => 0, 
+                  'Laman UM' => 0, 
+                  'Lain-lain' => 0,
+              ),
+              'total_responden' => 0,
+              'total_pilihan' => 0
+            );
+    foreach ($data_db as $row) {
+      $arr_value = json_decode($row->value);
+      
+      if(!empty($arr_value)) {
+        foreach ($arr_value as $jawaban) {
+          $lain_exist = true;
+          foreach ($media_vmts_fakultas['kuesioner'] as $pertanyaan => $jumlah) {
+            if(strtolower($jawaban) == strtolower($pertanyaan)) {
+              $media_vmts_fakultas['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+              $lain_exist = false;
+            }
+          }
+          //tambahkan counter pilihan "Lain-lain" jika ada value custom
+          $media_vmts_fakultas['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
+          $media_vmts_fakultas['total_pilihan']++;
+        }
+      }
+      $media_vmts_fakultas['total_responden'] += $row->jumlah_responden;
+    }
 
-    //Pertanyaan 4: Kinerja Prodi
+    //Pertanyaan 8: Media Penyampaian VMTS universitas
+    $data_db = DB::table("angket_dosen")
+                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+                ->where('kuesioner', 'q8')
+                ->groupBy('value')
+                ->get();
+    $media_vmts_universitas = array(
+              'kuesioner' => array(
+                  'Rapat' => 0, 
+                  'Katalog dan/atau dokumen Universitas lainnya' => 0, 
+                  'Membaca banner' => 0, 
+                  'Kegiatan kemahasiswaan' => 0, 
+                  'Laman UM' => 0, 
+                  'Lain-lain' => 0,
+              ),
+              'total_responden' => 0,
+              'total_pilihan' => 0
+            );
+    foreach ($data_db as $row) {
+      $arr_value = json_decode($row->value);
+      
+      if(!empty($arr_value)) {
+        foreach ($arr_value as $jawaban) {
+          $lain_exist = true;
+          foreach ($media_vmts_universitas['kuesioner'] as $pertanyaan => $jumlah) {
+            if(strtolower($jawaban) == strtolower($pertanyaan)) {
+              $media_vmts_universitas['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+              $lain_exist = false;
+            }
+          }
+          //tambahkan counter pilihan "Lain-lain" jika ada value custom
+          $media_vmts_universitas['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
+          $media_vmts_universitas['total_pilihan']++;
+        }
+      }
+      $media_vmts_universitas['total_responden'] += $row->jumlah_responden;
+    }
+
+    //Pertanyaan 3: Kinerja Prodi
     $kinerja_prodi = array(
       'kuesioner' => array(
-          'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan' => 0, 
+          'Kinerja sudah selaras dengan visi, misi, tujuan, dan sasaran Program Studi/Jurusan' => 0, 
           'Kinerja cukup selaras dengan visi, misi, tujuan, dan sasaran Program Studi/Jurusan' => 0, 
           'Kinerja kurang selaras dengan visi, misi, tujuan, dan sasaran Program Studi/Jurusan' => 0, 
           'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan' => 0, 
@@ -262,7 +379,7 @@ public function report() {
     //Pertanyaan 6: Kinerja Fakultas
     $kinerja_fakultas = array(
       'kuesioner' => array(
-          'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Fakultas' => 0, 
+          'Kinerja sudah selaras dengan visi, misi, tujuan, dan sasaran Fakultas' => 0, 
           'Kinerja cukup selaras dengan visi, misi, tujuan, dan sasaran Fakultas' => 0, 
           'Kinerja kurang selaras dengan visi, misi, tujuan, dan sasaran Fakultas' => 0, 
           'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan, dan sasaran Fakultas' => 0, 
@@ -284,46 +401,73 @@ public function report() {
       $kinerja_fakultas['total_responden'] += $row->jumlah_responden;
     }
 
-    // dd($kinerja_fakultas);
+    //Pertanyaan : Kinerja Univerrsitas
+    $kinerja_universitas = array(
+      'kuesioner' => array(
+          'Kinerja sudah selaras dengan visi, misi, tujuan, dan sasaran Universitas' => 0, 
+          'Kinerja cukup selaras dengan visi, misi, tujuan, dan sasaran Universitas' => 0, 
+          'Kinerja kurang selaras dengan visi, misi, tujuan, dan sasaran Universitas' => 0, 
+          'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan, dan sasaran Universitas' => 0, 
+          'Tidak tahu karena tidak pernah memperhatikan' => 0,
+      ),
+      'total_responden' => 0
+    );
+    $data_db = DB::table('angket_dosen')
+                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+                ->where('kuesioner', 'q9')
+                ->groupBy('value')
+                ->get();
+    foreach ($data_db as $row) {
+      foreach ($kinerja_universitas['kuesioner'] as $pertanyaan => $jumlah) {
+        if(strtolower($row->value) == strtolower($pertanyaan)) {
+          $kinerja_universitas['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+        }
+      }
+      $kinerja_universitas['total_responden'] += $row->jumlah_responden;
+    }
 
-    // //Pertanyaan 4A: Profil Universitas (VMTS)
-    // $data_db = DB::table("angket_dosen")
-    //             ->select("value", 
-    //               DB::raw("COUNT(id) AS jumlah_responden"), 
-    //               DB::raw("SUM(value::INT) AS jumlah_skor"))
-    //             ->where('kuesioner', 'q4a')
-    //             ->groupBy('value')
-    //             ->get();
-    // $list_q4a = array(
-    //           'kuesioner' => array(
-    //               'skor_4' => ["alias" => 'Sangat Puas',"responden" => 0, "skor" => 0],
-    //               'skor_3' => ["alias" => 'Puas',"responden" => 0, "skor" => 0], 
-    //               'skor_2' => ["alias" => 'Cukup Puas',"responden" => 0, "skor" => 0], 
-    //               'skor_1' => ["alias" => 'Tidak Puas', "responden" => 0, "skor" => 0] 
-    //             ),
-    //           'total_skor' => 0,
-    //           'total_responden' => 0
-    //         );
-    // foreach ($data_db as $row) {
-    //   foreach ($list_q4a['kuesioner'] as $pertanyaan => $jumlah) {
-    //     if(strtolower("skor_".$row->value) == strtolower($pertanyaan)) {
-    //       $list_q4a['kuesioner'][$pertanyaan]['responden'] += $row->jumlah_responden;
-    //       $list_q4a['kuesioner'][$pertanyaan]['skor'] += $row->jumlah_skor;
-    //     }
-    //   }
-    //   $list_q4a['total_skor'] += $row->value;
-    //   $list_q4a['total_responden'] += $row->jumlah_responden;
-    // }
+    //Pertanyaan 10O, P, Q, R, S, T, U, V, W: Kepuasan Layanan (Persyaratan, Prosedur, Waktu, Biaya, Produk, Kompetensi, Perilaku, Pengaduan, Kualitas Layanan)
+    $list_q10o = $this->kepuasan('angket_dosen', 'q10o');
+    $list_q10p = $this->kepuasan('angket_dosen', 'q10p');
+    $list_q10q = $this->kepuasan('angket_dosen', 'q10q');
+    $list_q10r = $this->kepuasan('angket_dosen', 'q10r');
+    $list_q10s = $this->kepuasan('angket_dosen', 'q10s');
+    $list_q10t = $this->kepuasan('angket_dosen', 'q10t');
+    $list_q10u = $this->kepuasan('angket_dosen', 'q10u');
+    $list_q10v = $this->kepuasan('angket_dosen', 'q10v');
+    $list_q10w = $this->kepuasan('angket_dosen', 'q10w');
 
-    //Pertanyaan 4B, C, D, E: Jejaring, Kontribusi universitas, Kontribusi pengguna di akademik, Kontribusi pengguna di non-akademik (Kerjasama)
+    //Pertanyaan 10A, F: SDM (Penerimaan dosen, Beban mengajar)
+    $list_q10a = $this->kepuasan('angket_dosen', 'q10a');
+    $list_q10f = $this->kepuasan('angket_dosen', 'q10f');
+
+    //Pertanyaan 10B, C, D: VMTS Prodi, fakultas, universitas
+    $list_q10b = $this->kepuasan('angket_dosen', 'q10b');
+    $list_q10c = $this->kepuasan('angket_dosen', 'q10c');
+    $list_q10d = $this->kepuasan('angket_dosen', 'q10d');
+
+    //Pertanyaan 10X, Y, Z, BB: Keuangan, Sarana dan Prasarana (pengembangan profesi, Promosi dan retensi, Lingkungan, keselamatan, dan keamanan kerja, Gaji dan tunjangan )
+    $list_q10x = $this->kepuasan('angket_dosen', 'q10x');
+    $list_q10y = $this->kepuasan('angket_dosen', 'q10y');
+    $list_q10z = $this->kepuasan('angket_dosen', 'q10z');
+    $list_q10bb = $this->kepuasan('angket_dosen', 'q10bb');
     
-    //Pertanyaan 4F: Pembelajaran (Pendidikan)
+    //Pertanyaan 10E, G, H, I: Pendidikan (Capaian pembelajaran, Sumber belajar, Penjadwalan, Sarana dan Prasarana mengajar)
+    $list_q10e = $this->kepuasan('angket_dosen', 'q10e');
+    $list_q10g = $this->kepuasan('angket_dosen', 'q10g');
+    $list_q10h = $this->kepuasan('angket_dosen', 'q10h');
+    $list_q10i = $this->kepuasan('angket_dosen', 'q10i');
 
-    //Pertanyaan 4G: Keterlibatan (Penelitian)
+    //Pertanyaan 10J, K, L: Penelitian (Dukungan untuk penelitian, Dukungan untuk diseminasi dan publikasi, Fasilitas )
+    $list_q10j = $this->kepuasan('angket_dosen', 'q10j');
+    $list_q10k = $this->kepuasan('angket_dosen', 'q10k');
+    $list_q10l = $this->kepuasan('angket_dosen', 'q10l');
 
-    //Pertanyaan 4H: Keterlibatan (Pengadian kepada masyarakat)
+    //Pertanyaan 10M, N: Abmas (Dukungan akademik dan pendanaan, fasilitas)
+    $list_q10m = $this->kepuasan('angket_dosen', 'q10m');
+    $list_q10n = $this->kepuasan('angket_dosen', 'q10n');
     
     // print_r($data_db); print_r($list_q4a); die();
-    return view("dosen.report", compact('list_pemahaman_vmts', 'media_vmts_prodi', 'media_vmts_fakultas', 'kinerja_prodi', 'kinerja_fakultas'));
+    return view("dosen.report", compact('list_pemahaman_vmts', 'media_vmts_prodi', 'media_vmts_fakultas', 'media_vmts_universitas', 'kinerja_prodi', 'kinerja_fakultas', 'kinerja_universitas', 'list_q10a', 'list_q10f', 'list_q10b', 'list_q10c', 'list_q10d', 'list_q10e', 'list_q10f', 'list_q10g', 'list_q10h', 'list_q10i', 'list_q10j', 'list_q10k', 'list_q10l', 'list_q10m', 'list_q10n', 'list_q10o', 'list_q10p', 'list_q10q', 'list_q10r', 'list_q10s', 'list_q10t', 'list_q10u', 'list_q10v', 'list_q10w', 'list_q10x', 'list_q10y', 'list_q10z', 'list_q10bb'));
   }
 }

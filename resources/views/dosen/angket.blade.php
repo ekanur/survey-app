@@ -99,8 +99,8 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                    <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
-                    <label class="custom-control-label" for="radio1q3">Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
+                    <input required="" type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Kinerja sudah selaras dengan visi, misi, tujuan, dan sasaran Program Studi/Jurusan">
+                    <label class="custom-control-label" for="radio1q3">Kinerja sudah selaras dengan visi, misi, tujuan, dan sasaran Program Studi/Jurusan</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
                     <input required="" type="radio" id="radio2q3" name="q3" class="custom-control-input" value="Kinerja cukup selaras dengan visi, misi, tujuan, dan sasaran Program Studi/Jurusan">
@@ -229,16 +229,16 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                    <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio1q6" name="q6" class="custom-control-input" value="Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Fakultas">
-                    <label class="custom-control-label" for="radio1q6"> Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Fakultas</label>
+                    <input required="" type="radio" id="radio1q6" name="q6" class="custom-control-input" value="Kinerja sudah selaras dengan visi, misi, tujuan, dan sasaran Fakultas">
+                    <label class="custom-control-label" for="radio1q6"> Kinerja sudah selaras dengan visi, misi, tujuan, dan sasaran Fakultas</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio2q6" name="q6" class="custom-control-input" value="Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Fakultas">
-                    <label class="custom-control-label" for="radio2q6"> Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Fakultas</label>
+                    <input required="" type="radio" id="radio2q6" name="q6" class="custom-control-input" value="Kinerja cukup selaras dengan visi, misi, tujuan, dan sasaran Fakultas">
+                    <label class="custom-control-label" for="radio2q6"> Kinerja cukup selaras dengan visi, misi, tujuan, dan sasaran Fakultas</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio3q6" name="q6" class="custom-control-input" value="Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Fakultas">
-                    <label class="custom-control-label" for="radio3q6"> Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Fakultas</label>
+                    <input required="" type="radio" id="radio3q6" name="q6" class="custom-control-input" value="Kinerja kurang selaras dengan visi, misi, tujuan, dan sasaran Fakultas">
+                    <label class="custom-control-label" for="radio3q6"> Kinerja kurang selaras dengan visi, misi, tujuan, dan sasaran Fakultas</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
                     <input required="" type="radio" id="radio4q6" name="q6" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan, dan sasaran Fakultas">
@@ -355,16 +355,16 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
                    <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio1q9" name="q9" class="custom-control-input" value="Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Universitas">
-                    <label class="custom-control-label" for="radio1q9"> Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Universitas</label>
+                    <input required="" type="radio" id="radio1q9" name="q9" class="custom-control-input" value="Kinerja sudah selaras dengan visi, misi, tujuan, dan sasaran Universitas">
+                    <label class="custom-control-label" for="radio1q9"> Kinerja sudah selaras dengan visi, misi, tujuan, dan sasaran Universitas</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio2q9" name="q9" class="custom-control-input" value="Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Universitas">
-                    <label class="custom-control-label" for="radio2q9"> Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Universitas</label>
+                    <input required="" type="radio" id="radio2q9" name="q9" class="custom-control-input" value="Kinerja cukup selaras dengan visi, misi, tujuan, dan sasaran Universitas">
+                    <label class="custom-control-label" for="radio2q9"> Kinerja cukup selaras dengan visi, misi, tujuan, dan sasaran Universitas</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio3q9" name="q9" class="custom-control-input" value="Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Universitas">
-                    <label class="custom-control-label" for="radio3q9"> Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Universitas</label>
+                    <input required="" type="radio" id="radio3q9" name="q9" class="custom-control-input" value="Kinerja kurang selaras dengan visi, misi, tujuan, dan sasaran Universitas">
+                    <label class="custom-control-label" for="radio3q9"> Kinerja kurang selaras dengan visi, misi, tujuan, dan sasaran Universitas</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
                     <input required="" type="radio" id="radio4q9" name="q9" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan, dan sasaran Universitas">
@@ -759,7 +759,8 @@
   function disableQuestion(selector='') {
     if(selector) {
       $(selector).find("input:checkbox").prop('disabled', true);
-      $(selector+" :input").not(':button, :submit, :reset, :hidden, :checkbox').val('');
+      $(selector+" :input:radio").prop('required', false);
+      $(selector+" :input").not(':button, :submit, :reset, :hidden, :radio, :checkbox').val('');
       $(selector+" :input:checkbox").prop('checked', false).prop('selected', false).trigger('change');
       $(selector).fadeOut();
     }
@@ -767,7 +768,8 @@
   function enableQuestion(selector='') {
     if(selector) {
       // $(selector).prop('disabled', false);
-      $(selector).find("input").prop('disabled', false);
+      $(selector+" :input:radio").prop('required', true);
+      $(selector).find("input:checkbox").prop('disabled', false);
       $(selector).fadeIn();
     }
   }

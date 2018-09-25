@@ -367,7 +367,7 @@
   function disableQuestion(selector='') {
     if(selector) {
       $(selector).find("input:checkbox").prop('disabled', true);
-      $(selector+" :input").not(':button, :submit, :reset, :hidden, :checkbox').val('');
+      $(selector+" :input").not(':button, :submit, :reset, :hidden, :checkbox, :radio').val('');
       $(selector+" :input:checkbox").prop('checked', false).prop('selected', false).trigger('change');
       $(selector).fadeOut();
     }
