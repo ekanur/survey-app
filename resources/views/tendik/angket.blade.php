@@ -574,15 +574,17 @@
 
   function disableQuestion(selector='') {
     if(selector) {
-      // $(selector).prop('disabled', true);
-      $(selector).find("input").prop('disabled', true);
+      $(selector).find("input:checkbox").prop('disabled', true);
+      $(selector+" :input:radio").prop('required', false);
+      $(selector+" :input").not(':button, :submit, :reset, :hidden, :radio, :checkbox').val('');
+      $(selector+" :input:checkbox").prop('checked', false).prop('selected', false).trigger('change');
       $(selector).fadeOut();
     }
   }
   function enableQuestion(selector='') {
     if(selector) {
-      // $(selector).prop('disabled', false);
-      $(selector).find("input").prop('disabled', false);
+      $(selector+" :input:radio").prop('required', true);
+      $(selector).find("input:checkbox").prop('disabled', false);
       $(selector).fadeIn();
     }
   }

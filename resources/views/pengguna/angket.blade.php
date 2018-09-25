@@ -499,18 +499,18 @@
 @section('pagespecificjs') 
 <script>
  $(document).ready(function() {
-    if($("#c5q2").is(":checked")) {
-      $("#c5q2_input").prop("required", true);
-      $("#c5q2_input").prop("disabled", false);
+    if($("#c6q2").is(":checked")) {
+      $("#c6q2_input").prop("required", true);
+      $("#c6q2_input").prop("disabled", false);
     }
     else {
-      $("#c5q2_input").prop("required", false);
-      $("#c5q2_input").prop("disabled", true);
+      $("#c6q2_input").prop("required", false);
+      $("#c6q2_input").prop("disabled", true);
     }
   });
-  $("#c5q2").on("change", function(e) {
-    $("#c5q2_input").prop("required", $(this).is(":checked"));
-    $("#c5q2_input").prop("disabled", !$(this).is(":checked"));
+  $("#c6q2").on("change", function(e) {
+    $("#c6q2_input").prop("required", $(this).is(":checked"));
+    $("#c6q2_input").prop("disabled", !$(this).is(":checked"));
   });
 
   //Pertanyaan 1 jumper handler
@@ -518,17 +518,19 @@
     ($(this).val().toLowerCase() == 'tidak') ? disableQuestion(".quest_1") : enableQuestion(".quest_1");
   });
 
-  function disableQuestion(selector='') {
+ function disableQuestion(selector='') {
     if(selector) {
-      // $(selector).prop('disabled', true);
-      $(selector).find("input").prop('disabled', true);
+      $(selector).find("input:checkbox").prop('disabled', true);
+      $(selector+" :input:radio").prop('required', false);
+      $(selector+" :input").not(':button, :submit, :reset, :hidden, :radio, :checkbox').val('');
+      $(selector+" :input:checkbox").prop('checked', false).prop('selected', false).trigger('change');
       $(selector).fadeOut();
     }
   }
   function enableQuestion(selector='') {
     if(selector) {
-      // $(selector).prop('disabled', false);
-      $(selector).find("input").prop('disabled', false);
+      $(selector+" :input:radio").prop('required', true);
+      $(selector).find("input:checkbox").prop('disabled', false);
       $(selector).fadeIn();
     }
   }

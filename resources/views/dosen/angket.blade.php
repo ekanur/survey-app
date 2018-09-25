@@ -767,7 +767,6 @@
   }
   function enableQuestion(selector='') {
     if(selector) {
-      // $(selector).prop('disabled', false);
       $(selector+" :input:radio").prop('required', true);
       $(selector).find("input:checkbox").prop('disabled', false);
       $(selector).fadeIn();
