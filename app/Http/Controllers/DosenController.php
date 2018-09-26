@@ -7,11 +7,15 @@ Use Session;
 use App\Biodata_dosen;
 use App\Angket_dosen;
 use Illuminate\Support\Facades\DB;
-use Saml2;
-use Event;
+
 
 class DosenController extends Controller
 {
+
+  function __construct()
+  {
+    // return Saml2::login();
+  }
     /**
      * Display a listing of the resource.
      *
@@ -19,11 +23,11 @@ class DosenController extends Controller
      */
     public function index()
     {
-      $is_dosen = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where([["nip", "=", session("userID")], ["id_jns_pegawai", "=", 5]])->get();
+    //   $is_dosen = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where([["nip", "=", session("userID")], ["id_jns_pegawai", "=", 5]])->get();
 
-      if(count($is_dosen)==0){
+      if(session("tipe") != 2){
         session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
-        return redirect("/servicelogout");
+        return redirect("/logout");
       }
     return redirect("/dosen/angket"); 
         // return redirect('saml2/login');

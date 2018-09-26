@@ -6,8 +6,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 use Illuminate\Support\Facades\DB;
+use Saml2;
 
 class Controller extends BaseController
 {
@@ -115,5 +115,15 @@ class Controller extends BaseController
     }
 
     return $list_kepuasan;
+  }
+
+
+  public function error(){
+    dd(session('saml2_error_detail'));
+  }
+
+  public function logout()
+  {
+    return Saml2::logout();
   }
 }

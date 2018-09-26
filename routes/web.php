@@ -10,17 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/servicecheck/{back_url}','SecurityController@check');
-Route::get('/servicelogout','SecurityController@logout');
+
+    Route::get("error", "Controller@error");
 
 //TESTER
-Route::get('/login', 'DosenController@login');
-Route::get('/logout', 'DosenController@logout');
-Route::group(['middleware' => ['samlauth']], function () {
+// Route::group(['middleware' => ['samlauth']], function () {
   //protected routes go here
-  Route::get('loggedin', 'DosenController@loggedin');
+	
+	Route::get('/logout', 'Controller@logout');
+	// Route::get('loggedin', 'DosenController@loggedin');
 
-});
+// });
 //TESTER END
 
 
@@ -46,8 +46,9 @@ Route::get("admin/responden/mitra", "MitraController@list_responden");
 */
 
 //dosen
-Route::group(['middleware' => 'auth_josso'], function() {
-	Route::get('/dosen','DosenController@index')->name('dosen');
+Route::group(['middleware' => 'samlauth'], function() {
+	Route::get('/dosen', 'DosenController@index');
+	// Route::get('/dosen','DosenController@index')->name('dosen');
 	Route::get('dosen/angket', 'DosenController@angket');
 	Route::post("angket-dosen", "DosenController@simpanAngket");
 

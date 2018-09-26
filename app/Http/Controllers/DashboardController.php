@@ -15,7 +15,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        event(new Event());
+        // dd(session("userID"));
+        
         return view('dashboard');
     }
 

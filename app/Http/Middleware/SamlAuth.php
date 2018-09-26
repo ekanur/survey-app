@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Saml2;
 
 class SamlAuth
 {
@@ -15,18 +16,11 @@ class SamlAuth
      */
     public function handle($request, Closure $next)
     {
-        if($this->auth->guest())
-		{
-			if($request->ajax())
-            {
-                return response('Unauthorized.', 401);
-            }
-            else
-            {
-				return Saml2::login(URL::full());
-			}
-		}
-		
-		return $next($request);
+        // dd(session("tipe"));
+        if(!is_null(session("tipe"))){
+            return $next($request);
+        }else{
+            return Saml2::login();
+        }
     }
 }

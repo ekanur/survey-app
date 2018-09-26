@@ -26,7 +26,6 @@ class LogoutListener
      */
     public function handle(Saml2LogoutEvent $event)
     {
-        session()->put('asoy', 'asem');
-        \Auth::logout();
+        session()->flush();
     }
 }
