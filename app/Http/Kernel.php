@@ -62,7 +62,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'auth_josso' => 'App\Http\Middleware\Authenticate_josso',
         /*saml*/
         'samlauth' => \App\Http\Middleware\SamlAuth::class,
     ];
