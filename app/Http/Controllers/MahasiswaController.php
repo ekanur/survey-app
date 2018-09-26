@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use App\Biodata_mahasiswa;
-
-use Illuminate\Support\Facades\DB;
 use App\Angket_mahasiswa;
+use Illuminate\Support\Facades\DB;
+
 
 class MahasiswaController extends Controller
 {
@@ -18,13 +18,21 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-      $is_mahasiswa = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where("nip", "=", session("userID"))->get();
+      // OLD JOSSO LOGIN
+      /*$is_mahasiswa = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where("nip", "=", session("userID"))->get();
 
       if(count($is_mahasiswa)!=0){
         session()->flash("msg", "Terjadi Kesalahan Mengambil data mahasiswa");
         return redirect("/servicelogout");
       }
-            return redirect("/mahasiswa/angket"); 
+      return redirect("/mahasiswa/angket"); */
+
+      // SAML Login
+      if(session("tipe") != 1){
+        session()->flash("msg", "Terjadi Kesalahan Mengambil data mahasiswa");
+        return redirect("/logout");
+      }
+      return redirect("/mahasiswa/angket"); 
     }
 
     /**
@@ -36,9 +44,9 @@ class MahasiswaController extends Controller
     public function angket()
     {
       if(null == session("userID")){
-            session()->flash("msg", "Terjadi Kesalahan Mengambil data mahasiswa");
-            return redirect("/");
-        }
+        session()->flash("msg", "Terjadi Kesalahan Mengambil data mahasiswa");
+        return redirect("/");
+      }
       return view('mahasiswa/angket');
 
     }
@@ -106,7 +114,7 @@ class MahasiswaController extends Controller
     }
 
     public function simpanBiodata(Request $request){
-
+/*
       $biodata = new Biodata_mahasiswa;
       $biodata->email = $request->email;
       $biodata->jenis_kelamin = $request->jeniskelamin;
@@ -126,8 +134,7 @@ class MahasiswaController extends Controller
      }
      else {
       return redirect()->back()->withInput();
-    }
-   
+    }*/
   }
 
 
@@ -163,122 +170,122 @@ class MahasiswaController extends Controller
 
         return $data;
       }
-    
-    public function report()
-    {
-      $m_angket = new Angket_mahasiswa;
+
+      public function report()
+      {
+        $m_angket = new Angket_mahasiswa;
 
     //Pertanyaan 1: Pemahaman VTMS Universitas
-    $data_db = $m_angket->where('kuesioner', 'q1')->get();
-    $list_q1 = array(
-              'jumlah_ya' => 0, 
-              'jumlah_tidak' => 0, 
-              'total_responden' => count($data_db)
-            );
-    foreach ($data_db as $row) {
-      if(strtolower($row->value) == 'ya') {
-        $list_q1['jumlah_ya']++;
-      }
-      else if(strtolower($row->value) == 'tidak') {
-        $list_q1['jumlah_tidak']++;
-      }
-    }
+        $data_db = $m_angket->where('kuesioner', 'q1')->get();
+        $list_q1 = array(
+          'jumlah_ya' => 0, 
+          'jumlah_tidak' => 0, 
+          'total_responden' => count($data_db)
+        );
+        foreach ($data_db as $row) {
+          if(strtolower($row->value) == 'ya') {
+            $list_q1['jumlah_ya']++;
+          }
+          else if(strtolower($row->value) == 'tidak') {
+            $list_q1['jumlah_tidak']++;
+          }
+        }
 
     //Pertanyaan 2: Rumusan VMTS Universitas
-    $data_db = DB::table("angket_mahasiswa")
-                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
-                ->where('kuesioner', 'q2')
-                ->groupBy('value')
-                ->get();
-    $list_q2 = array(
-              'kuesioner' => array(
-                'Masa Orientasi Maba' => 0,
-                  'Katalog dan/atau dokumen jurusan lainnya' => 0, 
-                  'Membaca banner' => 0, 
-                  'Kegiatan kemahasiswaan' => 0, 
-                  'Laman UM' => 0, 
-                  'Lain-lain' => 0,
-              ),
-              'total_responden' => 0,
-              'total_pilihan' => 0
-            );
-    foreach ($data_db as $row) {
-      $arr_value = json_decode($row->value);
-      
-      if(!empty($arr_value)) {
-        foreach ($arr_value as $jawaban) {
-          $lain_exist = true;
-          foreach ($list_q2['kuesioner'] as $pertanyaan => $jumlah) {
-            if(strtolower($jawaban) == strtolower($pertanyaan)) {
-              $list_q2['kuesioner'][$pertanyaan] += $row->jumlah_responden;
-              $lain_exist = false;
+        $data_db = DB::table("angket_mahasiswa")
+        ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+        ->where('kuesioner', 'q2')
+        ->groupBy('value')
+        ->get();
+        $list_q2 = array(
+          'kuesioner' => array(
+            'Masa Orientasi Maba' => 0,
+            'Katalog dan/atau dokumen jurusan lainnya' => 0, 
+            'Membaca banner' => 0, 
+            'Kegiatan kemahasiswaan' => 0, 
+            'Laman UM' => 0, 
+            'Lain-lain' => 0,
+          ),
+          'total_responden' => 0,
+          'total_pilihan' => 0
+        );
+        foreach ($data_db as $row) {
+          $arr_value = json_decode($row->value);
+
+          if(!empty($arr_value)) {
+            foreach ($arr_value as $jawaban) {
+              $lain_exist = true;
+              foreach ($list_q2['kuesioner'] as $pertanyaan => $jumlah) {
+                if(strtolower($jawaban) == strtolower($pertanyaan)) {
+                  $list_q2['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+                  $lain_exist = false;
+                }
+              }
+          //tambahkan counter pilihan "Lain-lain" jika ada value custom
+              $list_q2['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
+              $list_q2['total_pilihan']++;
             }
           }
-          //tambahkan counter pilihan "Lain-lain" jika ada value custom
-          $list_q2['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
-          $list_q2['total_pilihan']++;
-        }
-      }
 
-      $list_q2['total_responden'] += $row->jumlah_responden;
-    }
+          $list_q2['total_responden'] += $row->jumlah_responden;
+        }
 
     //Pertanyaan 3: Kinerja Universitas
-    $data_db = DB::table("angket_mahasiswa")
-                ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
-                ->where('kuesioner', 'q3')
-                ->groupBy('value')
-                ->get();
-    $list_q3 = array(
-              'kuesioner' => array(
-                 'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
-                  'Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
-                  'Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
-                  'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
-                  'Tidak tahu karena tidak pernah memperhatikan' => 0,
-              ),
-              'total_responden' => 0
-            );
-    foreach ($data_db as $row) {
-      foreach ($list_q3['kuesioner'] as $pertanyaan => $jumlah) {
-        if(strtolower($row->value) == strtolower($pertanyaan)) {
-          $list_q3['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+        $data_db = DB::table("angket_mahasiswa")
+        ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+        ->where('kuesioner', 'q3')
+        ->groupBy('value')
+        ->get();
+        $list_q3 = array(
+          'kuesioner' => array(
+           'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
+           'Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
+           'Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
+           'Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
+           'Tidak tahu karena tidak pernah memperhatikan' => 0,
+         ),
+          'total_responden' => 0
+        );
+        foreach ($data_db as $row) {
+          foreach ($list_q3['kuesioner'] as $pertanyaan => $jumlah) {
+            if(strtolower($row->value) == strtolower($pertanyaan)) {
+              $list_q3['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+            }
+          }
+          $list_q3['total_responden'] += $row->jumlah_responden;
         }
+
+        $list_q4a1 = $this->kepuasan('angket_mahasiswa', 'q4a1');
+        $list_q4a2 = $this->kepuasan('angket_mahasiswa', 'q4a2');
+        $list_q4a3 = $this->kepuasan('angket_mahasiswa', 'q4a3');
+        $list_q4a4 = $this->kepuasan('angket_mahasiswa', 'q4a4');
+        $list_q4a5 = $this->kepuasan('angket_mahasiswa', 'q4a5');
+        $list_q4a6 = $this->kepuasan('angket_mahasiswa', 'q4a6');
+        $list_q4a7 = $this->kepuasan('angket_mahasiswa', 'q4a7');
+        $list_q4a8 = $this->kepuasan('angket_mahasiswa', 'q4a8');
+        $list_q4a9 = $this->kepuasan('angket_mahasiswa', 'q4a9');
+        $list_q4a10 = $this->kepuasan('angket_mahasiswa', 'q4a10');
+        $list_q4a11 = $this->kepuasan('angket_mahasiswa', 'q4a11');
+        $list_q4a12 = $this->kepuasan('angket_mahasiswa', 'q4a12');
+        $list_q4a13 = $this->kepuasan('angket_mahasiswa', 'q4a13');
+        $list_q4a14 = $this->kepuasan('angket_mahasiswa', 'q4a14');
+        $list_q4a15 = $this->kepuasan('angket_mahasiswa', 'q4a15');
+        $list_q4a16 = $this->kepuasan('angket_mahasiswa', 'q4a16');
+        $list_q4b1 = $this->kepuasan('angket_mahasiswa', 'q4b1');
+        $list_q4b2 = $this->kepuasan('angket_mahasiswa', 'q4b2');
+        $list_q4b3 = $this->kepuasan('angket_mahasiswa', 'q4b3');
+        $list_q4b4 = $this->kepuasan('angket_mahasiswa', 'q4b4');
+        $list_q4b5 = $this->kepuasan('angket_mahasiswa', 'q4b5');
+        $list_q4b6 = $this->kepuasan('angket_mahasiswa', 'q4b6');
+        $list_q4b7 = $this->kepuasan('angket_mahasiswa', 'q4b7');
+        $list_q4b8 = $this->kepuasan('angket_mahasiswa', 'q4b8');
+        $list_q4b9 = $this->kepuasan('angket_mahasiswa', 'q4b9');
+        $list_q4b10 = $this->kepuasan('angket_mahasiswa', 'q4b10');
+        $list_q4b11 = $this->kepuasan('angket_mahasiswa', 'q4b11');
+        $list_q4b12 = $this->kepuasan('angket_mahasiswa', 'q4b12');
+
+        return view("mahasiswa.report", compact('list_q1','list_q2','list_q3','list_q4a1','list_q4a2','list_q4a3','list_q4a4','list_q4a5','list_q4a6','list_q4a7','list_q4a8','list_q4a9','list_q4a10','list_q4a11','list_q4a12','list_q4a13','list_q4a14','list_q4a15','list_q4a16','list_q4b1','list_q4b2','list_q4b3','list_q4b4','list_q4b5','list_q4b5','list_q4b6','list_q4b7','list_q4b8','list_q4b9','list_q4b10','list_q4b11','list_q4b12'));
+
       }
-      $list_q3['total_responden'] += $row->jumlah_responden;
-    }
-
-    $list_q4a1 = $this->kepuasan('angket_mahasiswa', 'q4a1');
-    $list_q4a2 = $this->kepuasan('angket_mahasiswa', 'q4a2');
-    $list_q4a3 = $this->kepuasan('angket_mahasiswa', 'q4a3');
-    $list_q4a4 = $this->kepuasan('angket_mahasiswa', 'q4a4');
-    $list_q4a5 = $this->kepuasan('angket_mahasiswa', 'q4a5');
-    $list_q4a6 = $this->kepuasan('angket_mahasiswa', 'q4a6');
-    $list_q4a7 = $this->kepuasan('angket_mahasiswa', 'q4a7');
-    $list_q4a8 = $this->kepuasan('angket_mahasiswa', 'q4a8');
-    $list_q4a9 = $this->kepuasan('angket_mahasiswa', 'q4a9');
-    $list_q4a10 = $this->kepuasan('angket_mahasiswa', 'q4a10');
-    $list_q4a11 = $this->kepuasan('angket_mahasiswa', 'q4a11');
-    $list_q4a12 = $this->kepuasan('angket_mahasiswa', 'q4a12');
-    $list_q4a13 = $this->kepuasan('angket_mahasiswa', 'q4a13');
-    $list_q4a14 = $this->kepuasan('angket_mahasiswa', 'q4a14');
-    $list_q4a15 = $this->kepuasan('angket_mahasiswa', 'q4a15');
-    $list_q4a16 = $this->kepuasan('angket_mahasiswa', 'q4a16');
-    $list_q4b1 = $this->kepuasan('angket_mahasiswa', 'q4b1');
-    $list_q4b2 = $this->kepuasan('angket_mahasiswa', 'q4b2');
-    $list_q4b3 = $this->kepuasan('angket_mahasiswa', 'q4b3');
-    $list_q4b4 = $this->kepuasan('angket_mahasiswa', 'q4b4');
-    $list_q4b5 = $this->kepuasan('angket_mahasiswa', 'q4b5');
-    $list_q4b6 = $this->kepuasan('angket_mahasiswa', 'q4b6');
-    $list_q4b7 = $this->kepuasan('angket_mahasiswa', 'q4b7');
-    $list_q4b8 = $this->kepuasan('angket_mahasiswa', 'q4b8');
-    $list_q4b9 = $this->kepuasan('angket_mahasiswa', 'q4b9');
-    $list_q4b10 = $this->kepuasan('angket_mahasiswa', 'q4b10');
-    $list_q4b11 = $this->kepuasan('angket_mahasiswa', 'q4b11');
-    $list_q4b12 = $this->kepuasan('angket_mahasiswa', 'q4b12');
-    
-    return view("mahasiswa.report", compact('list_q1','list_q2','list_q3','list_q4a1','list_q4a2','list_q4a3','list_q4a4','list_q4a5','list_q4a6','list_q4a7','list_q4a8','list_q4a9','list_q4a10','list_q4a11','list_q4a12','list_q4a13','list_q4a14','list_q4a15','list_q4a16','list_q4b1','list_q4b2','list_q4b3','list_q4b4','list_q4b5','list_q4b5','list_q4b6','list_q4b7','list_q4b8','list_q4b9','list_q4b10','list_q4b11','list_q4b12'));
-
-    }
 
     }

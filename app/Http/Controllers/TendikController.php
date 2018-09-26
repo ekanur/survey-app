@@ -18,13 +18,20 @@ class TendikController extends Controller
      */
     public function index()
     {
-      $is_pegawai = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where([["nip", "=", session("userID")], ["id_jns_pegawai", "!=", 5]])->get();
+      /*$is_pegawai = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where([["nip", "=", session("userID")], ["id_jns_pegawai", "!=", 5]])->get();
 
       if(count($is_pegawai)==0){
         session()->flash("msg", "Terjadi Kesalahan Mengambil data tendik");
         return redirect("/servicelogout");
       }
-            return redirect("/tendik/angket"); 
+            return redirect("/tendik/angket"); */
+
+      // SAML Login
+      if(session("tipe") != 3){
+        session()->flash("msg", "Terjadi Kesalahan Mengambil data tendik");
+        return redirect("/logout");
+      }
+      return redirect("/tendik/angket"); 
     }
 
     /**
