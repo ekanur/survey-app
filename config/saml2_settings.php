@@ -220,8 +220,8 @@ return $settings = array(
    'authnRequestsSigned' => false,    // SP SHOULD NOT sign the <samlp:AuthnRequest>,
                                       // MUST NOT assume that the IdP validates the sign
    'wantAssertionsSigned' => true,
-   'wantAssertionsEncrypted' => true, // MUST be enabled if SSL/HTTPs is disabled
    'wantNameIdEncrypted' => false,
 */
+   'wantAssertionsEncrypted' => true, // MUST be enabled if SSL/HTTPs is disabled
 
 );
