@@ -79,6 +79,10 @@
                     </div>
                   </fieldset>
                 </div>
+                <div class="card-body">
+                  <label><b>Berikan contoh bukti pemahaman Ibu/Bapak terhadap rumusan visi, misi, tujuan, dan sasaran unit tempat Ibu/Bapak bekerja</b></label>
+                  <textarea name="buktipemahamanvmts" class="form-control"></textarea>
+                </div>
               </div>
               
             </div>
