@@ -17,23 +17,23 @@
                <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="Nama">Nama</label>
-                  <input type="nama" class="form-control" id="nama" placeholder="Nama" name="nama" value="{{old('nama')}}" required=""focus()> 
+                  <input type="nama" class="form-control" id="nama" placeholder="Nama" name="nama" value="{{old('nama')}}" required oninvalid="this.setCustomValidity('Nama tidak boleh kosong')" oninput="setCustomValidity('')" title="Isi nama anda"> 
                 </div>
 
                 <div class="form-group col-md-6">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="{{old('email')}}" required=""> 
+                  <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="{{old('email')}}" required oninvalid="this.setCustomValidity('Email tidak boleh kosong')" oninput="setCustomValidity('')" title="Isi email anda">
                 </div>
               </div>
               <div class="form-row">
                <div class="form-group col-md-6">
                  <label for="prodijurusan">Prodi/Jurusan</label>
-                 <input type="text" class="form-control" id="prodijurusan" name="prodijurusan"placeholder="Prodi/Jurusan" required="">
+                 <input type="text" class="form-control" id="prodijurusan" name="prodijurusan" placeholder="Prodi/Jurusan" required oninvalid="this.setCustomValidity('Prodi/Jurusan tidak boleh kosong')" oninput="setCustomValidity('')" title="Isi prodi/jurusan anda">
                </div>
 
                <div class="form-group col-md-6">
                 <label for="fakultas">Fakultas</label>
-                <select id="fakultas" name="fakultas" class="select2 form-control" required="" placeholder="Fakultas">
+                <select id="fakultas" name="fakultas" class="select2 form-control" placeholder="Fakultas" required oninvalid="this.setCustomValidity('Fakultas tidak boleh kosong')" oninput="setCustomValidity('')" title="Isi fakultas anda">
                   <option selected value="">Fakultas</option>
                   <option value="fip">FIP (Fakultas Ilmu Pendidikan)</option>
                   <option value="fs">FS (Fakultas Sastra)</option>
@@ -54,7 +54,7 @@
               <div class="form-group col-md-6">
                 <label for="tahun_masuk">Tahun Masuk</label>
                 
-                <select class="select2 form-control"  id="tahun_masuk" name="tahun_masuk" required="">
+                <select class="select2 form-control"  id="tahun_masuk" name="tahun_masuk" required oninvalid="this.setCustomValidity('Tahun masuk tidak boleh kosong')" oninput="setCustomValidity('')">
                  <option value="">Pilih Tahun</option>
                  <?php
                  $thn_skr = date('Y')-2;
@@ -70,7 +70,7 @@
 
             <div class="form-group col-md-6">
               <label for="tahun_lulus">Tahun Lulus</label>
-              <select class="select2 form-control" id="tahun_lulus" name="tahun_lulus" required="">
+              <select class="select2 form-control" id="tahun_lulus" name="tahun_lulus" required oninvalid="this.setCustomValidity('Tahun lulus tidak boleh kosong')" oninput="setCustomValidity('')">
                <option value="">Pilih Tahun</option>
                <?php
                $thn_skr = date('Y');
@@ -87,11 +87,11 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="tahun_bekerja">Tahun Bekerja</label>
-            <select class="select2 form-control"  id="tahun_bekerja" name="tahun_bekerja"required="">
+            <select class="select2 form-control"  id="tahun_bekerja" name="tahun_bekerja" required oninvalid="this.setCustomValidity('Tahun bekerja tidak boleh kosong')" oninput="setCustomValidity('')">
              <option value="">Pilih Tahun</option>
              <?php
              $thn_skr = date('Y');
-             for ($x = $thn_skr; $x >= 1954; $x--) {
+             for ($x = $thn_skr; $x >= 1958; $x--) {
               ?>
               <option value=" {{$x}} ">{{$x}}</option>
               <?php
@@ -102,7 +102,7 @@
 
         <div class="form-group col-md-6">
           <label for="masa_tunggu">Masa Tunggu</label>
-         <select class="select2 form-control" id="masa_tunggu" name="masa_tunggu" required="">
+         <select class="select2 form-control" id="masa_tunggu" name="masa_tunggu" required oninvalid="this.setCustomValidity('Masa tunggu tidak boleh kosong')" oninput="setCustomValidity('')">
              <option value="">Pilih Bulan</option>
               <?php
                $bln_min = 1;
