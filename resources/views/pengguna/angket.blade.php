@@ -466,19 +466,19 @@
               <div class="col-md-12">
                 <div class="card-body">
                   <label>Program Studi / Jurusan</label>
-                  <textarea name="saranjurusan" class="form-control"></textarea>
+                  <textarea name="saranjurusan" class="form-control" placeholder="Saran untuk Prodi / Jurusan"></textarea>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="card-body">
                   <label>Fakultas</label>
-                  <textarea name="saranfakultas" class="form-control"></textarea>
+                  <textarea name="saranfakultas" class="form-control" placeholder="Saran untuk Fakultas"></textarea>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="card-body">
                   <label>Universitas</label>
-                  <textarea name="saranuniversitas" class="form-control"></textarea>
+                  <textarea name="saranuniversitas" class="form-control" placeholder="Saran untuk Universitas"></textarea>
                 </div>
               </div>
               <div class="form-group text-right">
@@ -499,6 +499,10 @@
 @section('pagespecificjs') 
 <script>
  $(document).ready(function() {
+    $("textarea[name='saranjurusan']").textareaCounter({ limit: 100 });
+    $("textarea[name='saranfakultas']").textareaCounter({ limit: 100 });
+    $("textarea[name='saranuniversitas']").textareaCounter({ limit: 100 });
+
     if($("#c6q2").is(":checked")) {
       $("#c6q2_input").prop("required", true);
       $("#c6q2_input").prop("disabled", false);
