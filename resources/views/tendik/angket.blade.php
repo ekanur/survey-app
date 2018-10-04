@@ -79,6 +79,10 @@
                     </div>
                   </fieldset>
                 </div>
+                <div class="card-body">
+                  <label><b>Berikan contoh bukti pemahaman Ibu/Bapak terhadap rumusan visi, misi, tujuan, dan sasaran unit tempat Ibu/Bapak bekerja</b></label>
+                  <textarea name="buktipemahamanvmts" class="form-control"></textarea>
+                </div>
               </div>
               
             </div>
@@ -506,13 +510,13 @@
               <div class="col-md-12">
                 <div class="card-body">
                   <label>Unit Kerja</label>
-                  <textarea name="saranunitkerja" class="form-control"></textarea>
+                  <textarea name="saranunitkerja" class="form-control" placeholder="Saran untuk Unit Kerja"></textarea>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="card-body">
                   <label>Universitas</label>
-                  <textarea name="saranuniversitas" class="form-control"></textarea>
+                  <textarea name="saranuniversitas" class="form-control" placeholder="Saran untuk Universitas"></textarea>
                 </div>
               </div>
               <div class="form-group text-right">
@@ -533,6 +537,10 @@
 @section('pagespecificjs') 
 <script>
  $(document).ready(function() {
+    $("textarea[name='saranunitkerja']").textareaCounter({ limit: 100 });
+    $("textarea[name='saranuniversitas']").textareaCounter({ limit: 100 });
+    $("textarea[name='buktipemahamanvmts']").textareaCounter({ limit: 100});
+
     if($("#c6q2").is(":checked")) {
       $("#c6q2_input").prop("required", true);
       $("#c5q2_input").prop("disabled", false);

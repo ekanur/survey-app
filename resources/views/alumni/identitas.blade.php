@@ -74,7 +74,7 @@
                <option value="">Pilih Tahun</option>
                <?php
                $thn_skr = date('Y');
-               for ($x = $thn_skr; $x >= 1954; $x--) {
+               for ($x = $thn_skr; $x >= 1958; $x--) {
                 ?>
                 <option value=" {{$x}} ">{{$x}}</option>
                 <?php
