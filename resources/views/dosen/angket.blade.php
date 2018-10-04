@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content') 
-<div class="text-center text-muted p-2">
+<div class="text-center text-info p-2 mb-4">
   Instrumen ini ditujukan untuk menilai tingkat kepuasan Ibu/Bapak terhadap kinerja Lembaga. Untuk itu, kami mohon Ibu/Bapak memberikan cermatan dan amatan terhadap kinerja Lembaga dengan menjawab pertanyaan yang tertera di angket. Kami ucapkan banyak terima kasih atas kerjasama dan partisipasi Ibu/Bapak.
-</p>
+</div>
 <form method="POST" action="{{ url("/angket-dosen") }}">
   {{ csrf_field() }}
   <div align="center">
@@ -97,7 +97,7 @@
             <div class="col">
               <div class="col-md-12">
                 <div class="card-body">
-                  <textarea name="buktipemahamanvmts" class="form-control"></textarea>
+                  <textarea name="buktipemahamanvmts" class="form-control words-limit"></textarea>
                 </div>
               </div>
             </div>
@@ -694,19 +694,19 @@
               <div class="col-md-12">
                 <div class="card-body">
                   <label>Sebutkan hal-hal yang membuat Ibu/Bapak puas dengan kinerja yang sudah Ibu/Bapak lakukan?</label>
-                  <textarea name="kepuasankinerja" class="form-control"></textarea>
+                  <textarea name="kepuasankinerja" class="form-control words-limit"></textarea>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="card-body">
                   <label>Sebutkan hal-hal yang membuat Ibu/Bapak tidak puas dengan kinerja yang sudah Ibu/Bapak lakukan?</label>
-                  <textarea name="ketidakpuasankinerja" class="form-control"></textarea>
+                  <textarea name="ketidakpuasankinerja" class="form-control words-limit"></textarea>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="card-body">
                   <label>Sebutkan hal-hal yang direncanakan Ibu/Bapak untuk memaksimalkan kinerja di waktu yang akan datang?</label>
-                  <textarea name="rencanakinerja" class="form-control"></textarea>
+                  <textarea name="rencanakinerja" class="form-control words-limit"></textarea>
                 </div>
               </div>
               <div class="form-group text-center">
@@ -726,6 +726,9 @@
 @section('pagespecificjs') 
 <script>
   $(document).ready(function() {
+    //textareacounter
+    $("textarea.words-limit").textareaCounter({ limit: 100 });
+
     if($("#c6q2").is(":checked")) {
       $("#c6q2_input").prop("required", true);
       $("#c5q2_input").prop("disabled", false);
