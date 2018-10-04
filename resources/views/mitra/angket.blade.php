@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content') 
-<div class="text-center text-muted p-2">
+<div class="text-center text-info p-2 mb-4">
   Instrumen ini ditujukan untuk menilai tingkat kepuasan Ibu/Bapak terhadap kinerja Lembaga. Untuk itu, kami mohon Ibu/Bapak memberikan amatan dan cermatan terhadap kinerja Lembaga dengan menjawab pertanyaan yang tertera di angket. Kami ucapkan terima kasih atas partisipasi dan  kerjasama yang diberikan
-</p>
+</div>
 <form method="POST" action="{{ url("/angket-mitra") }}">
   {{ csrf_field() }}
   <div align="center">
@@ -321,7 +321,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <textarea name="saranmitra" class="form-control" placeholder="Saran untuk universitas"></textarea>
+                <textarea name="saranmitra" class="form-control words-limit" placeholder="Saran untuk universitas"></textarea>
               </div>
               <div class="form-group text-center">
                 <button type="submit" class="btn btn-md btn-success">Simpan</button>
@@ -342,7 +342,7 @@
 <script>
   $(document).ready(function() {
     //textareacounter
-    $("textarea[name='saranmitra']").textareaCounter({ limit: 100 });
+    $("textarea.words-limit").textareaCounter({ limit: 100 });
 
     //input handler untuk checkbox "Lain-lain"
     if($("#c6q2").is(":checked")) {
