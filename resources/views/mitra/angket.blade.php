@@ -323,8 +323,8 @@
               <div class="form-group">
                 <textarea name="saranmitra" class="form-control" placeholder="Saran untuk universitas"></textarea>
               </div>
-              <div class="form-group text-right">
-                <button type="submit" class="btn btn-success">Simpan</button>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-md btn-success">Simpan</button>
               </div>
             </div>
           </div>

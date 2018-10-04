@@ -52,6 +52,33 @@
             </select>
         </div>
     </div> -->
+    @if(null != session("userID"))
+    <div class="row" style="margin-bottom:60px;">
+        <div class="col-12">
+        <div class="alert alert-info fade show mb-0" role="alert">
+            <span>
+                Hay, <strong>{{ session("userID") }}</strong>. Anda mengakses sebagai 
+                @if(session("tipe") == 1)
+                <strong>Mahasiswa</strong>.
+                @elseif(session("tipe") == 2)
+                <strong>Dosen</strong>.
+                @elseif(session("tipe") == 3)
+                <strong>Tendik</strong>.
+                @endif
+            </span>
+            
+            <span class="float-right">
+                
+            <a class="btn btn-warning" href="{{ url("/logout") }}">
+                Logout
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+            </span>
+            <span class="clearfix"></span>
+        </div>
+        </div>
+    </div>
+    @endif
     @if(null != session("msg"))
     <div class="row" style="margin-bottom:60px;">
         <div class="col-12">

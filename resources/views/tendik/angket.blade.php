@@ -519,8 +519,8 @@
                   <textarea name="saranuniversitas" class="form-control" placeholder="Saran untuk Universitas"></textarea>
                 </div>
               </div>
-              <div class="form-group text-right">
-                <button type="submit" class="btn btn-success">Simpan</button>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-md btn-success">Simpan</button>
               </div>
             </div>
           </div>
