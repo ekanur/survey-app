@@ -20,7 +20,7 @@ class SamlAuth
         if(!is_null(session("tipe"))){
             return $next($request);
         }else{
-            return Saml2::login('https://survey-spm.um.ac.id');
+            return Saml2::login();
         }
     }
 }
