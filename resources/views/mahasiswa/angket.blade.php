@@ -553,6 +553,14 @@
 <script>
 
    $(document).ready(function() {
+
+    $("textarea[name='pengalamanfaedah']").textareaCounter({ limit: 100 });
+    $("textarea[name='pengalamanunfaedah']").textareaCounter({ limit: 100 });
+    $("textarea[name='saranjurusan']").textareaCounter({ limit: 100 });
+    $("textarea[name='saranfakultas']").textareaCounter({ limit: 100 });
+    $("textarea[name='saranuniversitas']").textareaCounter({ limit: 100 });
+    $("textarea[name='buktipemahamanvmts']").textareaCounter({ limit: 100});
+
     if($("#c6q2").is(":checked")) {
       $("#c6q2_input").prop("required", true);
       $("#c5q2_input").prop("disabled", false);
