@@ -275,13 +275,13 @@
 	<div class="col-md-12 col-sm-12 mb-4">
 		<div class="card card-small mb-4">
 			<div class="card-header border-bottom">
-				<h6 class="m-0">Kelembagaan</h6>
+				<h6 class="m-0">Kepuasan Layanan</h6>
 			</div>
 			<div class="card-body p-0 pb-3">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Kepuasan Layanan</span>
+							<span class="text-info font-italic font-weight-bold">Penilaian untuk kepuasan layanan</span>
 						</div>
 						<table class="table mb-0" id="datatable4i">
 							<thead class="bg-light">

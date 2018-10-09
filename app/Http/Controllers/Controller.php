@@ -99,7 +99,7 @@ class Controller extends BaseController
     
     $query = DB::table($tabel);
     $query->select("value", 
-          DB::raw("COUNT(biodata_mitra_id) AS jumlah_responden"), 
+          DB::raw("COUNT(id) AS jumlah_responden"), 
           DB::raw("SUM(value::INT) AS jumlah_skor"));
     if(is_array($kuesioner)) {
       $query->whereIn('kuesioner', $kuesioner);
