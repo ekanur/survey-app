@@ -121,9 +121,50 @@ class Controller extends BaseController
     }
     
     //khusus untuk menghitung total responden pada grafik dengan multi pertanyaan (Rumus = Total responden / jumlah kategori jawaban):
-    $list_kepuasan['total_responden_sesungguhnya'] = $list_kepuasan['total_responden'] / count($kuesioner); 
+    $list_kepuasan['total_responden_sesungguhnya'] = $list_kepuasan['total_responden'] / count($kuesioner);  
 
     return $list_kepuasan;
+  }
+
+  public function kepuasan_alumni($tabel, $kuesioner) {
+    $list_kepuasan_alumni = array(
+      'kuesioner' => array(
+        'skor_4' => ["alias" => 'Sangat Puas',"responden" => 0, "skor" => 0],
+        'skor_3' => ["alias" => 'Puas',"responden" => 0, "skor" => 0], 
+        'skor_2' => ["alias" => 'Cukup Puas',"responden" => 0, "skor" => 0], 
+        'skor_1' => ["alias" => 'Tidak Puas', "responden" => 0, "skor" => 0] 
+      ),
+      'total_skor' => 0,
+      'total_responden' => 0
+    );
+    
+    $query = DB::table($tabel);
+    $query->select("value", 
+          DB::raw("COUNT(biodata_alumni_id) AS jumlah_responden"), 
+          DB::raw("SUM(value::INT) AS jumlah_skor"));
+    if(is_array($kuesioner)) {
+      $query->whereIn('kuesioner', $kuesioner);
+    }
+    else {
+      $query->where('kuesioner', $kuesioner);
+    }
+    $data_db = $query->groupBy('value')->get();
+
+    foreach ($data_db as $row) {
+      foreach ($list_kepuasan_alumni['kuesioner'] as $pertanyaan => $jumlah) {
+        if(strtolower("skor_".$row->value) == strtolower($pertanyaan)) {
+          $list_kepuasan_alumni['kuesioner'][$pertanyaan]['responden'] += $row->jumlah_responden;
+          $list_kepuasan_alumni['kuesioner'][$pertanyaan]['skor'] += $row->jumlah_skor;
+        }
+      }
+      $list_kepuasan_alumni['total_skor'] += $row->value;
+      $list_kepuasan_alumni['total_responden'] += $row->jumlah_responden;
+    }
+    
+    //khusus untuk menghitung total responden pada grafik dengan multi pertanyaan (Rumus = Total responden / jumlah kategori jawaban):
+    $list_kepuasan_alumni['total_responden_sesungguhnya'] = $list_kepuasan_alumni['total_responden'] / count($kuesioner);  
+
+    return $list_kepuasan_alumni;
   }
 
   public function error(){
