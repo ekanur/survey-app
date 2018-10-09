@@ -231,20 +231,18 @@ class MitraController extends Controller
     $list_q4a = $this->kepuasan('angket_mitra', 'q4a');
 
     //Pertanyaan 4B, C, D, E: Jejaring, Kontribusi universitas, Kontribusi pengguna di akademik, Kontribusi pengguna di non-akademik (Kerjasama)
-    $list_q4b = $this->kepuasan('angket_mitra', 'q4b');
-    $list_q4c = $this->kepuasan('angket_mitra', 'q4c');
-    $list_q4d = $this->kepuasan('angket_mitra', 'q4d');
-    $list_q4e = $this->kepuasan('angket_mitra', 'q4e');
-    
-    //Pertanyaan 4F: Pembelajaran (Pendidikan)
+    $list_q4b = $this->kepuasan('angket_mitra', ['q4b','q4c', 'q4d', 'q4e', 'q4f', 'q4g', 'q4h']);
+
+    /*//Pertanyaan 4F: Pembelajaran (Pendidikan)
     $list_q4f = $this->kepuasan('angket_mitra', 'q4f');
 
     //Pertanyaan 4G: Keterlibatan (Penelitian)
     $list_q4g = $this->kepuasan('angket_mitra', 'q4g');
 
     //Pertanyaan 4H: Keterlibatan (Pengadian kepada masyarakat)
-    $list_q4h = $this->kepuasan('angket_mitra', 'q4h');
+    $list_q4h = $this->kepuasan('angket_mitra', 'q4h');*/
     
+    //Pertanyaan 4 I - Q: Kelembagaan
     $list_q4i = $this->kepuasan('angket_mitra', 'q4i');
     $list_q4j = $this->kepuasan('angket_mitra', 'q4j');
     $list_q4k = $this->kepuasan('angket_mitra', 'q4k');

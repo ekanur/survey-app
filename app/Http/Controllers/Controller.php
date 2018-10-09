@@ -96,13 +96,19 @@ class Controller extends BaseController
       'total_skor' => 0,
       'total_responden' => 0
     );
-    $data_db = DB::table($tabel)
-        ->select("value", 
-          DB::raw("COUNT(id) AS jumlah_responden"), 
-          DB::raw("SUM(value::INT) AS jumlah_skor"))
-        ->where('kuesioner', $kuesioner)
-        ->groupBy('value')
-        ->get();
+    
+    $query = DB::table($tabel);
+    $query->select("value", 
+          DB::raw("COUNT(biodata_mitra_id) AS jumlah_responden"), 
+          DB::raw("SUM(value::INT) AS jumlah_skor"));
+    if(is_array($kuesioner)) {
+      $query->whereIn('kuesioner', $kuesioner);
+    }
+    else {
+      $query->where('kuesioner', $kuesioner);
+    }
+    $data_db = $query->groupBy('value')->get();
+
     foreach ($data_db as $row) {
       foreach ($list_kepuasan['kuesioner'] as $pertanyaan => $jumlah) {
         if(strtolower("skor_".$row->value) == strtolower($pertanyaan)) {
@@ -113,10 +119,12 @@ class Controller extends BaseController
       $list_kepuasan['total_skor'] += $row->value;
       $list_kepuasan['total_responden'] += $row->jumlah_responden;
     }
+    
+    //khusus untuk menghitung total responden pada grafik dengan multi pertanyaan (Rumus = Total responden / jumlah kategori jawaban):
+    $list_kepuasan['total_responden_sesungguhnya'] = $list_kepuasan['total_responden'] / count($kuesioner); 
 
     return $list_kepuasan;
   }
-
 
   public function error(){
     dd(session('saml2_error_detail'));
