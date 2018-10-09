@@ -243,7 +243,7 @@
 							<button class="btn btn-dark btn-block" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Daftar Pertanyaan <i class="fa fa-caret-down"></i></button>
 							<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 								<div class="card-body">
-									<ul>
+									<ul class="pl-2">
 										<li>Kualitas jejaring yang dibangun Universitas</li>
 										<li>Kontribusi Universitas terhadap mitra</li>
 										<li>Kontribusi mitra terhadap kegiatan akademik Universitas</li>
