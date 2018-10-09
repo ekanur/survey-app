@@ -430,46 +430,46 @@ public function report() {
       $kinerja_universitas['total_responden'] += $row->jumlah_responden;
     }
 
+    //Pertanyaan 10B, C, D: VMTS Prodi, fakultas, universitas
+    $list_q10b = $this->kepuasan('angket_dosen', ['q10b', 'q10c', 'q10d']);
+    /*$list_q10c = $this->kepuasan('angket_dosen', 'q10c');
+    $list_q10d = $this->kepuasan('angket_dosen', 'q10d');*/
+
+    //Pertanyaan 10A, F: SDM (Penerimaan dosen, Beban mengajar)
+    $list_q10a = $this->kepuasan('angket_dosen', ['q10a', 'q10f']);
+    // $list_q10f = $this->kepuasan('angket_dosen', 'q10f');
+    
+    //Pertanyaan 10E, G, H, I: Pendidikan (Capaian pembelajaran, Sumber belajar, Penjadwalan, Sarana dan Prasarana mengajar, Dukungan untuk penelitian)
+    $list_q10e = $this->kepuasan('angket_dosen', ['q10e', 'q10g', 'q10h', 'q10i', 'q10j']);
+    /*$list_q10g = $this->kepuasan('angket_dosen', 'q10g');
+    $list_q10h = $this->kepuasan('angket_dosen', 'q10h');
+    $list_q10i = $this->kepuasan('angket_dosen', 'q10i');
+    $list_q10j = $this->kepuasan('angket_dosen', 'q10j');*/
+
+    //Pertanyaan 10K, L: Penelitian (Dukungan untuk diseminasi dan publikasi, Fasilitas )
+    $list_q10k = $this->kepuasan('angket_dosen', ['q10k', 'q10l']);
+    // $list_q10l = $this->kepuasan('angket_dosen', 'q10l');
+
+    //Pertanyaan 10M, N: Abmas (Dukungan akademik dan pendanaan, fasilitas)
+    $list_q10m = $this->kepuasan('angket_dosen', ['q10m', 'q10n']);
+    // $list_q10n = $this->kepuasan('angket_dosen', 'q10n');
+
+    //Pertanyaan 10X, Y, Z, BB: Keuangan, Sarana dan Prasarana (pengembangan profesi, Promosi dan retensi, Lingkungan, keselamatan, dan keamanan kerja, Gaji dan tunjangan )
+    $list_q10x = $this->kepuasan('angket_dosen', ['q10x', 'q10y', 'q10z', 'q10bb']);
+    /*$list_q10y = $this->kepuasan('angket_dosen', 'q10y');
+    $list_q10z = $this->kepuasan('angket_dosen', 'q10z');
+    $list_q10bb = $this->kepuasan('angket_dosen', 'q10bb');*/
+
     //Pertanyaan 10O, P, Q, R, S, T, U, V, W: Kepuasan Layanan (Persyaratan, Prosedur, Waktu, Biaya, Produk, Kompetensi, Perilaku, Pengaduan, Kualitas Layanan)
-    $list_q10o = $this->kepuasan('angket_dosen', 'q10o');
-    $list_q10p = $this->kepuasan('angket_dosen', 'q10p');
+    $list_q10o = $this->kepuasan('angket_dosen', ['q10o', 'q10p', 'q10q', 'q10r', 'q10s', 'q10t', 'q10u', 'q10v', 'q10w']);
+    /*$list_q10p = $this->kepuasan('angket_dosen', 'q10p');
     $list_q10q = $this->kepuasan('angket_dosen', 'q10q');
     $list_q10r = $this->kepuasan('angket_dosen', 'q10r');
     $list_q10s = $this->kepuasan('angket_dosen', 'q10s');
     $list_q10t = $this->kepuasan('angket_dosen', 'q10t');
     $list_q10u = $this->kepuasan('angket_dosen', 'q10u');
     $list_q10v = $this->kepuasan('angket_dosen', 'q10v');
-    $list_q10w = $this->kepuasan('angket_dosen', 'q10w');
-
-    //Pertanyaan 10A, F: SDM (Penerimaan dosen, Beban mengajar)
-    $list_q10a = $this->kepuasan('angket_dosen', 'q10a');
-    $list_q10f = $this->kepuasan('angket_dosen', 'q10f');
-
-    //Pertanyaan 10B, C, D: VMTS Prodi, fakultas, universitas
-    $list_q10b = $this->kepuasan('angket_dosen', 'q10b');
-    $list_q10c = $this->kepuasan('angket_dosen', 'q10c');
-    $list_q10d = $this->kepuasan('angket_dosen', 'q10d');
-
-    //Pertanyaan 10X, Y, Z, BB: Keuangan, Sarana dan Prasarana (pengembangan profesi, Promosi dan retensi, Lingkungan, keselamatan, dan keamanan kerja, Gaji dan tunjangan )
-    $list_q10x = $this->kepuasan('angket_dosen', 'q10x');
-    $list_q10y = $this->kepuasan('angket_dosen', 'q10y');
-    $list_q10z = $this->kepuasan('angket_dosen', 'q10z');
-    $list_q10bb = $this->kepuasan('angket_dosen', 'q10bb');
-    
-    //Pertanyaan 10E, G, H, I: Pendidikan (Capaian pembelajaran, Sumber belajar, Penjadwalan, Sarana dan Prasarana mengajar)
-    $list_q10e = $this->kepuasan('angket_dosen', 'q10e');
-    $list_q10g = $this->kepuasan('angket_dosen', 'q10g');
-    $list_q10h = $this->kepuasan('angket_dosen', 'q10h');
-    $list_q10i = $this->kepuasan('angket_dosen', 'q10i');
-
-    //Pertanyaan 10J, K, L: Penelitian (Dukungan untuk penelitian, Dukungan untuk diseminasi dan publikasi, Fasilitas )
-    $list_q10j = $this->kepuasan('angket_dosen', 'q10j');
-    $list_q10k = $this->kepuasan('angket_dosen', 'q10k');
-    $list_q10l = $this->kepuasan('angket_dosen', 'q10l');
-
-    //Pertanyaan 10M, N: Abmas (Dukungan akademik dan pendanaan, fasilitas)
-    $list_q10m = $this->kepuasan('angket_dosen', 'q10m');
-    $list_q10n = $this->kepuasan('angket_dosen', 'q10n');
+    $list_q10w = $this->kepuasan('angket_dosen', 'q10w');    */
     
     // print_r($data_db); print_r($list_q4a); die();
     return view("dosen.report", compact('list_pemahaman_vmts', 'media_vmts_prodi', 'media_vmts_fakultas', 'media_vmts_universitas', 'kinerja_prodi', 'kinerja_fakultas', 'kinerja_universitas', 'list_q10a', 'list_q10f', 'list_q10b', 'list_q10c', 'list_q10d', 'list_q10e', 'list_q10f', 'list_q10g', 'list_q10h', 'list_q10i', 'list_q10j', 'list_q10k', 'list_q10l', 'list_q10m', 'list_q10n', 'list_q10o', 'list_q10p', 'list_q10q', 'list_q10r', 'list_q10s', 'list_q10t', 'list_q10u', 'list_q10v', 'list_q10w', 'list_q10x', 'list_q10y', 'list_q10z', 'list_q10bb'));
