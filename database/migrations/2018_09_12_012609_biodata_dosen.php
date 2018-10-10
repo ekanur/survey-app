@@ -15,16 +15,10 @@ class BiodataDosen extends Migration
     {
         Schema::create('biodata_dosen', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("email", 75);
-            $table->string("prodi", 100)->nullable();
+            $table->string("nip", 20);
+            $table->string("nama", 75);
+            $table->string("jurusan", 100);
             $table->string("fakultas", 100);
-            $table->date("tmt");
-            $table->enum("jenis_kelamin", ["laki_laki", "perempuan"]);
-            $table->enum("usia", ["<30", "31-40", "41-50", "51-60", ">60"]);
-            $table->string("pendidikan_tertinggi", 30);
-            $table->string("lama_mengajar", 25);
-            $table->enum("jabatan_fungsional", ["TP", "AA", "L", "LK", "GB"]);
-            $table->string("tugas_tambahan", 50);
             $table->timestamps();
             $table->softDeletes();
             //

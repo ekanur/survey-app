@@ -141,43 +141,62 @@ class DosenController extends Controller
         //
     }
 
-    public function simpanBiodata(Request $request){
-      // $biodata = new Biodata_dosen;
-      // $biodata->email = $request->email;
-      // $biodata->prodi = $request->prodijurusan;
-      // $biodata->fakultas = $request->fakultas;
-      // $biodata->tmt = $request->tmt;
-      // $biodata->jenis_kelamin = $request->jeniskelamin;
-      // $biodata->usia = $request->usia;
-      // $biodata->pendidikan_tertinggi = $request->pendidikan;
-      // $biodata->lama_mengajar = $request->lamamengajar;
-      // $biodata->jabatan_fungsional = $request->jabatanfungsional;
-      // $biodata->tugas_tambahan = $request->tugastambahan;
+    // public function simpanBiodata(Request $request){
+    //   // $biodata = new Biodata_dosen;
+    //   // $biodata->email = $request->email;
+    //   // $biodata->prodi = $request->prodijurusan;
+    //   // $biodata->fakultas = $request->fakultas;
+    //   // $biodata->tmt = $request->tmt;
+    //   // $biodata->jenis_kelamin = $request->jeniskelamin;
+    //   // $biodata->usia = $request->usia;
+    //   // $biodata->pendidikan_tertinggi = $request->pendidikan;
+    //   // $biodata->lama_mengajar = $request->lamamengajar;
+    //   // $biodata->jabatan_fungsional = $request->jabatanfungsional;
+    //   // $biodata->tugas_tambahan = $request->tugastambahan;
 
 
-      //   if($biodata->save()){
-      //   // dd($biodata->id);
-      //        session(["userID" => $biodata->id]);
-      //          // dd(session("userID"));
-      //        return redirect("/dosen/angket");
-      //   }else{
-      //       return redirect()->back()->withInput();
-      //   }
-    }
+    //   //   if($biodata->save()){
+    //   //   // dd($biodata->id);
+    //   //        session(["userID" => $biodata->id]);
+    //   //          // dd(session("userID"));
+    //   //        return redirect("/dosen/angket");
+    //   //   }else{
+    //   //       return redirect()->back()->withInput();
+    //   //   }
+    // }
 
 
     public function simpanAngket(Request $request){
         if(null == session("userID")){
-            session()->flash("msg", "Isikan biodata anda.");
-            return redirect("/dosen");
+            session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
+            return redirect("/");
         }
+        $this->simpanBiodata();
         $data = $this->dataKuesioner($request->except("_token"));
 
         Angket_dosen::insert($data);
 
-        session()->forget("userID");
         session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
         return redirect("/");
+    }
+
+    function simpanBiodata(){
+      $biodata = Biodata_dosen::firstOrCreate(["nip"=>session("userID")], $this->getDataDosen());
+    }
+
+    function getDataDosen(){
+      $dosen = array();
+      $data_dosen = DB::connection("pgsql_2")->table("dtum.m_dosen")
+                        ->join("dtum.m_jur", "m_dosen.jur_kd", '=', 'm_jur.jur_kd')
+                        ->join("dtum.m_fak", "m_jur.fak_kd", '=', 'm_fak.fak_kd')
+                        ->select("dsn_nm", "dsn_gelar", "dsn_gelar2", "jur_nm", "m_fak.fak_skt")->where("m_dosen.dsn_nip", "=", session("userID"))->first();
+
+      $dosen["nama"] = $data_dosen->dsn_gelar.(!is_null($data_dosen->dsn_gelar))? " ": null.$data_dosen->dsn_nm." ".$data_dosen->dsn_gelar2;
+      $dosen["jurusan"] = $data_dosen->jur_nm;
+      $dosen["fakultas"] = $data_dosen->fak_skt;
+      $dosen["nip"] = session("userID");
+
+      return $dosen;
     }
 
     function dataKuesioner($request){
