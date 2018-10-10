@@ -1,9 +1,9 @@
 @extends('layouts.app') 
 
 @section('content') 
-<div class="text-center text-muted p-2">
+<div class="text-center text-info p-2 mb-4">
   Instrumen ini ditujukan untuk menilai tingkat kepuasan Ibu/Bapak terhadap kinerja Lembaga. Untuk itu, kami mohon Ibu/Bapak memberikan amatan dan cermatan terhadap kinerja Lembaga dengan menjawab pertanyaan yang tertera di angket. Kami ucapkan terima kasih atas partisipasi dan  kerjasama yang diberikan
-</p>
+</div>
 
 <form method="POST" action="{{ url("/angket-alumni") }}">
   {{ csrf_field() }}
@@ -91,7 +91,7 @@
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
         <h6 class="m-0">Bagaimana menurut Ibu/Bapak, kinerja Program Studi/Jurusan dalam mencapai visi, misi, tujuan dan sasaranya?</h6>
-       </div>
+      </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
           <div class="row">
@@ -100,35 +100,35 @@
                 <div class="form-group col-md-12 text-sm-left">
                   <label></label>
                   <fieldset>
-                  <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
-                    <label class="custom-control-label" for="radio1q3"> Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
-                  </div>
-                  <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio2q3" name="q3" class="custom-control-input" value="Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
-                    <label class="custom-control-label" for="radio2q3"> Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
-                  </div>
-                  <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio3q3" name="q3" class="custom-control-input" value="Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
-                    <label class="custom-control-label" for="radio3q3"> Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
-                  </div>
-                  <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio5q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
-                    <label class="custom-control-label" for="radio5q3"> Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
-                  </div>
-                  <div class="custom-control custom-radio mb-1">
-                    <input required="" type="radio" id="radio6q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
-                    <label class="custom-control-label" for="radio6q3"> Tidak tahu karena tidak pernah memperhatikan</label>
+                    <div class="custom-control custom-radio mb-1">
+                      <input required="" type="radio" id="radio1q3" name="q3" class="custom-control-input" value="Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
+                      <label class="custom-control-label" for="radio1q3"> Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
                     </div>
-                </fieldset>
+                    <div class="custom-control custom-radio mb-1">
+                      <input required="" type="radio" id="radio2q3" name="q3" class="custom-control-input" value="Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
+                      <label class="custom-control-label" for="radio2q3"> Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-1">
+                      <input required="" type="radio" id="radio3q3" name="q3" class="custom-control-input" value="Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
+                      <label class="custom-control-label" for="radio3q3"> Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-1">
+                      <input required="" type="radio" id="radio5q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran Program Studi/Jurusan">
+                      <label class="custom-control-label" for="radio5q3"> Tidak tahu karena tidak mengetahui rumusan visi, misi, tujuan dan sasaran Program Studi/Jurusan</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-1">
+                      <input required="" type="radio" id="radio6q3" name="q3" class="custom-control-input" value="Tidak tahu karena tidak pernah memperhatikan">
+                      <label class="custom-control-label" for="radio6q3"> Tidak tahu karena tidak pernah memperhatikan</label>
+                    </div>
+                  </fieldset>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 </div>
 
 <div align="center">

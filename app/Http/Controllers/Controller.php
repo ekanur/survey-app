@@ -121,11 +121,10 @@ class Controller extends BaseController
     }
     
     //khusus untuk menghitung total responden pada grafik dengan multi pertanyaan (Rumus = Total responden / jumlah kategori jawaban):
-    $list_kepuasan['total_responden_sesungguhnya'] = $list_kepuasan['total_responden'] / count($kuesioner); 
+    $list_kepuasan['total_responden_sesungguhnya'] = $list_kepuasan['total_responden'] / count($kuesioner);  
 
     return $list_kepuasan;
   }
-
   public function error(){
     dd(session('saml2_error_detail'));
   }

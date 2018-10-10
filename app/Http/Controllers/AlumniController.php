@@ -246,7 +246,7 @@ class AlumniController extends Controller
 // dd($list_q4);
 
     //pertanyaan 5 status karir
-       $data_db = DB::table("angket_alumni")
+        $data_db = DB::table("angket_alumni")
         ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
         ->where('kuesioner', 'q5')
         ->groupBy('value')
@@ -259,7 +259,7 @@ class AlumniController extends Controller
             'Berwirausaha' => 0, 
             'Studi Lanjut (S2/S3)' => 0,
             'Lain-lain' =>0,
-           ),
+          ),
           'total_responden' => 0,
           'total_pilihan' => 0
         );
@@ -273,7 +273,7 @@ class AlumniController extends Controller
                 if(strtolower($jawaban) == strtolower($pertanyaan)) {
                   $list_q5['kuesioner'][$pertanyaan] += $row->jumlah_responden;
                   $lain_exist = false;
-                     }
+                }
               }
           //tambahkan counter pilihan "Lain-lain" jika ada value custom
               $list_q5['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
@@ -321,28 +321,34 @@ class AlumniController extends Controller
           $list_q6['total_responden'] += $row->jumlah_responden;
         }
 
+
 // responden skor
-        $list_q7b1 = $this->kepuasan('angket_alumni', 'q7b1');
-        $list_q7b2 = $this->kepuasan('angket_alumni', 'q7b2');
-        $list_q7b3 = $this->kepuasan('angket_alumni', 'q7b3');
-        $list_q7b4 = $this->kepuasan('angket_alumni', 'q7b4');
-        $list_q7b5 = $this->kepuasan('angket_alumni', 'q7b5');
-        $list_q7b6 = $this->kepuasan('angket_alumni', 'q7b6');
-        $list_q7b7 = $this->kepuasan('angket_alumni', 'q7b7');
-        $list_q7b8 = $this->kepuasan('angket_alumni', 'q7b8');
-        $list_q7b9 = $this->kepuasan('angket_alumni', 'q7b9');
+       // kerjasama
+        $list_q7a10 = $this->kepuasan('angket_alumni', ['q7a10','q7a11', 'q7a12']);
+
+
+
+
+        $list_q7b1 = $this->kepuasan('angket_alumni',['q7b1','q7b2','q7b3','q7b4','q7b5','q7b6','q7b7','q7b8','q7b9']);
+        // $list_q7b1 = $this->kepuasan('angket_alumni', 'q7b1');
+        // $list_q7b2 = $this->kepuasan('angket_alumni', 'q7b2');
+        // $list_q7b3 = $this->kepuasan('angket_alumni', 'q7b3');
+        // $list_q7b4 = $this->kepuasan('angket_alumni', 'q7b4');
+        // $list_q7b5 = $this->kepuasan('angket_alumni', 'q7b5');
+        // $list_q7b6 = $this->kepuasan('angket_alumni', 'q7b6');
+        // $list_q7b7 = $this->kepuasan('angket_alumni', 'q7b7');
+        // $list_q7b8 = $this->kepuasan('angket_alumni', 'q7b8');
+        // $list_q7b9 = $this->kepuasan('angket_alumni', 'q7b9');
         $list_q7a1 = $this->kepuasan('angket_alumni', 'q7a1');
-        $list_q7a2 = $this->kepuasan('angket_alumni', 'q7a2');
-        $list_q7a3 = $this->kepuasan('angket_alumni', 'q7a3');
-        $list_q7a4 = $this->kepuasan('angket_alumni', 'q7a4');
-        $list_q7a5 = $this->kepuasan('angket_alumni', 'q7a5');
-        $list_q7a6 = $this->kepuasan('angket_alumni', 'q7a6');
-        $list_q7a7 = $this->kepuasan('angket_alumni', 'q7a7');
-        $list_q7a8 = $this->kepuasan('angket_alumni', 'q7a8');
-        $list_q7a9 = $this->kepuasan('angket_alumni', 'q7a9');
-        $list_q7a10 = $this->kepuasan('angket_alumni', 'q7a10');
-        $list_q7a11 = $this->kepuasan('angket_alumni', 'q7a11');
-        $list_q7a12 = $this->kepuasan('angket_alumni', 'q7a12');
+        $list_q7a2 = $this->kepuasan('angket_alumni',['q7a2','q7a3','q7a4','q7a5','q7a6','q7a7','q7a8','q7a9']);
+        // $list_q7a2 = $this->kepuasan('angket_alumni', 'q7a2');
+        // $list_q7a3 = $this->kepuasan('angket_alumni', 'q7a3');
+        // $list_q7a4 = $this->kepuasan('angket_alumni', 'q7a4');
+        // $list_q7a5 = $this->kepuasan('angket_alumni', 'q7a5');
+        // $list_q7a6 = $this->kepuasan('angket_alumni', 'q7a6');
+        // $list_q7a7 = $this->kepuasan('angket_alumni', 'q7a7');
+        // $list_q7a8 = $this->kepuasan('angket_alumni', 'q7a8');
+        // $list_q7a9 = $this->kepuasan('angket_alumni', 'q7a9');
         $list_q7a13 = $this->kepuasan('angket_alumni', 'q7a13');
         
 
