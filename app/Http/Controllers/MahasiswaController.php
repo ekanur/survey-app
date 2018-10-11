@@ -173,9 +173,9 @@ class MahasiswaController extends Controller
 
       public function report()
       {
-        $m_angket = new Angket_mahasiswa;
+       $m_angket = new Angket_mahasiswa;
 
-    //Pertanyaan 1: Pemahaman VTMS Universitas
+    //Pertanyaan 1: Pemahaman VTMS prodi
         $data_db = $m_angket->where('kuesioner', 'q1')->get();
         $list_q1 = array(
           'jumlah_ya' => 0, 
@@ -191,7 +191,7 @@ class MahasiswaController extends Controller
           }
         }
 
-    //Pertanyaan 2: Rumusan VMTS Universitas
+    //Pertanyaan 2: Rumusan VMTS prodi
         $data_db = DB::table("angket_mahasiswa")
         ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
         ->where('kuesioner', 'q2')
@@ -231,12 +231,7 @@ class MahasiswaController extends Controller
         }
 
     //Pertanyaan 3: Kinerja Universitas
-        $data_db = DB::table("angket_mahasiswa")
-        ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
-        ->where('kuesioner', 'q3')
-        ->groupBy('value')
-        ->get();
-        $list_q3 = array(
+      $list_q3 = array(
           'kuesioner' => array(
            'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
            'Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran Program Studi dan Jurusan' => 0, 
@@ -246,6 +241,12 @@ class MahasiswaController extends Controller
          ),
           'total_responden' => 0
         );
+      $data_db = DB::table("angket_mahasiswa")
+        ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
+        ->where('kuesioner', 'q3')
+        ->groupBy('value')
+        ->get();
+
         foreach ($data_db as $row) {
           foreach ($list_q3['kuesioner'] as $pertanyaan => $jumlah) {
             if(strtolower($row->value) == strtolower($pertanyaan)) {
@@ -255,34 +256,34 @@ class MahasiswaController extends Controller
           $list_q3['total_responden'] += $row->jumlah_responden;
         }
 
-        $list_q4a1 = $this->kepuasan('angket_mahasiswa', 'q4a1');
-        $list_q4a2 = $this->kepuasan('angket_mahasiswa', 'q4a2');
-        $list_q4a3 = $this->kepuasan('angket_mahasiswa', 'q4a3');
-        $list_q4a4 = $this->kepuasan('angket_mahasiswa', 'q4a4');
-        $list_q4a5 = $this->kepuasan('angket_mahasiswa', 'q4a5');
-        $list_q4a6 = $this->kepuasan('angket_mahasiswa', 'q4a6');
-        $list_q4a7 = $this->kepuasan('angket_mahasiswa', 'q4a7');
-        $list_q4a8 = $this->kepuasan('angket_mahasiswa', 'q4a8');
-        $list_q4a9 = $this->kepuasan('angket_mahasiswa', 'q4a9');
+        $list_q4a1 = $this->kepuasan('angket_mahasiswa', ['q4a1','q4a2']);
+        //$list_q4a2 = $this->kepuasan('angket_mahasiswa', 'q4a2');
+        $list_q4a3 = $this->kepuasan('angket_mahasiswa', ['q4a3','q4a4','q4a5','q4a6','q4a7','q4a8','q4a9','q4a12','q4a13','q4a14','q4a15','q4a16']);
+        // $list_q4a4 = $this->kepuasan('angket_mahasiswa', 'q4a4');
+        // $list_q4a5 = $this->kepuasan('angket_mahasiswa', 'q4a5');
+        // $list_q4a6 = $this->kepuasan('angket_mahasiswa', 'q4a6');
+        // $list_q4a7 = $this->kepuasan('angket_mahasiswa', 'q4a7');
+        // $list_q4a8 = $this->kepuasan('angket_mahasiswa', 'q4a8');
+        // $list_q4a9 = $this->kepuasan('angket_mahasiswa', 'q4a9');
         $list_q4a10 = $this->kepuasan('angket_mahasiswa', 'q4a10');
         $list_q4a11 = $this->kepuasan('angket_mahasiswa', 'q4a11');
-        $list_q4a12 = $this->kepuasan('angket_mahasiswa', 'q4a12');
-        $list_q4a13 = $this->kepuasan('angket_mahasiswa', 'q4a13');
-        $list_q4a14 = $this->kepuasan('angket_mahasiswa', 'q4a14');
-        $list_q4a15 = $this->kepuasan('angket_mahasiswa', 'q4a15');
-        $list_q4a16 = $this->kepuasan('angket_mahasiswa', 'q4a16');
-        $list_q4b1 = $this->kepuasan('angket_mahasiswa', 'q4b1');
-        $list_q4b2 = $this->kepuasan('angket_mahasiswa', 'q4b2');
-        $list_q4b3 = $this->kepuasan('angket_mahasiswa', 'q4b3');
-        $list_q4b4 = $this->kepuasan('angket_mahasiswa', 'q4b4');
-        $list_q4b5 = $this->kepuasan('angket_mahasiswa', 'q4b5');
-        $list_q4b6 = $this->kepuasan('angket_mahasiswa', 'q4b6');
-        $list_q4b7 = $this->kepuasan('angket_mahasiswa', 'q4b7');
-        $list_q4b8 = $this->kepuasan('angket_mahasiswa', 'q4b8');
-        $list_q4b9 = $this->kepuasan('angket_mahasiswa', 'q4b9');
-        $list_q4b10 = $this->kepuasan('angket_mahasiswa', 'q4b10');
-        $list_q4b11 = $this->kepuasan('angket_mahasiswa', 'q4b11');
-        $list_q4b12 = $this->kepuasan('angket_mahasiswa', 'q4b12');
+       // $list_q4a12 = $this->kepuasan('angket_mahasiswa', ['q4a12','q4a13','q4a14','q4a15','q4a16']);
+        // $list_q4a13 = $this->kepuasan('angket_mahasiswa', 'q4a13');
+        // $list_q4a14 = $this->kepuasan('angket_mahasiswa', 'q4a14');
+        // $list_q4a15 = $this->kepuasan('angket_mahasiswa', 'q4a15');
+        // $list_q4a16 = $this->kepuasan('angket_mahasiswa', 'q4a16');
+        $list_q4b1 = $this->kepuasan('angket_mahasiswa', ['q4b1','q4b2','q4b3']);
+        // $list_q4b2 = $this->kepuasan('angket_mahasiswa', 'q4b2');
+        // $list_q4b3 = $this->kepuasan('angket_mahasiswa', 'q4b3');
+        $list_q4b4 = $this->kepuasan('angket_mahasiswa', ['q4b4','q4b5','q4b6','q4b7','q4b8','q4b9','q4b10','q4b11','q4b12']);
+        // $list_q4b5 = $this->kepuasan('angket_mahasiswa', 'q4b5');
+        // $list_q4b6 = $this->kepuasan('angket_mahasiswa', 'q4b6');
+        // $list_q4b7 = $this->kepuasan('angket_mahasiswa', 'q4b7');
+        // $list_q4b8 = $this->kepuasan('angket_mahasiswa', 'q4b8');
+        // $list_q4b9 = $this->kepuasan('angket_mahasiswa', 'q4b9');
+        // $list_q4b10 = $this->kepuasan('angket_mahasiswa', 'q4b10');
+        // $list_q4b11 = $this->kepuasan('angket_mahasiswa', 'q4b11');
+        // $list_q4b12 = $this->kepuasan('angket_mahasiswa', 'q4b12');
 
         return view("mahasiswa.report", compact('list_q1','list_q2','list_q3','list_q4a1','list_q4a2','list_q4a3','list_q4a4','list_q4a5','list_q4a6','list_q4a7','list_q4a8','list_q4a9','list_q4a10','list_q4a11','list_q4a12','list_q4a13','list_q4a14','list_q4a15','list_q4a16','list_q4b1','list_q4b2','list_q4b3','list_q4b4','list_q4b5','list_q4b5','list_q4b6','list_q4b7','list_q4b8','list_q4b9','list_q4b10','list_q4b11','list_q4b12'));
 
