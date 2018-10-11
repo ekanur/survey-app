@@ -37,6 +37,8 @@ Route::get("admin/rekap/tendik", "TendikController@report");
 Route::get("admin/rekap/pengguna", "PenggunaController@report");
 Route::get("admin/rekap/mitra", "MitraController@report");
 Route::get('admin/responden', 'admin\AdminController@responden');
+Route::get("admin/responden/dosen", "DosenController@responden");
+Route::post("admin/responden/dosen/get_datatable", "DosenController@get_datatable_responden");
 /*Route::get("admin/responden/dosen", "DosenController@list_responden");
 Route::get("admin/responden/mahasiswa", "MahasiswaController@list_responden");
 route::get("admin/responden/alumni","AlumniController@list_responden");

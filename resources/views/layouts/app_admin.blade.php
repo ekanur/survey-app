@@ -15,6 +15,14 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css"> --}}
+  {{-- Select 2 --}}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  {{-- DaterangePicker --}}
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+  {{-- Custom css untuk patching style dari plugin --}}
+  <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
 
   @stack("style")
 </head>
@@ -121,6 +129,13 @@
     <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    {{-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script> --}}
+    {{-- Select2 --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    {{-- DaterangePicker --}}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
     {{-- <script src="{!! asset('js/extras.1.0.0.min.js')!!}"></script> --}}
     {{-- <script src="{!! asset('js/shards-dashboards.1.0.0.min.js')!!}"></script> --}}
     {{-- <script src="{!! asset('js/app/app-blog-overview.1.0.0.js')!!}"></script> --}}
