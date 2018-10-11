@@ -21,7 +21,7 @@
       <div class="card-body pt-0">
         <div class="row border-bottom py-2 bg-light">
           <div class="col-12">
-            <form action="" class="form-inline">
+            <div class="form-inline">
               <div class="form-group mr-sm-2">
                 <select name="" id="" class="select2 form-control" title="Tampilkan data berdasarkan fakultas ">
                   <option value="">Pilih Fakultas</option>
@@ -40,7 +40,7 @@
                   <input type="text" class="daterange input-sm form-control" name="rentang_tanggal" placeholder="Rentang Tanggal" id="rentang_tanggal" title="Tampilkan data berdasarkan tanggal mengisi angket">
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
         {{-- Datatable --}}
@@ -52,10 +52,10 @@
                   <tr>
                     <th scope="col" class="border-0 no-sort">#</th>
                     <th scope="col" class="border-0">NIP</th>
-                    <th scope="col" class="border-0">Nama Responden</th>
+                    <th scope="col" class="border-0">Nama Dosen</th>
                     <th scope="col" class="border-0">Jurusan</th>
                     <th scope="col" class="border-0">Fakultas</th>
-                    <th scope="col" class="border-0">Tanggal Mengisi</th>
+                    <th scope="col" class="border-0">Tanggal Isi</th>
                     <th scope="col" class="border-0 no-sort">Aksi</th>
                   </tr>
                 </thead>
@@ -94,10 +94,12 @@
     // INISIALISASI DATERANGEPICKER
     $('input.daterange').daterangepicker({
       // autoUpdateInput: false,
+      autoApply: true,
       locale: {
         format: 'DD-MM-YYYY'
       }
     });
+    $('input.daterange').val(''); //kosongkan value di awal load
 
     //INISIALISASI DATATABLE
     var initDatatable1 = $('#datatableServer').DataTable({
