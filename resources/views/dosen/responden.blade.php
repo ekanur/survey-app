@@ -4,7 +4,7 @@
 
 <!-- Page Header -->
 <div class="page-header row no-gutters py-4">
-  <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+  <div class="col-12 mb-0">
     <span class="text-uppercase page-subtitle">SI Survei Kepuasan</span>
     <h3 class="page-title">Data Responden - Dosen</h3>
   </div>
@@ -50,13 +50,13 @@
               <table id="datatableServer" class="table mb-0 w-100">
                 <thead class="">
                   <tr>
-                    <th scope="col" class="border-0">#</th>
+                    <th scope="col" class="border-0 no-sort">#</th>
                     <th scope="col" class="border-0">NIP</th>
                     <th scope="col" class="border-0">Nama Responden</th>
                     <th scope="col" class="border-0">Jurusan</th>
                     <th scope="col" class="border-0">Fakultas</th>
                     <th scope="col" class="border-0">Tanggal Mengisi</th>
-                    <th scope="col" class="border-0">Aksi</th>
+                    <th scope="col" class="border-0 no-sort">Aksi</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -84,26 +84,27 @@
 @section('pagespecificjs') 
 <script>
   $(document).ready(function() {
-    // Inisialisasi Select
-    $('.select2').select2();
-    minimumInputLength: 2
-    maximumResultsForSearch: 5
-    minimumResultsForSearch: 3
+    // INISIALISASI SELECT2
+    $('.select2').select2({
+      minimumInputLength: 2,
+      maximumResultsForSearch: 5,
+      minimumResultsForSearch: 3
+    });
 
-    // Inisialisasi DaterangePicker
+    // INISIALISASI DATERANGEPICKER
     $('input.daterange').daterangepicker({
-      autoUpdateInput: false,
+      // autoUpdateInput: false,
       locale: {
-        format: 'DD/MM/YYYY'
+        format: 'DD-MM-YYYY'
       }
     });
 
-    //Inisialisasi Datatable
+    //INISIALISASI DATATABLE
     var initDatatable1 = $('#datatableServer').DataTable({
         "processing": true,
         "serverSide": true,
         "searchDelay": 800,
-        "order": [[1, 'asc']],
+        "order": [[5, 'desc']],
         "ajax": {
           url: "{{ url('/admin/responden/dosen/get_datatable') }}",
           type: "post",
@@ -123,6 +124,11 @@
           {targets : "no-view", visible: false}
         ],
         "drawCallback": function(settings) {}
+    });
+    // Select Filter OnChange Handler
+    $('#fakultas, #jurusan, #rentang_tanggal').on("change", function(event){
+      console.log("filter dunk");
+      initDatatable1.clear().draw();
     });
 
   }); //End Document Ready

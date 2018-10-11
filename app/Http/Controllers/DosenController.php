@@ -511,19 +511,25 @@ class DosenController extends Controller
                 ->where('kuesioner', 'q1')
                 ->count();
 
-    $data_db = DB::table('angket_dosen AS angket')
-    				->select(DB::raw("angket.id, angket.created_at, dosen.id AS id_dosen, dosen.nip, dosen.nama, dosen.jurusan, dosen.fakultas"))
-    				->join('biodata_dosen AS dosen', 'dosen.nip', '=', 'angket.dosen_nip');
- 		
+    $data_db = DB::table('angket_dosen')
+    				->select(DB::raw('group1.dosen_nip, group1.created_at, dosen.nip, dosen.nama, dosen.jurusan, dosen.fakultas'))
+    				->from(DB::raw('(select dosen_nip, created_at from angket_dosen group by dosen_nip, created_at) AS group1'))
+    				->join('biodata_dosen AS dosen', 'dosen.nip', '=', 'group1.dosen_nip');
   	if($params['fakultas']) { 
-  		$data_db->where("dosen.fakultas", "LIKE", "%{$params['fakultas']}%");
+  		$data_db->where("dosen.fakultas", "ILIKE", "%{$params['fakultas']}%");
   	}
   	if($params['jurusan']) { 
-  		$data_db->where("dosen.fakultas", "LIKE", "%{$params['fakultas']}%");
+  		$data_db->where("dosen.jurusan", "ILIKE", "%{$params['jurusan']}%");
+  	}
+  	if($params['rentang_tanggal']) { 
+  		$split_date = explode(' - ', $params['rentang_tanggal']);
+  		$start_date = date('Y-m-d', strtotime(trim($split_date[0])));
+  		$end_date = date('Y-m-d', strtotime(trim($split_date[1])));
+  		$data_db->whereBetween(DB::raw("DATE(group1.created_at)"), [$start_date, $end_date]);
   	}
   	if(!empty($params['search']['value'])) {
-  		$data_db->orWhere("dosen.nip", "LIKE", "%{$params['search']['value']}%");
-  		$data_db->orWhere("dosen.nama", "LIKE", "%{$params['search']['value']}%");
+  		$data_db->orWhere("dosen.nip", "ILIKE", "%{$params['search']['value']}%");
+  		$data_db->orWhere("dosen.nama", "ILIKE", "%{$params['search']['value']}%");
   	}
   	$totalFiltered = $data_db;
   	$totalFiltered = $totalFiltered->count();
@@ -541,11 +547,11 @@ class DosenController extends Controller
   		$tbody[] = $row->nama;
   		$tbody[] = $row->jurusan;
   		$tbody[] = $row->fakultas;
-  		$tbody[] = $row->created_at;
+  		$tbody[] = date("d-m-Y H:i", strtotime($row->created_at));
   		$tbody[] = '<div>'
   		.'<div class="btn-group">'
-	  		.'<a href="javascript:void(0);" class="btn btn-sm btn-outline-primary" data-id="'.$row->id.'" onclick="showDetail(event);" title="Lihat Detail"> <i class="fa fa-list"></i> </a>'
-	  		.'<a href="" class="btn btn-sm btn-outline-danger" data-id="'.$row->id.'" onclick="prepDelete(event);" title="Hapus data"> <i class="fa fa-trash-alt"></i> </a>'
+	  		.'<a href="javascript:void(0);" class="btn btn-sm btn-outline-primary" onclick="showDetail(\''.$row->dosen_nip.'\',\''.$row->created_at.'\');" title="Lihat Detail"> <i class="fa fa-list"></i> </a>'
+	  		.'<a href="" class="btn btn-sm btn-outline-danger" onclick="prepDelete(\''.$row->dosen_nip.'\',\''.$row->created_at.'\');" title="Hapus data"> <i class="fa fa-trash-alt"></i> </a>'
   		.'</div>'
   		.'</div>';
 
