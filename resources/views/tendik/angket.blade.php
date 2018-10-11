@@ -262,7 +262,7 @@
                   </div>
                   <div class="custom-control custom-radio mb-1">
                     <input required="" type="radio" id="radio2q6" name="q6" class="custom-control-input" value="Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran UM">
-                    <label class="custom-control-label" for="radio2q3"> Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran UM</label>
+                    <label class="custom-control-label" for="radio2q6"> Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran UM</label>
                   </div>
                   <div class="custom-control custom-radio mb-1">
                     <input required="" type="radio" id="radio3q6" name="q6" class="custom-control-input" value="Kinerja kurang selaras dengan visi, misi, tujuan dan sasaran UM">

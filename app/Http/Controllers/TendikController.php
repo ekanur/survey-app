@@ -114,7 +114,7 @@ class TendikController extends Controller
 
     public function simpanBiodata(Request $request){
       
-      $biodata = new Biodata_tendik;
+     /* $biodata = new Biodata_tendik;
       $biodata->inisial = $request->inisial;
       $biodata->email = $request->email;
       $biodata->unit_kerja = $request->unitkerja;
@@ -132,7 +132,7 @@ class TendikController extends Controller
      }
      else {
       return redirect()->back()->withInput();
-    }
+    }*/
     
   }
 
@@ -171,72 +171,41 @@ class TendikController extends Controller
       }
     
      public function report() {
-     $data_unit = DB::table("angket_tendik")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->where("kuesioner", "ILIKE", "%q1%")->groupBy("kuesioner", "value");
-
-    $data_universitas = DB::table("angket_tendik")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->where("kuesioner", "ILIKE","%q4%")->groupBy("kuesioner", "value")->union($data_unit)->get();
-
+     $data_db = DB::table("angket_tendik")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->whereIn("kuesioner", ["q1", "q4"])->groupBy("kuesioner", "value")->get();
 
     $list_pemahaman_vmts = array(
-        "universitas" => array("Ya"=>0, "Tidak"=>0, "Responden"=>0),
-        "unit" => array("Ya"=>0, "Tidak"=>0, "Responden"=>0),
+        "unit" => array("ya"=>0, "tidak"=>0, "total_responden"=>0),
+        "universitas" => array("ya"=>0, "tidak"=>0, "total_responden"=>0),
     );
-    foreach ($data_universitas as $pemahaman_vmts) {
-      if($pemahaman_vmts->kuesioner == 'q1'){
-        if($pemahaman_vmts->value == 'Ya'){
-            $list_pemahaman_vmts["unit"]["Ya"] = $pemahaman_vmts->count;
-        }elseif($pemahaman_vmts->value == 'Tidak'){
-            $list_pemahaman_vmts["unit"]["Tidak"] = $pemahaman_vmts->count;
+    foreach ($data_db as $key => $row) {
+        if($row->kuesioner == 'q1') {
+            if($row->value == 'Ya') {
+                $list_pemahaman_vmts['unit']['ya'] = $row->count;
+            }
+            elseif($row->value == 'Tidak') {
+                $list_pemahaman_vmts['unit']['tidak'] = $row->count;
+            }
+            $list_pemahaman_vmts["unit"]["total_responden"] = $list_pemahaman_vmts["unit"]["ya"] + $list_pemahaman_vmts["unit"]["tidak"];
         }
-            $list_pemahaman_vmts["unit"]["Responden"] = $list_pemahaman_vmts["unit"]["Ya"]+$list_pemahaman_vmts["unit"]["Tidak"];
-      }elseif($pemahaman_vmts->kuesioner == 'q4'){
-        if($pemahaman_vmts->value == 'Ya'){
-            $list_pemahaman_vmts["universitas"]["Ya"] = $pemahaman_vmts->count;
-        }elseif($pemahaman_vmts->value == 'Tidak'){
-            $list_pemahaman_vmts["universitas"]["Tidak"] = $pemahaman_vmts->count;
+        if($row->kuesioner == 'q4') {
+            if($row->value == 'Ya') {
+                $list_pemahaman_vmts['universitas']['ya'] = $row->count;
+            }
+            elseif($row->value == 'Tidak') {
+                $list_pemahaman_vmts['universitas']['tidak'] = $row->count;
+            }
+            $list_pemahaman_vmts["universitas"]["total_responden"] = $list_pemahaman_vmts["universitas"]["ya"] + $list_pemahaman_vmts["universitas"]["tidak"];
         }
-            $list_pemahaman_vmts["universitas"]["Responden"] = $list_pemahaman_vmts["universitas"]["Ya"]+$list_pemahaman_vmts["universitas"]["Tidak"];
-      }
     }
 
-    $m_angket = new Angket_tendik;
-
-    //Pertanyaan 1: Pemahaman VTMS Universitas
-    $data_db = $m_angket->where('kuesioner', 'q1')->get();
-    $list_q1 = array(
-              'jumlah_ya' => 0, 
-              'jumlah_tidak' => 0, 
-              'total_responden' => count($data_db)
-            );
-    foreach ($data_db as $row) {
-      if(strtolower($row->value) == 'ya') {
-        $list_q1['jumlah_ya']++;
-      }
-      else if(strtolower($row->value) == 'tidak') {
-        $list_q1['jumlah_tidak']++;
-      }
-    }
-
-    $data_db = $m_angket->where('kuesioner', 'q4')->get();
-    $list_q4 = array(
-              'jumlah_ya' => 0, 
-              'jumlah_tidak' => 0, 
-              'total_responden' => count($data_db)
-            );
-    foreach ($data_db as $row) {
-      if(strtolower($row->value) == 'ya') {
-        $list_q4['jumlah_ya']++;
-      }
-      else if(strtolower($row->value) == 'tidak') {
-        $list_q4['jumlah_tidak']++;
-      }
-    }
+    
     //Pertanyaan 2: Rumusan VMTS Universitas
     $data_db = DB::table("angket_tendik")
                 ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
                 ->where('kuesioner', 'q2')
                 ->groupBy('value')
                 ->get();
-    $list_q2 = array(
+    $media_vmts_unit = array(
               'kuesioner' => array(
                 'Rapat' => 0,
                   'Katalog dan/atau dokumen jurusan lainnya' => 0, 
@@ -254,28 +223,28 @@ class TendikController extends Controller
       if(!empty($arr_value)) {
         foreach ($arr_value as $jawaban) {
           $lain_exist = true;
-          foreach ($list_q2['kuesioner'] as $pertanyaan => $jumlah) {
+          foreach ($media_vmts_unit['kuesioner'] as $pertanyaan => $jumlah) {
             if(strtolower($jawaban) == strtolower($pertanyaan)) {
-              $list_q2['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+              $media_vmts_unit['kuesioner'][$pertanyaan] += $row->jumlah_responden;
               $lain_exist = false;
             }
           }
           //tambahkan counter pilihan "Lain-lain" jika ada value custom
-          $list_q2['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
-          $list_q2['total_pilihan']++;
+          $media_vmts_unit['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
+          $media_vmts_unit['total_pilihan']++;
         }
       }
 
-      $list_q2['total_responden'] += $row->jumlah_responden;
+      $media_vmts_unit['total_responden'] += $row->jumlah_responden;
     }
 
-    //Pertanyaan 3: Kinerja Universitas
+    //Pertanyaan 3: Kinerja Unit
     $data_db = DB::table("angket_tendik")
                 ->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
                 ->where('kuesioner', 'q3')
                 ->groupBy('value')
                 ->get();
-    $list_q3 = array(
+    $kinerja_unit = array(
               'kuesioner' => array(
                    'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
                   'Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
@@ -286,12 +255,12 @@ class TendikController extends Controller
               'total_responden' => 0
             );
     foreach ($data_db as $row) {
-      foreach ($list_q3['kuesioner'] as $pertanyaan => $jumlah) {
+      foreach ($kinerja_unit['kuesioner'] as $pertanyaan => $jumlah) {
         if(strtolower($row->value) == strtolower($pertanyaan)) {
-          $list_q3['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+          $kinerja_unit['kuesioner'][$pertanyaan] += $row->jumlah_responden;
         }
       }
-      $list_q3['total_responden'] += $row->jumlah_responden;
+      $kinerja_unit['total_responden'] += $row->jumlah_responden;
     }
 
    
@@ -301,7 +270,7 @@ class TendikController extends Controller
                 ->where('kuesioner', 'q5')
                 ->groupBy('value')
                 ->get();
-    $list_q5 = array(
+    $media_vmts_universitas = array(
               'kuesioner' => array(
                 'Rapat' => 0,
                   'Katalog dan/atau dokumen jurusan lainnya' => 0, 
@@ -319,19 +288,19 @@ class TendikController extends Controller
       if(!empty($arr_value)) {
         foreach ($arr_value as $jawaban) {
           $lain_exist = true;
-          foreach ($list_q5['kuesioner'] as $pertanyaan => $jumlah) {
+          foreach ($media_vmts_universitas['kuesioner'] as $pertanyaan => $jumlah) {
             if(strtolower($jawaban) == strtolower($pertanyaan)) {
-              $list_q5['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+              $media_vmts_universitas['kuesioner'][$pertanyaan] += $row->jumlah_responden;
               $lain_exist = false;
             }
           }
           //tambahkan counter pilihan "Lain-lain" jika ada value custom
-          $list_q5['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
-          $list_q5['total_pilihan']++;
+          $media_vmts_universitas['kuesioner']['Lain-lain'] += ($lain_exist ? $row->jumlah_responden : 0);
+          $media_vmts_universitas['total_pilihan']++;
         }
       }
 
-      $list_q5['total_responden'] += $row->jumlah_responden;
+      $media_vmts_universitas['total_responden'] += $row->jumlah_responden;
     }
 
     //Pertanyaan 3: Kinerja Universitas
@@ -340,7 +309,7 @@ class TendikController extends Controller
                 ->where('kuesioner', 'q6')
                 ->groupBy('value')
                 ->get();
-    $list_q6 = array(
+    $kinerja_universitas = array(
               'kuesioner' => array(
                   'Kinerja sudah selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
                   'Kinerja cukup selaras dengan visi, misi, tujuan dan sasaran UM' => 0, 
@@ -351,39 +320,39 @@ class TendikController extends Controller
               'total_responden' => 0
             );
     foreach ($data_db as $row) {
-      foreach ($list_q6['kuesioner'] as $pertanyaan => $jumlah) {
+      foreach ($kinerja_universitas['kuesioner'] as $pertanyaan => $jumlah) {
         if(strtolower($row->value) == strtolower($pertanyaan)) {
-          $list_q6['kuesioner'][$pertanyaan] += $row->jumlah_responden;
+          $kinerja_universitas['kuesioner'][$pertanyaan] += $row->jumlah_responden;
         }
       }
-      $list_q6['total_responden'] += $row->jumlah_responden;
+      $kinerja_universitas['total_responden'] += $row->jumlah_responden;
     }
 
-    $list_q7a = $this->kepuasan('angket_tendik', 'q7a');
-    $list_q7b = $this->kepuasan('angket_tendik', 'q7b');
-    $list_q7c = $this->kepuasan('angket_tendik', 'q7c');
-    $list_q7d = $this->kepuasan('angket_tendik', 'q7d');
-    $list_q7e = $this->kepuasan('angket_tendik', 'q7e');
-    $list_q7f = $this->kepuasan('angket_tendik', 'q7f');
-    $list_q7g = $this->kepuasan('angket_tendik', 'q7g');
-    $list_q7h = $this->kepuasan('angket_tendik', 'q7h');
-    $list_q7i = $this->kepuasan('angket_tendik', 'q7i');
-    $list_q7j = $this->kepuasan('angket_tendik', 'q7j');
-    $list_q7k = $this->kepuasan('angket_tendik', 'q7k');
-    $list_q7l = $this->kepuasan('angket_tendik', 'q7l');
-    $list_q7m = $this->kepuasan('angket_tendik', 'q7m');
-    $list_q7n = $this->kepuasan('angket_tendik', 'q7n');
-    $list_q7o = $this->kepuasan('angket_tendik', 'q7o');
-    $list_q7p = $this->kepuasan('angket_tendik', 'q7p');
-    $list_q7q = $this->kepuasan('angket_tendik', 'q7q');
-    $list_q7r = $this->kepuasan('angket_tendik', 'q7r');
-    $list_q7s = $this->kepuasan('angket_tendik', 'q7s');
-    $list_q7t = $this->kepuasan('angket_tendik', 'q7t');
-    $list_q7u = $this->kepuasan('angket_tendik', 'q7u');
-    $list_q7v = $this->kepuasan('angket_tendik', 'q7v');
+    $list_q7a = $this->kepuasan('angket_tendik', ['q7a','q7b']);
+    //$list_q7b = $this->kepuasan('angket_tendik', 'q7b');
+    $list_q7c = $this->kepuasan('angket_tendik', ['q7c','q7d','q7e','q7f']);
+    //$list_q7d = $this->kepuasan('angket_tendik', 'q7d');
+    //$list_q7e = $this->kepuasan('angket_tendik', 'q7e');
+    //$list_q7f = $this->kepuasan('angket_tendik', 'q7f');
+    $list_q7g = $this->kepuasan('angket_tendik', ['q7g','q7h','q7i','q7j','q7k','q7l','q7m']);
+    //$list_q7h = $this->kepuasan('angket_tendik', 'q7h');
+    //$list_q7i = $this->kepuasan('angket_tendik', 'q7i');
+    //$list_q7j = $this->kepuasan('angket_tendik', 'q7j');
+    //$list_q7k = $this->kepuasan('angket_tendik', 'q7k');
+    //$list_q7l = $this->kepuasan('angket_tendik', 'q7l');
+    //$list_q7m = $this->kepuasan('angket_tendik', 'q7m');
+    $list_q7n = $this->kepuasan('angket_tendik', ['q7n','q7o','q7p','q7q','q7r','q7s','q7t','q7u','q7v']);
+   // $list_q7o = $this->kepuasan('angket_tendik', 'q7o');
+    //$list_q7p = $this->kepuasan('angket_tendik', 'q7p');
+    //$list_q7q = $this->kepuasan('angket_tendik', 'q7q');
+    //$list_q7r = $this->kepuasan('angket_tendik', 'q7r');
+    //$list_q7s = $this->kepuasan('angket_tendik', 'q7s');
+    //$list_q7t = $this->kepuasan('angket_tendik', 'q7t');
+    //$list_q7u = $this->kepuasan('angket_tendik', 'q7u');
+    //$list_q7v = $this->kepuasan('angket_tendik', 'q7v');
     
 
-    return view("tendik.report", compact('list_pemahaman_vmts', 'list_q1', 'list_q2', 'list_q3', 'list_q4', 'list_q5', 'list_q6', 'list_q7a', 'list_q7b', 'list_q7c', 'list_q7d', 'list_q7e', 'list_q7f', 'list_q7g', 'list_q7h', 'list_q7i', 'list_q7j', 'list_q7k', 'list_q7l', 'list_q7m', 'list_q7n', 'list_q7o', 'list_q7p', 'list_q7q', 'list_q7r', 'list_q7s', 'list_q7t', 'list_q7u', 'list_q7v'));
+    return view("tendik.report", compact('list_pemahaman_vmts', 'media_vmts_unit','media_vmts_universitas','kinerja_unit','kinerja_universitas','list_q1', 'list_q2', 'list_q3', 'list_q4', 'list_q5', 'list_q6', 'list_q7a', 'list_q7b', 'list_q7c', 'list_q7d', 'list_q7e', 'list_q7f', 'list_q7g', 'list_q7h', 'list_q7i', 'list_q7j', 'list_q7k', 'list_q7l', 'list_q7m', 'list_q7n', 'list_q7o', 'list_q7p', 'list_q7q', 'list_q7r', 'list_q7s', 'list_q7t', 'list_q7u', 'list_q7v'));
   }
 
 }

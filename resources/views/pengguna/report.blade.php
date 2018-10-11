@@ -146,7 +146,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_kinerja @endslot
 							@slot("id_tabel") datatable3 @endslot
-							@slot("judul_chart") Persentase Kinerja Universitas @endslot
+							@slot("judul_chart") Persentase Penilaian Kinerja Universitas @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q3['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -233,7 +233,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Penilaian untuk kualitas informasi dan profil UM</span>
+							<span class="text-info font-italic font-weight-bold" >Penilaian untuk kualitas informasi dan profil prodi di UM</span>
 						</div>
 						<table class="table mb-0" id="datatable5a">
 							<thead class="bg-light">
@@ -261,7 +261,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_profil_prodi @endslot
 							@slot("id_tabel") datatable5a @endslot
-							@slot("judul_chart") Persentase Kepuasan Informasi Profil Prodi @endslot
+							@slot("judul_chart") Persentase Kepuasan Informasi Profil Prodi di UM @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q5a['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -281,7 +281,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Kualitas Alumni</span>
+							<span class="text-info font-italic font-weight-bold" >Penilaian untuk Kualitas Alumni</span>
 						</div>
 						<table class="table mb-0" id="datatable5b">
 							<thead class="bg-light">
@@ -309,7 +309,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_kualitas_alumni @endslot
 							@slot("id_tabel") datatable5b @endslot
-							@slot("judul_chart") Persentase Kualitas Alumni yang Bekerja di Instansi Pengguna @endslot
+							@slot("judul_chart") Persentase Kepuasan Kualitas Alumni yang Bekerja di Instansi Pengguna @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q5b['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -329,7 +329,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Keterlibatan Pengguna dalam Penelitian</span>
+							<span class="text-info font-italic font-weight-bold" >Penilaian kepuasan untuk keterlibatan Pengguna dalam penelitian</span>
 						</div>
 						<table class="table mb-0" id="datatable5c">
 							<thead class="bg-light">
@@ -357,7 +357,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_keterlibatan_penelitian @endslot
 							@slot("id_tabel") datatable5c @endslot
-							@slot("judul_chart") Persentase Keterlibatan Pengguna dalam Penelitian @endslot
+							@slot("judul_chart") Persentase Kepuasanan Pengguna untuk Keterlibatan dalam Penelitian @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q5c['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -377,7 +377,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center p-3">
-							<span class="text-info font-italic font-weight-bold" >Keterlibatan Pengguna dalam Pengabdian kepada Masyarakat</span>
+							<span class="text-info font-italic font-weight-bold" >Penilaian kepuasan untuk keterlibatan Pengguna dalam Pengabdian kepada Masyarakat</span>
 						</div>
 						<table class="table mb-0" id="datatable5d">
 							<thead class="bg-light">
@@ -405,7 +405,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_pengabdian_masyarakat @endslot
 							@slot("id_tabel") datatable5d @endslot
-							@slot("judul_chart") Persentase Keterlibatan Pengguna dalam Pengabdian kepada Masyarakat @endslot
+							@slot("judul_chart") Persentase Kepuasan  Pengguna untuk Keterlibatan dalam Pengabdian kepada Masyarakat @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q5d['total_responden'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
@@ -467,7 +467,7 @@
 							@slot("use_panel") no @endslot
 							@slot("id_chart") persentase_kerjasama @endslot
 							@slot("id_tabel") datatable5e_h @endslot
-							@slot("judul_chart") Persentase Kualitas Kerjasama UM @endslot
+							@slot("judul_chart") Persentase Kepuasan Kualitas Kerjasama UM @endslot
 							@slot("subjudul_chart") Total Responden: {{ $list_q5e['total_responden_sesungguhnya'] }} orang @endslot
 							@slot("judul_y") Persentase @endslot
 						@endcomponent
