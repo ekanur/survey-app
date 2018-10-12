@@ -154,7 +154,8 @@ class MahasiswaController extends Controller
 
   function dataKuesioner($request){
         $user_id = session("userID"); //diubah ke session hasil dari simpanBiodata
-        $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
+        $tahun = (null != session('tahun')) ? session('tahun') : date("Y");
+        $timestamp = date("Y-m-d H:i:s");
         $data = array();
         $i=0;
         foreach ($request as $key => $value) {
@@ -162,7 +163,7 @@ class MahasiswaController extends Controller
           $data[$i]["tahun"] = $tahun;
           $data[$i]["kuesioner"] = $key;
           $data[$i]["value"] = (is_array($value))? json_encode($value) : $value;
-          $data[$i]["created_at"] = date("Y-m-d");
+          $data[$i]["created_at"] = $timestamp;
           $i++;
         }
 

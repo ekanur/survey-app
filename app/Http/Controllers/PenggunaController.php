@@ -138,6 +138,7 @@ class PenggunaController extends Controller
   function dataKuesioner($request){
         $biodata_id = session("biodata_id"); //diubah ke session hasil dari simpanBiodata
         $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
+        $timestamp = date("Y-m-d H:i:s");
         $data = array();
         $i=0;
         foreach ($request as $key => $value) {
@@ -145,7 +146,7 @@ class PenggunaController extends Controller
           $data[$i]["tahun"] = $tahun;
           $data[$i]["kuesioner"] = $key;
           $data[$i]["value"] = (is_array($value))? json_encode($value) : $value;
-          $data[$i]["created_at"] = date("Y-m-d");
+          $data[$i]["created_at"] = $timestamp;
           $i++;
         }
 
