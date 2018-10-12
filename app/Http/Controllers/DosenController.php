@@ -202,6 +202,7 @@ class DosenController extends Controller
     function dataKuesioner($request){
     	$user_id = session('userID'); 
     	$tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
+    	$timestamp = date("Y-m-d H:i:s");
     	$data = [];
     	$i=0;
     	foreach ($request as $key => $value) {
@@ -209,7 +210,7 @@ class DosenController extends Controller
     		$data[$i]["tahun"] = $tahun;
     		$data[$i]["kuesioner"] = $key;
     		$data[$i]["value"] = (is_array($value))? json_encode($value) : $value;
-    		$data[$i]["created_at"] = date("Y-m-d");
+    		$data[$i]["created_at"] = $timestamp;
     		$i++;
     	}
 
@@ -495,8 +496,8 @@ class DosenController extends Controller
 
   function responden() {
   	$data = array(
-  		'nama' => 'Budi',
-  		'judul' => 'Main Bola'
+  		'list_fakultas' => $this->getListFakultas(),
+  		'list_jurusan' => $this->getListJurusan(),
   	);
   	return view('dosen/responden', $data);
   }

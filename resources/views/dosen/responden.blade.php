@@ -23,13 +23,13 @@
           <div class="col-12">
             <div class="form-inline">
               <div class="form-group mr-sm-2">
-                <select name="" id="" class="select2 form-control" title="Tampilkan data berdasarkan fakultas ">
-                  <option value="">Pilih Fakultas</option>
+                <select name="" id="filterFakultas" class="select2 form-control" title="Tampilkan data berdasarkan fakultas ">
+                  <option></option>
                 </select>
               </div>
               <div class="form-group mr-sm-2">
-                <select name="" id="" class="select2 form-control" title="Tampilkan data berdasarkan jurusan">
-                  <option value="">Pilih Jurusan</option>
+                <select name="" id="filterJurusan" class="select2 form-control" title="Tampilkan data berdasarkan jurusan"disabled=""> 
+                  <option></option>
                 </select>
               </div>
               <div class="form-group mr-sm-2">
@@ -39,6 +39,9 @@
                   </div>
                   <input type="text" class="daterange input-sm form-control" name="rentang_tanggal" placeholder="Rentang Tanggal" id="rentang_tanggal" title="Tampilkan data berdasarkan tanggal mengisi angket">
                 </div>
+              </div>
+              <div class="form-group mr-sm-2">
+                <button type="button" id="clearFilterBtn" class="btn btn-sm btn-secondary" title="Bersihkan filter"><i class="fa fa-undo"></i> Reset</button>
               </div>
             </div>
           </div>
@@ -84,11 +87,60 @@
 @section('pagespecificjs') 
 <script>
   $(document).ready(function() {
-    // INISIALISASI SELECT2
-    $('.select2').select2({
-      minimumInputLength: 2,
-      maximumResultsForSearch: 5,
-      minimumResultsForSearch: 3
+    var listFakultas = {!! json_encode($list_fakultas) !!};
+    var listJurusan = {!! json_encode($list_jurusan) !!};
+
+    //Preparing initial data for select2 filter jurusan dan fakultas  
+    var filterJurusan = null;
+    var filterFakultas = null;
+    dataFilterJurusan = $.map(listJurusan, function(row, idx) {
+          return {"id": row.jur_nm, "text": row.jur_nm};
+        });
+    dataFilterFakultas = $.map(listFakultas, function(row, idx) {
+        return {"id": row.fak_skt, "text": row.fak_nm+' ('+row.fak_skt+')', "fak_kd": row.fak_kd};
+      });
+    initSelectFilterJurusan(dataFilterJurusan);
+    initSelectFilterFakultas(dataFilterFakultas);
+    
+    //INISIALISASI SELECT2 FAKULTAS & JURUSAN
+    function initSelectFilterFakultas(data='') {
+      data.unshift({'id': '', 'text': ''});
+      filterFakultas = $('#filterFakultas').select2({ 
+        placeholder: "Pilih Fakultas",
+        allowClear: true,
+        data: data 
+      });
+      $('#filterFakultas').val("");
+    }
+    function initSelectFilterJurusan(data='') {
+      data.unshift({'id': '', 'text': ''});
+      if(filterJurusan != null) {
+        //reinit filterJurusan if already initialized
+        $("#filterJurusan").empty().trigger("change");
+      }
+      filterJurusan = $('#filterJurusan').select2({ 
+        placeholder: "Pilih Jurusan",
+        allowClear: true,
+        data: data 
+      });
+      $('#filterJurusan').val("");
+    }
+    //Event handler untuk onchange select filter fakultas
+    $('#filterFakultas').on('change', function(e) {
+      if($('#filterFakultas').val()) {
+        let data = $('#filterFakultas').select2("data");
+        let filteredJurusan = $.map(listJurusan, function(row, idx) {
+          if(row.fak_kd == data[0].fak_kd){
+            return {"id": row.jur_nm, "text": row.jur_nm};
+          }
+        });
+        initSelectFilterJurusan(filteredJurusan);
+        $("#filterJurusan").attr("disabled", false);
+      }
+      else {
+        $("#filterJurusan").attr("disabled", true);
+        $("#filterJurusan").val("");
+      }
     });
 
     // INISIALISASI DATERANGEPICKER
@@ -103,34 +155,39 @@
 
     //INISIALISASI DATATABLE
     var initDatatable1 = $('#datatableServer').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "searchDelay": 800,
-        "order": [[5, 'desc']],
-        "ajax": {
-          url: "{{ url('/admin/responden/dosen/get_datatable') }}",
-          type: "post",
-          data: function(d) {
-            d._token = "{{ csrf_token() }}";
-            d.fakultas = $('#fakultas').val() || '';
-            d.jurusan = $('#jurusan').val() || '';
-            d.rentang_tanggal = $('#rentang_tanggal').val() || '';
-          },
-          error: function() {
-            console.log('Get datatablle error!');
-          }
+      "processing": true,
+      "serverSide": true,
+      "searchDelay": 800,
+      "order": [[5, 'desc']],
+      "ajax": {
+        url: "{{ url('/admin/responden/dosen/get_datatable') }}",
+        type: "post",
+        data: function(d) {
+          d._token = "{{ csrf_token() }}";
+          d.fakultas = $('#filterFakultas').val() || '';
+          d.jurusan = $('#filterJurusan').val() || '';
+          d.rentang_tanggal = $('#rentang_tanggal').val() || '';
         },
-        "columnDefs": [
-          {targets : "no-sort", orderable: false},
-          {targets : "no-search", searchable: false},
-          {targets : "no-view", visible: false}
-        ],
-        "drawCallback": function(settings) {}
+        error: function() {
+          console.log('Get datatable error!');
+        }
+      },
+      "columnDefs": [
+      {targets : "no-sort", orderable: false},
+      {targets : "no-search", searchable: false},
+      {targets : "no-view", visible: false}
+      ],
+      "drawCallback": function(settings) {}
     });
     // Select Filter OnChange Handler
-    $('#fakultas, #jurusan, #rentang_tanggal').on("change", function(event){
+    $('#filterJurusan, #filterFakultas, #rentang_tanggal').on("change", function(e){
       initDatatable1.clear().draw();
     });
+    
+    // Clear filter button click
+    $('#clearFilterBtn').on("click", function() {
+      $('#rentang_tanggal, #filterFakultas, #filterJurusan').val(null).trigger('change');
+    })
 
   }); //End Document Ready
 </script>

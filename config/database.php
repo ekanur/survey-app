@@ -67,6 +67,7 @@ return [
             'sslmode' => 'prefer',
         ],
 
+        //Ambil data dosen, fakultas, dan jurusan
         'pgsql_2' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST2', '192.168.1.197'),

@@ -56,7 +56,6 @@ class Controller extends BaseController
     return $data;
   }
 
-
   public function kinerja_prodi($tabel, $kuesioner) {
     $list_kinerja_prodi = array(
       'kuesioner' => array(
@@ -132,5 +131,27 @@ class Controller extends BaseController
   public function logout()
   {
     return Saml2::logout();
+  }
+
+  //GET LIST FAKULTAS & JURUSAN
+  function getListFakultas(){
+    $data_db = DB::connection("pgsql_2")->table("dtum.m_fak")->select("fak_kd", "fak_nm", "fak_skt");
+    $data_db->where("fak_kd", "!=", '00');
+    $data_db->orderBy('fak_kd', 'asc');
+    $data_db = $data_db->get();
+
+    return $data_db;
+  }
+  function getListJurusan($fak_kd=''){
+    $data_db = DB::connection("pgsql_2")->table("dtum.m_jur")->select("jur_kd", "jur_nm", "fak_kd");
+    if($fak_kd) {
+      $data_db->where("fak_kd", "=", $fak_kd);
+    }
+    $data_db->where("fak_kd", "!=", '00');
+    $data_db->orderBy('fak_kd', 'asc');
+    $data_db->orderBy('jur_kd', 'asc');
+    $data_db = $data_db->get();
+
+    return $data_db;
   }
 }
