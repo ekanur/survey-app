@@ -141,6 +141,13 @@
     {{-- <script src="{!! asset('js/app/app-blog-overview.1.0.0.js')!!}"></script> --}}
     {{-- <script src="{!! asset('js/app/app-blog-new-post.1.0.0.js')!!}"></script> --}}
     {{-- <script src="{!! asset('js/app/app-components-overview.1.0.0.js')!!}"></script> --}}
+    
+    <script>
+      {{-- INITIALIZE BOOTSTRAP TOOLTIP! --}}
+      $('[data-toggle="tooltip"]').tooltip({
+        template: '<div class="tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner bg-dark text-white"></div></div>'
+      });
+    </script>
 
     @yield('pagespecificjs')
 

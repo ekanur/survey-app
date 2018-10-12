@@ -184,7 +184,7 @@
       initDatatable1.clear().draw();
     });
     
-    // Clear filter button click
+    // Clear filter button onclick handler
     $('#clearFilterBtn').on("click", function() {
       $('#rentang_tanggal, #filterFakultas, #filterJurusan').val(null).trigger('change');
     })

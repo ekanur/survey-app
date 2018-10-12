@@ -21,27 +21,39 @@
       <div class="card-body p-0">
         <ul class="list-group list-group-small list-group-flush">
           <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue"><a href="{{ url('admin/responden/dosen') }}">Dosen</a></span>
+            <span class="text-semibold text-fiord-blue">
+              <a href="{{ url('admin/responden/dosen') }}" data-toggle="tooltip" data-placement="top" title="Tampilkan responden dosen">Dosen</a>
+            </span>
             <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['dosen'] }}</span>
           </li>
           <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue">Mahasiswa</span>
+            <span class="text-semibold text-fiord-blue">
+              <a href="{{ url('admin/responden/mahasiswa') }}" data-toggle="tooltip" data-placement="top" title="Tampilkan responden mahasiswa">Mahasiswa</a>
+            </span>
             <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['mahasiswa'] }}</span>
           </li>
           <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue">Alumni</span>
+            <span class="text-semibold text-fiord-blue">
+              <a href="{{ url('admin/responden/alumni') }}" data-toggle="tooltip" data-placement="top" title="Tampilkan responden alumni">Alumni</a>
+            </span>
             <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['alumni'] }}</span>
           </li>
           <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue">Tenaga Kependidikan</span>
+            <span class="text-semibold text-fiord-blue">
+              <a href="{{ url('admin/responden/tendik') }}" data-toggle="tooltip" data-placement="top" title="Tampilkan responden tendik">Tenaga Kependidikan</a>
+            </span>
             <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['tendik'] }}</span>
           </li>
           <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue">Pengguna</span>
+            <span class="text-semibold text-fiord-blue">
+              <a href="{{ url('admin/responden/pengguna') }}" data-toggle="tooltip" data-placement="top" title="Tampilkan responden pengguna">Pengguna</a>
+            </span>
             <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['pengguna'] }}</span>
           </li>
           <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue">Mitra</span>
+            <span class="text-semibold text-fiord-blue">
+              <a href="{{ url('admin/responden/mitra') }}" data-toggle="tooltip" data-placement="top" title="Tampilkan responden mitra">Mitra</a>
+            </span>
             <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['mitra'] }}</span>
           </li>
         </ul>
