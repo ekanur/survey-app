@@ -129,7 +129,6 @@
     });
     // Select Filter OnChange Handler
     $('#fakultas, #jurusan, #rentang_tanggal').on("change", function(event){
-      console.log("filter dunk");
       initDatatable1.clear().draw();
     });
 

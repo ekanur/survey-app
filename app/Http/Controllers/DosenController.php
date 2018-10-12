@@ -528,8 +528,10 @@ class DosenController extends Controller
   		$data_db->whereBetween(DB::raw("DATE(group1.created_at)"), [$start_date, $end_date]);
   	}
   	if(!empty($params['search']['value'])) {
-  		$data_db->orWhere("dosen.nip", "ILIKE", "%{$params['search']['value']}%");
-  		$data_db->orWhere("dosen.nama", "ILIKE", "%{$params['search']['value']}%");
+  		$data_db->where(function($query) use ($params) {
+	  		$query->orWhere("dosen.nip", "ILIKE", "%{$params['search']['value']}%");
+	  		$query->orWhere("dosen.nama", "ILIKE", "%{$params['search']['value']}%");
+  		});
   	}
   	$totalFiltered = $data_db;
   	$totalFiltered = $totalFiltered->count();
