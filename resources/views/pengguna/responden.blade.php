@@ -6,7 +6,7 @@
 <div class="page-header row no-gutters py-4">
   <div class="col-12 mb-0">
     <span class="text-uppercase page-subtitle">SI Survei Kepuasan</span>
-    <h3 class="page-title">Data Responden - Mitra</h3>
+    <h3 class="page-title">Data Responden - Pengguna</h3>
   </div>
 </div>
 <!-- End Page Header -->
@@ -57,9 +57,10 @@
                     <th scope="col" class="border-0 no-sort">#</th>
                     <th scope="col" class="border-0">Jabatan Pengisi</th>
                     <th scope="col" class="border-0">Nama Instansi</th>
-                    <th scope="col" class="border-0">No. Telepon</th>
+                    <th scope="col" class="border-0">Email</th>
                     <th scope="col" class="border-0">Skala Operasional</th>
-                    <th scope="col" class="border-0">Tahun Kerjasama</th>
+                    <th scope="col" class="border-0">Jumlah Pegawai</th>
+                    <th scope="col" class="border-0">Jumlah Lulusan UM</th>
                     <th scope="col" class="border-0">Tanggal Mengisi</th>
                     <th scope="col" class="border-0 no-sort">Aksi</th>
                   </tr>
@@ -117,9 +118,9 @@
       "processing": true,
       "serverSide": true,
       "searchDelay": 800,
-      "order": [[6, 'desc']],
+      "order": [[7, 'desc']],
       "ajax": {
-        url: "{{ url('/admin/responden/mitra/get_datatable') }}",
+        url: "{{ url('/admin/responden/pengguna/get_datatable') }}",
         type: "post",
         data: function(d) {
           d._token = "{{ csrf_token() }}";

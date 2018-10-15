@@ -53,11 +53,11 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="jumlah_pegawai">Jumlah pegawai</label>
+                  <label for="jumlah_pegawai">Jumlah Pegawai</label>
                   <input type="number" min="1" class="form-control" id="jumlah_pegawai" placeholder="Jumlah Pegawai" name="jumlah_pegawai" value="{{old('jumlah_pegawai')}}" required=""> 
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="jumlah_um">Jumlah lulusan UM</label>
+                  <label for="jumlah_um">Jumlah Lulusan UM</label>
                   <input type="number" min="1" class="form-control" id="jumlah_um" placeholder="Jumlah Lulusan UM" name="jumlah_um" value="{{old('jumlah_um')}}" required=""> 
                 </div>
                 <div class="form-group col-md-6">
