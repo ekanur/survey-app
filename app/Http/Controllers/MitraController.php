@@ -259,4 +259,76 @@ class MitraController extends Controller
     return view("mitra.report", compact('list_q1', 'list_q2', 'list_q3', 'list_q4a', 'list_q4b', 'list_q4c', 'list_q4d', 'list_q4e', 'list_q4f', 'list_q4g', 'list_q4h', 'list_q4i', 'list_q4j', 'list_q4k', 'list_q4l', 'list_q4m', 'list_q4n', 'list_q4o', 'list_q4p', 'list_q4q'));
   }
 
+  function responden() {
+    $data = array();
+    return view('mitra/responden');
+  }
+
+  function get_datatable_responden(Request $request) {
+    $params = $request->all();
+    // die(json_encode($params['fakultas']));
+    $columns = ['id', 'jabatan_pengisi', 'nama_instansi', 'no_telp', 'skala_operasional', 'tahun_kerjasama', 'created_at', 'id'];
+
+    $totalData = DB::table('angket_mitra')
+    ->select(DB::raw("COUNT(id) AS jumlah_responden"))
+    ->where('kuesioner', 'q1')
+    ->count();
+
+    $data_db = DB::table('angket_mitra')
+    ->select(DB::raw('group1.biodata_mitra_id, group1.created_at, mitra.id, mitra.jabatan_pengisi, mitra.nama_instansi, mitra.no_telp, mitra.skala_operasional, mitra.tahun_kerjasama'))
+    ->from(DB::raw('(select biodata_mitra_id, created_at from angket_mitra group by biodata_mitra_id, created_at) AS group1'))
+    ->join('biodata_mitra AS mitra', 'mitra.id', '=', 'group1.biodata_mitra_id');
+    if($params['skala_operasional']) { 
+      $data_db->where("mitra.skala_operasional", "ILIKE", "%{$params['skala_operasional']}%");
+    }
+    if($params['rentang_tanggal']) { 
+      $split_date = explode(' - ', $params['rentang_tanggal']);
+      $start_date = date('Y-m-d', strtotime(trim($split_date[0])));
+      $end_date = date('Y-m-d', strtotime(trim($split_date[1])));
+      $data_db->whereBetween(DB::raw("DATE(group1.created_at)"), [$start_date, $end_date]);
+    }
+    if(!empty($params['search']['value'])) {
+      $data_db->where(function($query) use ($params) {
+        $query->orWhere("mitra.jabatan_pengisi", "ILIKE", "%{$params['search']['value']}%");
+        $query->orWhere("mitra.nama_instansi", "ILIKE", "%{$params['search']['value']}%");
+        $query->orWhere("mitra.no_telp", "ILIKE", "%{$params['search']['value']}%");
+      });
+    }
+    $totalFiltered = $data_db;
+    $totalFiltered = $totalFiltered->count();
+
+    $data_db->orderBy($columns[$params['order'][0]['column']], $params['order'][0]['dir']);
+    $data_db->offset($params['start']);
+    $data_db->limit($params['length']);
+    $data_db = $data_db->get();
+
+    $data = []; $i = $params['start'];
+    foreach ($data_db as $row) {
+      $tbody   = []; 
+      $tbody[] = ($i+1);
+      $tbody[] = $row->jabatan_pengisi;
+      $tbody[] = $row->nama_instansi;
+      $tbody[] = $row->no_telp;
+      $tbody[] = $row->skala_operasional;
+      $tbody[] = $row->tahun_kerjasama;
+      $tbody[] = date("d-m-Y H:i", strtotime($row->created_at));
+      $tbody[] = '<div>'
+      .'<div class="btn-group">'
+      .'<a href="javascript:void(0);" class="btn btn-sm btn-outline-primary" onclick="showDetail(\''.$row->biodata_mitra_id.'\',\''.$row->created_at.'\');" title="Lihat Detail"> <i class="fa fa-list"></i> </a>'
+      .'<a href="" class="btn btn-sm btn-outline-danger" onclick="prepDelete(\''.$row->biodata_mitra_id.'\',\''.$row->created_at.'\');" title="Hapus data"> <i class="fa fa-trash-alt"></i> </a>'
+      .'</div>'
+      .'</div>';
+
+      $data[] = $tbody; $i++;
+    }
+    $totalData = count($data);
+    $json_data = array(
+      "draw"            => intval( $params['draw'] ),
+      "recordsTotal"    => intval( $totalData ),
+      "recordsFiltered" => intval( $totalFiltered ),
+      "data"            => $data
+    );
+    echo json_encode($json_data);
+  }
+
 }

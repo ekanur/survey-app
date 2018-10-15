@@ -200,7 +200,7 @@
       "processing": true,
       "serverSide": true,
       "searchDelay": 800,
-      "order": [[5, 'desc']],
+      "order": [[6, 'desc']],
       "ajax": {
         url: "{{ url('/admin/responden/mahasiswa/get_datatable') }}",
         type: "post",
