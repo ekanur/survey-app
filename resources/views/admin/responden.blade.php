@@ -6,58 +6,86 @@
 <div class="page-header row no-gutters py-4">
   <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
     <span class="text-uppercase page-subtitle">SI Survei Kepuasan</span>
-    <h3 class="page-title">Beranda</h3>
+    <h3 class="page-title">Responden</h3>
   </div>
 </div>
 <!-- End Page Header -->
 
-<!-- Top Referrals Component -->
 <div class="row">
-  <div class="col-lg-3 col-md-12 col-sm-12 mb-4">
-    <div class="card card-small">
-      <div class="card-header border-bottom">
-        <h6 class="m-0">Jumlah Responden</h6>
-      </div>
-      <div class="card-body p-0">
-        <ul class="list-group list-group-small list-group-flush">
-          <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue"><a href="{{ url('admin/responden/dosen') }}">Dosen</a></span>
-            <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['dosen'] }}</span>
-          </li>
-          <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue">Mahasiswa</span>
-            <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['mahasiswa'] }}</span>
-          </li>
-          <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue">Alumni</span>
-            <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['alumni'] }}</span>
-          </li>
-          <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue">Tenaga Kependidikan</span>
-            <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['tendik'] }}</span>
-          </li>
-          <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue">Pengguna</span>
-            <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['pengguna'] }}</span>
-          </li>
-          <li class="list-group-item d-flex px-3">
-            <span class="text-semibold text-fiord-blue">Mitra</span>
-            <span class="ml-auto text-right text-semibold text-reagent-gray">{{ $count['mitra'] }}</span>
-          </li>
-        </ul>
-      </div>
-      <div class="card-footer border-top">
-        <div class="row">
-          <div class="col text-right view-report">
-            <a href="{{ url('admin/rekapitulasi') }}" class="text-info">Rekapitulasi &rarr;</a>
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url ('admin/responden/dosen')}}">
+        <div class="d-flex flex-column m-auto">
+          <div class="stats-small__data text-center">
+            <i class="fas fa-user" style="font-size:48px;"></i>
+            <span class="stats-small__label text-uppercase">DOSEN</span>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
-</div>
-<!-- End Top Referrals Component -->
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url ('admin/responden/mahasiswa')}}">
+        <div class="d-flex flex-column m-auto">
+          <div class="stats-small__data text-center">
+            <i class="fas fa-users" style="font-size:48px;"></i>
+            <span class="stats-small__label text-uppercase">MAHASISWA</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url ('admin/responden/tendik')}}">
+        <div class="d-flex flex-column m-auto">
+          <div class="stats-small__data text-center">
+            <i class="fas fa-user-circle" style="font-size:48px;"></i>
+            <span class="stats-small__label text-uppercase">TENAGA KEPENDIDIKAN</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url('admin/responden/alumni')}}">
+        <div class="d-flex flex-column m-auto">
+          <div class="stats-small__data text-center">
+            <i class="fas fa-graduation-cap" style="font-size:48px;"></i>
+            <span class="stats-small__label text-uppercase">ALUMNI</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url('admin/responden/pengguna')}}">
+        <div class="d-flex flex-column m-auto">
+          <div class="stats-small__data text-center">
+            <i class="fa fa-building" style="font-size:48px;"></i>
+            <span class="stats-small__label text-uppercase">PENGGUNA</span>
+          </div>
+        </div>
+      </a>  
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url('admin/responden/mitra')}}">
+        <div class="d-flex flex-column m-auto">
+          <div class="stats-small__data text-center">
+            <i class="fa fa-handshake" style="font-size:48px;"></i>
+            <span class="stats-small__label text-uppercase">MITRA</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
 
+</div>
 @endsection
 
 

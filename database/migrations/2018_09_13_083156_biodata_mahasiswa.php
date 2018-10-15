@@ -15,14 +15,14 @@ class BiodataMahasiswa extends Migration
     {
         Schema::create('biodata_mahasiswa', function (Blueprint $table) {
             $table->increments('id');
+            $table->string("nim", 75);
+            $table->string("nama", 75);
             $table->string("email", 75);
-            $table->enum("jenis_kelamin", ["laki_laki", "perempuan"]);
-            $table->string("jalur_masuk", 10);
-            $table->string("tahun_masuk", 4);
-            $table->enum("jenjang_pendidikan", ["diploma","S1","S2","S3"]);
-            $table->enum("pendornon", ["pendidikan", "non-kependidikan"]);
+            $table->string("fakultas", 100);
+            $table->string("jurusan", 100);
             $table->string("prodi", 100);
-            $table->enum("jenis_pendidikan", ["akademik", "profesi","vokasi"]);            
+            $table->string("kelas", 5);
+            $table->unsignedSmallInteger("tahun");
             $table->timestamps();
             $table->softDeletes();
             //

@@ -15,14 +15,9 @@ class BiodataTendik extends Migration
     {
         Schema::create('biodata_tendik', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("inisial", 100);
-            $table->string("email", 75);
-            $table->string("unit_kerja", 100)->nullable();
-            $table->date("tmt");
-            $table->enum("jenis_kelamin", ["laki_laki", "perempuan"]);
-            $table->enum("usia", ["<30", "31-40", "41-50", "51-60", ">60"]);
-            $table->string("pendidikan_tertinggi", 30);
-            $table->string("lama_bekerja", 25);
+            $table->string("nip", 20);
+            $table->string("nama", 100);
+            $table->string("nama_unit", 100);
             $table->timestamps();
             $table->softDeletes();
             });

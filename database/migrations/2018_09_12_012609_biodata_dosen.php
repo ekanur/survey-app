@@ -17,8 +17,8 @@ class BiodataDosen extends Migration
             $table->increments('id');
             $table->string("nip", 20);
             $table->string("nama", 75);
-            $table->string("jurusan", 100);
             $table->string("fakultas", 100);
+            $table->string("jurusan", 100);
             $table->timestamps();
             $table->softDeletes();
             //

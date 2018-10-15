@@ -1,4 +1,4 @@
-@php isset($menu) ? $menu = $menu : $menu = '' @endphp
+@php $menu = Request::segment(2); @endphp
 
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
@@ -56,16 +56,22 @@
         </form>
         <div class="nav-wrapper">
           <ul class="nav flex-column">
-            <li class="nav-item {{ ($menu) == 'beranda' ? 'active' : '' }}">
+            <li class="nav-item {{ ($menu == 'beranda' || $menu == '') ? 'active' : '' }}">
               <a class="nav-link " href="{{ url('admin') }}">
                 <i class="fa fa-home"></i>
                 <span>Beranda</span>
               </a>
             </li>
-            <li class="nav-item {{ ($menu) == 'rekap' ? 'active' : '' }}">
+            <li class="nav-item {{ ($menu == 'rekap' || $menu == 'rekapitulasi') ? 'active' : '' }}">
               <a class="nav-link " href="{{ url('admin/rekapitulasi') }}">
                 <i class="fa fa-chart-pie"></i>
                 <span>Rekapitulasi</span>
+              </a>
+            </li>
+            <li class="nav-item {{ ($menu == 'responden') ? 'active' : '' }}">
+              <a class="nav-link " href="{{ url('admin/responden') }}">
+                <i class="fa fa-users"></i>
+                <span>Responden</span>
               </a>
             </li>
           </ul>

@@ -14,7 +14,6 @@ class AdminController extends Controller
 {
 
   public function index() {
-    $menu = 'beranda';
     $count['dosen'] = DB::table("angket_dosen")->select(DB::raw("DISTINCT dosen_nip as count"))->get()->count();
     $count['mahasiswa'] = DB::table("angket_mahasiswa")->select(DB::raw("DISTINCT mahasiswa_nim as count"))->get()->count();
     $count['alumni'] = DB::table("biodata_alumni")->count();
@@ -22,17 +21,15 @@ class AdminController extends Controller
     $count['pengguna'] = DB::table("biodata_pengguna")->count();
     $count['mitra'] = DB::table("biodata_mitra")->count();
   //dd($count);
-    return view('admin.dashboard', compact('count', 'menu'));
+    return view('admin.dashboard', compact('count'));
   }
 
   public function rekapitulasi() {
-    $menu = 'rekap';
-    return view('admin.rekapitulasi', compact('menu'));
+    return view('admin.rekapitulasi');
   }
 
   //Fungsi dibawah belum dipakai. Nantinya akan digunakan untuk menampilkan daftar responden di sisi admin
-  /*public function responden() {
-    $menu = 'responden';
+  public function responden() {
     return view('admin.responden');
   }
 
@@ -41,5 +38,5 @@ class AdminController extends Controller
     if($request->ajax()) {
 
     }
-  }*/
+  }
 }

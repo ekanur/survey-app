@@ -181,7 +181,7 @@ class DosenController extends Controller
     }
 
     function simpanBiodata(){
-    	$biodata = Biodata_dosen::firstOrCreate(["nip"=>session("userID")], $this->getDataDosen());
+    	$biodata = Biodata_dosen::updateOrCreate(["nip"=>session("userID")], $this->getDataDosen());
     }
 
     function getDataDosen(){
@@ -192,11 +192,11 @@ class DosenController extends Controller
     	->select("dsn_nm", "dsn_gelar", "dsn_gelar2", "jur_nm", "m_fak.fak_skt")->where("m_dosen.dsn_nip", "=", session("userID"))->first();
 
     	$dosen["nama"] = $data_dosen->dsn_gelar.(!is_null($data_dosen->dsn_gelar))? " ": null.$data_dosen->dsn_nm." ".$data_dosen->dsn_gelar2;
-    	$dosen["jurusan"] = $data_dosen->jur_nm;
-    	$dosen["fakultas"] = $data_dosen->fak_skt;
-    	$dosen["nip"] = session("userID");
+      $dosen["fakultas"] = $data_dosen->fak_skt;
+      $dosen["jurusan"] = $data_dosen->jur_nm;
+      $dosen["nip"] = session("userID");
 
-    	return $dosen;
+      return $dosen;
     }
 
     function dataKuesioner($request){
@@ -508,65 +508,65 @@ class DosenController extends Controller
   	$columns = ['id', 'nip', 'nama', 'jurusan', 'fakultas', 'created_at', 'id'];
     
   	$totalData = DB::table('angket_dosen')
-  							->select(DB::raw("COUNT(id) AS jumlah_responden"))
-                ->where('kuesioner', 'q1')
-                ->count();
+   ->select(DB::raw("COUNT(id) AS jumlah_responden"))
+   ->where('kuesioner', 'q1')
+   ->count();
 
-    $data_db = DB::table('angket_dosen')
-    				->select(DB::raw('group1.dosen_nip, group1.created_at, dosen.nip, dosen.nama, dosen.jurusan, dosen.fakultas'))
-    				->from(DB::raw('(select dosen_nip, created_at from angket_dosen group by dosen_nip, created_at) AS group1'))
-    				->join('biodata_dosen AS dosen', 'dosen.nip', '=', 'group1.dosen_nip');
-  	if($params['fakultas']) { 
-  		$data_db->where("dosen.fakultas", "ILIKE", "%{$params['fakultas']}%");
-  	}
-  	if($params['jurusan']) { 
-  		$data_db->where("dosen.jurusan", "ILIKE", "%{$params['jurusan']}%");
-  	}
-  	if($params['rentang_tanggal']) { 
-  		$split_date = explode(' - ', $params['rentang_tanggal']);
-  		$start_date = date('Y-m-d', strtotime(trim($split_date[0])));
-  		$end_date = date('Y-m-d', strtotime(trim($split_date[1])));
-  		$data_db->whereBetween(DB::raw("DATE(group1.created_at)"), [$start_date, $end_date]);
-  	}
-  	if(!empty($params['search']['value'])) {
-  		$data_db->where(function($query) use ($params) {
-	  		$query->orWhere("dosen.nip", "ILIKE", "%{$params['search']['value']}%");
-	  		$query->orWhere("dosen.nama", "ILIKE", "%{$params['search']['value']}%");
-  		});
-  	}
-  	$totalFiltered = $data_db;
-  	$totalFiltered = $totalFiltered->count();
-
-  	$data_db->orderBy($columns[$params['order'][0]['column']], $params['order'][0]['dir']);
-  	$data_db->offset($params['start']);
-  	$data_db->limit($params['length']);
-  	$data_db = $data_db->get();
-
-  	$data = []; $i = $params['start'];
-  	foreach ($data_db as $row) {
-  		$tbody   = []; 
-  		$tbody[] = ($i+1);
-  		$tbody[] = $row->nip;
-  		$tbody[] = $row->nama;
-  		$tbody[] = $row->jurusan;
-  		$tbody[] = $row->fakultas;
-  		$tbody[] = date("d-m-Y H:i", strtotime($row->created_at));
-  		$tbody[] = '<div>'
-  		.'<div class="btn-group">'
-	  		.'<a href="javascript:void(0);" class="btn btn-sm btn-outline-primary" onclick="showDetail(\''.$row->dosen_nip.'\',\''.$row->created_at.'\');" title="Lihat Detail"> <i class="fa fa-list"></i> </a>'
-	  		.'<a href="" class="btn btn-sm btn-outline-danger" onclick="prepDelete(\''.$row->dosen_nip.'\',\''.$row->created_at.'\');" title="Hapus data"> <i class="fa fa-trash-alt"></i> </a>'
-  		.'</div>'
-  		.'</div>';
-
-  		$data[] = $tbody; $i++;
-  	}
-  	$totalData = count($data);
-  	$json_data = array(
-  		"draw"            => intval( $params['draw'] ),
-  		"recordsTotal"    => intval( $totalData ),
-  		"recordsFiltered" => intval( $totalFiltered ),
-  		"data"            => $data
-  	);
-  	echo json_encode($json_data);
+   $data_db = DB::table('angket_dosen')
+   ->select(DB::raw('group1.dosen_nip, group1.created_at, dosen.nip, dosen.nama, dosen.jurusan, dosen.fakultas'))
+   ->from(DB::raw('(select dosen_nip, created_at from angket_dosen group by dosen_nip, created_at) AS group1'))
+   ->join('biodata_dosen AS dosen', 'dosen.nip', '=', 'group1.dosen_nip');
+   if($params['fakultas']) { 
+    $data_db->where("dosen.fakultas", "ILIKE", "%{$params['fakultas']}%");
   }
+  if($params['jurusan']) { 
+    $data_db->where("dosen.jurusan", "ILIKE", "%{$params['jurusan']}%");
+  }
+  if($params['rentang_tanggal']) { 
+    $split_date = explode(' - ', $params['rentang_tanggal']);
+    $start_date = date('Y-m-d', strtotime(trim($split_date[0])));
+    $end_date = date('Y-m-d', strtotime(trim($split_date[1])));
+    $data_db->whereBetween(DB::raw("DATE(group1.created_at)"), [$start_date, $end_date]);
+  }
+  if(!empty($params['search']['value'])) {
+    $data_db->where(function($query) use ($params) {
+     $query->orWhere("dosen.nip", "ILIKE", "%{$params['search']['value']}%");
+     $query->orWhere("dosen.nama", "ILIKE", "%{$params['search']['value']}%");
+   });
+  }
+  $totalFiltered = $data_db;
+  $totalFiltered = $totalFiltered->count();
+
+  $data_db->orderBy($columns[$params['order'][0]['column']], $params['order'][0]['dir']);
+  $data_db->offset($params['start']);
+  $data_db->limit($params['length']);
+  $data_db = $data_db->get();
+
+  $data = []; $i = $params['start'];
+  foreach ($data_db as $row) {
+    $tbody   = []; 
+    $tbody[] = ($i+1);
+    $tbody[] = $row->nip;
+    $tbody[] = $row->nama;
+    $tbody[] = $row->jurusan;
+    $tbody[] = $row->fakultas;
+    $tbody[] = date("d-m-Y H:i", strtotime($row->created_at));
+    $tbody[] = '<div>'
+    .'<div class="btn-group">'
+    .'<a href="javascript:void(0);" class="btn btn-sm btn-outline-primary" onclick="showDetail(\''.$row->dosen_nip.'\',\''.$row->created_at.'\');" title="Lihat Detail"> <i class="fa fa-list"></i> </a>'
+    .'<a href="" class="btn btn-sm btn-outline-danger" onclick="prepDelete(\''.$row->dosen_nip.'\',\''.$row->created_at.'\');" title="Hapus data"> <i class="fa fa-trash-alt"></i> </a>'
+    .'</div>'
+    .'</div>';
+
+    $data[] = $tbody; $i++;
+  }
+  $totalData = count($data);
+  $json_data = array(
+    "draw"            => intval( $params['draw'] ),
+    "recordsTotal"    => intval( $totalData ),
+    "recordsFiltered" => intval( $totalFiltered ),
+    "data"            => $data
+  );
+  echo json_encode($json_data);
+}
 }
