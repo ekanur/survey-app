@@ -166,4 +166,18 @@ class Controller extends BaseController
 
     return $data_db;
   }
+  function getListJurusanProdi($jur_kd=''){
+    $data_db = DB::connection("pgsql_2")->table("dtum.m_prodi AS prodi")
+    ->select("prodi.pro_kd", "prodi.pro_nm", "prodi.pro_skt", "prodi.jur_kd", "jurusan.jur_nm", "jurusan.jur_skt", "jurusan.fak_kd")
+    ->join("dtum.m_jur AS jurusan", "jurusan.jur_kd", "=", "prodi.jur_kd");
+    if($jur_kd) {
+      $data_db->where("prodi.jur_kd", "=", $jur_kd);
+    }
+    $data_db->where("prodi.jur_kd", "!=", '00');
+    $data_db->orderBy('prodi.jur_kd', 'asc');
+    $data_db->orderBy('prodi.pro_kd', 'asc');
+    $data_db = $data_db->get();
+
+    return $data_db;
+  }
 }

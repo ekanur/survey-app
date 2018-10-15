@@ -27,26 +27,18 @@
               </div>
               <div class="form-row">
                <div class="form-group col-md-6">
-                 <label for="prodijurusan">Prodi/Jurusan</label>
-                 <input type="text" class="form-control" id="prodijurusan" name="prodijurusan"placeholder="Prodi/Jurusan" required="">
-               </div>
-
-               <div class="form-group col-md-6">
                 <label for="fakultas">Fakultas</label>
                 <select id="fakultas" name="fakultas" class="select2 form-control" required="" placeholder="Fakultas">
-                  <option selected value="">Fakultas</option>
-                  <option value="fip">FIP (Fakultas Ilmu Pendidikan)</option>
-                  <option value="fs">FS (Fakultas Sastra)</option>
-                  <option value="fmipa">FMIPA (Fakultas Matematikan & IPA)</option>
-                  <option value="fe">FE (Fakultas Ekonomi)</option>
-                  <option value="ft">FT (Fakultas Teknik)</option>
-                  <option value="fik">FIK (Fakultas Ilmu Keolahragaan)</option>
-                  <option value="fis">FIS (Fakultas Ilmu Sosial)</option>
-                  <option value="fppsi">FPPSI (Fakultas Pendidikan Psikologi)</option>
-                  <option value="pasca">Pascasarjana</option>
-                  <option value="vokasi">Program Pendidikan Profesi dan Vokasi</option>
+                  <option></option>
                 </select>
               </div>
+               <div class="form-group col-md-6">
+                 <label for="prodijurusan">Jurusan/Prodi</label>
+                  <select id="prodijurusan" name="prodijurusan" class="select2 form-control" disabled="" required="" placeholder="Jurusan/Prodi">
+                    <option></option>
+                  </select>
+               </div>
+
             </div>
 
             
@@ -130,14 +122,66 @@
 
 @section('pagespecificjs') 
 <script >
-    // In your Javascript (external .js resource or <script> tag)
-    $(document).ready(function() {
-      $('.select2').select2();
-      minimumInputLength: 2
-      maximumResultsForSearch: 5
-      minimumResultsForSearch: 3
+  // In your Javascript (external .js resource or <script> tag)
+  $(document).ready(function() {
+    //iniitalize general select2
+    $('.select2').select2();
+
+    var listFakultas = {!! json_encode($list_fakultas) !!};
+    var listJurusanProdi = {!! json_encode($list_jurusan_prodi) !!};
+
+    //Preparing initial data for select2 filter prodijurusan dan fakultas  
+    var prodijurusan = null;
+    var fakultas = null;
+    dataSelectJurusanProdi = $.map(listJurusanProdi, function(row, idx) {
+          return {"id": row.jur_nm.trim()+'/'+row.pro_nm.trim(), "text": row.jur_nm.trim()+'/'+row.pro_nm.trim()};
+        });
+    dataSelectFakultas = $.map(listFakultas, function(row, idx) {
+        return {"id": row.fak_skt, "text": row.fak_nm+' ('+row.fak_skt+')', "fak_kd": row.fak_kd};
+      });
+    initSelectFilterJurusanProdi(dataSelectJurusanProdi);
+    initSelectFilterFakultas(dataSelectFakultas);
+    
+    //INISIALISASI SELECT2 FAKULTAS & JURUSAN
+    function initSelectFilterFakultas(data='') {
+      data.unshift({'id': '', 'text': ''});
+      fakultas = $('#fakultas').select2({ 
+        placeholder: "Pilih Fakultas",
+        data: data 
+      });
+      $('#fakultas').val("");
+    }
+    function initSelectFilterJurusanProdi(data='') {
+      data.unshift({'id': '', 'text': ''});
+      if(prodijurusan != null) {
+        //reinit prodijurusan if already initialized
+        $("#prodijurusan").empty().trigger("change");
+      }
+      prodijurusan = $('#prodijurusan').select2({ 
+        placeholder: "Pilih Jurusan/Prodi",
+        data: data 
+      });
+      $('#prodijurusan').val("");
+    }
+    //Event handler untuk onchange select filter fakultas
+    $('#fakultas').on('change', function(e) {
+      if($('#fakultas').val()) {
+        let data = $('#fakultas').select2("data");
+        let filteredJurusan = $.map(listJurusanProdi, function(row, idx) {
+          if(row.fak_kd == data[0].fak_kd){
+            return {"id": row.jur_nm.trim()+'/'+row.pro_nm.trim(), "text": row.jur_nm.trim()+'/'+row.pro_nm.trim()};
+          }
+        });
+        initSelectFilterJurusanProdi(filteredJurusan);
+        $("#prodijurusan").attr("disabled", false);
+      }
+      else {
+        $("#prodijurusan").attr("disabled", true);
+        $("#prodijurusan").val("");
+      }
     });
+  });
 
 
-  </script>
-  @endsection
+</script>
+@endsection

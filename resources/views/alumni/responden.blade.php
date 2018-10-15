@@ -6,7 +6,7 @@
 <div class="page-header row no-gutters py-4">
   <div class="col-12 mb-0">
     <span class="text-uppercase page-subtitle">SI Survei Kepuasan</span>
-    <h3 class="page-title">Data Responden - Pengguna</h3>
+    <h3 class="page-title">Data Responden - Alumni</h3>
   </div>
 </div>
 <!-- End Page Header -->
@@ -23,14 +23,13 @@
           <div class="col-12">
             <div class="form-inline">
               <div class="form-group mr-sm-2 mb-2">
-                <select name="" id="filterSkala" class="select2 form-control" title="Tampilkan data berdasarkan skala operasional"> 
+                <select name="" id="filterFakultas" class="select2 form-control" title="Tampilkan data berdasarkan fakultas ">
                   <option></option>
-                  <option value="Internasional" data-select2-id="21">Internasional</option>
-                  <option value="Nasional" data-select2-id="22">Nasional</option>
-                  <option value="Swasta" data-select2-id="23">Swasta</option>
-                  <option value="BUMN" data-select2-id="24">BUMN</option>
-                  <option value="Negeri" data-select2-id="25">Negeri</option>
-                  <option value="Milik Sendiri" data-select2-id="26">Milik Sendiri</option>
+                </select>
+              </div>
+              <div class="form-group mr-sm-2 mb-2">
+                <select name="" id="filterJurusanProdi" class="select2 form-control" title="Tampilkan data berdasarkan jurusan/prodi"disabled=""> 
+                  <option></option>
                 </select>
               </div>
               <div class="form-group mr-sm-2 mb-2">
@@ -55,13 +54,11 @@
                 <thead class="">
                   <tr>
                     <th scope="col" class="border-0 no-sort">#</th>
-                    <th scope="col" class="border-0">Jabatan Pengisi</th>
-                    <th scope="col" class="border-0">Nama Instansi</th>
+                    <th scope="col" class="border-0">Nama Alumni</th>
                     <th scope="col" class="border-0">Email</th>
-                    <th scope="col" class="border-0">Skala Operasional</th>
-                    <th scope="col" class="border-0">Jumlah Pegawai</th>
-                    <th scope="col" class="border-0">Jumlah Lulusan UM</th>
-                    <th scope="col" class="border-0">Tanggal Mengisi</th>
+                    <th scope="col" class="border-0">Jurusan/Prodi</th>
+                    <th scope="col" class="border-0">Fakultas</th>
+                    <th scope="col" class="border-0">Tanggal Isi</th>
                     <th scope="col" class="border-0 no-sort">Aksi</th>
                   </tr>
                 </thead>
@@ -90,18 +87,61 @@
 @section('pagespecificjs') 
 <script>
   $(document).ready(function() {
-    initSelectFilterSkala();
-    
-    //INISIALISASI SELECT2 SKALA OPERASIONAL
-    function initSelectFilterSkala(data='') {
-      // data.unshift({'id': '', 'text': ''});
-      filterSkala = $('#filterSkala').select2({ 
-        placeholder: "Pilih Skala Operasional",
-        allowClear: true,
-        // data: data 
+    var listFakultas = {!! json_encode($list_fakultas) !!};
+    var listJurusanProdi = {!! json_encode($list_jurusan_prodi) !!};
+
+    //Preparing initial data for select2 filter jurusan dan fakultas  
+    var filterJurusanProdi = null;
+    var filterFakultas = null;
+    dataFilterJurusanProdi = $.map(listJurusanProdi, function(row, idx) {
+          return {"id": row.jur_nm.trim()+'/'+row.pro_nm.trim(), "text": row.jur_nm.trim()+'/'+row.pro_nm.trim()};
+        });
+    dataFilterFakultas = $.map(listFakultas, function(row, idx) {
+        return {"id": row.fak_skt, "text": row.fak_nm+' ('+row.fak_skt+')', "fak_kd": row.fak_kd};
       });
-      $('#filterSkala').val("");
+    initSelectFilterJurusan(dataFilterJurusanProdi);
+    initSelectFilterFakultas(dataFilterFakultas);
+    
+    //INISIALISASI SELECT2 FAKULTAS & JURUSAN
+    function initSelectFilterFakultas(data='') {
+      data.unshift({'id': '', 'text': ''});
+      filterFakultas = $('#filterFakultas').select2({ 
+        placeholder: "Pilih Fakultas",
+        allowClear: true,
+        data: data 
+      });
+      $('#filterFakultas').val("");
     }
+    function initSelectFilterJurusan(data='') {
+      data.unshift({'id': '', 'text': ''});
+      if(filterJurusanProdi != null) {
+        //reinit filterJurusanProdi if already initialized
+        $("#filterJurusanProdi").empty().trigger("change");
+      }
+      filterJurusanProdi = $('#filterJurusanProdi').select2({ 
+        placeholder: "Pilih Jurusan",
+        allowClear: true,
+        data: data 
+      });
+      $('#filterJurusanProdi').val("");
+    }
+    //Event handler untuk onchange select filter fakultas
+    $('#filterFakultas').on('change', function(e) {
+      if($('#filterFakultas').val()) {
+        let data = $('#filterFakultas').select2("data");
+        let filteredJurusanProdi = $.map(listJurusanProdi, function(row, idx) {
+          if(row.fak_kd == data[0].fak_kd){
+            return {"id": row.jur_nm.trim()+'/'+row.pro_nm.trim(), "text": row.jur_nm.trim()+'/'+row.pro_nm.trim()};
+          }
+        });
+        initSelectFilterJurusan(filteredJurusanProdi);
+        $("#filterJurusanProdi").attr("disabled", false);
+      }
+      else {
+        $("#filterJurusanProdi").attr("disabled", true);
+        $("#filterJurusanProdi").val("");
+      }
+    });
 
     // INISIALISASI DATERANGEPICKER
     $('input.daterange').daterangepicker({
@@ -118,13 +158,14 @@
       "processing": true,
       "serverSide": true,
       "searchDelay": 800,
-      "order": [[7, 'desc']],
+      "order": [[5, 'desc']],
       "ajax": {
-        url: "{{ url('/admin/responden/pengguna/get_datatable') }}",
+        url: "{{ url('/admin/responden/alumni/get_datatable') }}",
         type: "post",
         data: function(d) {
           d._token = "{{ csrf_token() }}";
-          d.skala_operasional = $('#filterSkala').val() || '';
+          d.fakultas = $('#filterFakultas').val() || '';
+          d.jurusan_prodi = $('#filterJurusanProdi').val() || '';
           d.rentang_tanggal = $('#rentang_tanggal').val() || '';
         },
         error: function() {
@@ -139,15 +180,15 @@
       "drawCallback": function(settings) {}
     });
     // Select Filter OnChange Handler
-    $('#rentang_tanggal, #filterSkala').on("change", function(e){
+    $('#filterJurusanProdi, #filterFakultas, #rentang_tanggal').on("change", function(e){
       if($(this).val()) {
         initDatatable1.clear().draw();
       }
     });
     
     // Clear filter button onclick handler
-    $('#clearFilterBtn').on("click", function() {
-      $('#rentang_tanggal, #filterSkala').val(null).trigger('change');
+    $('#clearFilterBtn').on("click", function(e) {
+      $('#rentang_tanggal, #filterFakultas, #filterJurusanProdi').val(null).trigger('change');
       initDatatable1.clear().draw();
     })
 
