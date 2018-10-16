@@ -47,10 +47,11 @@ Route::post("admin/responden/mahasiswa/get_datatable", "MahasiswaController@get_
 Route::post("admin/responden/alumni/get_datatable", "AlumniController@get_datatable_responden");
 Route::post("admin/responden/pengguna/get_datatable", "PenggunaController@get_datatable_responden");
 Route::post("admin/responden/mitra/get_datatable", "MitraController@get_datatable_responden");
+
 /*Route::get("admin/responden/dosen", "DosenController@list_responden");
+Route::get("admin/responden/tendik", "TendikController@responden");
 Route::get("admin/responden/mahasiswa", "MahasiswaController@list_responden");
 route::get("admin/responden/alumni","AlumniController@list_responden");
-Route::get("admin/responden/tendik", "TendikController@list_responden");
 Route::get("admin/responden/pengguna", "PenggunaController@list_responden");
 Route::get("admin/responden/mitra", "MitraController@list_responden");
 */

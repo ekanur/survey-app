@@ -48,6 +48,10 @@ class MahasiswaController extends Controller
     $biodata = Biodata_mahasiswa::updateOrCreate(["nim"=>session("userID")], $this->getDataMahasiswa());
   }
 
+  function angket(){
+    return view("mahasiswa.angket");
+  }
+
   function getDataMahasiswa(){
     $mahasiswa = [];
     $data_mahasiswa = DB::connection("pgsql_2")->table("dtum.m_mhs")
