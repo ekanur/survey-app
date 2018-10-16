@@ -232,7 +232,9 @@
     // Clear filter button onclick handler
     $('#clearFilterBtn').on("click", function() {
       $('#rentang_tanggal, #filterFakultas, #filterJurusan, #filterProdi').val(null).trigger('change');
-      initDatatable1.clear().draw();
+      if(!$(this).val()) {
+        initDatatable1.clear().draw();
+      }
     })
 
   }); //End Document Ready

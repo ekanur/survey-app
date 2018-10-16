@@ -60,7 +60,7 @@
                     <th scope="col" class="border-0">No. Telepon</th>
                     <th scope="col" class="border-0">Skala Operasional</th>
                     <th scope="col" class="border-0">Tahun Kerjasama</th>
-                    <th scope="col" class="border-0">Tanggal Mengisi</th>
+                    <th scope="col" class="border-0">Tanggal Isi</th>
                     <th scope="col" class="border-0 no-sort">Aksi</th>
                   </tr>
                 </thead>
@@ -147,7 +147,9 @@
     // Clear filter button onclick handler
     $('#clearFilterBtn').on("click", function() {
       $('#rentang_tanggal, #filterSkala').val(null).trigger('change');
-      initDatatable1.clear().draw();
+      if(!$(this).val()) {
+        initDatatable1.clear().draw();
+      }
     })
 
   }); //End Document Ready

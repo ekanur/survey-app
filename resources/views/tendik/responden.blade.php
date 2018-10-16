@@ -6,7 +6,7 @@
 <div class="page-header row no-gutters py-4">
   <div class="col-12 mb-0">
     <span class="text-uppercase page-subtitle">SI Survei Kepuasan</span>
-    <h3 class="page-title">Data Responden - Pengguna</h3>
+    <h3 class="page-title">Data Responden - Tendik</h3>
   </div>
 </div>
 <!-- End Page Header -->
@@ -23,14 +23,8 @@
           <div class="col-12">
             <div class="form-inline">
               <div class="form-group mr-sm-2 mb-2">
-                <select name="" id="filterSkala" class="select2 form-control" title="Tampilkan data berdasarkan skala operasional"> 
+                <select name="" id="filterUnitKerja" class="select2 form-control" title="Tampilkan data berdasarkan unit kerja"> 
                   <option></option>
-                  <option value="Internasional" data-select2-id="21">Internasional</option>
-                  <option value="Nasional" data-select2-id="22">Nasional</option>
-                  <option value="Swasta" data-select2-id="23">Swasta</option>
-                  <option value="BUMN" data-select2-id="24">BUMN</option>
-                  <option value="Negeri" data-select2-id="25">Negeri</option>
-                  <option value="Milik Sendiri" data-select2-id="26">Milik Sendiri</option>
                 </select>
               </div>
               <div class="form-group mr-sm-2 mb-2">
@@ -55,12 +49,9 @@
                 <thead class="">
                   <tr>
                     <th scope="col" class="border-0 no-sort">#</th>
-                    <th scope="col" class="border-0">Jabatan Pengisi</th>
-                    <th scope="col" class="border-0">Nama Instansi</th>
-                    <th scope="col" class="border-0">Email</th>
-                    <th scope="col" class="border-0">Skala Operasional</th>
-                    <th scope="col" class="border-0">Jumlah Pegawai</th>
-                    <th scope="col" class="border-0">Jumlah Lulusan UM</th>
+                    <th scope="col" class="border-0">NIP</th>
+                    <th scope="col" class="border-0">Nama Tendik</th>
+                    <th scope="col" class="border-0">Unit Kerja</th>
                     <th scope="col" class="border-0">Tanggal Isi</th>
                     <th scope="col" class="border-0 no-sort">Aksi</th>
                   </tr>
@@ -90,17 +81,25 @@
 @section('pagespecificjs') 
 <script>
   $(document).ready(function() {
-    initSelectFilterSkala();
-    
-    //INISIALISASI SELECT2 SKALA OPERASIONAL
-    function initSelectFilterSkala(data='') {
-      // data.unshift({'id': '', 'text': ''});
-      filterSkala = $('#filterSkala').select2({ 
-        placeholder: "Pilih Skala Operasional",
-        allowClear: true,
-        // data: data 
+    var listUnitKerja = {!! json_encode($list_unit) !!};
+
+    //Preparing initial data for select2 filter jurusan dan fakultas  
+    var filterJurusan = null;
+    var filterUnitKerja = null;
+    dataFilterUnitKerja = $.map(listUnitKerja, function(row, idx) {
+        return {"id": row.nama_unit, "text": row.nama_unit+' ('+row.nama_unit+')', "kode_unit": row.kode_unit};
       });
-      $('#filterSkala').val("");
+    initSelectFilterUnitKerja(dataFilterUnitKerja);
+    
+    //INISIALISASI SELECT2 UNIT KERJA
+    function initSelectFilterUnitKerja(data='') {
+      data.unshift({'id': '', 'text': ''});
+      filterUnitKerja = $('#filterUnitKerja').select2({ 
+        placeholder: "Pilih Unit Kerja",
+        allowClear: true,
+        data: data 
+      });
+      $('#filterUnitKerja').val("");
     }
 
     // INISIALISASI DATERANGEPICKER
@@ -118,13 +117,13 @@
       "processing": true,
       "serverSide": true,
       "searchDelay": 800,
-      "order": [[7, 'desc']],
+      "order": [[4, 'desc']],
       "ajax": {
-        url: "{{ url('/admin/responden/pengguna/get_datatable') }}",
+        url: "{{ url('/admin/responden/tendik/get_datatable') }}",
         type: "post",
         data: function(d) {
           d._token = "{{ csrf_token() }}";
-          d.skala_operasional = $('#filterSkala').val() || '';
+          d.unit_kerja = $('#filterUnitKerja').val() || '';
           d.rentang_tanggal = $('#rentang_tanggal').val() || '';
         },
         error: function() {
@@ -139,7 +138,7 @@
       "drawCallback": function(settings) {}
     });
     // Select Filter OnChange Handler
-    $('#rentang_tanggal, #filterSkala').on("change", function(e){
+    $('#filterUnitKerja, #rentang_tanggal').on("change", function(e){
       if($(this).val()) {
         initDatatable1.clear().draw();
       }
@@ -147,7 +146,7 @@
     
     // Clear filter button onclick handler
     $('#clearFilterBtn').on("click", function() {
-      $('#rentang_tanggal, #filterSkala').val(null).trigger('change');
+      $('#rentang_tanggal, #filterUnitKerja').val(null).trigger('change');
       if(!$(this).val()) {
         initDatatable1.clear().draw();
       }

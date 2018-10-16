@@ -133,7 +133,7 @@ class Controller extends BaseController
     return Saml2::logout();
   }
 
-  //GET LIST FAKULTAS, JURUSAN, & PRODI
+  //GET LIST FAKULTAS, JURUSAN, PRODI, & UNIT KERJA
   function getListFakultas(){
     $data_db = DB::connection("pgsql_2")->table("dtum.m_fak")->select("fak_kd", "fak_nm", "fak_skt");
     $data_db->where("fak_kd", "!=", '00');
@@ -176,6 +176,17 @@ class Controller extends BaseController
     $data_db->where("prodi.jur_kd", "!=", '00');
     $data_db->orderBy('prodi.jur_kd', 'asc');
     $data_db->orderBy('prodi.pro_kd', 'asc');
+    $data_db = $data_db->get();
+
+    return $data_db;
+  }
+  function getListUnitKerja($kode_unit=''){
+    $data_db = DB::connection("pgsql_2")->table("pegawai.unit_kerja AS unit")
+    ->select("unit.kode_unit", "unit.nama_unit");
+    if($kode_unit) {
+      $data_db->where("unit.kode_unit", "=", $kode_unit);
+    }
+    $data_db->orderBy('unit.kode_unit', 'asc');
     $data_db = $data_db->get();
 
     return $data_db;
