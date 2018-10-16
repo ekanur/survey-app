@@ -34,7 +34,7 @@
               </div>
                <div class="form-group col-md-6">
                  <label for="prodijurusan">Jurusan/Prodi</label>
-                  <select id="prodijurusan" name="prodijurusan" class="select2 form-control" disabled="" required="" placeholder="Jurusan/Prodi">
+                  <select id="prodijurusan" name="prodi" class="select2 form-control" disabled="" required="" placeholder="Jurusan/Prodi">
                     <option></option>
                   </select>
                </div>

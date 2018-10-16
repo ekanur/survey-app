@@ -22,17 +22,17 @@
         <div class="row border-bottom py-2 bg-light">
           <div class="col-12">
             <div class="form-inline">
-              <div class="form-group mr-sm-2">
+              <div class="form-group mr-sm-2 mb-2">
                 <select name="" id="filterFakultas" class="select2 form-control" title="Tampilkan data berdasarkan fakultas ">
                   <option></option>
                 </select>
               </div>
-              <div class="form-group mr-sm-2">
+              <div class="form-group mr-sm-2 mb-2">
                 <select name="" id="filterJurusan" class="select2 form-control" title="Tampilkan data berdasarkan jurusan"disabled=""> 
                   <option></option>
                 </select>
               </div>
-              <div class="form-group mr-sm-2">
+              <div class="form-group mr-sm-2 mb-2">
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <i class="fa fa-calendar input-group-text"></i>
@@ -40,7 +40,7 @@
                   <input type="text" class="daterange input-sm form-control" name="rentang_tanggal" placeholder="Rentang Tanggal" id="rentang_tanggal" title="Tampilkan data berdasarkan tanggal mengisi angket">
                 </div>
               </div>
-              <div class="form-group mr-sm-2">
+              <div class="form-group mr-sm-2 mb-2">
                 <button type="button" id="clearFilterBtn" class="btn btn-sm btn-secondary" title="Bersihkan filter"><i class="fa fa-undo"></i> Reset</button>
               </div>
             </div>
@@ -189,7 +189,9 @@
     // Clear filter button onclick handler
     $('#clearFilterBtn').on("click", function() {
       $('#rentang_tanggal, #filterFakultas, #filterJurusan').val(null).trigger('change');
-      initDatatable1.clear().draw();
+      if(!$(this).val()) {
+        initDatatable1.clear().draw();
+      }
     })
 
   }); //End Document Ready
