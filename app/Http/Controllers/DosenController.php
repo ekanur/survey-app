@@ -13,61 +13,28 @@ class DosenController extends Controller
 {
 
 	function __construct()
-	{
-    // return Saml2::login();
-	}
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    {
+      $this->middleware(function($request, $next){
+        if(session("tipe") != 2){
+          session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
+          return redirect("/");
+        }
+
+        if(null == session("userID")){
+          session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
+          return redirect("/");
+        }
+        return $next($request);
+      })->except(["report", "responden", "get_datatable_responden"]);
+    }
+
     public function index()
     {
-    //   $is_dosen = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where([["nip", "=", session("userID")], ["id_jns_pegawai", "=", 5]])->get();
-
-    	if(session("tipe") != 2){
-    		session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
-    		return redirect("/logout");
-    	}
+    
     	return redirect("/dosen/angket"); 
-        // return redirect('saml2/login');
-        // return Saml2::login();
-        // return view("dosen/identitas");
-      // var_dump(session()->all());
+        
     }
 
-    /*public function login() {
-     return \Auth::guest() ? redirect('saml2/login') : \Redirect::intended('/');
-    }
-    public function logout()
-    {
-      //recover sessionIndex and nameId from session
-      $sessionIndex = session()->get('sessionIndex');
-      $nameId = session()->get('nameId');
-
-      //get the logout route from saml2 config
-      $returnTo = config('saml2_settings.logoutRoute');
-
-      //pass parameters into the url
-      return redirect()->route('saml_logout', [
-        'returnTo'=>$returnTo,
-        'nameId'=>$nameId,
-        'sessionIndex'=>$sessionIndex
-      ]);
-    }*/
-
-    /*public function loggedin()
-    {
-      // return view('home');
-      echo "YOU'VE BEEN LOGGED IN! HELL YEA!";
-      var_dump(session()->all());
-    }*/
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function angket()
     {
@@ -78,93 +45,6 @@ class DosenController extends Controller
     	return view('dosen/angket');
 
     }
-
-
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    // public function simpanBiodata(Request $request){
-    //   // $biodata = new Biodata_dosen;
-    //   // $biodata->email = $request->email;
-    //   // $biodata->prodi = $request->prodijurusan;
-    //   // $biodata->fakultas = $request->fakultas;
-    //   // $biodata->tmt = $request->tmt;
-    //   // $biodata->jenis_kelamin = $request->jeniskelamin;
-    //   // $biodata->usia = $request->usia;
-    //   // $biodata->pendidikan_tertinggi = $request->pendidikan;
-    //   // $biodata->lama_mengajar = $request->lamamengajar;
-    //   // $biodata->jabatan_fungsional = $request->jabatanfungsional;
-    //   // $biodata->tugas_tambahan = $request->tugastambahan;
-
-
-    //   //   if($biodata->save()){
-    //   //   // dd($biodata->id);
-    //   //        session(["userID" => $biodata->id]);
-    //   //          // dd(session("userID"));
-    //   //        return redirect("/dosen/angket");
-    //   //   }else{
-    //   //       return redirect()->back()->withInput();
-    //   //   }
-    // }
-
 
     public function simpanAngket(Request $request){
     	if(null == session("userID")){
@@ -214,15 +94,11 @@ class DosenController extends Controller
     		$i++;
     	}
 
-        // dd($data);
-
     	return $data;
     }
 
 
     public function report() {
-    // $m_angket = new Angket_dosen;
-
     //Pertanyaan 1: Pemahaman VTMS Universitas
     	$data_db = DB::table("angket_dosen")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->whereIn("kuesioner", ["q1", "q4", "q7"])->groupBy("kuesioner", "value")->get();
     	$list_pemahaman_vmts = array(
@@ -504,7 +380,6 @@ class DosenController extends Controller
 
   function get_datatable_responden(Request $request) {
     $params = $request->all();
-    // die(json_encode($params['fakultas']));
     $columns = ['id', 'nip', 'nama', 'jurusan', 'fakultas', 'created_at', 'id'];
 
     $totalData = DB::table('angket_dosen')

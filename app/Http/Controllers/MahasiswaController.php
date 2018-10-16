@@ -11,145 +11,35 @@ use Illuminate\Support\Facades\DB;
 
 class MahasiswaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    function __construct()
+    {
+      $this->middleware(function($request, $next){
+        if(session("tipe") != 1){
+          session()->flash("msg", "Terjadi Kesalahan Mengambil data mahasiswa");
+          return redirect("/");
+        }
+
+        if(null == session("userID")){
+          session()->flash("msg", "Terjadi Kesalahan Mengambil data mahasiswa");
+          return redirect("/");
+        }
+        return $next($request);
+      })->except(["report", "responden", "get_datatable_responden"]);
+    }
+
+
     public function index()
     {
-      // OLD JOSSO LOGIN
-      /*$is_mahasiswa = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where("nip", "=", session("userID"))->get();
-
-      if(count($is_mahasiswa)!=0){
-        session()->flash("msg", "Terjadi Kesalahan Mengambil data mahasiswa");
-        return redirect("/servicelogout");
-      }
-      return redirect("/mahasiswa/angket"); */
-
-      // SAML Login
-      if(session("tipe") != 1){
-        session()->flash("msg", "Terjadi Kesalahan Mengambil data mahasiswa");
-        return redirect("/logout");
-      }
+      
       return redirect("/mahasiswa/angket"); 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    public function angket()
-    {
-      if(null == session("userID")){
-        session()->flash("msg", "Terjadi Kesalahan Mengambil data mahasiswa");
-        return redirect("/");
-      }
-      return view('mahasiswa/angket');
-
-    }
-
-
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-/*
-    public function simpanBiodata(Request $request){
-      $biodata = new Biodata_mahasiswa;
-      $biodata->email = $request->email;
-      $biodata->jenis_kelamin = $request->jeniskelamin;
-      $biodata->jalur_masuk = $request->jalurmasuk;
-      $biodata->tahun_masuk = $request->tahun_masuk;
-      $biodata->jenjang_pendidikan = $request->jenjang_pendidikan;
-      $biodata->pendornon = $request->pendornon;
-      $biodata->prodi = $request->prodi;
-      $biodata->jenis_pendidikan = $request->jenispend;
-
-
-      if($biodata->save()){
-        // dd($biodata->id);
-       session(["biodata_id" => $biodata->id]);
-               // dd(session("biodata_id"));
-       return redirect("/mahasiswa/angket");
-     }
-     else {
-      return redirect()->back()->withInput();
-    }
-  }
-*/
-
-
   public function simpanAngket(Request $request){
-    if(null == session("userID")){
-      session()->flash("msg", "Isikan biodata anda.");
-      return redirect("/mahasiswa");
-    }
     $this->simpanBiodata();
     $data = $this->dataKuesioner($request->except("_token"));
 
     Angket_mahasiswa::insert($data);
 
-    session()->forget("userID");
     session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
     return redirect("/");
   }

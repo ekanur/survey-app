@@ -11,164 +11,68 @@ use Illuminate\Support\Facades\DB;
 
 class TendikController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      /*$is_pegawai = DB::connection("pgsql_2")->table("pegawai.pegawai")->select("kd_pegawai")->where([["nip", "=", session("userID")], ["id_jns_pegawai", "!=", 5]])->get();
+  function __construct()
+  {
+    $this->middleware(function($request, $next){
 
-      if(count($is_pegawai)==0){
-        session()->flash("msg", "Terjadi Kesalahan Mengambil data tendik");
-        return redirect("/servicelogout");
-      }
-      return redirect("/tendik/angket"); */
-
-      // SAML Login
-      if(session("tipe") != 3){
-        session()->flash("msg", "Terjadi Kesalahan Mengambil data tendik");
-        return redirect("/logout");
-      }
-      return redirect("/tendik/angket"); 
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    public function angket()
-    {
       if(null == session("userID")){
         session()->flash("msg", "Terjadi Kesalahan Mengambil data tendik");
         return redirect("/");
       }
-      return view('tendik/angket');
+      if(session("tipe") != 3){
+        session()->flash("msg", "Terjadi Kesalahan Mengambil data tendik");
+        return redirect("/");
+      }
 
-    }
+      return $next($request);
 
-
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-     /* 
-    public function simpanBiodata(Request $request){
-     $biodata = new Biodata_tendik;
-      $biodata->inisial = $request->inisial;
-      $biodata->email = $request->email;
-      $biodata->unit_kerja = $request->unitkerja;
-      $biodata->tmt = $request->tmt;
-      $biodata->jenis_kelamin = $request->jeniskelamin;
-      $biodata->usia = $request->usia;
-      $biodata->pendidikan_tertinggi = $request->pendidikan;
-      $biodata->lama_bekerja = $request->lamakerja;
-
-      if($biodata->save()){
-        // dd($biodata->id);
-       session(["biodata_id" => $biodata->id]);
-               // dd(session("biodata_id"));
-       return redirect("/tendik/angket");
-     }
-     else {
-      return redirect()->back()->withInput();
+    })->except("report");
+    
   }
-}*/
 
 
-public function simpanAngket(Request $request){
-  if(null == session("userID")){
-    session()->flash("msg", "Isikan biodata anda.");
-    return redirect("/tendik");
+  public function index()
+  {
+
+    return redirect("/tendik/angket"); 
   }
-  $this->simpanBiodata();
-  $data = $this->dataKuesioner($request->except("_token"));
 
-  Angket_tendik::insert($data);
+  public function angket()
+  {
+    return view('tendik/angket');
+  }
 
-  session()->forget("userID");
-  session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
-  return redirect("/");
-}
+  public function simpanAngket(Request $request){
 
-function simpanBiodata(){
-  $biodata = Biodata_tendik::updateOrCreate(["nip"=>session("userID")], $this->getDataTendik());
-}
+    $this->simpanBiodata();
+    $data = $this->dataKuesioner($request->except("_token"));
 
-function getDataTendik(){
-  $tendik = [];
-  $data_tendik = DB::connection("pgsql_2")->table("pegawai.pegawai")
-  ->join("pegawai.unit_kerja", "pegawai.kode_unit", '=', 'unit_kerja.kode_unit')
-  ->select("nip", "nama_pegawai", "gelar_depan", "gelar_belakang", "unit_kerja.nama_unit")->where("pegawai.nip", "=", session("userID"))->first();
+    Angket_tendik::insert($data);
+
+  // session()->forget("userID");
+    session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
+    return redirect("/");
+  }
+
+  function simpanBiodata(){
+
+    $biodata = Biodata_tendik::updateOrCreate(["nip"=>session("userID")], $this->getDataTendik());
+  }
+
+  function getDataTendik(){
+    $tendik = [];
+    $data_tendik = DB::connection("pgsql_2")->table("pegawai.pegawai")
+    ->join("pegawai.unit_kerja", "pegawai.kode_unit", '=', 'unit_kerja.kode_unit')
+    ->select("nip", "nama_pegawai", "gelar_depan", "gelar_belakang", "unit_kerja.nama_unit")->where("pegawai.nip", "=", session("userID"))->first();
   // die(print_r($data_tendik));
-  $tendik["nama"] = $data_tendik->gelar_depan.(!is_null($data_tendik->gelar_depan))? " ": null.$data_tendik->nama_pegawai." ".$data_tendik->gelar_belakang;
-  $tendik["unit_kerja"] = $data_tendik->nama_unit;
-  $tendik["nip"] = session("userID");
+    $tendik["nama"] = $data_tendik->gelar_depan.((!empty($data_tendik->gelar_depan))? " ": null).$data_tendik->nama_pegawai." ".$data_tendik->gelar_belakang;
+    $tendik["nama_unit"] = $data_tendik->nama_unit;
+    $tendik["nip"] = session("userID");
+  // dd($tendik);
+    return $tendik;
+  }
 
-  return $tendik;
-}
-
-function dataKuesioner($request){
+  function dataKuesioner($request){
         $user_id = session("userID"); //diubah ke session hasil dari simpanBiodata
         $tahun = (null != session('tahun')) ? session('tahun') : date("Y") ;
         $timestamp = date("Y-m-d H:i:s");
@@ -188,7 +92,7 @@ function dataKuesioner($request){
         return $data;
       }
 
-      public function report() {
+      function report() {
        $data_db = DB::table("angket_tendik")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->whereIn("kuesioner", ["q1", "q4"])->groupBy("kuesioner", "value")->get();
 
        $list_pemahaman_vmts = array(
