@@ -71,10 +71,12 @@ class DosenController extends Controller
     	->join("dtum.m_fak", "m_jur.fak_kd", '=', 'm_fak.fak_kd')
     	->select("dsn_nm", "dsn_gelar", "dsn_gelar2", "jur_nm", "m_fak.fak_skt")->where("m_dosen.dsn_nip", "=", session("userID"))->first();
 
-    	$dosen["nama"] = $data_dosen->dsn_gelar.(!is_null($data_dosen->dsn_gelar))? " ": null.$data_dosen->dsn_nm." ".$data_dosen->dsn_gelar2;
-      $dosen["fakultas"] = $data_dosen->fak_skt;
-      $dosen["jurusan"] = $data_dosen->jur_nm;
-      $dosen["nip"] = session("userID");
+        // dd($data_dosen);
+
+        $dosen["nama"] = $data_dosen->dsn_gelar.(!is_null($data_dosen->dsn_gelar))? " ": null.$data_dosen->dsn_nm." ".$data_dosen->dsn_gelar2;
+        $dosen["fakultas"] = $data_dosen->fak_skt;
+        $dosen["jurusan"] = $data_dosen->jur_nm;
+        $dosen["nip"] = session("userID");
 
       return $dosen;
     }
