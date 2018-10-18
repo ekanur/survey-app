@@ -13,11 +13,41 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css">
 
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css">
+
     {{-- Select 2 --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
     {{-- Custom css untuk patching style dari plugin --}}
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+
+    <style>
+.menu {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #007bff;
+    margin: 6px 15px;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+</style>
 
     <style type="text/css">
     .center{
@@ -28,6 +58,8 @@
     @stack("style")
 </head>
 <body>
+
+
     <div class="main-content-container container-fluid px-4">
         <!-- Page Header -->
         <div class="page-header row no-gutters py-4 mb-5">
@@ -112,6 +144,8 @@
 {{-- <script src="{!! asset('js/app/app-components-overview.1.0.0.js')!!}"></script> --}}
 <script src="{{ asset('js/textareacounter.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -120,6 +154,18 @@
             window.location.href = "{{ url("/ubah-tahun") }}/"+tahun;
         });
     });
+</script>
+
+<script>
+function myFunction(x) {
+    x.classList.toggle("change");
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  $('#simple-menu').sidr();
+});
 </script>
 
 @yield('pagespecificjs')
