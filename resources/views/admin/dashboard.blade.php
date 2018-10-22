@@ -4,15 +4,16 @@
 
 <!-- Page Header -->
 <div class="page-header row no-gutters py-4">
-  <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+  <div class="col-12 text-center text-sm-center mb-0">
+      <img src="{{asset('images/um_logo_blue_text.png')}}" width="240"><br/><br/>
     <span class="text-uppercase page-subtitle">SI Survei Kepuasan</span>
-    <h3 class="page-title">Beranda</h3>
+    <h3 class="page-title">Jumlah Reponden</h3>
   </div>
 </div>
 <!-- End Page Header -->
 
 <!-- Top Referrals Component -->
-<div class="row">
+<!-- <div class="row">
   <div class="col-lg-3 col-md-12 col-sm-12 mb-4">
     <div class="card card-small">
       <div class="card-header border-bottom">
@@ -67,7 +68,90 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
+<div class="row">
+              <div class="col-md-4 mb-4">
+                <div class="stats-small stats-small--1 card card-small">
+                  <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                      <div class="stats-small__data text-center">
+                        <span class="stats-small__label text-uppercase">Dosen</span>
+                        <h6 class="stats-small__value count my-3">{{ $count['dosen'] }}</h6>
+                      </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="stats-small stats-small--1 card card-small">
+                  <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                      <div class="stats-small__data text-center">
+                        <span class="stats-small__label text-uppercase">Mahasiswa</span>
+                        <h6 class="stats-small__value count my-3">{{ $count['mahasiswa'] }}</h6>
+                      </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="stats-small stats-small--1 card card-small">
+                  <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                      <div class="stats-small__data text-center">
+                        <span class="stats-small__label text-uppercase">Tenaga Kependidikan</span>
+                        <h6 class="stats-small__value count my-3">{{ $count['tendik'] }}</h6>
+                      </div>
+                    </div>
+                  <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+                </div>
+              </div>
+             </div>
+              <div class="col-md-4 mb-4">
+                <div class="stats-small stats-small--1 card card-small">
+                  <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                      <div class="stats-small__data text-center">
+                        <span class="stats-small__label text-uppercase">Alumni</span>
+                        <h6 class="stats-small__value count my-3">{{ $count['alumni'] }}</h6>
+                      </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="stats-small stats-small--1 card card-small">
+                  <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                      <div class="stats-small__data text-center">
+                        <span class="stats-small__label text-uppercase">Pengguna</span>
+                        <h6 class="stats-small__value count my-3">{{ $count['pengguna'] }}</h6>
+                      </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="stats-small stats-small--1 card card-small">
+                  <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                      <div class="stats-small__data text-center">
+                        <span class="stats-small__label text-uppercase">Mitra</span>
+                        <h6 class="stats-small__value count my-3">{{ $count['mitra'] }}</h6>
+                      </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+                  </div>
+                </div>
+              </div>
 </div>
+
 <!-- End Top Referrals Component -->
 
 @endsection

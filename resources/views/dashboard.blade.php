@@ -1,21 +1,4 @@
 @extends('layouts.app')
-<a id="simple-menu" href="#sidr">
-<div class="menu" onclick="myFunction(this)">
-    <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
-</div>
-</a>
-
-<div id="sidr">
-  <!-- Your content -->
-  <ul>
-    <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
-    <li><a href="#">
-<i class="fas fa-chart-bar"></i> Hasil</a></li>
-    <li><a href="#"><i class="fas fa-sign-in-alt"></i> Admin</a></li>
-  </ul>
-</div>
 @section('content') 
 <br>   
 <div class="row">
@@ -91,8 +74,12 @@
       </a>
     </div>
   </div>
+
 </div>
 
+<div class="col text-right view-report">
+                        <a href="{{url ('admin')}}">Rekapitulasi →</a>
+                      </div>
 <!-- End Small Stats Blocks -->
 @endsection
 
