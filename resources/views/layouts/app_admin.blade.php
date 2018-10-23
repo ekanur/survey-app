@@ -77,7 +77,8 @@
     <!-- Your content -->
     <ul>
       <li><a href="{{url('/')}}"><img id="main-logo" class="d-inline-block align-center mr-1" style="max-width: 27px;" src="{{asset('images/um_logo.png')}}">  SIPUAS</a></li>
-      <li><a href="{{url('/admin')}}"><i class="fa fa-home" aria-hidden="true"></i> Responden</a></li>
+      <li><a href="{{url('/admin')}}">
+        <i class="fa fa-home" aria-hidden="true"></i> Responden</a></li>
       <li><a href="{{url('/admin/rekapitulasi')}}">
         <i class="fas fa-chart-pie"></i> Rekapitulasi</a></li>
         <li><a href="#"><i class="fas fa-sign-in-alt"></i> Admin</a></li>
@@ -85,7 +86,7 @@
     </div>
 
     <div class="main-content-container container-fluid px-4">
-     
+
       @if(null != session("msg"))
       <div class="row" style="margin-bottom:60px;">
         <div class="col-12">

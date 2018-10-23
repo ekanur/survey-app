@@ -5,7 +5,7 @@
 <!-- Page Header -->
 <div class="page-header row no-gutters py-4">
   <div class="col-12 text-center text-sm-center mb-0">
-      <img src="{{asset('images/um_logo_blue_text.png')}}" width="240"><br/><br/>
+    <img src="{{asset('images/um_logo_blue_text.png')}}" width="240"><br/><br/>
     <span class="text-uppercase page-subtitle">SI Survei Kepuasan</span>
     <h3 class="page-title">Jumlah Reponden</h3>
   </div>
@@ -72,84 +72,84 @@
 
 
 <div class="row">
-              <div class="col-md-4 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Dosen</span>
-                        <h6 class="stats-small__value count my-3">{{ $count['dosen'] }}</h6>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-1"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Mahasiswa</span>
-                        <h6 class="stats-small__value count my-3">{{ $count['mahasiswa'] }}</h6>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-2"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Tenaga Kependidikan</span>
-                        <h6 class="stats-small__value count my-3">{{ $count['tendik'] }}</h6>
-                      </div>
-                    </div>
-                  <canvas height="120" class="blog-overview-stats-small-3"></canvas>
-                </div>
-              </div>
-             </div>
-              <div class="col-md-4 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Alumni</span>
-                        <h6 class="stats-small__value count my-3">{{ $count['alumni'] }}</h6>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-4"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Pengguna</span>
-                        <h6 class="stats-small__value count my-3">{{ $count['pengguna'] }}</h6>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Mitra</span>
-                        <h6 class="stats-small__value count my-3">{{ $count['mitra'] }}</h6>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
-                  </div>
-                </div>
-              </div>
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url('admin/responden/dosen')}}" title="Lihat detail responden">
+        <div class="d-flex flex-column m-auto">
+          <div class="stats-small__data text-center">
+            <span class="stats-small__label text-uppercase">Dosen</span>
+            <h6 class="stats-small__value count my-3">{{ $count['dosen'] }}</h6>
+          </div>
+        </div>
+        <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url('admin/responden/mahasiswa')}}" title="Lihat detail responden">
+        <div class="d-flex flex-column m-auto" >
+          <div class="stats-small__data text-center">
+            <span class="stats-small__label text-uppercase">Mahasiswa</span>
+            <h6 class="stats-small__value count my-3">{{ $count['mahasiswa'] }}</h6>
+          </div>
+        </div>
+        <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url('admin/responden/tendik')}}" title="Lihat detail responden">
+        <div class="d-flex flex-column m-auto">
+          <div class="stats-small__data text-center">
+            <span class="stats-small__label text-uppercase">Tenaga Kependidikan</span>
+            <h6 class="stats-small__value count my-3">{{ $count['tendik'] }}</h6>
+          </div>
+        </div>
+        <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url('admin/responden/alumni')}}" title="Lihat detail responden">
+        <div class="d-flex flex-column m-auto">
+          <div class="stats-small__data text-center">
+            <span class="stats-small__label text-uppercase">Alumni</span>
+            <h6 class="stats-small__value count my-3">{{ $count['alumni'] }}</h6>
+          </div>
+        </div>
+        <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url('admin/responden/pengguna')}}" title="Lihat detail responden">
+        <div class="d-flex flex-column m-auto">
+          <div class="stats-small__data text-center">
+            <span class="stats-small__label text-uppercase">Pengguna</span>
+            <h6 class="stats-small__value count my-3">{{ $count['pengguna'] }}</h6>
+          </div>
+        </div>
+        <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="stats-small stats-small--1 card card-small">
+      <a class="card-body p-0 d-flex" href="{{url('admin/responden/mitra')}}" title="Lihat detail responden">
+        <div class="d-flex flex-column m-auto">
+          <div class="stats-small__data text-center">
+            <span class="stats-small__label text-uppercase">Mitra</span>
+            <h6 class="stats-small__value count my-3">{{ $count['mitra'] }}</h6>
+          </div>
+        </div>
+        <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+      </a>
+    </div>
+  </div>
 </div>
 
 <!-- End Top Referrals Component -->
