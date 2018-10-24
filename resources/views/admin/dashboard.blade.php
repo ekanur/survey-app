@@ -74,8 +74,12 @@
 <div class="row">
   <div class="col-md-4 mb-4">
     <div class="stats-small stats-small--1 card card-small">
-      <a class="card-body p-0 d-flex" href="{{url('admin/responden/dosen')}}" title="Lihat detail responden">
-        <div class="d-flex flex-column m-auto">
+      @if ($count['dosen']==0)
+      <a class="card-body p-0 d-flex" onclick="data_null()" title="Lihat detail responden">
+        @else
+        <a class="card-body p-0 d-flex" href="{{url('admin/responden/dosen')}}" title="Lihat detail responden">
+         @endif
+         <div class="d-flex flex-column m-auto">
           <div class="stats-small__data text-center">
             <span class="stats-small__label text-uppercase">Dosen</span>
             <h6 class="stats-small__value count my-3">{{ $count['dosen'] }}</h6>
@@ -87,8 +91,12 @@
   </div>
   <div class="col-md-4 mb-4">
     <div class="stats-small stats-small--1 card card-small">
-      <a class="card-body p-0 d-flex" href="{{url('admin/responden/mahasiswa')}}" title="Lihat detail responden">
-        <div class="d-flex flex-column m-auto" >
+      @if ($count['mahasiswa']==0)
+      <a class="card-body p-0 d-flex" onclick="data_null()" title="Lihat detail responden">
+        @else
+        <a class="card-body p-0 d-flex" href="{{url('admin/responden/mahasiswa')}}" title="Lihat detail responden">
+         @endif
+         <div class="d-flex flex-column m-auto" >
           <div class="stats-small__data text-center">
             <span class="stats-small__label text-uppercase">Mahasiswa</span>
             <h6 class="stats-small__value count my-3">{{ $count['mahasiswa'] }}</h6>
@@ -100,8 +108,12 @@
   </div>
   <div class="col-md-4 mb-4">
     <div class="stats-small stats-small--1 card card-small">
-      <a class="card-body p-0 d-flex" href="{{url('admin/responden/tendik')}}" title="Lihat detail responden">
-        <div class="d-flex flex-column m-auto">
+      @if ($count['tendik']==0)
+      <a class="card-body p-0 d-flex" onclick="data_null()" title="Lihat detail responden">
+        @else
+        <a class="card-body p-0 d-flex" href="{{url('admin/responden/tendik')}}" title="Lihat detail responden">
+         @endif
+         <div class="d-flex flex-column m-auto">
           <div class="stats-small__data text-center">
             <span class="stats-small__label text-uppercase">Tenaga Kependidikan</span>
             <h6 class="stats-small__value count my-3">{{ $count['tendik'] }}</h6>
@@ -113,46 +125,63 @@
   </div>
   <div class="col-md-4 mb-4">
     <div class="stats-small stats-small--1 card card-small">
+     @if ($count['alumni']==0)
+     <a class="card-body p-0 d-flex" onclick="data_null()" title="Lihat detail responden">
+      @else
       <a class="card-body p-0 d-flex" href="{{url('admin/responden/alumni')}}" title="Lihat detail responden">
-        <div class="d-flex flex-column m-auto">
-          <div class="stats-small__data text-center">
-            <span class="stats-small__label text-uppercase">Alumni</span>
-            <h6 class="stats-small__value count my-3">{{ $count['alumni'] }}</h6>
-          </div>
+       @endif
+       <div class="d-flex flex-column m-auto">
+        <div class="stats-small__data text-center">
+          <span class="stats-small__label text-uppercase">Alumni</span>
+          <h6 class="stats-small__value count my-3">{{ $count['alumni'] }}</h6>
         </div>
-        <canvas height="120" class="blog-overview-stats-small-4"></canvas>
-      </a>
-    </div>
+      </div>
+      <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+    </a>
   </div>
-  <div class="col-md-4 mb-4">
-    <div class="stats-small stats-small--1 card card-small">
-      <a class="card-body p-0 d-flex" href="{{url('admin/responden/pengguna')}}" title="Lihat detail responden">
-        <div class="d-flex flex-column m-auto">
-          <div class="stats-small__data text-center">
-            <span class="stats-small__label text-uppercase">Pengguna</span>
-            <h6 class="stats-small__value count my-3">{{ $count['pengguna'] }}</h6>
-          </div>
-        </div>
-        <canvas height="120" class="blog-overview-stats-small-5"></canvas>
-      </a>
+</div>
+<div class="col-md-4 mb-4">
+  <div class="stats-small stats-small--1 card card-small">
+   @if ($count['pengguna']==0)
+   <a class="card-body p-0 d-flex" onclick="data_null()" title="Lihat detail responden">
+    @else
+    <a class="card-body p-0 d-flex" href="{{url('admin/responden/pengguna')}}" title="Lihat detail responden">
+     @endif
+     <div class="d-flex flex-column m-auto">
+      <div class="stats-small__data text-center">
+        <span class="stats-small__label text-uppercase">Pengguna</span>
+        <h6 class="stats-small__value count my-3">{{ $count['pengguna'] }}</h6>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4 mb-4">
-    <div class="stats-small stats-small--1 card card-small">
-      <a class="card-body p-0 d-flex" href="{{url('admin/responden/mitra')}}" title="Lihat detail responden">
-        <div class="d-flex flex-column m-auto">
-          <div class="stats-small__data text-center">
-            <span class="stats-small__label text-uppercase">Mitra</span>
-            <h6 class="stats-small__value count my-3">{{ $count['mitra'] }}</h6>
-          </div>
-        </div>
-        <canvas height="120" class="blog-overview-stats-small-5"></canvas>
-      </a>
+    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+  </a>
+</div>
+</div>
+<div class="col-md-4 mb-4">
+  <div class="stats-small stats-small--1 card card-small">
+   @if ($count['mitra']==0)
+   <a class="card-body p-0 d-flex" onclick="data_null()" title="Lihat detail responden">
+    @else
+    <a class="card-body p-0 d-flex" href="{{url('admin/responden/mitra')}}" title="Lihat detail responden">
+     @endif
+     <div class="d-flex flex-column m-auto">
+      <div class="stats-small__data text-center">
+        <span class="stats-small__label text-uppercase">Mitra</span>
+        <h6 class="stats-small__value count my-3">{{ $count['mitra'] }}</h6>
+      </div>
     </div>
-  </div>
+    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+  </a>
+</div>
+</div>
 </div>
 
 <!-- End Top Referrals Component -->
+<script>
+  function data_null(){
+    swal("Kesalahan", "Belum ada responden yang mengisi angket", "warning");
+  }
+</script>
 
 @endsection
 

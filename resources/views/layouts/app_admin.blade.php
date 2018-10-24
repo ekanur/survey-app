@@ -135,7 +135,7 @@
     {{-- <script src="{!! asset('js/app/app-components-overview.1.0.0.js')!!}"></script> --}}
     {{-- Select2 --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
       {{-- INITIALIZE BOOTSTRAP TOOLTIP! --}}
       $('[data-toggle="tooltip"]').tooltip({
