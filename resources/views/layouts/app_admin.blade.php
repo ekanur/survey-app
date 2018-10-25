@@ -23,7 +23,7 @@
 
   {{-- Custom css untuk patching style dari plugin --}}
   <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-
+<link href="{{ asset('css/slide.css') }}" rel="stylesheet" />
   <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css">
 
   <style>
