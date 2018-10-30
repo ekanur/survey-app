@@ -42,8 +42,11 @@ class DosenController extends Controller
     		session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
     		return redirect("/");
     	}
-    	return view('dosen/angket');
 
+        $data = [
+          "list_pertanyaan" => getListPertanyaan('', 'dosen', TRUE) 
+        ];
+    	return view('dosen/angket', $data);
     }
 
     public function simpanAngket(Request $request){
