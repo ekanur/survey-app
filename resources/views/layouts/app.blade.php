@@ -140,10 +140,10 @@
     {{-- <script src="{!! asset('js/app/app-blog-overview.1.0.0.js')!!}"></script> --}}
     {{-- <script src="{!! asset('js/app/app-blog-new-post.1.0.0.js')!!}"></script> --}}
     {{-- <script src="{!! asset('js/app/app-components-overview.1.0.0.js')!!}"></script> --}}
-    <script src="{{ asset('js/textareacounter.js') }}"></script>
     <script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="{{ asset('js/textareacounter.js') }}"></script>
 
     <script type="text/javascript">
       $(document).ready(function(){

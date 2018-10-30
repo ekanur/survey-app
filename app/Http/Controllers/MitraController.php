@@ -31,7 +31,11 @@ class MitraController extends Controller
       session()->flash("msg", "Isikan biodata anda.");
       return redirect("/mitra");
     }
-    return view('mitra/angket');
+
+    $data = [
+      "list_pertanyaan" => getListPertanyaan('', 'mitra', TRUE) 
+    ];
+    return view('mitra/angket', $data);
 
   }
 
