@@ -11,7 +11,7 @@ class PertanyaanSeeder extends Seeder
      */
     public function run()
     {
-      // SEEDER UNTUK PERTANYAAN ANGKET DOSEN DAN MITRA
+      // SEEDER UNTUK PERTANYAAN ANGKET DOSEN, ALUMNI, PENGGUNA, DAN MITRA
 
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q1',
@@ -21,6 +21,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q2',
@@ -30,6 +32,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q3',
@@ -39,6 +43,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4a',
@@ -48,6 +54,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4b',
@@ -57,6 +65,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4c',
@@ -66,6 +76,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4d',
@@ -75,6 +87,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4e',
@@ -84,6 +98,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4f',
@@ -93,6 +109,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4g',
@@ -102,6 +120,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4h',
@@ -111,6 +131,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4i',
@@ -120,6 +142,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4j',
@@ -129,6 +153,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4k',
@@ -138,6 +164,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4l',
@@ -147,6 +175,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4m',
@@ -156,6 +186,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4n',
@@ -165,6 +197,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4o',
@@ -174,6 +208,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4p',
@@ -183,6 +219,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4q',
@@ -192,6 +230,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'saranmitra',
@@ -201,6 +241,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q1',
@@ -210,6 +252,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q2',
@@ -219,6 +263,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'buktipemahamanvmts',
@@ -228,6 +274,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q3',
@@ -237,6 +285,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q4',
@@ -246,6 +296,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q5',
@@ -255,6 +307,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q6',
@@ -264,6 +318,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q7',
@@ -273,6 +329,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q8',
@@ -282,6 +340,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q9',
@@ -291,6 +351,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10b',
@@ -300,6 +362,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10c',
@@ -309,6 +373,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10d',
@@ -318,6 +384,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10a',
@@ -327,6 +395,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10f',
@@ -336,6 +406,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10h',
@@ -345,6 +417,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10i',
@@ -354,6 +428,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10e',
@@ -363,6 +439,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10g',
@@ -372,6 +450,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10j',
@@ -381,6 +461,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10k',
@@ -390,6 +472,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10l',
@@ -399,6 +483,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10m',
@@ -408,6 +494,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10n',
@@ -417,6 +505,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10x',
@@ -426,6 +516,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10y',
@@ -435,6 +527,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10z',
@@ -444,6 +538,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10bb',
@@ -453,6 +549,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10o',
@@ -462,6 +560,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10p',
@@ -471,6 +571,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10q',
@@ -480,6 +582,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10r',
@@ -489,6 +593,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10s',
@@ -498,6 +604,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10t',
@@ -507,6 +615,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10u',
@@ -516,6 +626,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10v',
@@ -525,6 +637,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'q10w',
@@ -534,6 +648,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'kepuasankinerja',
@@ -543,6 +659,8 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'ketidakpuasankinerja',
@@ -552,12 +670,729 @@ class PertanyaanSeeder extends Seeder
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
+
+
       
       Publicpertanyaanangket::create( [
         'kd_pertanyaan'=>'rencanakinerja',
         'pertanyaan'=>'Sebutkan hal-hal yang direncanakan Ibu/Bapak untuk memaksimalkan kinerja di waktu yang akan datang?',
         'sasaran'=>'dosen',
         'created_at'=>'2018-10-30 16:37:28.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q1',
+        'pertanyaan'=>'Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan ketika Ibu/Bapak masih kuliah?',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:05:35.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q2',
+        'pertanyaan'=>'Dari mana Ibu/Bapak mengetahui rumusan tersebut ?',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:05:35.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q3',
+        'pertanyaan'=>'Bagaimana menurut Ibu/Bapak, kinerja Program Studi/Jurusan dalam mencapai visi, misi, tujuan dan sasaranya?',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:05:35.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q4',
+        'pertanyaan'=>'Apakah pekerjaan Ibu/Bapak relevan dengan program studi yang ditempuh di Universitas Negeri Malang ?',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:05:35.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5',
+        'pertanyaan'=>'Dari pilihan Berikut, mana yang menjelaskan status karir Ibu/Bapak',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:05:35.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q6',
+        'pertanyaan'=>'Dari pilihan berikut ini mana yang menjelaskan status pekerjaan Ibu/Bapak :',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:05:35.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a1',
+        'pertanyaan'=>'Kualitas informasi dan profil Program Studi',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:05:35.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a2',
+        'pertanyaan'=>'Kurikulum Program Studi',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:05:35.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a3',
+        'pertanyaan'=>'Kualitas dosen Program Studi',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:05:35.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a4',
+        'pertanyaan'=>'Kualitas pembimbingan tugas akhir/skripsi/tesis/disertasi',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:05:35.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a5',
+        'pertanyaan'=>'Kualitas Prodi dalam menyiapkan karir professional',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:10:12.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a6',
+        'pertanyaan'=>'Relevansi Kurikulum Prodi dalam pengembangan individu',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:10:12.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a7',
+        'pertanyaan'=>'Relevansi Kurikulum Prodi dalam pengembangan akademik',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:10:12.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a8',
+        'pertanyaan'=>'Relevansi Kurikulum Prodi dalam pengembangan professional',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:10:12.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a9',
+        'pertanyaan'=>'Relevansi Kurikulum Prodi dengan bidang pekerjaan',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:10:12.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a10',
+        'pertanyaan'=>'Kualitas jejaring yang dibangun Program Studi',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:10:12.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a11',
+        'pertanyaan'=>'Kontribusi Alumni dalam kegiatan akademik Program Studi',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:10:12.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a12',
+        'pertanyaan'=>'Kontribusi Alumni dalam kegiatan non-akademik Program Studi',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:10:12.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7a13',
+        'pertanyaan'=>'Pekerjaan anda saat ini',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:10:12.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7b1',
+        'pertanyaan'=>'Kejelasan kelengkapan informasi persyaratan untuk memperoleh layanan kelembagaan',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:10:12.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7b2',
+        'pertanyaan'=>'Prosedur pemberian layanan kelembagaan',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:10:12.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7b3',
+        'pertanyaan'=>'Waktu pemberian layanan kelembagaan',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:12:23.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7b4',
+        'pertanyaan'=>'Biaya pemberian layanan kelembagaan',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:12:23.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7b5',
+        'pertanyaan'=>'Produk layanan kelembagaan',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:12:23.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7b6',
+        'pertanyaan'=>'Kompetensi pelaksana layanan kelembagaan',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:12:23.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7b7',
+        'pertanyaan'=>'Perilaku pelaksana layanan kelembagaan',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:12:23.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7b8',
+        'pertanyaan'=>'Penanganan pengaduan terkait pelaksanaan layanan kelembagaan',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:12:23.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q7b9',
+        'pertanyaan'=>'Kualitas layanan kelembagaan',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:12:23.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'saran1',
+        'pertanyaan'=>'Tuliskan Pengalaman apa yang paling bermanfaat selama masa studi, untuk membantu dalam pekerjaan pasca Ibu/Bapak lulus?',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:12:23.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'saran2',
+        'pertanyaan'=>'Tuliskan Pengalaman apa yang paling tidak bermanfaat selama masa studi,dalam pekerjaan pasca Ibu/Bapak lulus?',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:12:23.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'saranjurusan',
+        'pertanyaan'=>'Program Studi / Jurusan',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:14:29.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'saranfakultas',
+        'pertanyaan'=>'Fakultas',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:14:29.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'saranuniversitas',
+        'pertanyaan'=>'Universitas',
+        'sasaran'=>'alumni',
+        'created_at'=>'2018-10-31 16:14:29.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q1',
+        'pertanyaan'=>'Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang (UM) ?',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q2',
+        'pertanyaan'=>'Dari mana Ibu/Bapak mengetahui rumusan visi, misi, tujuan, dan sasaran Universitas Negeri Malang (UM)?',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q3',
+        'pertanyaan'=>'Bagaimana menurut Ibu/Bapak, kinerja UM dalam mencapai visi, misi, tujuan dan sasarannya?',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q4a',
+        'pertanyaan'=>'Integritas (Etika dan moral) lulusan UM dalam bekerja',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q4b',
+        'pertanyaan'=>'Profesionalisme lulusan UM dalam bekerja',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q4c',
+        'pertanyaan'=>'Kemahiran berkomunikasi baik lisan maupun tulisan dalam bahasa Inggris',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q4d',
+        'pertanyaan'=>'Tingkat penguasaan TIK untuk menunjang dan memaksimalkan pekerjaan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q4e',
+        'pertanyaan'=>'Kemahiran dan kecerdasan berkomunikasi dalam situasi kerja',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q4f',
+        'pertanyaan'=>'Kemampuan bekerja dalam tim',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q4g',
+        'pertanyaan'=>'Potensi pengembangan diri dalam bekerja',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q4h',
+        'pertanyaan'=>'Wawasan interdisipliner',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q4i',
+        'pertanyaan'=>'Kepemimpinan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5a',
+        'pertanyaan'=>'Kualitas informasi dan profil Universitas',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5b',
+        'pertanyaan'=>'Kualitas alumni yang bekerja di instansi Ibu/Bapak',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5c',
+        'pertanyaan'=>'Keterlibatan Ibu/Bapak dalam penelitian',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:24:56.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5d',
+        'pertanyaan'=>'Keterlibatan Ibu/Bapak dalam pengabdian kepada masyarakat',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5e',
+        'pertanyaan'=>'Kualitas jejaring yang dibangun Universitas',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5f',
+        'pertanyaan'=>'Kontribusi Universitas terhadap pengguna',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5g',
+        'pertanyaan'=>'Kontribusi pengguna terhadap kegiatan akademik',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5h',
+        'pertanyaan'=>'Kontribusi pengguna terhadap kegiatan non-akademik',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5i',
+        'pertanyaan'=>'Kejelasan dan kelengkapan informasi persyaratan yang diperlukan untuk memperoleh layanan kelembagaan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5j',
+        'pertanyaan'=>'Prosedur pemberian layanan kelembagaan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5k',
+        'pertanyaan'=>'Waktu pemberian layanan kelembagaan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5l',
+        'pertanyaan'=>'Biaya pemberian layanan kelembagaan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5m',
+        'pertanyaan'=>'Produk layanan kelembagaan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5n',
+        'pertanyaan'=>'Kompetensi pelaksana layanan kelembagaan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5o',
+        'pertanyaan'=>'Perilaku pelaksana layanan kelembagaan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5p',
+        'pertanyaan'=>'Penanganan pengaduan terkait pelaksanaan layanan kelembagaan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'q5q',
+        'pertanyaan'=>'Kualitas layanan kelembagaan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:28:14.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'saranjurusan',
+        'pertanyaan'=>'Program Studi / Jurusan',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:29:18.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'saranfakultas',
+        'pertanyaan'=>'Fakultas',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:29:18.000',
+        'updated_at'=>NULL,
+        'deleted_at'=>NULL
+      ] );
+
+
+      
+      Publicpertanyaanangket::create( [
+        'kd_pertanyaan'=>'saranuniversitas',
+        'pertanyaan'=>'Universitas',
+        'sasaran'=>'pengguna',
+        'created_at'=>'2018-10-31 16:29:18.000',
         'updated_at'=>NULL,
         'deleted_at'=>NULL
       ] );
