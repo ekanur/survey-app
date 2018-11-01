@@ -18,6 +18,7 @@ class PertanyaanAngket extends Migration
             $table->string('kd_pertanyaan', 30)->comment('e.g.: q1, q2a, q2b, etc.');
             $table->text('pertanyaan');
             $table->string('sasaran', 30)->comment('e.g.: dosen, mahasiswa, tendik, alumni, pengguna, mitra');
+            $table->unsignedSmallInteger('urutan');
             $table->softDeletes();
             $table->timestamps();
         });
