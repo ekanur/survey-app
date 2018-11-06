@@ -21,6 +21,8 @@ class PertanyaanAngket extends Migration
             $table->unsignedSmallInteger('urutan');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->index(['kd_pertanyaan', 'pertanyaan', 'sasaran']);
         });
     }
 

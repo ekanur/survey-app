@@ -22,6 +22,8 @@ class AngketMahasiswa extends Migration
             $table->timestamps();
             $table->softDeletes();
             //
+
+            $table->index(['mahasiswa_nim', 'kuesioner']);
         });
     }
 

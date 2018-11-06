@@ -20,6 +20,8 @@ class BiodataTendik extends Migration
             $table->string("nama_unit", 100);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(['nip', 'nama', 'nama_unit']);
             });
     }
 

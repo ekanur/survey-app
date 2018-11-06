@@ -26,6 +26,8 @@ class BiodataAlumni extends Migration
         $table->timestamps();
         $table->softDeletes();
             //
+
+        $table->index(['id', 'nama', 'prodi', 'fakultas']);
     });
    }
 

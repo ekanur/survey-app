@@ -22,6 +22,8 @@ class AngketDosen extends Migration
             $table->timestamps();
             $table->softDeletes();
             //
+
+            $table->index(['dosen_nip', 'kuesioner']);
         });
     }
 

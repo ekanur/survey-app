@@ -23,6 +23,8 @@ class AngketMitra extends Migration
             $table->timestamps();
             $table->softDeletes();
             //
+
+            $table->index(['biodata_mitra_id', 'kuesioner']);
         });
     }
 

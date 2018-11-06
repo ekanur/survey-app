@@ -22,6 +22,8 @@ class AngketPengguna extends Migration
             $table->timestamps();
             $table->softDeletes();
             //
+
+            $table->index(['kuesioner']);
         });
     }
 
