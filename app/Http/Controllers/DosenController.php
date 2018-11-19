@@ -30,9 +30,7 @@ class DosenController extends Controller
 
     public function index()
     {
-    
     	return redirect("/dosen/angket"); 
-        
     }
 
 
@@ -63,10 +61,6 @@ class DosenController extends Controller
     	return redirect("/");
     }
 
-    function simpanBiodata(){
-    	$biodata = Biodata_dosen::updateOrCreate(["nip"=>session("userID")], $this->getDataDosen());
-    }
-
     function getDataDosen(){
     	$dosen = [];
     	$data_dosen = DB::connection("pgsql_2")->table("dtum.m_dosen")
@@ -82,6 +76,10 @@ class DosenController extends Controller
         $dosen["nip"] = session("userID");
 
       return $dosen;
+    }
+    
+    function simpanBiodata(){
+        $biodata = Biodata_dosen::updateOrCreate(["nip"=>session("userID")], $this->getDataDosen());
     }
 
     function dataKuesioner($request){
