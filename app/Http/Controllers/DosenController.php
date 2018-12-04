@@ -42,7 +42,7 @@ class DosenController extends Controller
     		session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
     		return redirect("/");
     	}
-    	return view('dosen/angket');
+    	return view('dosen/angket_burini');
 
     }
 
@@ -61,23 +61,26 @@ class DosenController extends Controller
     }
 
     function simpanBiodata(){
+        // dd($this->getDataDosen());
     	$biodata = Biodata_dosen::updateOrCreate(["nip"=>session("userID")], $this->getDataDosen());
     }
 
     function getDataDosen(){
     	$dosen = [];
-    	$data_dosen = DB::connection("pgsql_2")->table("dtum.m_dosen")
-    	->join("dtum.m_jur", "m_dosen.jur_kd", '=', 'm_jur.jur_kd')
-    	->join("dtum.m_fak", "m_jur.fak_kd", '=', 'm_fak.fak_kd')
-    	->select("dsn_nm", "dsn_gelar", "dsn_gelar2", "jur_nm", "m_fak.fak_skt")->where("m_dosen.dsn_nip", "=", session("userID"))->first();
+    	$data_dosen = DB::connection("pgsql_2")->table("pegawai.pegawai")
+    	->join("dtum.m_dosen", "pegawai.nip", '=', 'm_dosen.dsn_nip')
+        ->join("dtum.m_jur", "m_dosen.jur_kd", '=', 'm_jur.jur_kd')
+        ->join("dtum.m_fak", "m_jur.fak_kd", '=', 'm_fak.fak_kd')
+    	->select("nama_pegawai", "gelar_depan", "gelar_belakang", "jns_kelamin", "jur_nm", "m_fak.fak_skt")->where("m_dosen.dsn_nip", "=", session("userID"))->first();
 
-        // dd($data_dosen);
-
-        $dosen["nama"] = $data_dosen->dsn_gelar.(!is_null($data_dosen->dsn_gelar))? " ": null.$data_dosen->dsn_nm." ".$data_dosen->dsn_gelar2;
+        // dd($data_dosen->gelar_depan);
+        $dosen["nama"] = $data_dosen->gelar_depan.($data_dosen->gelar_depan != "")? " ": null.$data_dosen->nama_pegawai." ".$data_dosen->gelar_belakang;
+        $dosen["jenis_kelamin"] = $data_dosen->jns_kelamin;
         $dosen["fakultas"] = $data_dosen->fak_skt;
         $dosen["jurusan"] = $data_dosen->jur_nm;
         $dosen["nip"] = session("userID");
 
+        // dd($dosen);
       return $dosen;
     }
 

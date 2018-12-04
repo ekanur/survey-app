@@ -34,7 +34,7 @@
   </div>
 </div>
 
-<div align="center">
+{{-- <div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_1" >
       <div class="card-header border-bottom">
@@ -83,9 +83,9 @@
       </ul>
     </div>
   </div>
-</div>
+</div> --}}
  
-<div align="center">
+{{-- <div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_1" >
       <div class="card-header border-bottom">
@@ -106,10 +106,10 @@
       </ul>
     </div>
   </div>
-</div>
+</div> --}}
 
 
-<div align="center">
+{{-- <div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_1" >
       <div class="card-header border-bottom">
@@ -151,7 +151,7 @@
     </ul>
   </div>
 </div>
-</div>
+</div> --}}
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
@@ -187,7 +187,7 @@
   </div>
 </div>
 
-<div align="center">
+{{-- <div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_4" >
       <div class="card-header border-bottom">
@@ -237,9 +237,9 @@
       </ul>
     </div>
   </div>
-</div>
+</div> --}}
 
-<div align="center">
+{{-- <div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_4" >
       <div class="card-header border-bottom">
@@ -281,9 +281,9 @@
     </ul>
   </div>
 </div>
-</div>
+</div> --}}
 
-<div align="center">
+{{-- <div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
@@ -313,9 +313,9 @@
       </ul>
     </div>
   </div>
-</div>
+</div> --}}
 
-<div align="center">
+{{-- <div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_7" >
       <div class="card-header border-bottom">
@@ -363,7 +363,7 @@
       </ul>
     </div>
   </div>
-</div>
+</div> --}}
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
@@ -409,7 +409,7 @@
 </div>
 </div>
 
-<div align="center">
+{{-- <div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
@@ -679,19 +679,19 @@
       </ul>
     </div>
   </div>
-</div>
+</div>  --}}
 
 <div align="center">
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
-      <div class="card-header border-bottom">
+      {{-- <div class="card-header border-bottom">
         <h6 class="m-0">Isilah pertanyaan berikut</h6>
-      </div>
+      </div> --}}
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
-          <div class="row">
-            <div class="col">
-              <div class="col-md-12">
+          {{-- <div class="row">
+            <div class="col"> --}}
+              {{-- <div class="col-md-12">
                 <div class="card-body">
                   <label>Sebutkan hal-hal yang membuat Ibu/Bapak puas dengan kinerja yang sudah Ibu/Bapak lakukan?</label>
                   <textarea name="kepuasankinerja" class="form-control words-limit"></textarea>
@@ -708,12 +708,12 @@
                   <label>Sebutkan hal-hal yang direncanakan Ibu/Bapak untuk memaksimalkan kinerja di waktu yang akan datang?</label>
                   <textarea name="rencanakinerja" class="form-control words-limit"></textarea>
                 </div>
-              </div>
+              </div> --}}
               <div class="form-group text-center">
                 <button type="submit" class="btn btn-md btn-success">Simpan</button>
               </div>
-            </div>
-          </div>
+            {{-- </div>
+          </div> --}}
         </li>
       </ul>
     </div>
