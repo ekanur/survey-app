@@ -21,6 +21,8 @@ class AngketTendik extends Migration
             $table->text("value")->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(['tendik_nip', 'kuesioner']);
         });
     }
 

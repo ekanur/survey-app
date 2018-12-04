@@ -32,7 +32,11 @@ public function angket()
     session()->flash("msg", "Isikan biodata anda.");
     return redirect("/pengguna");
   }
-  return view('pengguna/angket');
+
+  $data = [
+    "list_pertanyaan" => getListPertanyaan('', 'pengguna', TRUE) 
+  ];
+  return view('pengguna/angket', $data);
 
 }
 

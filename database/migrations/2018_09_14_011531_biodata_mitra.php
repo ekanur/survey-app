@@ -25,6 +25,8 @@ class BiodataMitra extends Migration
             $table->timestamps();
             $table->softDeletes();
             //
+
+            $table->index(['id']);
         });
     }
 

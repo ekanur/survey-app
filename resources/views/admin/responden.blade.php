@@ -4,9 +4,10 @@
 
 <!-- Page Header -->
 <div class="page-header row no-gutters py-4">
-  <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+  <div class="col-12 text-center text-sm-center mb-0">
+      <img src="{{asset('images/um_logo_blue_text.png')}}" width="240"><br/><br/>
     <span class="text-uppercase page-subtitle">SI Survei Kepuasan</span>
-    <h3 class="page-title">Responden</h3>
+    <h3 class="page-title">Detail Responden</h3>
   </div>
 </div>
 <!-- End Page Header -->

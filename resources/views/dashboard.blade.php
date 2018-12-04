@@ -1,5 +1,4 @@
 @extends('layouts.app')
- 
 @section('content') 
 <br>   
 <div class="row">
@@ -75,15 +74,21 @@
       </a>
     </div>
   </div>
+
+</div>
+
+<div class="col text-right view-report">
+  <a href="http://localhost:8000">Laporan →</a>
 </div>
 <!-- End Small Stats Blocks -->
 @endsection
 
 
+
 @push("style")
 <style type="text/css">
-  a.report{
-    border-radius: 0px !important;
-  }
+a.report{
+  border-radius: 0px !important;
+}
 </style>
 @endpush

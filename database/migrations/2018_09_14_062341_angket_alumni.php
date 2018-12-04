@@ -22,6 +22,8 @@ class AngketAlumni extends Migration
             $table->timestamps();
             $table->softDeletes();
             //
+
+            $table->index(['biodata_alumni_id', 'kuesioner']);
         });//
     }
 

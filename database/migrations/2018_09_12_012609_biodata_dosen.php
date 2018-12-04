@@ -23,6 +23,8 @@ class BiodataDosen extends Migration
             $table->timestamps();
             $table->softDeletes();
             //
+
+            $table->index(['nip', 'nama', 'fakultas', 'jurusan']);
         });
     }
 

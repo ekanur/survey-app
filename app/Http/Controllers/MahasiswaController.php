@@ -49,7 +49,11 @@ class MahasiswaController extends Controller
   }
 
   function angket(){
-    return view("mahasiswa.angket");
+    $data = [
+      "list_pertanyaan" => getListPertanyaan('', 'mahasiswa', TRUE) 
+    ];
+
+    return view("mahasiswa.angket", $data);
   }
 
   function getDataMahasiswa(){

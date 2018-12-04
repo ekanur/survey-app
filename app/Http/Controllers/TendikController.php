@@ -39,7 +39,10 @@ class TendikController extends Controller
 
   public function angket()
   {
-    return view('tendik/angket');
+    $data = [
+      "list_pertanyaan" => getListPertanyaan('', 'tendik', TRUE) 
+    ];
+    return view('tendik/angket', $data);
   }
 
   public function simpanAngket(Request $request){

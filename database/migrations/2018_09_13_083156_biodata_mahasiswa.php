@@ -26,6 +26,8 @@ class BiodataMahasiswa extends Migration
             $table->timestamps();
             $table->softDeletes();
             //
+
+            $table->index(['nim', 'nama', 'fakultas', 'jurusan', 'prodi']);
         });
     }
 

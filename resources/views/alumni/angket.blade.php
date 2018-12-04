@@ -11,7 +11,7 @@
     <div class="col-lg-8 text-sm-left">
       <div class="card card-small mb-4" >
         <div class="card-header border-bottom">
-          <h6 class="m-0">Apakah Ibu/bapak memahami rumusan visi, misi, tujuan, dan sasaran Program Studi/Jurusan ketika Ibu/Bapak masih kuliah?</h6>
+          <h6 class="m-0">{{ $list_pertanyaan['q1'] }}</h6>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item p-0 px-3 pt-3">
@@ -39,7 +39,7 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4 quest_1" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Dari mana Ibu/Bapak mengetahui rumusan tersebut ?</h6>
+        <h6 class="m-0">{{ $list_pertanyaan['q2'] }}</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
@@ -90,7 +90,7 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Bagaimana menurut Ibu/Bapak, kinerja Program Studi/Jurusan dalam mencapai visi, misi, tujuan dan sasaranya?</h6>
+        <h6 class="m-0">{{ $list_pertanyaan['q3'] }}</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
@@ -135,7 +135,7 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Apakah pekerjaan Ibu/Bapak relevan dengan program studi yang ditempuh di Universitas Negeri Malang ?</h6>
+        <h6 class="m-0">{{ $list_pertanyaan['q4'] }}</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
@@ -169,7 +169,7 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Dari pilihan Berikut, mana yang menjelaskan status karir Ibu/Bapak </h6>
+        <h6 class="m-0">{{ $list_pertanyaan['q5'] }}</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
@@ -223,14 +223,12 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Dari pilihan berikut ini mana yang menjelaskan status pekerjaan Ibu/Bapak : </h6>
+        <h6 class="m-0">{{ $list_pertanyaan['q6'] }}</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
           <div class="row">
             <div class="col">
-
-
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
@@ -268,8 +266,6 @@
         <li class="list-group-item p-3">
           <div class="row">
             <div class="col">
-
-
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
                  <label class="text-info"><i>Wajib Mengisi Pilihan Berikut ini</i></label>
@@ -280,7 +276,7 @@
                       <table width="100%">
                         <tbody>
                           <tr>
-                            <td width="80%">Kualitas informasi dan profil Program Studi</td>
+                            <td width="80%">{{ $list_pertanyaan['q7a1'] }}</td>
                             <td width="20%"><select name="q7a1" class="form-control">
                               <option value="4">Sangat Puas</option>
                               <option value="3">Puas</option>
@@ -289,7 +285,7 @@
                             </select></td>
                           </tr>
                           <tr>
-                            <td width="80%">Kurikulum Program Studi</td>
+                            <td width="80%">{{ $list_pertanyaan['q7a2'] }}</td>
                             <td width="20%"><select name="q7a2" class="form-control">
                              <option value="4">Sangat Puas</option>
                              <option value="3">Puas</option>
@@ -298,7 +294,7 @@
                            </select></td>
                          </tr>
                          <tr>
-                          <td width="80%">Kualitas dosen Program Studi</td>
+                          <td width="80%">{{ $list_pertanyaan['q7a3'] }}</td>
                           <td width="20%"><select name="q7a3" class="form-control">
                            <option value="4">Sangat Puas</option>
                            <option value="3">Puas</option>
@@ -307,7 +303,7 @@
                          </select></td>
                        </tr>
                        <tr>
-                        <td width="80%">Kualitas pembimbingan tugas akhir/skripsi/tesis/disertasi</td>
+                        <td width="80%">{{ $list_pertanyaan['q7a4'] }}</td>
                         <td width="20%"><select name="q7a4" class="form-control">
                          <option value="4">Sangat Puas</option>
                          <option value="3">Puas</option>
@@ -316,7 +312,7 @@
                        </select></td>
                      </tr>
                      <tr>
-                      <td width="80%">Kualitas Prodi dalam menyiapkan karir professional</td>
+                      <td width="80%">{{ $list_pertanyaan['q7a5'] }}</td>
                       <td width="20%"><select name="q7a5" class="form-control">
                        <option value="4">Sangat Puas</option>
                        <option value="3">Puas</option>
@@ -325,7 +321,7 @@
                      </select></td>
                    </tr>
                    <tr>
-                    <td width="80%">Relevansi Kurikulum Prodi dalam pengembangan individu</td>
+                    <td width="80%">{{ $list_pertanyaan['q7a6'] }}</td>
                     <td width="20%"><select name="q7a6" class="form-control">
                      <option value="4">Sangat Puas</option>
                      <option value="3">Puas</option>
@@ -334,7 +330,7 @@
                    </select></td>
                  </tr>
                  <tr>
-                  <td width="80%">Relevansi Kurikulum Prodi dalam pengembangan akademik</td>
+                  <td width="80%">{{ $list_pertanyaan['q7a7'] }}</td>
                   <td width="20%"><select name="q7a7" class="form-control">
                    <option value="4">Sangat Puas</option>
                    <option value="3">Puas</option>
@@ -343,7 +339,7 @@
                  </select></td>
                </tr>
                <tr>
-                <td width="80%">Relevansi Kurikulum Prodi dalam pengembangan professional</td>
+                <td width="80%">{{ $list_pertanyaan['q7a8'] }}</td>
                 <td width="20%"><select name="q7a8" class="form-control">
                  <option value="4">Sangat Puas</option>
                  <option value="3">Puas</option>
@@ -352,7 +348,7 @@
                </select></td>
              </tr>
              <tr>
-              <td width="80%">Relevansi Kurikulum Prodi dengan bidang pekerjaan</td>
+              <td width="80%">{{ $list_pertanyaan['q7a9'] }}</td>
               <td width="20%"><select name="q7a9" class="form-control">
                <option value="4">Sangat Puas</option>
                <option value="3">Puas</option>
@@ -361,7 +357,7 @@
              </select></td>
            </tr>
            <tr>
-            <td width="80%">Kualitas jejaring yang dibangun Program Studi</td>
+            <td width="80%">{{ $list_pertanyaan['q7a1'] }}</td>
             <td width="20%"><select name="q7a10" class="form-control">
              <option value="4">Sangat Puas</option>
              <option value="3">Puas</option>
@@ -370,7 +366,7 @@
            </select></td>
          </tr>
          <tr>
-          <td width="80%">Kontribusi Alumni dalam kegiatan akademik Program Studi</td>
+          <td width="80%">{{ $list_pertanyaan['q7a1'] }}</td>
           <td width="20%"><select name="q7a11" class="form-control">
            <option value="4">Sangat Puas</option>
            <option value="3">Puas</option>
@@ -379,7 +375,7 @@
          </select></td>
        </tr>
        <tr>
-        <td width="80%">Kontribusi Alumni dalam kegiatan non-akademik Program Studi</td>
+        <td width="80%">{{ $list_pertanyaan['q7a1'] }}</td>
         <td width="20%"><select name="q7a12" class="form-control">
          <option value="4">Sangat Puas</option>
          <option value="3">Puas</option>
@@ -388,7 +384,7 @@
        </select></td>
      </tr>
      <tr>
-      <td width="80%">Pekerjaan anda saat ini</td>
+      <td width="80%">{{ $list_pertanyaan['q7a1'] }}</td>
       <td width="20%"><select name="q7a13" class="form-control">
        <option value="4">Sangat Puas</option>
        <option value="3">Puas</option>
@@ -409,7 +405,7 @@
       <table width="100%">
         <tbody>
           <tr>
-            <td width="80%">Kejelasan kelengkapan informasi persyaratan untuk memperoleh layanan kelembagaan</td>
+            <td width="80%">{{ $list_pertanyaan['q7b1'] }}</td>
             <td width="20%"><select name="q7b1" class="form-control">
              <option value="4">Sangat Puas</option>
              <option value="3">Puas</option>
@@ -418,7 +414,7 @@
            </select></td>
          </tr>
          <tr>
-          <td width="80%">Prosedur pemberian layanan kelembagaan</td>
+          <td width="80%">{{ $list_pertanyaan['q7b2'] }}</td>
           <td width="20%"><select name="q7b2" class="form-control">
            <option value="4">Sangat Puas</option>
            <option value="3">Puas</option>
@@ -427,7 +423,7 @@
          </select></td>
        </tr>
        <tr>
-        <td width="80%">Waktu pemberian layanan kelembagaan</td>
+        <td width="80%">{{ $list_pertanyaan['q7b3'] }}</td>
         <td width="20%"><select name="q7b3" class="form-control">
          <option value="4">Sangat Puas</option>
          <option value="3">Puas</option>
@@ -436,7 +432,7 @@
        </select></td>
      </tr>
      <tr>
-      <td width="80%">Biaya pemberian layanan kelembagaan</td>
+      <td width="80%">{{ $list_pertanyaan['q7b4'] }}</td>
       <td width="20%"><select name="q7b4" class="form-control">
        <option value="4">Sangat Puas</option>
        <option value="3">Puas</option>
@@ -445,7 +441,7 @@
      </select></td>
    </tr>
    <tr>
-    <td width="80%">Produk layanan kelembagaan</td>
+    <td width="80%">{{ $list_pertanyaan['q7b5'] }}</td>
     <td width="20%"><select name="q7b5" class="form-control">
      <option value="4">Sangat Puas</option>
      <option value="3">Puas</option>
@@ -454,7 +450,7 @@
    </select></td>
  </tr>
  <tr>
-  <td width="80%">Kompetensi pelaksana layanan kelembagaan</td>
+  <td width="80%">{{ $list_pertanyaan['q7b6'] }}</td>
   <td width="20%"><select name="q7b6" class="form-control">
    <option value="4">Sangat Puas</option>
    <option value="3">Puas</option>
@@ -463,7 +459,7 @@
  </select></td>
 </tr>
 <tr>
-  <td width="80%">Perilaku pelaksana layanan kelembagaan</td>
+  <td width="80%">{{ $list_pertanyaan['q7b7'] }}</td>
   <td width="20%"><select name="q7b7" class="form-control">
    <option value="4">Sangat Puas</option>
    <option value="3">Puas</option>
@@ -472,7 +468,7 @@
  </select></td>
 </tr>
 <tr>
-  <td width="80%">Penanganan pengaduan terkait pelaksanaan layanan kelembagaan</td>
+  <td width="80%">{{ $list_pertanyaan['q7b8'] }}</td>
   <td width="20%"><select name="q7b8" class="form-control">
    <option value="4">Sangat Puas</option>
    <option value="3">Puas</option>
@@ -481,7 +477,7 @@
  </select></td>
 </tr>
 <tr>
-  <td width="80%">Kualitas layanan kelembagaan</td>
+  <td width="80%">{{ $list_pertanyaan['q7b9'] }}</td>
   <td width="20%"><select name="q7b9" class="form-control">
    <option value="4">Sangat Puas</option>
    <option value="3">Puas</option>
@@ -510,14 +506,12 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Tuliskan Pengalaman apa yang paling bermanfaat selama masa studi, untuk membantu dalam pekerjaan pasca Ibu/Bapak lulus? </h6>
+        <h6 class="m-0">{{ $list_pertanyaan['saran1'] }}</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
           <div class="row">
             <div class="col">
-
-
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
@@ -541,14 +535,12 @@
   <div class="col-lg-8 text-sm-left">
     <div class="card card-small mb-4" >
       <div class="card-header border-bottom">
-        <h6 class="m-0">Tuliskan Pengalaman apa yang paling tidak bermanfaat selama masa studi,dalam pekerjaan pasca Ibu/Bapak lulus?</h6>
+        <h6 class="m-0">{{ $list_pertanyaan['saran2'] }}</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item p-3">
           <div class="row">
             <div class="col">
-
-
               <div class="form-row">
                 <div class="form-group col-md-12 text-sm-left">
                   <fieldset>
@@ -581,19 +573,19 @@
             <div class="col">
               <div class="col-md-12">
                 <div class="card-body">
-                  <label>Program Studi / Jurusan</label>
+                  <label>{{ $list_pertanyaan['saranjurusan'] }}</label>
                   <textarea name="saranjurusan" class="form-control"></textarea>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="card-body">
-                  <label>Fakultas</label>
+                  <label>{{ $list_pertanyaan['saranfakultas'] }}</label>
                   <textarea name="saranfakultas" class="form-control"></textarea>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="card-body">
-                  <label>Universitas</label>
+                  <label>{{ $list_pertanyaan['saranuniversitas'] }}</label>
                   <textarea name="saranuniversitas" class="form-control"></textarea>
                 </div>
               </div>

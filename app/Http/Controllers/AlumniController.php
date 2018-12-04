@@ -21,6 +21,7 @@ public function index()
     'list_fakultas' => $this->getListFakultas(),
     'list_jurusan_prodi' => $this->getListJurusanProdi(),
   ];
+
   return view("alumni/identitas", $data);
 }
 
@@ -38,7 +39,11 @@ public function angket()
     session()->flash("msg", "Isikan biodata anda.");
     return redirect("/alumni");
   }
-  return view('alumni/angket');
+
+  $data = [
+    "list_pertanyaan" => getListPertanyaan('', 'alumni', TRUE) 
+  ];
+  return view('alumni/angket', $data);
 
 }
 

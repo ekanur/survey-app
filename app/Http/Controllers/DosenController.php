@@ -30,9 +30,7 @@ class DosenController extends Controller
 
     public function index()
     {
-    
     	return redirect("/dosen/angket"); 
-        
     }
 
 
@@ -42,6 +40,7 @@ class DosenController extends Controller
     		session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
     		return redirect("/");
     	}
+
     	return view('dosen/angket_burini');
 
     }
@@ -58,11 +57,6 @@ class DosenController extends Controller
 
     	session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
     	return redirect("/");
-    }
-
-    function simpanBiodata(){
-        // dd($this->getDataDosen());
-    	$biodata = Biodata_dosen::updateOrCreate(["nip"=>session("userID")], $this->getDataDosen());
     }
 
     function getDataDosen(){
@@ -82,6 +76,10 @@ class DosenController extends Controller
 
         // dd($dosen);
       return $dosen;
+    }
+    
+    function simpanBiodata(){
+        $biodata = Biodata_dosen::updateOrCreate(["nip"=>session("userID")], $this->getDataDosen());
     }
 
     function dataKuesioner($request){
