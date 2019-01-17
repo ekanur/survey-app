@@ -62,16 +62,17 @@ class MahasiswaController extends Controller
     ->join("dtum.m_prodi", "m_mhs.pro_kd", '=', 'm_prodi.pro_kd')
     ->join("dtum.m_jur", "m_prodi.jur_kd", '=', 'm_jur.jur_kd')
     ->join("dtum.m_fak", "m_jur.fak_kd", '=', 'm_fak.fak_kd')
-    ->select("mhs_nim", "mhs_nm", "mhs_email", "kelas", "mhs_tahun", "m_prodi.pro_nm", "m_jur.jur_nm", "m_fak.fak_skt")->where("m_mhs.mhs_nim", "=", session("userID"))->first();
+    ->join("dtum.m_peserta_didik", "m_peserta_didik.id_peserta_didik", '=', 'm_mhs.id_peserta_didik')
+    ->select("mhs_nim", "cmhs_nm", "cmhs_email", "kelas", "mhs_tahun", "m_prodi.pro_nm", "m_jur.jur_nm", "m_fak.fak_skt")->where("m_mhs.mhs_nim", "=", session("userID"))->first();
 
     $mahasiswa["nim"] = session("userID");
-    $mahasiswa["nama"] = $data_mahasiswa->mhs_nm;
-    $mahasiswa["email"] = $data_mahasiswa->mhs_email;
-    $mahasiswa["fakultas"] = $data_mahasiswa->fak_skt;
-    $mahasiswa["jurusan"] = $data_mahasiswa->jur_nm;
-    $mahasiswa["prodi"] = $data_mahasiswa->pro_nm;
-    $mahasiswa["kelas"] = $data_mahasiswa->kelas;
-    $mahasiswa["tahun"] = $data_mahasiswa->mhs_tahun;
+    $mahasiswa["nama"] = empty($data_mahasiswa->cmhs_nm) ? "" : $data_mahasiswa->cmhs_nm;
+    $mahasiswa["email"] = empty($data_mahasiswa->cmhs_email) ? "" : $data_mahasiswa->cmhs_email;
+    $mahasiswa["fakultas"] = empty($data_mahasiswa->fak_skt) ? "" : $data_mahasiswa->fak_skt;
+    $mahasiswa["jurusan"] = empty($data_mahasiswa->jur_nm) ? "" : $data_mahasiswa->jur_nm;
+    $mahasiswa["prodi"] = empty($data_mahasiswa->pro_nm) ? "" : $data_mahasiswa->pro_nm;
+    $mahasiswa["kelas"] = empty($data_mahasiswa->kelas) ? "" : $data_mahasiswa->kelas;
+    $mahasiswa["tahun"] = empty($data_mahasiswa->mhs_tahun) ? "" : $data_mahasiswa->mhs_tahun;
 
     return $mahasiswa;
   }

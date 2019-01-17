@@ -4,24 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use Session;
-use App\Biodata_dosen;
-use App\Angket_dosen;
+use App\Biodata_bkd;
+use App\Angket_bkd;
 use Illuminate\Support\Facades\DB;
 
 
-class DosenController extends Controller
+class BkdController extends Controller
 {
 
 	function __construct()
     {
       $this->middleware(function($request, $next){
         if(session("tipe") != 2){
-          session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
+          session()->flash("msg", "Terjadi Kesalahan Mengambil data BKD");
           return redirect("/");
         }
 
         if(null == session("userID")){
-          session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
+          session()->flash("msg", "Terjadi Kesalahan Mengambil data BKD");
           return redirect("/");
         }
         return $next($request);
@@ -30,34 +30,29 @@ class DosenController extends Controller
 
     public function index()
     {
-    	return redirect("/dosen/angket"); 
+    	return redirect("/bkd/angket"); 
     }
 
 
     public function angket()
     {
         if(null == session("userID")){
-            session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
+            session()->flash("msg", "Terjadi Kesalahan Mengambil data BKD");
             return redirect("/");
         }
 
-        $data = [
-          "list_pertanyaan" => getListPertanyaan('', 'dosen', TRUE) 
-        ];
-        return view('dosen/angket', $data);
-        // return view('dosen/angket_burini');
-
+        return view('bkd/angket_burini');
     }
 
     public function simpanAngket(Request $request){
     	if(null == session("userID")){
-    		session()->flash("msg", "Terjadi Kesalahan Mengambil data dosen");
+    		session()->flash("msg", "Terjadi Kesalahan Mengambil data BKD");
     		return redirect("/");
     	}
     	$this->simpanBiodata();
     	$data = $this->dataKuesioner($request->except("_token"));
 
-    	Angket_dosen::insert($data);
+    	Angket_bkd::insert($data);
 
     	session()->flash("msg", "Terima kasih telah berpartisipasi mengisi angket.");
     	return redirect("/");
@@ -69,11 +64,10 @@ class DosenController extends Controller
     	->join("dtum.m_dosen", "pegawai.nip", '=', 'm_dosen.dsn_nip')
         ->join("dtum.m_jur", "m_dosen.jur_kd", '=', 'm_jur.jur_kd')
         ->join("dtum.m_fak", "m_jur.fak_kd", '=', 'm_fak.fak_kd')
-    	->select("pegawai.nama_pegawai", "pegawai.gelar_depan", "pegawai.gelar_belakang", "pegawai.jns_kelamin", "m_jur.jur_nm", "m_fak.fak_skt")->where("m_dosen.dsn_nip", "=", session("userID"))->first();
+    	->select("nama_pegawai", "gelar_depan", "gelar_belakang", "jns_kelamin", "jur_nm", "m_fak.fak_skt")->where("m_dosen.dsn_nip", "=", session("userID"))->first();
 
         // dd($data_dosen->gelar_depan);
-        $nama_dosen = empty($data_dosen->nama_pegawai) ? "" : $data_dosen->nama_pegawai;
-        $dosen["nama"] = (empty($data_dosen->gelar_depan) ? "" : $data_dosen->gelar_depan." ") . $nama_dosen. $data_dosen->gelar_belakang;
+        $dosen["nama"] = $data_dosen->gelar_depan.($data_dosen->gelar_depan != "")? " ": null.$data_dosen->nama_pegawai." ".$data_dosen->gelar_belakang;
         $dosen["jenis_kelamin"] = $data_dosen->jns_kelamin;
         $dosen["fakultas"] = $data_dosen->fak_skt;
         $dosen["jurusan"] = $data_dosen->jur_nm;
@@ -84,7 +78,7 @@ class DosenController extends Controller
     }
     
     function simpanBiodata(){
-        $biodata = Biodata_dosen::updateOrCreate(["nip"=>session("userID")], $this->getDataDosen());
+        $biodata = Biodata_bkd::updateOrCreate(["nip"=>session("userID")], $this->getDataDosen());
     }
 
     function dataKuesioner($request){
@@ -108,7 +102,7 @@ class DosenController extends Controller
 
     public function report() {
     //Pertanyaan 1: Pemahaman VTMS Universitas
-    	$data_db = DB::table("angket_dosen")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->whereIn("kuesioner", ["q1", "q4", "q7"])->groupBy("kuesioner", "value")->get();
+    	$data_db = DB::table("angket_bkd")->select("kuesioner", "value", DB::raw("COUNT(id) as count"))->whereIn("kuesioner", ["q1", "q4", "q7"])->groupBy("kuesioner", "value")->get();
     	$list_pemahaman_vmts = array(
     		"prodi" => array("ya"=>0, "tidak"=>0, "total_responden"=>0),
     		"fakultas" => array("ya"=>0, "tidak"=>0, "total_responden"=>0),
@@ -145,7 +139,7 @@ class DosenController extends Controller
     	}
 
     //Pertanyaan 2: Rumusan VMTS Prodi
-    	$data_db = DB::table("angket_dosen")
+    	$data_db = DB::table("angket_bkd")
     	->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
     	->where('kuesioner', 'q2')
     	->groupBy('value')
@@ -183,7 +177,7 @@ class DosenController extends Controller
     	}
 
     //Pertanyaan 5: Media Penyampaian VMTS fakultas
-    	$data_db = DB::table("angket_dosen")
+    	$data_db = DB::table("angket_bkd")
     	->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
     	->where('kuesioner', 'q5')
     	->groupBy('value')
@@ -221,7 +215,7 @@ class DosenController extends Controller
     	}
 
     //Pertanyaan 8: Media Penyampaian VMTS universitas
-    	$data_db = DB::table("angket_dosen")
+    	$data_db = DB::table("angket_bkd")
     	->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
     	->where('kuesioner', 'q8')
     	->groupBy('value')
@@ -269,7 +263,7 @@ class DosenController extends Controller
     		),
     		'total_responden' => 0
     	);
-    	$data_db = DB::table('angket_dosen')
+    	$data_db = DB::table('angket_bkd')
     	->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
     	->where('kuesioner', 'q3')
     	->groupBy('value')
@@ -294,7 +288,7 @@ class DosenController extends Controller
     		),
     		'total_responden' => 0
     	);
-    	$data_db = DB::table('angket_dosen')
+    	$data_db = DB::table('angket_bkd')
     	->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
     	->where('kuesioner', 'q6')
     	->groupBy('value')
@@ -319,7 +313,7 @@ class DosenController extends Controller
     		),
     		'total_responden' => 0
     	);
-    	$data_db = DB::table('angket_dosen')
+    	$data_db = DB::table('angket_bkd')
     	->select("value", DB::raw("COUNT(id) AS jumlah_responden"))
     	->where('kuesioner', 'q9')
     	->groupBy('value')
@@ -334,45 +328,45 @@ class DosenController extends Controller
     	}
 
     //Pertanyaan 10B, C, D: VMTS Prodi, fakultas, universitas
-    	$list_q10b = $this->kepuasan('angket_dosen', ['q10b', 'q10c', 'q10d']);
-    /*$list_q10c = $this->kepuasan('angket_dosen', 'q10c');
-    $list_q10d = $this->kepuasan('angket_dosen', 'q10d');*/
+    	$list_q10b = $this->kepuasan('angket_bkd', ['q10b', 'q10c', 'q10d']);
+    /*$list_q10c = $this->kepuasan('angket_bkd', 'q10c');
+    $list_q10d = $this->kepuasan('angket_bkd', 'q10d');*/
 
     //Pertanyaan 10A, F: SDM (Penerimaan dosen, Beban mengajar)
-    $list_q10a = $this->kepuasan('angket_dosen', ['q10a', 'q10f']);
-    // $list_q10f = $this->kepuasan('angket_dosen', 'q10f');
+    $list_q10a = $this->kepuasan('angket_bkd', ['q10a', 'q10f']);
+    // $list_q10f = $this->kepuasan('angket_bkd', 'q10f');
     
     //Pertanyaan 10E, G, H, I: Pendidikan (Capaian pembelajaran, Sumber belajar, Penjadwalan, Sarana dan Prasarana mengajar, Dukungan untuk penelitian)
-    $list_q10e = $this->kepuasan('angket_dosen', ['q10e', 'q10g', 'q10h', 'q10i', 'q10j']);
-    /*$list_q10g = $this->kepuasan('angket_dosen', 'q10g');
-    $list_q10h = $this->kepuasan('angket_dosen', 'q10h');
-    $list_q10i = $this->kepuasan('angket_dosen', 'q10i');
-    $list_q10j = $this->kepuasan('angket_dosen', 'q10j');*/
+    $list_q10e = $this->kepuasan('angket_bkd', ['q10e', 'q10g', 'q10h', 'q10i', 'q10j']);
+    /*$list_q10g = $this->kepuasan('angket_bkd', 'q10g');
+    $list_q10h = $this->kepuasan('angket_bkd', 'q10h');
+    $list_q10i = $this->kepuasan('angket_bkd', 'q10i');
+    $list_q10j = $this->kepuasan('angket_bkd', 'q10j');*/
 
     //Pertanyaan 10K, L: Penelitian (Dukungan untuk diseminasi dan publikasi, Fasilitas )
-    $list_q10k = $this->kepuasan('angket_dosen', ['q10k', 'q10l']);
-    // $list_q10l = $this->kepuasan('angket_dosen', 'q10l');
+    $list_q10k = $this->kepuasan('angket_bkd', ['q10k', 'q10l']);
+    // $list_q10l = $this->kepuasan('angket_bkd', 'q10l');
 
     //Pertanyaan 10M, N: Abmas (Dukungan akademik dan pendanaan, fasilitas)
-    $list_q10m = $this->kepuasan('angket_dosen', ['q10m', 'q10n']);
-    // $list_q10n = $this->kepuasan('angket_dosen', 'q10n');
+    $list_q10m = $this->kepuasan('angket_bkd', ['q10m', 'q10n']);
+    // $list_q10n = $this->kepuasan('angket_bkd', 'q10n');
 
     //Pertanyaan 10X, Y, Z, BB: Keuangan, Sarana dan Prasarana (pengembangan profesi, Promosi dan retensi, Lingkungan, keselamatan, dan keamanan kerja, Gaji dan tunjangan )
-    $list_q10x = $this->kepuasan('angket_dosen', ['q10x', 'q10y', 'q10z', 'q10bb']);
-    /*$list_q10y = $this->kepuasan('angket_dosen', 'q10y');
-    $list_q10z = $this->kepuasan('angket_dosen', 'q10z');
-    $list_q10bb = $this->kepuasan('angket_dosen', 'q10bb');*/
+    $list_q10x = $this->kepuasan('angket_bkd', ['q10x', 'q10y', 'q10z', 'q10bb']);
+    /*$list_q10y = $this->kepuasan('angket_bkd', 'q10y');
+    $list_q10z = $this->kepuasan('angket_bkd', 'q10z');
+    $list_q10bb = $this->kepuasan('angket_bkd', 'q10bb');*/
 
     //Pertanyaan 10O, P, Q, R, S, T, U, V, W: Kepuasan Layanan (Persyaratan, Prosedur, Waktu, Biaya, Produk, Kompetensi, Perilaku, Pengaduan, Kualitas Layanan)
-    $list_q10o = $this->kepuasan('angket_dosen', ['q10o', 'q10p', 'q10q', 'q10r', 'q10s', 'q10t', 'q10u', 'q10v', 'q10w']);
-    /*$list_q10p = $this->kepuasan('angket_dosen', 'q10p');
-    $list_q10q = $this->kepuasan('angket_dosen', 'q10q');
-    $list_q10r = $this->kepuasan('angket_dosen', 'q10r');
-    $list_q10s = $this->kepuasan('angket_dosen', 'q10s');
-    $list_q10t = $this->kepuasan('angket_dosen', 'q10t');
-    $list_q10u = $this->kepuasan('angket_dosen', 'q10u');
-    $list_q10v = $this->kepuasan('angket_dosen', 'q10v');
-    $list_q10w = $this->kepuasan('angket_dosen', 'q10w');    */
+    $list_q10o = $this->kepuasan('angket_bkd', ['q10o', 'q10p', 'q10q', 'q10r', 'q10s', 'q10t', 'q10u', 'q10v', 'q10w']);
+    /*$list_q10p = $this->kepuasan('angket_bkd', 'q10p');
+    $list_q10q = $this->kepuasan('angket_bkd', 'q10q');
+    $list_q10r = $this->kepuasan('angket_bkd', 'q10r');
+    $list_q10s = $this->kepuasan('angket_bkd', 'q10s');
+    $list_q10t = $this->kepuasan('angket_bkd', 'q10t');
+    $list_q10u = $this->kepuasan('angket_bkd', 'q10u');
+    $list_q10v = $this->kepuasan('angket_bkd', 'q10v');
+    $list_q10w = $this->kepuasan('angket_bkd', 'q10w');    */
     
     // print_r($data_db); print_r($list_q4a); die();
     return view("dosen.report", compact('list_pemahaman_vmts', 'media_vmts_prodi', 'media_vmts_fakultas', 'media_vmts_universitas', 'kinerja_prodi', 'kinerja_fakultas', 'kinerja_universitas', 'list_q10a', 'list_q10f', 'list_q10b', 'list_q10c', 'list_q10d', 'list_q10e', 'list_q10f', 'list_q10g', 'list_q10h', 'list_q10i', 'list_q10j', 'list_q10k', 'list_q10l', 'list_q10m', 'list_q10n', 'list_q10o', 'list_q10p', 'list_q10q', 'list_q10r', 'list_q10s', 'list_q10t', 'list_q10u', 'list_q10v', 'list_q10w', 'list_q10x', 'list_q10y', 'list_q10z', 'list_q10bb'));
@@ -383,22 +377,22 @@ class DosenController extends Controller
   		'list_fakultas' => $this->getListFakultas(),
   		'list_jurusan' => $this->getListJurusan(),
   	);
-  	return view('dosen/responden', $data);
+  	return view('bkd/responden', $data);
   }
 
   function get_datatable_responden(Request $request) {
     $params = $request->all();
     $columns = ['id', 'nip', 'nama', 'jurusan', 'fakultas', 'created_at', 'id'];
 
-    $totalData = DB::table('angket_dosen')
+    $totalData = DB::table('angket_bkd')
     ->select(DB::raw("COUNT(id) AS jumlah_responden"))
     ->where('kuesioner', 'q1')
     ->count();
 
-    $data_db = DB::table('angket_dosen')
+    $data_db = DB::table('angket_bkd')
     ->select(DB::raw('group1.dosen_nip, group1.created_at, dosen.nip, dosen.nama, dosen.jurusan, dosen.fakultas'))
-    ->from(DB::raw('(select dosen_nip, created_at from angket_dosen group by dosen_nip, created_at) AS group1'))
-    ->join('biodata_dosen AS dosen', 'dosen.nip', '=', 'group1.dosen_nip');
+    ->from(DB::raw('(select dosen_nip, created_at from angket_bkd group by dosen_nip, created_at) AS group1'))
+    ->join('biodata_bkd AS dosen', 'dosen.nip', '=', 'group1.dosen_nip');
     if($params['fakultas']) { 
       $data_db->where("dosen.fakultas", "ILIKE", "%{$params['fakultas']}%");
     }

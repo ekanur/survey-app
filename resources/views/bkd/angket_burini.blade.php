@@ -4,7 +4,7 @@
 <div class="text-center text-info p-2 mb-4">
   Instrumen ini ditujukan untuk menilai tingkat kepuasan Ibu/Bapak terhadap Sistem Informasi Beban Kinerja Dosen (BKD) Universitas Negeri Malang (UM). Untuk itu, kami mohon Ibu/Bapak memberikan cermatan dan amatan terhadap penggunaan Sistem Informasi Beban Kinerja Dosen (BKD) UM dengan menjawab pertanyaan yang tertera di angket. Kami ucapkan banyak terima kasih atas kerjasama dan partisipasi Ibu/Bapak.
 </div>
-<form method="POST" action="{{ url("/angket-dosen") }}">
+<form method="POST" action="{{ url("/angket-bkd") }}">
   {{ csrf_field() }}
 
   <div align="center">

@@ -62,9 +62,14 @@ Route::get("admin/responden/mitra", "MitraController@list_responden");
 Route::group(['middleware' => 'samlauth'], function() {
 	Route::get('/dosen', 'DosenController@index');
 	// Route::get('/dosen','DosenController@index')->name('dosen');
-	Route::get('dosen/angket', 'DosenController@angket');
+	Route::get('dosen/angket', 'DosenController@angket');	
 	Route::post("angket-dosen", "DosenController@simpanAngket");
 
+	//BKD (Milik Bu Rini
+	Route::get('/bkd', 'BkdController@index');
+	Route::get('bkd/angket', 'BkdController@angket');	
+	Route::post("angket-bkd", "BkdController@simpanAngket");
+	
 	Route::get('mahasiswa', "MahasiswaController@index")->name('mahasiswa');
 	Route::post("angket-mahasiswa", "MahasiswaController@simpanAngket");
 	Route::get('mahasiswa/angket', "MahasiswaController@angket");
@@ -73,7 +78,6 @@ Route::group(['middleware' => 'samlauth'], function() {
 	Route::get('tendik/angket', "TendikController@angket");
 	Route::post("angket-tendik", "TendikController@simpanAngket");
 });
-
 
 
 Route::post("biodata-dosen", "DosenController@simpanBiodata");

@@ -357,7 +357,7 @@
              </select></td>
            </tr>
            <tr>
-            <td width="80%">{{ $list_pertanyaan['q7a1'] }}</td>
+            <td width="80%">{{ $list_pertanyaan['q7a10'] }}</td>
             <td width="20%"><select name="q7a10" class="form-control">
              <option value="4">Sangat Puas</option>
              <option value="3">Puas</option>
@@ -366,7 +366,7 @@
            </select></td>
          </tr>
          <tr>
-          <td width="80%">{{ $list_pertanyaan['q7a1'] }}</td>
+          <td width="80%">{{ $list_pertanyaan['q7a11'] }}</td>
           <td width="20%"><select name="q7a11" class="form-control">
            <option value="4">Sangat Puas</option>
            <option value="3">Puas</option>
@@ -375,7 +375,7 @@
          </select></td>
        </tr>
        <tr>
-        <td width="80%">{{ $list_pertanyaan['q7a1'] }}</td>
+        <td width="80%">{{ $list_pertanyaan['q7a12'] }}</td>
         <td width="20%"><select name="q7a12" class="form-control">
          <option value="4">Sangat Puas</option>
          <option value="3">Puas</option>
@@ -384,7 +384,7 @@
        </select></td>
      </tr>
      <tr>
-      <td width="80%">{{ $list_pertanyaan['q7a1'] }}</td>
+      <td width="80%">{{ $list_pertanyaan['q7a13'] }}</td>
       <td width="20%"><select name="q7a13" class="form-control">
        <option value="4">Sangat Puas</option>
        <option value="3">Puas</option>

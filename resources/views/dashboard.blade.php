@@ -78,7 +78,7 @@
 </div>
 
 <div class="col text-right view-report">
-  <a href="http://localhost:8000">Laporan →</a>
+  <a href="{{ url('admin/rekapitulasi') }}">Laporan →</a>
 </div>
 <!-- End Small Stats Blocks -->
 @endsection
