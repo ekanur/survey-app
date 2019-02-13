@@ -168,7 +168,7 @@ class Controller extends BaseController
   }
   function getListJurusanProdi($jur_kd=''){
     $data_db = DB::connection("pgsql_2")->table("dtum.m_prodi AS prodi")
-    ->select("prodi.pro_kd", "prodi.pro_nm", "prodi.pro_skt", "prodi.jur_kd", "jurusan.jur_nm", "jurusan.jur_skt", "jurusan.fak_kd")
+    ->select("prodi.pro_kd", "prodi.pro_nm", "prodi.jjg_kd", "prodi.pro_skt", "prodi.jur_kd", "jurusan.jur_nm", "jurusan.jur_skt", "jurusan.fak_kd")
     ->join("dtum.m_jur AS jurusan", "jurusan.jur_kd", "=", "prodi.jur_kd");
     if($jur_kd) {
       $data_db->where("prodi.jur_kd", "=", $jur_kd);
@@ -182,7 +182,9 @@ class Controller extends BaseController
   }
   function getListUnitKerja($kode_unit=''){
     $data_db = DB::connection("pgsql_2")->table("pegawai.unit_kerja AS unit")
-    ->select("unit.kode_unit", "unit.nama_unit");
+    ->select("unit.kode_unit", "unit.nama_unit")
+    ->where("unit.kode_unit", "!=", '0000')
+    ->where("unit.kode_unit", "!=", '');
     if($kode_unit) {
       $data_db->where("unit.kode_unit", "=", $kode_unit);
     }

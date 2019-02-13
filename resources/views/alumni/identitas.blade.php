@@ -134,7 +134,12 @@
     var prodijurusan = null;
     var fakultas = null;
     dataSelectJurusanProdi = $.map(listJurusanProdi, function(row, idx) {
-          return {"id": row.jur_nm.trim()+'/'+row.pro_nm.trim(), "text": row.jur_nm.trim()+'/'+row.pro_nm.trim()};
+          return {"id": row.jur_nm.trim()+'/'
+              +(row.jjg_kd ? row.jjg_kd + ' ' : '')
+              +row.pro_nm.trim(), 
+          "text": row.jur_nm.trim()+'/'
+              +(row.jjg_kd ? row.jjg_kd + ' ' : '')
+              +row.pro_nm.trim()};
         });
     dataSelectFakultas = $.map(listFakultas, function(row, idx) {
         return {"id": row.fak_skt, "text": row.fak_nm+' ('+row.fak_skt+')', "fak_kd": row.fak_kd};
@@ -169,7 +174,12 @@
         let data = $('#fakultas').select2("data");
         let filteredJurusan = $.map(listJurusanProdi, function(row, idx) {
           if(row.fak_kd == data[0].fak_kd){
-            return {"id": row.jur_nm.trim()+'/'+row.pro_nm.trim(), "text": row.jur_nm.trim()+'/'+row.pro_nm.trim()};
+            return {"id": row.jur_nm.trim()+'/'
+              +(row.jjg_kd ? row.jjg_kd + ' ' : '')
+              +row.pro_nm.trim(), 
+            "text": row.jur_nm.trim()+'/'
+              +(row.jjg_kd ? row.jjg_kd + ' ' : '')
+              +row.pro_nm.trim()};
           }
         });
         initSelectFilterJurusanProdi(filteredJurusan);

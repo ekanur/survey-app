@@ -23,12 +23,12 @@
           <div class="col-12">
             <div class="form-inline">
               <div class="form-group mr-sm-2 mb-2">
-                <select name="" id="filterFakultas" class="select2 form-control" title="Tampilkan data berdasarkan fakultas ">
+                <select name="" id="filterFakultas" class="select2 form-control" title="Tampilkan data berdasarkan fakultas" style="max-width: 400px;">
                   <option></option>
                 </select>
               </div>
               <div class="form-group mr-sm-2 mb-2">
-                <select name="" id="filterJurusan" class="select2 form-control" title="Tampilkan data berdasarkan jurusan"disabled=""> 
+                <select name="" id="filterJurusan" class="select2 form-control" title="Tampilkan data berdasarkan jurusan" style="max-width: 400px;" disabled=""> 
                   <option></option>
                 </select>
               </div>
@@ -59,6 +59,9 @@
                     <th scope="col" class="border-0">Jurusan</th>
                     <th scope="col" class="border-0">Fakultas</th>
                     <th scope="col" class="border-0">Tanggal Isi</th>
+                    @foreach($kode_angket as $item)
+                      <th scope="col" class="border-0 no-view" title="{{$item->kd_pertanyaan}}">{{ $item->pertanyaan }}</th>
+                    @endforeach
                     <th scope="col" class="border-0 no-sort">Aksi</th>
                   </tr>
                 </thead>
@@ -159,6 +162,17 @@
       "serverSide": true,
       "searchDelay": 800,
       "order": [[5, 'desc']],
+      "dom": "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-6'f><'col-sm-12 col-md-2 text-center text-md-left'B>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+      "buttons": [
+        { extend: 'excel', className: 'btn btn-success', text: '<i class="fa fa-file-excel"></i> Excel', title:'Data Survei - Dosen' }
+      ],
+      "aLengthMenu": [
+          [10, 25, 50, 100, 200, -1],
+          [10, 25, 50, 100, 200, "All"]
+      ],
+      "iDisplayLength": 10,
       "ajax": {
         url: "{{ url('/admin/responden/dosen/get_datatable') }}",
         type: "post",

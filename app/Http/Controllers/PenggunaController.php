@@ -262,8 +262,12 @@ public function report() {
 }
 
 function responden() {
-    $data = array();
-    return view('pengguna/responden');
+    $data_kode_angket = DB::table('pertanyaan_angket')
+      ->select(DB::raw("kd_pertanyaan, pertanyaan"))
+      ->where('sasaran', 'pengguna')
+      ->get();
+    $data['kode_angket'] = $data_kode_angket;
+    return view('pengguna/responden', $data);
   }
 
   function get_datatable_responden(Request $request) {
@@ -275,6 +279,32 @@ function responden() {
     ->select(DB::raw("COUNT(id) AS jumlah_responden"))
     ->where('kuesioner', 'q1')
     ->count();
+
+    $data_kode_angket = DB::table('pertanyaan_angket')
+    ->select(DB::raw("kd_pertanyaan, pertanyaan"))
+    ->where('sasaran', 'pengguna')
+    ->get();
+    /*$data_angket = DB::table('angket_pengguna')
+    ->select(DB::raw("biodata_pengguna_id, created_at, kuesioner, value"))
+    ->orderBy("kuesioner")
+    ->get();*/
+    // Cara Terpisah (Data diambil per 1000 baris)
+    $data_angket = [];
+    DB::table('angket_pengguna')
+    ->select(DB::raw("biodata_pengguna_id, created_at, kuesioner, value"))
+    ->orderBy("id")
+    ->chunk(1000, function($angket) use(&$data_angket) {
+        foreach ($angket as $row) {
+          $data_angket[] = $row;
+        }
+    });
+
+    $add_columns = [];
+    foreach ($data_kode_angket as $pertanyaan) {
+      $add_columns[] = $pertanyaan->kd_pertanyaan;
+    }
+    $columns = array_merge($columns, $add_columns);
+    $columns[] = 'id';
 
     $data_db = DB::table('angket_pengguna')
     ->select(DB::raw('group1.biodata_pengguna_id, group1.created_at, pengguna.id, pengguna.jabatan_pengisi, pengguna.nama_instansi, pengguna.email, pengguna.skala_operasional, pengguna.jumlah_pegawai, pengguna.jumlah_um'))
@@ -315,6 +345,24 @@ function responden() {
       $tbody[] = '<div class="text-center">'.$row->jumlah_pegawai.'</div>';
       $tbody[] = '<div class="text-center">'.$row->jumlah_um.'</div>';
       $tbody[] = date("d-m-Y H:i", strtotime($row->created_at));
+
+      foreach ($data_kode_angket as $kode) { 
+        $fill = false;
+        foreach ($data_angket as $key => $item) {
+          if(($row->created_at == $item->created_at) && ($row->biodata_pengguna_id == $item->biodata_pengguna_id)){ 
+            if($item->kuesioner == $kode->kd_pertanyaan){
+              $fill = true;
+              $value_json = json_decode($item->value);
+              $tbody[] = (is_array($value_json)) ? implode(', ', $value_json) : $item->value;  
+              unset($data_angket[$key]);
+            }
+          } 
+        }
+        if($fill == false) {
+          $tbody[] = '-';
+        }
+      }
+
       $tbody[] = '<div>'
       .'<div class="btn-group">'
       .'<a href="javascript:void(0);" class="btn btn-sm btn-outline-primary" onclick="showDetail(\''.$row->biodata_pengguna_id.'\',\''.$row->created_at.'\');" title="Lihat Detail"> <i class="fa fa-list"></i> </a>'

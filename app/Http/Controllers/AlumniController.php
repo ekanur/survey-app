@@ -366,9 +366,14 @@ public function report() {
 }
 
   function responden() {
+    $data_kode_angket = DB::table('pertanyaan_angket')
+      ->select(DB::raw("kd_pertanyaan, pertanyaan"))
+      ->where('sasaran', 'alumni')
+      ->get();
     $data = array(
       'list_fakultas' => $this->getListFakultas(),
       'list_jurusan_prodi' => $this->getListJurusanProdi(),
+      'kode_angket' => $data_kode_angket
     );
     return view('alumni/responden', $data);
   }
@@ -376,15 +381,42 @@ public function report() {
   function get_datatable_responden(Request $request) {
     $params = $request->all();
     // die(json_encode($params['fakultas']));
-    $columns = ['id', 'nip', 'nama', 'jurusan', 'fakultas', 'created_at', 'id'];
+    $columns = ['id', 'nip', 'nama', 'jurusan', 'fakultas','tahun_lulus','tahun_bekerja','masa_tunggu', 'created_at', 'id'];
 
     $totalData = DB::table('angket_alumni')
     ->select(DB::raw("COUNT(id) AS jumlah_responden"))
     ->where('kuesioner', 'q1')
     ->count();
 
+    $data_kode_angket = DB::table('pertanyaan_angket')
+    ->select(DB::raw("kd_pertanyaan, pertanyaan"))
+    ->where('sasaran', 'alumni')
+    ->get();
+    /*$data_angket = DB::table('angket_alumni')
+    ->select(DB::raw("biodata_alumni_id, created_at, kuesioner, value"))
+    ->orderBy("kuesioner")
+    ->get();*/
+    // Cara Terpisah (Data diambil per 1000 baris)
+    $data_angket = [];
+    DB::table('angket_alumni')
+    ->select(DB::raw("biodata_alumni_id, created_at, kuesioner, value"))
+    ->orderBy("id")
+    ->chunk(1000, function($angket) use(&$data_angket) {
+        foreach ($angket as $row) {
+          $data_angket[] = $row;
+        }
+    });
+
+
+    $add_columns = [];
+    foreach ($data_kode_angket as $pertanyaan) {
+      $add_columns[] = $pertanyaan->kd_pertanyaan;
+    }
+    $columns = array_merge($columns, $add_columns);
+    $columns[] = 'id';
+
     $data_db = DB::table('angket_alumni')
-    ->select(DB::raw('group1.biodata_alumni_id, group1.created_at, alumni.email, alumni.nama, alumni.prodi, alumni.fakultas'))
+    ->select(DB::raw('group1.biodata_alumni_id, group1.created_at, alumni.email, alumni.nama, alumni.prodi, alumni.fakultas, alumni.tahun_lulus, alumni.tahun_bekerja, alumni.masa_tunggu'))
     ->from(DB::raw('(select biodata_alumni_id, created_at from angket_alumni group by biodata_alumni_id, created_at) AS group1'))
     ->join('biodata_alumni AS alumni', 'alumni.id', '=', 'group1.biodata_alumni_id');
     if($params['fakultas']) { 
@@ -412,7 +444,6 @@ public function report() {
     $data_db->offset($params['start']);
     $data_db->limit($params['length']);
     $data_db = $data_db->get();
-
     $data = []; $i = $params['start'];
     foreach ($data_db as $row) {
       $tbody   = []; 
@@ -421,7 +452,28 @@ public function report() {
       $tbody[] = $row->email;
       $tbody[] = $row->prodi;
       $tbody[] = $row->fakultas;
+      $tbody[] = $row->tahun_lulus;
+      $tbody[] = $row->tahun_bekerja;
+      $tbody[] = $row->masa_tunggu;
       $tbody[] = date("d-m-Y H:i", strtotime($row->created_at));
+
+      foreach ($data_kode_angket as $kode) { 
+        $fill = false;
+        foreach ($data_angket as $key => $item) {
+          if(($row->created_at == $item->created_at) && ($row->biodata_alumni_id == $item->biodata_alumni_id)){ 
+            if($item->kuesioner == $kode->kd_pertanyaan){
+              $fill = true;
+              $value_json = json_decode($item->value);
+              $tbody[] = (is_array($value_json)) ? implode(', ', $value_json) : $item->value;  
+              unset($data_angket[$key]);
+            }
+          } 
+        }
+        if($fill == false) {
+          $tbody[] = '-';
+        }
+      }
+
       $tbody[] = '<div>'
       .'<div class="btn-group">'
       .'<a href="javascript:void(0);" class="btn btn-sm btn-outline-primary" onclick="showDetail(\''.$row->biodata_alumni_id.'\',\''.$row->created_at.'\');" title="Lihat Detail"> <i class="fa fa-list"></i> </a>'

@@ -23,12 +23,12 @@
           <div class="col-12">
             <div class="form-inline">
               <div class="form-group mr-sm-2 mb-2">
-                <select name="" id="filterFakultas" class="select2 form-control" title="Tampilkan data berdasarkan fakultas ">
+                <select name="" id="filterFakultas" class="select2 form-control" title="Tampilkan data berdasarkan fakultas" style="max-width: 400px;">
                   <option></option>
                 </select>
               </div>
               <div class="form-group mr-sm-2 mb-2">
-                <select name="" id="filterJurusanProdi" class="select2 form-control" title="Tampilkan data berdasarkan jurusan/prodi"disabled=""> 
+                <select name="" id="filterJurusanProdi" class="select2 form-control" title="Tampilkan data berdasarkan jurusan/prodi" style="max-width: 400px;" disabled=""> 
                   <option></option>
                 </select>
               </div>
@@ -58,7 +58,13 @@
                     <th scope="col" class="border-0">Email</th>
                     <th scope="col" class="border-0">Jurusan/Prodi</th>
                     <th scope="col" class="border-0">Fakultas</th>
+                    <th scope="col" class="border-0">Tahun Lulus</th>
+                    <th scope="col" class="border-0">Tahun Bekerja</th>
+                    <th scope="col" class="border-0">Masa Tunggu</th>
                     <th scope="col" class="border-0">Tanggal Isi</th>
+                    @foreach($kode_angket as $item)
+                      <th scope="col" class="border-0 no-view" title="{{$item->kd_pertanyaan}}">{{ $item->pertanyaan }}</th>
+                    @endforeach
                     <th scope="col" class="border-0 no-sort">Aksi</th>
                   </tr>
                 </thead>
@@ -94,8 +100,13 @@
     var filterJurusanProdi = null;
     var filterFakultas = null;
     dataFilterJurusanProdi = $.map(listJurusanProdi, function(row, idx) {
-          return {"id": row.jur_nm.trim()+'/'+row.pro_nm.trim(), "text": row.jur_nm.trim()+'/'+row.pro_nm.trim()};
-        });
+          return {"id": row.jur_nm.trim()+'/'
+              +(row.jjg_kd ? row.jjg_kd + ' ' : '')
+              +row.pro_nm.trim(), 
+          "text": row.jur_nm.trim()+'/'
+              +(row.jjg_kd ? row.jjg_kd + ' ' : '')
+              +row.pro_nm.trim()};
+      });
     dataFilterFakultas = $.map(listFakultas, function(row, idx) {
         return {"id": row.fak_skt, "text": row.fak_nm+' ('+row.fak_skt+')', "fak_kd": row.fak_kd};
       });
@@ -131,7 +142,12 @@
         let data = $('#filterFakultas').select2("data");
         let filteredJurusanProdi = $.map(listJurusanProdi, function(row, idx) {
           if(row.fak_kd == data[0].fak_kd){
-            return {"id": row.jur_nm.trim()+'/'+row.pro_nm.trim(), "text": row.jur_nm.trim()+'/'+row.pro_nm.trim()};
+            return {"id": row.jur_nm.trim()+'/'
+              +(row.jjg_kd ? row.jjg_kd + ' ' : '')
+              +row.pro_nm.trim(), 
+            "text": row.jur_nm.trim()+'/'
+                +(row.jjg_kd ? row.jjg_kd + ' ' : '')
+                +row.pro_nm.trim()};
           }
         });
         initSelectFilterJurusan(filteredJurusanProdi);
@@ -158,7 +174,18 @@
       "processing": true,
       "serverSide": true,
       "searchDelay": 800,
-      "order": [[5, 'desc']],
+      "order": [[8, 'desc']],
+      "dom": "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-6'f><'col-sm-12 col-md-2 text-center text-md-left'B>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+      "buttons": [
+        { extend: 'excel', className: 'btn btn-success', text: '<i class="fa fa-file-excel"></i> Excel', title:'Data Survei - Alumni' }
+      ],
+      "aLengthMenu": [
+          [10, 25, 50, 100, 200, -1],
+          [10, 25, 50, 100, 200, "All"]
+      ],
+      "iDisplayLength": 10,
       "ajax": {
         url: "{{ url('/admin/responden/alumni/get_datatable') }}",
         type: "post",

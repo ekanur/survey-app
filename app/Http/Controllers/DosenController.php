@@ -379,9 +379,14 @@ class DosenController extends Controller
   }
 
   function responden() {
+    $data_kode_angket = DB::table('pertanyaan_angket')
+      ->select(DB::raw("kd_pertanyaan, pertanyaan"))
+      ->where('sasaran', 'dosen')
+      ->get();
   	$data = array(
   		'list_fakultas' => $this->getListFakultas(),
   		'list_jurusan' => $this->getListJurusan(),
+        'kode_angket' => $data_kode_angket,
   	);
   	return view('dosen/responden', $data);
   }
@@ -394,6 +399,37 @@ class DosenController extends Controller
     ->select(DB::raw("COUNT(id) AS jumlah_responden"))
     ->where('kuesioner', 'q1')
     ->count();
+
+    $data_kode_angket = DB::table('pertanyaan_angket')
+    ->select(DB::raw("kd_pertanyaan, pertanyaan"))
+    ->where('sasaran', 'dosen')
+    ->get();
+    // Cara Tradisional (Ada problem dengan >10000 data)
+    /*DB::table('angket_dosen')
+    ->select(DB::raw("dosen_nip, created_at, kuesioner, value"))
+    ->orderBy("kuesioner")
+    ->chunk(300, function($angket) use($data_angket) {
+        $data_angket[] = $angket;
+    });*/
+
+    // Cara Terpisah (Data diambil per 1000 baris)
+    $data_angket = [];
+    DB::table('angket_dosen')
+    ->select(DB::raw("dosen_nip, created_at, kuesioner, value"))
+    ->orderBy("id")
+    ->chunk(1000, function($angket) use(&$data_angket) {
+        foreach ($angket as $row) {
+          $data_angket[] = $row;
+        }
+    });
+
+
+    $add_columns = [];
+    foreach ($data_kode_angket as $pertanyaan) {
+      $add_columns[] = $pertanyaan->kd_pertanyaan;
+    }
+    $columns = array_merge($columns, $add_columns);
+    $columns[] = 'id';
 
     $data_db = DB::table('angket_dosen')
     ->select(DB::raw('group1.dosen_nip, group1.created_at, dosen.nip, dosen.nama, dosen.jurusan, dosen.fakultas'))
@@ -434,6 +470,24 @@ class DosenController extends Controller
       $tbody[] = $row->jurusan;
       $tbody[] = $row->fakultas;
       $tbody[] = date("d-m-Y H:i", strtotime($row->created_at));
+
+      foreach ($data_kode_angket as $kode) { 
+        $fill = false;
+        foreach ($data_angket as $key => $item) {
+          if(($row->created_at == $item->created_at) && ($row->dosen_nip == $item->dosen_nip)){ 
+            if($item->kuesioner == $kode->kd_pertanyaan){
+              $fill = true;
+              $value_json = json_decode($item->value);
+              $tbody[] = (is_array($value_json)) ? implode(', ', $value_json) : $item->value;  
+              unset($data_angket[$key]);
+            }
+          } 
+        }
+        if($fill == false) {
+          $tbody[] = '-';
+        }
+      }
+
       $tbody[] = '<div>'
       .'<div class="btn-group">'
       .'<a href="javascript:void(0);" class="btn btn-sm btn-outline-primary" onclick="showDetail(\''.$row->dosen_nip.'\',\''.$row->created_at.'\');" title="Lihat Detail"> <i class="fa fa-list"></i> </a>'

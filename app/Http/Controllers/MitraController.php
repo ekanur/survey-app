@@ -286,10 +286,23 @@ class MitraController extends Controller
     ->select(DB::raw("kd_pertanyaan, pertanyaan"))
     ->where('sasaran', 'mitra')
     ->get();
+    /*
+    // Cara Tradisional (Ada problem dengan >10000 data)
     $data_angket = DB::table('angket_mitra')
     ->select(DB::raw("biodata_mitra_id, created_at, kuesioner, value"))
     ->orderBy("kuesioner")
-    ->get();
+    ->get();*/
+    
+    // Cara Terpisah (Data diambil per 1000 baris)
+    $data_angket = [];
+    DB::table('angket_mitra')
+    ->select(DB::raw("biodata_mitra_id, created_at, kuesioner, value"))
+    ->orderBy("id")
+    ->chunk(1000, function($angket) use(&$data_angket) {
+        foreach ($angket as $row) {
+          $data_angket[] = $row;
+        }
+    });
 
 
     $add_columns = [];

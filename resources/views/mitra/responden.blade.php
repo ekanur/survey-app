@@ -125,7 +125,7 @@
             "<'row'<'col-sm-12'tr>>" +
             "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
       "buttons": [
-          'excel', 'pdf', 'print'
+        { extend: 'excel', className: 'btn btn-success', text: '<i class="fa fa-file-excel"></i> Excel', title:'Data Survei - Mitra' }
       ],
       "aLengthMenu": [
           [10, 25, 50, 100, 200, -1],
